@@ -1,9 +1,9 @@
 <div>
   <%= form_for @user do |f| %>
-    <%= radio_button_tag(:identification, "Senior") %>
-    <%= label_tag(:age_child, "Senior") %>
-    <%= radio_button_tag(:identification, "companion") %>
-    <%= label_tag(:age_adult, "companion") %><br>
+    <%= radio_button("user", "identification","Senior") %>
+    <%= label_tag(:identification, "Senior") %>
+    <%= radio_button("user", "identification","Companion") %>
+    <%= label_tag(:identification, "companion") %><br>
     Email: <%= f.text_field :email %><br>
     Password: <%= f.password_field :password %><br>
     Password Confirmation: <%= f.password_field :password_confirmation %><br>
