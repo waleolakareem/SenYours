@@ -1,16 +1,17 @@
-<h1>Signup</h1>
 <div>
   <%= form_for @user do |f| %>
+    <%= radio_button_tag(:identification, "Senior") %>
+    <%= label_tag(:age_child, "Senior") %>
+    <%= radio_button_tag(:identification, "companion") %>
+    <%= label_tag(:age_adult, "companion") %><br>
     Email: <%= f.text_field :email %><br>
     Password: <%= f.password_field :password %><br>
     Password Confirmation: <%= f.password_field :password_confirmation %><br>
-    City: <%= f.text_field :city %>
-    Address: <%= f.text_field :address %><br>
+    Address: <%= f.text_field :address %>
+    City: <%= f.text_field :city %><br>
     ZipCode: <%= f.text_field :zipcode %>
     State: <%= f.text_field :state %><br>
     Phone Number <%= f.text_field :phone_number %><br>
-    SSN: <%= f.text_field :ssn %><br>
-    Describe Yourself: <%= f.text_area :description %>
     <%= f.submit "Submit" %>
   <% end %>
 </div>
