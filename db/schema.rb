@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180104214640) do
     t.string "last_name"
     t.string "email"
     t.integer "phone_number"
-    t.string "password"
+    t.string "password_digest"
     t.integer "zipcode"
     t.string "state"
     t.string "city"
