@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
+  get '/senmember', to: 'users#senNew'
+
   root 'users#new'
 end
