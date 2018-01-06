@@ -1,9 +1,7 @@
 <% if current_user %>
-  <%= @user.description %>
-  <% if @user.availability === true %>
+  <%= @user.description %><br>
+  <% if @user.availability === true && current_user.id != @user.id %>
     <p>Available, Make a request</p>
-  <% else %>
-    <p>Not Available right now</p>
   <% end %>
   <% if current_user.id === @user.id %>
   <%= link_to "Update your account", edit_user_path(@user) %>
