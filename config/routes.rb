@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   resources :sessions
-  resources :users
+  resources :users do
+    resources :appointments, shallow: true
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/login' => 'sessions#new'
 
   post  '/login' => 'sessions#create'
 
   get '/logout', to: 'sessions#destroy'
-
-  get '/senmember', to: 'users#senNew'
-
   root 'users#new'
 end
