@@ -1,2 +1,36 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% if @user.identification === "Senior" %>
+  <%= form_for @user do |f| %>
+    Email: <%= f.text_field :age,placeholder: "#{@user.email}" %><br>
+    Address: <%= f.text_field :address %>
+    City: <%= f.text_field :city %><br>
+    ZipCode: <%= f.text_field :zipcode %>
+    State: <%= f.text_field :state %><br>
+    Phone Number <%= f.text_field :phone_number %><br>
+    age: <%= f.text_field :age %>
+    <%= f.submit "Complete Application" %>
+  <% end %>
+<% else %>
+    <%= form_for @user do |f| %>
+    Email: <%= f.text_field :age,placeholder: "#{@user.email}" %><br>
+    Address: <%= f.text_field :address %><br>
+    City: <%= f.text_field :city %><br>
+    ZipCode: <%= f.text_field :zipcode %><br>
+    State: <%= f.text_field :state %><br>
+    Phone Number: <%= f.text_field :phone_number %><br>
+    Age Range:<br>
+    <%= radio_button("user", "age_range","18 - 21") %>
+    <%= label_tag(:age_range, "18 - 22") %>
+    <%= radio_button("user", "age_range","23 - 26") %>
+    <%= label_tag(:age_range, "23 - 26") %><br>
+    <%= radio_button("user", "age_range","27 - 35") %>
+    <%= label_tag(:age_range, "27 - 35") %>
+    <%= radio_button("user", "age_range","35 - 45") %>
+    <%= label_tag(:age_range, "35 - 45") %><br>
+    description:<br> <%= f.text_area :description %><br>
+    availability: <%= radio_button("user", "availability",true) %>
+    <%= label_tag(:availability, "Yes") %>
+    <%= radio_button("user", "availability",false) %>
+    <%= label_tag(:availability, "No") %><br>
+    <%= f.submit "Complete Application" %>
+  <% end %>
+<% end %>

@@ -1,3 +1,10 @@
-<p>Cardi b</p>
-<%= @user.id %>
-<%= link_to 'Log out', session_path(current_user), method: :delete %>
+<% if current_user %>
+  <%= @user.description %><br>
+  <% if @user.availability === true && current_user.id != @user.id %>
+    <p>Available, Make a request</p>
+  <% end %>
+  <% if current_user.id === @user.id %>
+  <%= link_to "Update your account", edit_user_path(@user) %>
+  <% end %>
+<% end %>
+

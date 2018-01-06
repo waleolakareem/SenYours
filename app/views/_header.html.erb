@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/logout">Sign Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/<%= current_user.id %>">Account</a>
+        </li>
+        <% if current_user.identification === "Senior" %>
+            <a class="nav-link" href="/users"> Available Companions</a>
+        <% end %>
+      <% else %>
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/new">Sign Up<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign In</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
