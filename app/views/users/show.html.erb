@@ -1,6 +1,12 @@
-<% if current_user.id === @user.id %>
-<%= link_to "Update your account", edit_user_path(@user) %>
-<% else %>
-<p>YOu cant do this</p>
+<% if current_user %>
+  <%= @user.description %>
+  <% if @user.availability === true %>
+    <p>Available, Make a request</p>
+  <% else %>
+    <p>Not Available right now</p>
+  <% end %>
+  <% if current_user.id === @user.id %>
+  <%= link_to "Update your account", edit_user_path(@user) %>
+  <% end %>
 <% end %>
 
