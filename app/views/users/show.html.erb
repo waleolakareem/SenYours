@@ -1,7 +1,7 @@
 <% if current_user %>
   <%= @user.description %><br>
   <% if @user.availability === true && current_user.id != @user.id %>
-    <p>Available, Make a request</p>
+    <%= link_to "Make a Request", new_user_appointment_path(@user) %>
   <% end %>
   <% if current_user.id === @user.id %>
   <%= link_to "Update your account", edit_user_path(@user) %>
