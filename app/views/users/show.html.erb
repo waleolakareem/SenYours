@@ -10,6 +10,9 @@
     <% if current_user.seniors.length >= 1 %>
       <p class="notification">This are all your companions</p>
       <% current_user.seniors.each do |senior|%>
+        <% if senior.accept === false %>
+          You are waiting on a request from <%= senior.companion.first_name %>
+        <% end %>
         <%= senior.companion.email %><br>
       <% end %>
     <% elsif current_user.companions.length >= 1%>
@@ -20,7 +23,7 @@
         <p>This are all your seniors</p>
         <% current_user.companions.each do |companion| %>
           <% if companion.accept === true %>
-            <%= companion.senior.email  %>
+            <%= companion.senior.email  %><br>
           <% end %>
         <% end %>
     <% end %>
