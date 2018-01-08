@@ -6,18 +6,18 @@
     <%= link_to "Make a Request", new_user_appointment_path(@user) %>
   <% end %>
   <% if current_user.id === @user.id %>
-  <%= link_to "Update your account", edit_user_path(@user) %>
-  <% end %>
-  <% if current_user.seniors.length >= 1 %>
-    <p>This are all your companions</p>
-    <% current_user.seniors.each do |senior|%>
-      <%= senior.companion.email %>
-    <% end %>
-  <% elsif current_user.companions%>
-      <p>This are all your seniors</p>
-      <% current_user.companions.each do |companion| %>
-        <%= companion.senior.email  %>
+    <%= link_to "Update your account", edit_user_path(@user) %>
+    <% if current_user.seniors.length >= 1 %>
+      <p>This are all your companions</p>
+      <% current_user.seniors.each do |senior|%>
+        <%= senior.companion.email %>
       <% end %>
+    <% elsif current_user.companions%>
+        <p>This are all your seniors</p>
+        <% current_user.companions.each do |companion| %>
+          <%= companion.senior.email  %>
+        <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
