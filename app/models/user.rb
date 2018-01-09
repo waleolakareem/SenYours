@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :seniors, class_name: 'Appointment', foreign_key: 'senior_id'
   has_many :companions, class_name: 'Appointment', foreign_key: 'companion_id'
+  has_many :reviews
+  has_many :reviewers, class_name: 'Review', foreign_key: 'reviewer_id'
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
