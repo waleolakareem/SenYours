@@ -1,0 +1,19 @@
+<%= form_for([@user, @review]) do |f| %>
+    Communication <% (1..5).each do |rating| %>
+    <%= radio_button("review", "comm_rating",rating) %>
+    <%= label_tag(:rate, rating) %>
+    <% end %><br>
+    Will you recommend <% (1..5).each do |rating| %>
+    <%= radio_button("review", "wyr_rating",rating) %>
+    <%= label_tag(:rate, rating) %>
+    <% end %><br>
+    Companion Behavior <% (1..5).each do |rating| %>
+    <%= radio_button("review", "comp_rating",rating) %>
+    <%= label_tag(:rate, rating) %>
+    <% end %><br>
+    Why did you give these ratings <%= f.text_area :comment %>
+    <%= f.hidden_field :user_id, :value=> @user.id %>
+    <%= f.hidden_field :reviewer_id, :value=> current_user.id %>
+
+    <%= f.submit "Submit" %>
+<% end %>
