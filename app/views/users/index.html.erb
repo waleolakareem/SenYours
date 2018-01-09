@@ -1,5 +1,5 @@
 <% @user.each do |user|%>
-  <% if user.identification === "Companion" %>
+  <% if user.identification === "Companion" && (final_rating(user) >= 3.5 || user.reviews.length === 0) %>
     <%= link_to  user.email, user_path(user)%><br>
   <% end %>
 <% end %>

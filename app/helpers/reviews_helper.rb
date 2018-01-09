@@ -13,6 +13,6 @@ module ReviewsHelper
       collector += individaul_rating(review)
     end
     rating = collector/user.reviews.count.to_f
-    ratinfg.round(2)
+    rating.round(2)
   end
 end
