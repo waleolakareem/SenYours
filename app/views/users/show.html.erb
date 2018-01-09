@@ -1,12 +1,12 @@
 <% if current_user %>
-  <% if current_user.identification === "Companion" %>
-    Description:<%= @user.description %><br>
-    Reviews:<br>
-    <% current_user.reviews.each do |review| %>
-      <%= review.comment %>
-      by:<%= review.reviewer.email %><br>
+    <% if current_user.identification === "Companion" %>
+      Description:<%= @user.description %><br>
+      Reviews:<br>
+      <% current_user.reviews.each do |review| %>
+        <%= review.comment %>
+        by:<%= review.reviewer.email %><br>
+      <% end %>
     <% end %>
-  <% end %>
   <% if @user.availability === true && current_user.id != @user.id %>
     Description:<%= @user.description %><br>
     Reviews:<br>
@@ -17,14 +17,16 @@
     <%= link_to "Make a Request", new_user_appointment_path(@user) %>
   <% end %>
   <% if current_user.id === @user.id %>
-    <%= link_to "Update your account", edit_user_path(@user) %>
     <% if current_user.seniors.length >= 1 %>
       <p class="notification">This are all your companions</p>
       <% current_user.seniors.each do |senior|%>
         <% if senior.accept === false %>
           You are waiting on a request from <%= senior.companion.first_name %>
         <% end %>
-        <%= senior.companion.email %><br>
+        <%= senior.companion.email %>
+        <% if Date.today >= senior.end_date %>
+          <%= link_to 'Rate companionship', new_user_review_path(@user) %><br>
+        <% end %>
       <% end %>
     <% elsif current_user.companions.length >= 1%>
         <% if current_user.companions.last.accept === false %>
