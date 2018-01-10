@@ -17,7 +17,10 @@
           <a class="nav-link" href="/users/<%= current_user.id %>/edit">Update Account</a>
         </li>
         <% if current_user.identification === "Senior" %>
-            <a class="nav-link" href="/users"> Available Companions</a>
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new"> Find Companions</a>
+        <% end %>
+        <% if current_user.identification === "Companion" %>
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new"> Days you can work</a>
         <% end %>
       <% else %>
         <li class="nav-item active">
