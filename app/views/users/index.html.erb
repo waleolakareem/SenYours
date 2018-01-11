@@ -1,6 +1,6 @@
 <% @user.each do |user|%>
   <!-- Show page just to companions and if rating is less than 3.5 do not show -->
-  <% if user.identification === "Companion" && (final_rating(user) >= 3.5 || user.reviews.length === 0) && user.reviews.where(reviewer_id:current_user.id,wyr_rating:1).length != 1%>
+  <% if user.identification === "Companion" && (final_rating(user) >= 3.5 || user.reviews.length === 0) && user.reviews.where(reviewer_id:current_user.id,wyr_rating:1).length != 1 && aval(user,current_user).length >= 1%>
     <%= link_to  user.email, user_path(user)%><br>
   <% end %>
 <% end %>

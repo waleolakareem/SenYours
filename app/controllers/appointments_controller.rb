@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    if @appointment.accept === "false"
+    if @appointment.accept === false
       @appointment.destroy
       redirect_to user_path(current_user)
     elsif @appointment.update_attributes(appointment_params)

@@ -4,6 +4,8 @@
     <%= label_tag(:identification, "Senior") %>
     <%= radio_button("user", "identification","Companion") %>
     <%= label_tag(:identification, "companion") %><br>
+    First name <%= f.text_field :first_name %>
+    Last name <%= f.text_field :last_name %><br>
     Email: <%= f.text_field :email %><br>
     Password: <%= f.password_field :password %><br>
     Password Confirmation: <%= f.password_field :password_confirmation %><br>
