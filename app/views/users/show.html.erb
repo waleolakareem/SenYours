@@ -30,9 +30,14 @@
       by:<%= review.reviewer.email %><br>
     <% end %>
     Available to work<br>
-    <% if aval(@user,current_user) %>
+    <% if aval(@user,current_user).length >= 1 %>
       <% aval(@user,current_user).each do |date| %>
         <%= date %><br>
+        <% if aval_time(@user,current_user,date) %>
+          <% aval_time(@user,current_user,date).each do |time| %>
+            <%= time.strftime('%H:%M') %>
+          <% end %><br>
+        <% end %>
       <% end %>
     <% end %>
     <%= link_to "Make a Request", new_user_appointment_path(@user) %>

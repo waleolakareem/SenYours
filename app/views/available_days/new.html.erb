@@ -1,21 +1,29 @@
 <% if current_user.identification === "Senior" %>
   <p class="notification">Which dates do you need companions</p>
   <% @current_date.each do |date| %>
-    <%= date.date.strftime('%m/%d/%Y') %>
-      <%= date.comment %><br>
+    <%= date.date.strftime('%m/%d/%Y') %><br>
+        <% date.available_times.each do |time| %>
+          <%= link_to time.time.strftime('%H:%M'), edit_available_time_path(time) %>
+          <%= link_to 'Delete', time ,  method: :delete %>
+        <% end %><br>
+    <%= date.comment %><br>
   <% end %>
 <% else %>
   <p class="notification">When can you help a companion? We encourage you to schedule your time wisely</p>
   <% @current_date.each do |date| %>
-    <%= date.date.strftime('%m/%d/%Y') %>
-      <%= date.comment %><br>
+    <%= date.date.strftime('%m/%d/%Y') %><br>
+        <% date.available_times.each do |time| %>
+          <%= link_to time.time.strftime('%H:%M'), edit_available_time_path(time) %>
+          <%= link_to 'Delete', time ,  method: :delete %>
+        <% end %><br>
+    <%= date.comment %><br>
   <% end %>
 <% end %>
 <%= form_for([@user, @available_day]) do |f| %>
   <% if current_user.available_days.length >= 1 %>
-  <%= f.date_field :date, value: @current_user.available_days.last.date.next %><br>
+    <%= f.date_field :date, value: @current_user.available_days.last.date.next, id: 'date',min: Date.today %><br>
   <% else %>
-  <%= f.date_field :date, value: Date.today %><br>
+    <%= f.date_field :date, value: Date.today,min: Date.today %><br>
   <% end %>
   <%= f.text_area :comment %><br>
   <%= f.hidden_field :user_id, value: current_user.id %>
