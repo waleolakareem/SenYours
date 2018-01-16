@@ -1,0 +1,10 @@
+<%= form_for @user do |f| %>
+    Email: <%= f.text_field :age,placeholder: "#{@user.email}" %><br>
+    Address: <%= f.text_field :address %>
+    City: <%= f.text_field :city %><br>
+    ZipCode: <%= f.text_field :zipcode %>
+    State: <%= f.text_field :state %><br>
+    Phone Number <%= f.text_field :phone_number %><br>
+    age: <%= f.text_field :age %>
+    <%= f.submit "Complete Application" %>
+<% end %>

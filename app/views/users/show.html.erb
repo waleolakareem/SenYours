@@ -36,11 +36,11 @@
         <% if aval_time(@user,current_user,date) %>
           <% aval_time(@user,current_user,date).each do |time| %>
             <%= time.strftime('%H:%M') %>
-          <% end %><br>
-        <% end %>
+          <% end %>
+          <%= link_to "Make a Request", new_user_appointment_path(@user) %>
+        <% end %><br>
       <% end %>
     <% end %>
-    <%= link_to "Make a Request", new_user_appointment_path(@user) %>
   <% end %>
   <!-- Display all the Appointments to either senior or companion and they can rate each other -->
   <% if current_user.id === @user.id %>
@@ -84,5 +84,12 @@
         <% end %>
     <% end %>
   <% end %>
+<% end %>
+<% 30.times.each do |day| %>
+  <button class="btn btn-warning-outline">
+  <%= Date.today.strftime('%b') %><br>
+  <%= (Date.today + day).strftime('%d') %><br>
+  <%= Date.today.strftime('%Y') %><br>
+  </button>
 <% end %>
 

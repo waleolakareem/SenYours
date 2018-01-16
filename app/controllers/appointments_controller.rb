@@ -5,11 +5,13 @@ class AppointmentsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @appointment = Appointment.new
+
   end
 
   def create
     @user = User.find(params[:user_id])
     @appointment = Appointment.new(appointment_params)
+
 
     if @appointment.save
       redirect_to user_path(current_user)

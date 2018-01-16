@@ -10,6 +10,10 @@ class AvailableDaysController < ApplicationController
   end
 
   def create
+    p "*" * 10
+    p params
+    p available_days_params
+    p "*" * 10
     @user = current_user
     @availableDay = AvailableDay.new(available_days_params)
     @current_date = current_user.available_days
@@ -22,6 +26,10 @@ class AvailableDaysController < ApplicationController
     else
       redirect_to "new"
     end
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
   end
 
   def edit
@@ -42,6 +50,8 @@ class AvailableDaysController < ApplicationController
 
   private
   def available_days_params
-    params.require(:available_day).permit(:user_id, :comment, :date)
+    p "&&&&&&&&&&&&"
+    p params[:user_id]
+    params.permit(:user_id, :comment, :date)
   end
 end
