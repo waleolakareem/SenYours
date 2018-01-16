@@ -1,0 +1,13 @@
+Description:<%= @user.description %><br>
+Average Rating:
+<% if final_rating(@user) >= 0 %>
+  <%= final_rating(@user) %><br>
+<% else %>
+  <p class="notification">No rating yet</p>
+<% end %>
+Reviews:<br>
+<% current_user.reviews.each do |review| %>
+  <%= review.comment %><br>
+  Stars: <%= individaul_rating(review) %><br>
+  by:<%= review.reviewer.email %><br>
+<% end %>

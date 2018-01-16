@@ -1,0 +1,20 @@
+<% if current_user.seniors.length >= 1 %>
+  Average Rating <%= final_rating(@user) %><br>
+  Reviews:<br>
+  <% current_user.reviews.each do |review| %>
+    <%= review.comment %><br>
+    Stars: <%= individaul_rating(review) %><br>
+    by:<%= review.reviewer.email %><br>
+  <% end %>
+  <p class="notification">This are all your companions</p>
+  <% current_user.seniors.each do |senior|%>
+    <!-- Seniors waiting on responds from companion -->
+    <% if senior.accept === false %>
+      You are waiting on a request from <%= senior.companion.first_name %>
+    <% end %>
+    <%= senior.companion.email %><br>
+    <% if Date.today - 2 > senior.end_date %>
+      <%= link_to 'Rate companionship', new_user_review_path(senior.companion.id) %><br>
+    <% end %>
+  <% end %>
+<% end %>

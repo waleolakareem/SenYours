@@ -1,0 +1,24 @@
+Description:<%= @user.description %><br>
+<% if final_rating(@user) >= 0 %>
+  <%= final_rating(@user) %><br>
+<% else %>
+  <p class="notification">No rating yet</p>
+<% end %>
+Reviews:<br>
+<% @user.reviews.each do |review| %>
+  <%= review.comment %><br>
+  Stars: <%= individaul_rating(review) %><br>
+  by:<%= review.reviewer.email %><br>
+<% end %>
+Available to work<br>
+<% if aval(@user,current_user).length >= 1 %>
+  <% aval(@user,current_user).each do |date| %>
+    <%= date %><br>
+    <% if aval_time(@user,current_user,date) %>
+      <% aval_time(@user,current_user,date).each do |time| %>
+        <%= time.strftime('%H:%M') %>
+      <% end %>
+      <%= link_to "Make a Request", new_user_appointment_path(@user) %>
+    <% end %><br>
+  <% end %>
+<% end %>
