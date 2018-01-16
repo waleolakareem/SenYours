@@ -1,49 +1,25 @@
 <% if current_user.identification === "Senior" %>
   <p class="notification">Which dates do you need companions</p>
-  <% @current_date.each do |date| %>
-    <%#= date.date.strftime('%m/%d/%Y') %>
-    <button>
-      <%= date.date.strftime('%b') %><br>
-      <%= date.date.strftime('%d') %><br>
-      <%= date.date.strftime('%Y') %><br>
-    </button>
-        <%# date.available_times.each do |time| %>
-          <%#= link_to time.time.strftime('%H:%M'), edit_available_time_path(time) %>
-          <%#= link_to 'Delete', time ,  method: :delete %>
-        <%# end %>
-    <%#= date.comment %>
-  <% end %>
 <% else %>
   <p class="notification">When can you help a companion? We encourage you to schedule your time wisely</p>
-  <% @current_date.each do |date| %>
-    <%= date.date.strftime('%m/%d/%Y') %><br>
-        <% date.available_times.each do |time| %>
-          <%= link_to time.time.strftime('%H:%M'), edit_available_time_path(time) %>
-          <%= link_to 'Delete', time ,  method: :delete %>
-        <% end %><br>
-    <%= date.comment %><br>
-  <% end %>
 <% end %>
-<%= form_for([@user, @available_day]) do |f| %>
-  <% if current_user.available_days.length >= 1 %>
-    <%= f.date_field :date, value: @current_user.available_days.last.date.next, id: 'date',min: Date.today %><br>
-  <% else %>
-    <%= f.date_field :date, value: Date.today,min: Date.today %><br>
-  <% end %>
-  <%= f.text_area :comment %><br>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit "Submit" %><br>
-  <% if current_user.identification === "Senior" %>
-    <%= link_to 'Match with companions', users_path %>
-  <% end %>
-<% end %>
-<% 7.times.each do |day| %>
+<% @current_date.each do |date| %>
+  <button>
+    <%= date.date.strftime('%b') %><br>
+    <%= date.date.strftime('%d') %><br>
+    <%= date.date.strftime('%Y') %><br>
+  </button>
+<% end %><br>
+<% 9.times.each do |day| %>
   <%=link_to user_available_days_path(current_user, date: Date.today + day), method: :post, remote: true do %>
     <button>
       <p class="notification"><%= Date.today.strftime('%b') %></p>
       <p class="notification"><%= (Date.today + day).strftime('%d') %></p>
-      <p class="notification"></p>
+      <p class="notification"><%= (Date.today + day).strftime('%Y') %></p>
     </button>
   <% end %>
-<% end %>
-<p class="current"><%= current_user.id %></p>
+<% end %><br>
+<% if current_user.identification === "Senior" %>
+  <%= link_to 'Match with companions', users_path %>
+<% end %><br>
+
