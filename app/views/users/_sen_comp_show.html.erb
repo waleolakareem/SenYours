@@ -11,13 +11,18 @@ Reviews:<br>
   by:<%= review.reviewer.email %><br>
 <% end %>
 Available to work<br>
+Click on each date to make a request<br>
 <% if aval(@user,current_user).length >= 1 %>
   <% aval(@user,current_user).each do |date| %>
-    <%= date %><br>
+    <%=link_to user_appointments_path(@user.id, start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false), method: :post, remote: true do %>
+    <button>
+      <p class="notification"><%= date.strftime('%b') %></p>
+      <p class="notification"><%= date.strftime('%d') %></p>
+      <p class="notification"><%= date.strftime('%Y') %></p>
+    </button>
+  <% end %><br>
     <% if aval_time(@user,current_user,date) %>
-      <% aval_time(@user,current_user,date).each do |time| %>
-        <%= time.strftime('%H:%M') %>
-      <% end %>
+      <%= aval_time(@user,current_user,date).first().strftime('%H:%M') %> to <%= aval_time(@user,current_user,date).last().strftime('%H:%M') %>
       <%= link_to "Make a Request", new_user_appointment_path(@user) %>
     <% end %><br>
   <% end %>

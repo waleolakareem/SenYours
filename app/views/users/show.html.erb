@@ -9,11 +9,13 @@
   <% end %>
   <!-- Display all the Appointments to either senior or companion and they can rate each other -->
   <% if current_user.id === @user.id %>
+    <% if current_user.seniors.length >= 1 %>
     <!-- Senior Display part -->
     <%= render 'senior_appt_show' %>
     <!-- Companion Display part -->
-  <% elsif current_user.companions.length >= 1%>
+   <% elsif current_user.companions.length >= 1%>
     <%= render 'comp_appt_show' %>
+   <% end %>
   <% end %>
 <% end %>
 

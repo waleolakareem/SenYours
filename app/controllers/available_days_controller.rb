@@ -10,10 +10,6 @@ class AvailableDaysController < ApplicationController
   end
 
   def create
-    p "*" * 10
-    p params
-    p available_days_params
-    p "*" * 10
     @user = current_user
     @availableDay = AvailableDay.new(available_days_params)
     @current_date = current_user.available_days

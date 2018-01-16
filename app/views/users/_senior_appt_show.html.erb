@@ -1,4 +1,4 @@
-<% if current_user.seniors.length >= 1 %>
+
   Average Rating <%= final_rating(@user) %><br>
   Reviews:<br>
   <% current_user.reviews.each do |review| %>
@@ -17,4 +17,4 @@
       <%= link_to 'Rate companionship', new_user_review_path(senior.companion.id) %><br>
     <% end %>
   <% end %>
-<% end %>
+
