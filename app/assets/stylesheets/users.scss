@@ -5,7 +5,7 @@ body {
   background-color:Azure;
 }
 .notification {
-  margin-bottom: 0em
+  margin-bottom: 0em;
 }
 
 .sign_up_form_top {
@@ -17,7 +17,7 @@ body {
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
     height: 900px;
@@ -27,14 +27,13 @@ body {
 }
 
 .user_responsive-input {
-  // Large input box
   height: 70px;
   width: 500px;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     // Small input box
     height: 50px;
     width: 350px;
@@ -52,7 +51,7 @@ body {
   font-size: 18px;
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     // Small input box
     height: 50px;
     width: 350px;
@@ -71,7 +70,7 @@ body {
   font-size: 18px;
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     // Small input box
     height: 50px;
     width: 350px;
@@ -91,7 +90,7 @@ body {
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
     height: 900px;
@@ -109,7 +108,7 @@ body {
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
     height: 900px;
@@ -122,7 +121,7 @@ body {
   width: 1070px;
   border-radius: 6px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     width: 350px;
   }
 }
