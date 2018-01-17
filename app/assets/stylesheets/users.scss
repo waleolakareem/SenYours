@@ -138,7 +138,8 @@ body {
   background-repeat: none;
   background-image:url(https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg);
   background-size:cover;
-  border: 1px solid gray;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+
 }
 
 .comp_descrp {
@@ -146,6 +147,7 @@ body {
   border: 1px solid gray;
   border-top: 0px;
   font-size: 14px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
 }
 
 .comp_rate {
