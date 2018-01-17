@@ -1,20 +1,44 @@
 <%= form_for @user do |f| %>
-    Email: <%= f.text_field :age,placeholder: "#{@user.email}" %><br>
-    Address: <%= f.text_field :address %><br>
-    City: <%= f.text_field :city %><br>
-    ZipCode: <%= f.text_field :zipcode %><br>
-    State: <%= f.text_field :state %><br>
-    Phone Number: <%= f.text_field :phone_number %><br>
-    Age Range:<br>
-    <%= radio_button("user", "age_range","18 - 21") %>
-    <%= label_tag(:age_range, "18 - 22") %>
-    <%= radio_button("user", "age_range","23 - 26") %>
-    <%= label_tag(:age_range, "23 - 26") %><br>
-    <%= radio_button("user", "age_range","27 - 35") %>
-    <%= label_tag(:age_range, "27 - 35") %>
-    <%= radio_button("user", "age_range","35 - 45") %>
-    <%= label_tag(:age_range, "35 - 45") %><br>
-    description:<br> <%= f.text_area :description %><br>
-    <%= f.hidden_field :availability, value: true %>
-    <%= f.submit "Complete Application" %>
+    <div class="container text-center comp_edit_form_top">
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :last_name, class: 'user_responsive-input', placeholder: 'Last Name' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :address, class: 'add_responsive-input',placeholder: 'Address' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :city, class: 'info_responsive-input', placeholder: 'City' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :zipcode, class: 'info_responsive-input', placeholder: 'Zip Code' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col form_div">
+               <%= f.text_area :description, class: 'descrip' %>
+           </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :phone_number, class: 'info_responsive-input',placeholder: 'Phone Number' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :ssn, class: 'info_responsive-input',placeholder: 'Social Security Number' %>
+            </div>
+            <div class="col form_div">
+                <%= f.submit "Complete Application", class: 'btn form_submit' %>
+            </div>
+        </div>
+    </div>
 <% end %>

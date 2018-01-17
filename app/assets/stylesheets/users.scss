@@ -1,7 +1,128 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+body {
+  background-color:Azure;
+}
 .notification {
   margin-bottom: 0em
+}
+
+.sign_up_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 550px;
+  width:90%;
+  background-color:   #fff047;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.user_responsive-input {
+  // Large input box
+  height: 70px;
+  width: 500px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+}
+
+.info_responsive-input {
+  // Large input box
+  height: 70px;
+  width: 310px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+  }
+}
+
+.add_responsive-input {
+  // Large input box
+  height: 70px;
+  width: 1070px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+  }
+}
+
+.senior_edit_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 450px;
+  width:90%;
+  background-color:   #fff047;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.comp_edit_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 550px;
+  width:90%;
+  background-color:   #fff047;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+.descrip {
+  height: 120px;
+  width: 1070px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 1024px) {
+    width: 350px;
+  }
 }

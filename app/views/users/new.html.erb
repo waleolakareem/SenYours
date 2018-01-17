@@ -1,20 +1,58 @@
-<div>
-  <%= form_for @user do |f| %>
-    <%= radio_button("user", "identification","Senior") %>
-    <%= label_tag(:identification, "Senior") %>
-    <%= radio_button("user", "identification","Companion") %>
-    <%= label_tag(:identification, "companion") %><br>
-    First name <%= f.text_field :first_name %>
-    Last name <%= f.text_field :last_name %><br>
-    Email: <%= f.text_field :email %><br>
-    Password: <%= f.password_field :password %><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br>
-    Address: <%= f.text_field :address %>
-    City: <%= f.text_field :city %><br>
-    ZipCode: <%= f.text_field :zipcode %>
-    State: <%= f.text_field :state %><br>
-    Phone Number <%= f.text_field :phone_number %><br>
-    <%= f.submit "Submit" %>
-  <% end %>
-</div>
+<%= form_for @user do |f| %>
+    <div class="container text-center sign_up_form_top">
+        <div class="row" style="font-size: 20px">
+            <div class="col">
+                <%= radio_button("user", "identification","Senior") %>
+                <%= label_tag(:identification, "Senior") %>
+            </div>
+            <div class="col">
+                <%= radio_button("user", "identification","Companion") %>
+                <%= label_tag(:identification, "Companion") %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :last_name, class: 'user_responsive-input', placeholder: 'Last Name' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :email, class: 'info_responsive-input', placeholder: 'Email'  %>
+            </div>
+            <div class="col form_div">
+                <%= f.password_field :password, class: 'info_responsive-input', placeholder: 'Password' %>
+            </div>
+            <div class="col form_div">
+                <%= f.password_field :password_confirmation, class: 'info_responsive-input', placeholder: 'Password Confirmation'  %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :address, class: 'add_responsive-input',placeholder: 'Address' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :city, class: 'info_responsive-input', placeholder: 'City' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :zipcode, class: 'info_responsive-input', placeholder: 'Zip Code' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :phone_number, class: 'user_responsive-input',placeholder: 'Phone Number' %>
+            </div>
+            <div class="col form_div">
+                <%= f.submit "Sign Up", class: 'btn form_submit' %>
+            </div>
+        </div>
+    </div>
+<% end %>
 
