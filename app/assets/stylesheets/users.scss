@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color:Azure;
+  background-color:white;
 }
 .notification {
   margin-bottom: 0em;
@@ -13,7 +13,7 @@ body {
   margin-top: 90px;
   height: 550px;
   width:90%;
-  background-color:   #fff047;
+  background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
 
@@ -124,4 +124,27 @@ body {
   @media screen and (max-width: 1440px) {
     width: 350px;
   }
+}
+
+.comp_show {
+  border: 1px solid red;
+  height: 400px;
+  margin: 5px;
+}
+
+.comp_img {
+  height: 70%;
+  border: 1px solid blue;
+}
+
+.comp_descrp {
+  height: 30%;
+  border: 1px solid green;
+}
+
+.comp_rate {
+  height: 30px;
+  border: 1px solid pink;
+  position: absolute;
+  top:0px;
 }

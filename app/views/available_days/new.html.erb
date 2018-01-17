@@ -27,9 +27,9 @@
   <% end %>
   </div>
   <div>
-  <% if current_user.identification === "Senior" %>
-    <%= link_to 'Match with companions', users_path,{:style=>'text-decoration:none;'} %>
-  <% end %>
+    <% if current_user.identification === "Senior" %>
+      <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+    <% end %>
   </div>
 </div>
 

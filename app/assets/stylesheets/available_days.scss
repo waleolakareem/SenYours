@@ -6,7 +6,7 @@
   margin-top: 90px;
   height: 550px;
   width:50%;
-  background-color:   #fff047;
+  background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
   font-size: 25px;
@@ -26,7 +26,21 @@
 
 .cal_but {
   width:100px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
   @media screen and (max-width: 640px) {
     width: 70px;
+  }
+}
+
+.comp_submit {
+  height: 60px;
+  width: 250px;
+  background-color: #fff047;
+  border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 15px;
+  @media screen and (max-width: 1440px) {
+    height: 50px;
   }
 }
