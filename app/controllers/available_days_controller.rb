@@ -46,8 +46,6 @@ class AvailableDaysController < ApplicationController
 
   private
   def available_days_params
-    p "&&&&&&&&&&&&"
-    p params[:user_id]
-    params.permit(:user_id, :comment, :date)
+    params.require(:available_day).permit(:user_id, :comment, :date)
   end
 end

@@ -14,7 +14,7 @@ Available to work<br>
 Click on each date to make a request<br>
 <% if aval(@user,current_user).length >= 1 %>
   <% aval(@user,current_user).each do |date| %>
-    <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false}), method: :post, remote: true do %>
+    <%=link_to user_appointments_path(start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false), method: :post, remote: true do %>
       <button>
         <p class="notification"><%= date.strftime('%b') %></p>
         <p class="notification"><%= date.strftime('%d') %></p>
