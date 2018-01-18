@@ -15,4 +15,31 @@ module ReviewsHelper
     rating = collector/user.reviews.count.to_f
     rating.round(2)
   end
+
+  def wyr(user)
+    collector = 0
+    user.reviews.each do |review|
+      collector += review.wyr_rating
+    end
+    avr_wyr = collector/user.reviews.count
+    avr_wyr
+  end
+
+  def comp_rate(user)
+  collector = 0
+  user.reviews.each do |review|
+    collector += review.comp_rating
+  end
+  avr_comp_rate = collector/user.reviews.count
+  avr_comp_rate
+  end
+
+  def comm_rate(user)
+  collector = 0
+  user.reviews.each do |review|
+    collector += review.comm_rating
+  end
+  avr_comm_rate = collector/user.reviews.count
+  avr_comm_rate
+  end
 end

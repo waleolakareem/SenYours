@@ -1,11 +1,68 @@
-
-  Average Rating <%= final_rating(@user) %><br>
-  Reviews:<br>
-  <% current_user.reviews.each do |review| %>
-    <%= review.comment %><br>
-    Stars: <%= individaul_rating(review) %><br>
-    by:<%= review.reviewer.email %><br>
-  <% end %>
+<div class="row sen_img_app">
+  <div class="col-lg-3 sen_image">
+    <div class="sen_img_upper">
+    <p class="comp_rate"><%= final_rating(@user) %>
+      <span style="color: orange;">☆</span>
+      </p>
+    </div>
+    <div class="sen_img_lower">
+      <p><%= @user.city %></p>
+      <p><%= @user.age %></p>
+    </div>
+  </div>
+  <div class="col-lg-9 sen_app">
+    <p class="sen_app_par text-center">Upcoming Appointments</p>
+    <div>
+      <% current_user.seniors.each do |appointment| %>
+        <% if appointment.start_date >= Date.today %>
+          <button class="btn cal_but" disabled="true">
+            <p class="notification"><%= appointment.start_date.strftime('%b') %></p>
+            <p class="notification"><%= appointment.start_date.strftime('%d') %></p>
+            <p class="notification"><%= appointment.start_date.strftime('%a') %></p>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="sen_rating">
+  <div class="sen_stars">
+    <div>
+      <p class="notification">Recommendation</p>
+      <% wyr(@user).times do  %>
+        <span style="color: orange;">☆</span>
+      <% end %>
+    </div>
+    <div>
+      <p class="notification">Companionship</p>
+      <% comp_rate(@user).times do  %>
+        <span style="color: orange;">☆</span>
+      <% end %>
+    </div>
+    <div>
+      <p class="notification">Communication</p>
+      <% comm_rate(@user).times do  %>
+        <span style="color: orange;">☆</span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row review_div">
+    <% @user.reviews.each do |review|%>
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col">
+            <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+          </div>
+          <div class="col">
+            <p><%= review.comment %></p>
+            <p><%= review.reviewer.email %></p>
+            <p><%= individaul_rating(review) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
   <p class="notification">This are all your companions</p>
   <% current_user.seniors.each do |senior|%>
     <!-- Seniors waiting on responds from companion -->

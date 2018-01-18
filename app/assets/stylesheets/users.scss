@@ -129,9 +129,12 @@ body {
 .comp_show {
   // border: 1px solid gray;
   height: 400px;
-
 }
 
+.comp_show a {
+  text-decoration: none;
+  color: black;
+}
 .comp_img {
   height: 70%;
   background-position: center;
@@ -155,4 +158,76 @@ body {
   // border: 1px solid pink;
   position: absolute;
   top:0px;
+}
+
+.sen_img_app {
+  margin: 0px 15px;
+  border: 1px solid gray;
+}
+
+.sen_image {
+  border: 1px solid gray;
+  height: 350px;
+}
+
+
+.sen_img_upper {
+  height: 70%;
+  width: 100%;
+  border: 1px solid gray;
+}
+
+.sen_img_lower {
+  height: 30%;
+  border: 1px solid gray;
+  // Understand Flex box
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+
+.sen_app {
+  border: 1px solid gray;
+  height: 350px;
+}
+
+.sen_app_par {
+  font-weight:700;
+  font-size: 20px;
+}
+
+.sen_rating {
+  margin: 0px 15px;
+  margin-top: 20px;
+  border: 1px solid gray;
+}
+
+.sen_stars {
+  display: flex;
+  justify-content: space-around;
+  font-weight:500;
+  font-size: 20px;
+  @media screen and (max-width: 1440px) {
+    font-weight: 0;
+    font-size: 12px;
+  }
+}
+
+.responsive-image {
+  width:90px;
+  height:90px;
+
+  @media screen and (max-width: 640px) {
+    width:60px;
+    height:60px;
+  }
+}
+
+.img-circle {
+  border-radius: 90px;
+  // border: 1px solid red;
+}
+
+.review_div {
+  padding-top: 50px;
 }
