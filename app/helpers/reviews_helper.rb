@@ -13,33 +13,56 @@ module ReviewsHelper
       collector += individaul_rating(review)
     end
     rating = collector/user.reviews.count.to_f
+    if rating >= 0
+      rating
+    else
+      rating = 5
+    end
     rating.round(2)
   end
 
   def wyr(user)
     collector = 0
+    avr_wyr = 0
     user.reviews.each do |review|
       collector += review.wyr_rating
     end
-    avr_wyr = collector/user.reviews.count
+
+    if user.reviews.count === 0
+      avr_wyr = collector/1
+    else
+      avr_wyr = collector/user.reviews.count
+    end
     avr_wyr
   end
 
   def comp_rate(user)
-  collector = 0
-  user.reviews.each do |review|
-    collector += review.comp_rating
-  end
-  avr_comp_rate = collector/user.reviews.count
-  avr_comp_rate
+    collector = 0
+    avr_comp_rate = 0
+    user.reviews.each do |review|
+      collector += review.comp_rating
+    end
+
+    if user.reviews.count === 0
+     avr_comp_rate = collector/1
+    else
+     avr_comp_rate = collector/user.reviews.count
+    end
+    avr_comp_rate
   end
 
   def comm_rate(user)
-  collector = 0
-  user.reviews.each do |review|
-    collector += review.comm_rating
-  end
-  avr_comm_rate = collector/user.reviews.count
-  avr_comm_rate
+    collector = 0
+    avr_comm_rate = 0
+    user.reviews.each do |review|
+      collector += review.comm_rating
+    end
+
+    if user.reviews.count === 0
+      avr_comm_rate = collector/1
+    else
+      avr_comm_rate = collector/user.reviews.count
+    end
+    avr_comm_rate
   end
 end

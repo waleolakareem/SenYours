@@ -1,13 +1,83 @@
-Description:<%= @user.description %><br>
-Average Rating:
-<% if final_rating(@user) >= 0 %>
-  <%= final_rating(@user) %><br>
-<% else %>
-  <p class="notification">No rating yet</p>
+<div class="row sen_img_app">
+  <div class="col-lg-3 col-md-3 sen_image">
+    <div class="sen_img_upper">
+      <p class="comp_rate"><%= final_rating(@user) %>
+        <span style="color: orange;">☆</span>
+      </p>
+    </div>
+    <div class="sen_img_lower">
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <p><%= @user.city %></p>
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-9 sen_app">
+    <div class="comp_description">
+      <strong><%= @user.description %></strong>
+    </div>
+  </div>
+</div>
+<% if @user.reviews.count >  0 %>
+  <div class="sen_rating">
+    <div class="sen_stars">
+      <div>
+        <p class="notification">Recommendation</p>
+        <% wyr(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Companionship</p>
+        <% comp_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Communication</p>
+        <% comm_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row review_div">
+      <% @user.reviews.each do |review|%>
+        <div class="col-lg-4">
+          <div class="row form_div">
+            <div class="col-lg-3 col-md-3 col-3">
+              <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+            </div>
+            <div class="col col-lg-9 col-md-9 col-9 form_div">
+              <p class="notification rev_paragraphs"><%= review.comment %></p>
+              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+              <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-Reviews:<br>
-<% current_user.reviews.each do |review| %>
-  <%= review.comment %><br>
-  Stars: <%= individaul_rating(review) %><br>
-  by:<%= review.reviewer.email %><br>
+<div class="comp_app_req text-center">
+  <p class="sen_app_par">These are Your Next Appointments</p>
+  <div class="row">
+      <% current_user.companions.each do |date| %>
+          <div class="col form_div">
+            <button class="btn cal_but" disabled="true">
+              <p class="notification"><%= date.start_date.strftime('%b') %></p>
+              <p class="notification"><%= date.start_date.strftime('%d') %></p>
+              <p class="notification"><%= date.start_date.strftime('%Y') %></p>
+            </button>
+          </div>
+      <% end %>
+  </div>
+</div>
+<p class="notification">This are all your seniors</p>
+<% current_user.companions.each do |companion| %>
+  <% if companion.accept === true %>
+    <%= companion.senior.email  %><br>
+    <% if Date.today - 2 > companion.end_date %>
+       <%= link_to 'Rate companionship', new_user_review_path(companion.senior.id) %><br>
+    <% end %>
+  <% elsif companion.accept === false %>
+    <%= link_to "Accept this request", edit_appointment_path(companion)%><br>
+  <% end %>
 <% end %>

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   background-color:white;
+  padding-top:70px;
 }
 .notification {
   margin-bottom: 0em;
@@ -157,16 +158,18 @@ body {
   height: 30px;
   // border: 1px solid pink;
   position: absolute;
-  top:0px;
+  top:7px;
 }
 
 .sen_img_app {
   margin: 0px 15px;
-  border: 1px solid gray;
+  margin-top: 10px;
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
 }
 
 .sen_image {
-  border: 1px solid gray;
   height: 350px;
 }
 
@@ -174,12 +177,19 @@ body {
 .sen_img_upper {
   height: 70%;
   width: 100%;
-  border: 1px solid gray;
+  background-image:url(https://cf.ltkcdn.net/seniors/images/slide/204237-560x650-maturehair_crop.jpg);
+  background-position: center;
+  background-repeat: none;
+  background-size:cover;
+  margin-top:10px;
+  border-radius:3px;
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
 }
 
 .sen_img_lower {
   height: 30%;
-  border: 1px solid gray;
   // Understand Flex box
   display:flex;
   align-items:center;
@@ -187,7 +197,7 @@ body {
 }
 
 .sen_app {
-  border: 1px solid gray;
+  // border: 1px solid gray;
   height: 350px;
 }
 
@@ -198,8 +208,11 @@ body {
 
 .sen_rating {
   margin: 0px 15px;
-  margin-top: 20px;
   border: 1px solid gray;
+  border-radius:3px;
+  @media screen and (max-width: 1440px) {
+    margin: 0px 5px;
+  }
 }
 
 .sen_stars {
@@ -230,4 +243,38 @@ body {
 
 .review_div {
   padding-top: 50px;
+}
+
+.sen_comp {
+  margin: 0px 15px;
+  margin-top: 20px;
+  border: 1px solid gray;
+  border-radius:3px;
+}
+
+.comp_description {
+  margin: 16px;
+  border: 1px solid gray;
+  height: 240px;
+  border-radius: 3px;
+  @media screen and (max-width: 640px) {
+    margin: 0px;
+  }
+}
+
+.comp_app_req {
+  padding: 0 15px;
+  margin: 15px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  @media screen and (max-width: 640px) {
+    margin: 5px;
+  }
+}
+
+.rev_paragraphs {
+  font-size: 18px;
+  @media screen and (max-width: 640px) {
+    font-size: 15px;
+  }
 }
