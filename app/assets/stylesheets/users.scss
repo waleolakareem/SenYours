@@ -1,9 +1,17 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    position: relative;
+    min-height: 100%;
+}
 body {
   background-color:white;
   padding-top:70px;
+  margin: 0 0 150px;
+  @media screen and (max-width: 425px) {
+    margin: 0 0 500px;
+  }
 }
 .notification {
   margin-bottom: 0em;
@@ -127,8 +135,11 @@ body {
   }
 }
 
+.index_div{
+   margin-top:30px;
+}
+
 .comp_show {
-  // border: 1px solid gray;
   height: 400px;
 }
 

@@ -13,10 +13,10 @@ body {
   font-size: 18px;
   border-radius: 6px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 425px) {
     // Small input box
     height: 50px;
-    width: 350px;
+    width: 300px;
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
