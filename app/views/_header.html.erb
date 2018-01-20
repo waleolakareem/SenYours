@@ -8,42 +8,64 @@
     <ul class="navbar-nav mr-auto">
       <% if current_user %>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Sign Out</a>
+          <a class="nav-link" href="/logout">
+            <button class="header_large_button"> Sign Out</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= current_user.id %>">Profile</a>
+          <a class="nav-link" href="/users/<%= current_user.id %>">
+            <button class="header_large_button">Profile</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= current_user.id %>/edit">Update Account</a>
+          <a class="nav-link" href="/users/<%= current_user.id %>/edit">
+            <button class="header_large_button">Update Account</button>
+          </a>
         </li>
         <% if current_user.identification === "Senior" %>
             <li class="nav-item">
-            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new"> Find Companions</a>
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
+              <button class="header_large_button"> Find Companions</button>
+            </a>
             </li>
         <% end %>
         <% if current_user.identification === "Companion" %>
             <li class="nav-item">
-            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new"> Days you can work</a>
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
+            <button class="header_large_button">Days you can work</button>
+            </a>
             </li>
         <% end %>
       <% else %>
         <li class="nav-item lead_nav">
-          <a class="nav-link" href="">Need Companion</a>
+          <a class="nav-link" href="">
+            <button class="header_large_button">Need Companion</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/">
+            <button class="header_button">Home</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Become a Companion</a>
+          <a class="nav-link" href="">
+            <button class="header_large_button">Become a Companion</button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link press" href="#what_we">What we do</a>
+          <a class="nav-link press" href="#what_we">
+            <button class="header_large_button" style="width: 150px;">What we do</button>
+          </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/users/new">Sign Up<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/users/new">
+            <button class="header_button">Sign Up</button>
+          <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Sign In</a>
+          <a class="nav-link" href="/login">
+            <button class="header_button">Sign In</button>
+          </a>
         </li>
       <% end %>
     </ul>

@@ -18,13 +18,41 @@
 }
 
 .lead_nav{
-  padding-right:850px;
+  padding-right:500px;
 
-  @media screen and (max-width:425px){
+  @media screen and (max-width:1024px){
     padding-right: 0px !important;
   }
 
    @media screen and (max-width:1440px){
-    padding-right: 250px;
+    padding-right: 400px;
+  }
+}
+
+.header_button {
+  height: 40px;
+  width: 80px;
+  color: white;
+  background-color: orange;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 3px;
+  @media screen and (max-width: 1440px) {
+    height: 30px;
+  }
+}
+
+.header_large_button {
+  height: 40px;
+  width: 200px;
+  color: white;
+  background-color: orange;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 3px;
+  @media screen and (max-width: 1440px) {
+    height: 30px;
   }
 }
