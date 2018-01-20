@@ -1,3 +1,42 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.review_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 450px;
+  width:50%;
+  background-color:   white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+  font-size: 25px;
+  font-weight: 700;
+  padding-left: 50px;
+
+  @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 30px;
+    height: 500px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 15px;
+    padding-left: 14px;
+  }
+}
+
+.descrip_rev {
+  height: 120px;
+  width: 720px;
+  border-radius: 6px;
+  margin-left: -55px;
+
+  @media screen and (max-width: 768px) {
+    width: 300px !important;
+    margin-left: 0px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 600px;
+    margin-left: 0px;
+  }
+}

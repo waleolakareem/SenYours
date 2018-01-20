@@ -1,0 +1,28 @@
+<div class="container text-center avail_form_top">
+  <div class="form_div">
+    <% if current_user.identification === "Senior" %>
+      <p class="notification">Which dates do you need companions</p>
+    <% else %>
+      <p class="notification">When can you help a companion? We encourage you to schedule your time wisely</p>
+    <% end %>
+  </div>
+  <div class="row">
+  <% 15.times.each do |day| %>
+    <%=link_to user_available_days_path(current_user, available_day: {date: Date.today + day,comment: "I am ready", user_id: current_user.id}), method: :post, remote: true do %>
+      <div class="col form_div">
+      <button class="btn cal_but">
+        <p class="notification"><%= Date.today.strftime('%b') %></p>
+        <p class="notification"><%= (Date.today + day).strftime('%d') %></p>
+        <p class="notification"><%= (Date.today + day).strftime('%a') %></p>
+      </button>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  <div>
+    <% if current_user.identification === "Senior" %>
+      <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+    <% end %>
+  </div>
+</div>
+

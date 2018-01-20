@@ -1,19 +1,38 @@
 <%= form_for([@user, @review]) do |f| %>
-    Communication <% (1..5).each do |rating| %>
-    <%= radio_button("review", "comm_rating",rating) %>
-    <%= label_tag(:rate, rating) %>
-    <% end %><br>
-    Will you recommend <% (1..5).each do |rating| %>
-    <%= radio_button("review", "wyr_rating",rating) %>
-    <%= label_tag(:rate, rating) %>
-    <% end %><br>
-    Companion Behavior <% (1..5).each do |rating| %>
-    <%= radio_button("review", "comp_rating",rating) %>
-    <%= label_tag(:rate, rating) %>
-    <% end %><br>
-    Why did you give these ratings <%= f.text_area :comment %>
-    <%= f.hidden_field :user_id, :value=> @user.id %>
-    <%= f.hidden_field :reviewer_id, :value=> current_user.id %>
-
-    <%= f.submit "Submit" %>
+    <div class="container text-center review_form_top">
+        <div class="row">
+            Communication rate<% (1..5).each do |rating| %>
+            <div class="col form_div">
+                <%= radio_button("review", "comm_rating",rating) %>
+                <%= label_tag(:rate, rating) %>
+            </div>
+            <% end %>
+        </div>
+        <div class="row">
+            Will you recommend <% (1..5).each do |rating| %>
+            <div class="col form_div">
+                <%= radio_button("review", "wyr_rating",rating) %>
+                <%= label_tag(:rate, rating) %>
+            </div>
+            <% end %>
+        </div>
+        <div class="row">
+        Companion Behavior <% (1..5).each do |rating| %>
+        <div class="col form_div">
+            <%= radio_button("review", "comp_rating",rating) %>
+            <%= label_tag(:rate, rating) %>
+        </div>
+        <% end %>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_area :comment, class: 'descrip_rev', placeholder: 'Why did you give this recommendations' %>
+            </div>
+        </div>
+        <%= f.hidden_field :user_id, :value=> @user.id %>
+        <%= f.hidden_field :reviewer_id, :value=> current_user.id %>
+        <div class="form_div">
+            <%= f.submit "Submit", class: 'btn form_submit' %>
+        </div>
+    </div>
 <% end %>

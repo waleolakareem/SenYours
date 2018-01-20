@@ -1,5 +1,9 @@
 {
   "name": "SeenYours",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "flatpickr": "^4.2.3",
+    "jquery-ui-multidatespicker": "^1.6.6",
+    "npm": "^5.6.0"
+  }
 }
