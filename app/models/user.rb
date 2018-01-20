@@ -15,8 +15,8 @@ class User < ApplicationRecord
   validate  :avatar_size
 
   # Validates the size of an uploaded picture.
-    def picture_size
-      if picture.size > 5.megabytes
+    def avatar_size
+      if avatar.size > 5.megabytes
         errors.add(:avatar, "should be less than 5MB")
       end
     end

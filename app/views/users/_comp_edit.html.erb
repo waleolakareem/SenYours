@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
     <div class="container text-center comp_edit_form_top">
         <span class="picture">
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
         <div class="row">
             <div class="col form_div">
