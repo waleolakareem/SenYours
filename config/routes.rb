@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
   resources :sessions
   resources :users do
     resources :appointments, shallow: true
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
   post  '/login' => 'sessions#create'
 
   get '/logout', to: 'sessions#destroy'
-  root 'users#new'
+
+  root 'welcome#index'
 end

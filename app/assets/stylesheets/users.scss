@@ -2,12 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html {
+// Footer stick to bottom with help of this
     position: relative;
     min-height: 100%;
 }
 body {
   background-color:white;
   padding-top:70px;
+// Footer stick to bottom with help of this
   margin: 0 0 150px;
   @media screen and (max-width: 425px) {
     margin: 0 0 500px;

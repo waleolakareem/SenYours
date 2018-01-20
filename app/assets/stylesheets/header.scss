@@ -9,18 +9,22 @@
 }
 .navbar-brand {
   font-weight:600;
-  padding-right: 1100px;
   color: orange !important;
-  @media screen and (max-width:425px){
-    padding-right: 0px !important;
-  }
-
-   @media screen and (max-width:1440px){
-    padding-right: 430px;
-  }
 }
 
 .nav-link{
   color: orange !important;
   font-size: 14px ;
+}
+
+.lead_nav{
+  padding-right:850px;
+
+  @media screen and (max-width:425px){
+    padding-right: 0px !important;
+  }
+
+   @media screen and (max-width:1440px){
+    padding-right: 250px;
+  }
 }
