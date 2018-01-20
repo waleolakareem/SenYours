@@ -12,5 +12,12 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   has_secure_password
+  validate  :avatar_size
 
+  # Validates the size of an uploaded picture.
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:avatar, "should be less than 5MB")
+      end
+    end
 end
