@@ -6,6 +6,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process :auto_orient
 
   # Rotate Image
+
   def auto_orient
     manipulate! do |image|
       image.tap(&:auto_orient)
@@ -13,7 +14,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+   if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.

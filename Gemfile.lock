@@ -70,6 +70,7 @@ GEM
     crass (1.0.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
     erubi (1.7.0)
     excon (0.60.0)
     execjs (2.7.0)
@@ -370,6 +371,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
+  dotenv
   fog (= 1.42)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
