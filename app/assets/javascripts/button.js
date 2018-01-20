@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  console.log("what")
+  // To hide buttons when not on home page to scroll to where needed.
   var className = $('.home_div').attr('class')
   if(className) {
     $('.press').show()
