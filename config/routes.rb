@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
+  resources :charges
   resources :sessions
   resources :users do
     resources :appointments, shallow: true
