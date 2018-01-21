@@ -5,7 +5,7 @@
       <% if user.identification === "Companion" && (final_rating(user) >= 3.5 || user.reviews.length === 0) && user.reviews.where(reviewer_id:current_user.id,wyr_rating:1).length != 1 && aval(user,current_user).length >= 1%>
           <div class="col-lg-3 col-md-4 comp_show">
           <a href="/users/<%= user.id %>">
-            <div class="comp_img">
+            <div class="comp_img" style="background-image: url(<%=user.avatar if user.avatar? %>);">
               <p class="comp_rate"><%= final_rating(user) %>
               <span style="color: orange;">☆</span>
               </p>

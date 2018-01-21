@@ -153,7 +153,6 @@ body {
   height: 70%;
   background-position: center;
   background-repeat: none;
-  background-image:url(https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg);
   background-size:cover;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
 
@@ -266,7 +265,7 @@ body {
 
 .comp_description {
   margin: 16px;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   height: 240px;
   border-radius: 3px;
   @media screen and (max-width: 640px) {
