@@ -30,6 +30,16 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#uploader
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+
+# dotenv
+gem 'dotenv'
+
+# fog
+gem 'fog', '1.42'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
