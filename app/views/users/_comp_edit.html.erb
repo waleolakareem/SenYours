@@ -27,6 +27,14 @@
                 <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
             </div>
         </div>
+        <div class="row fee_div">
+            Fee <% (15..20).each do |fee| %>
+            <div class="col form_div">
+                <%= radio_button("user", "fee",fee) %>
+                <%= label_tag(:rate, fee) %>
+            </div>
+            <% end %>
+        </div>
         <div class="row">
            <div class="col form_div">
                <%= f.text_area :description, class: 'descrip' %>

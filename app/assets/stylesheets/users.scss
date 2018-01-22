@@ -44,6 +44,10 @@ body {
   font-size: 18px;
   border-radius: 6px;
 
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 50px;
@@ -61,6 +65,10 @@ body {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
 
   @media screen and (max-width: 1440px) {
     // Small input box
@@ -80,6 +88,10 @@ body {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
 
   @media screen and (max-width: 1440px) {
     // Small input box
@@ -113,7 +125,8 @@ body {
 .comp_edit_form_top {
   padding-top:  20px;
   margin-top: 90px;
-  height: 550px;
+  margin-bottom: 40px;
+  height: 650px;
   width:90%;
   background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
@@ -127,10 +140,21 @@ body {
     border-radius: 3px;
   }
 }
+
+.fee_div {
+  padding-left: 40px;
+  @media screen and (max-width: 320px) {
+  padding-left: 20px;
+  }
+}
 .descrip {
   height: 120px;
   width: 1070px;
   border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
 
   @media screen and (max-width: 1440px) {
     width: 350px;
@@ -167,10 +191,32 @@ body {
 }
 
 .comp_rate {
-  height: 30px;
+  height: 23px;
   // border: 1px solid pink;
   position: absolute;
   top:7px;
+  font-weight: 700;
+  opacity: 0.8;
+  background-color: white;
+  border-radius:1px;
+  @media screen and (max-width: 425px) {
+     top:0px;
+  }
+}
+
+.comp_fee {
+  height: 23px;
+  // border: 1px solid pink;
+  position: absolute;
+  top:7px;
+  right: 14px;
+  font-weight: 700;
+  opacity: 0.8;
+  background-color: white;
+  border-radius:1px;
+  @media screen and (max-width: 425px) {
+  top:0px;
+  }
 }
 
 .sen_img_app {

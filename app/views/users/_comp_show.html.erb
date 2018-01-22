@@ -1,8 +1,10 @@
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-3 sen_image">
     <div class="sen_img_upper" style="background-image: url(<%=@user.avatar if @user.avatar? %>);">
-      <p class="comp_rate"><%= final_rating(@user) %>
+      <p class="comp_rate notification"><%= final_rating(@user) %>
         <span style="color: orange;">☆</span>
+      </p>
+      <p class="comp_fee notification"><%= @user.fee %>/Hr
       </p>
     </div>
     <div class="sen_img_lower">
