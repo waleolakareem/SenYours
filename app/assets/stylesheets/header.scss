@@ -43,6 +43,10 @@
   }
 }
 
+.header_button:hover {
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
 .header_large_button {
   height: 40px;
   width: 200px;
@@ -55,4 +59,8 @@
   @media screen and (max-width: 1440px) {
     height: 30px;
   }
+}
+
+.header_large_button:hover {
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
