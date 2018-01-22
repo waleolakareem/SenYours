@@ -8,10 +8,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    p "r" * 99
-    p appointment_params
     @user = User.find(params[:user_id])
-    @appointment = Appointment.new(appointment_params)
+    @appointment = Appointment.find_or_create_by(appointment_params)
     if @appointment.save
       redirect_to user_path(@user)
     else
@@ -30,8 +28,9 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+    p appointment_params
     @appointment = Appointment.find(params[:id])
-    if @appointment.accept === false
+    if appointment_params[:accept] === "false"
       @appointment.destroy
       redirect_to user_path(current_user)
     elsif @appointment.update_attributes(appointment_params)
@@ -40,8 +39,14 @@ class AppointmentsController < ApplicationController
       render 'edit'
     end
   end
+
   def show
 
+  end
+
+  def comp_request
+    @user = current_user
+    @appointment = @user.companions.where({accept: false})
   end
 
   def destroy
