@@ -60,7 +60,7 @@
   <p class="sen_app_par">These are Your Next Appointments</p>
   <div class="row">
       <% current_user.companions.each do |date| %>
-          <div class="col form_div">
+          <div class="col-lg-2 col-4 form_div">
             <button class="btn cal_but" disabled="true">
               <p class="notification"><%= date.start_date.strftime('%b') %></p>
               <p class="notification"><%= date.start_date.strftime('%d') %></p>
