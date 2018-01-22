@@ -11,6 +11,7 @@ module AvailableDaysHelper
     end
 
     date_match = user1_dates & user2_dates
+    date_match.sort
   end
 
   def aval_time(user1,user2,date)

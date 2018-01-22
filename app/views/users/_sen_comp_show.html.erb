@@ -64,11 +64,19 @@
       <% aval(@user,current_user).each do |date| %>
         <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false}), method: :post, remote: true do %>
           <div class="col form_div">
+            <% if current_user.seniors.where("senior_id = ? AND start_date = ?",current_user.id,date).length >= 1 %>
+            <button class="btn cal_but btn-warning">
+              <p class="notification"><%= date.strftime('%b') %></p>
+              <p class="notification"><%= date.strftime('%d') %></p>
+              <p class="notification"><%= date.strftime('%Y') %></p>
+            </button>
+            <% else %>
             <button class="btn cal_but">
               <p class="notification"><%= date.strftime('%b') %></p>
               <p class="notification"><%= date.strftime('%d') %></p>
               <p class="notification"><%= date.strftime('%Y') %></p>
             </button>
+            <% end %>
           </div>
         <% end %>
       <% end %>
