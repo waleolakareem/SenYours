@@ -33,6 +33,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @companions = @user.companions.where("start_date >= ?",Date.today).order('start_date ASC')
+    @seniors = @user.seniors.where("start_date >= ?",Date.today).order('start_date ASC')
   end
 
   def destroy

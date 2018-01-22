@@ -13,8 +13,7 @@
   <div class="col-lg-9 col-md-9 sen_app">
     <p class="sen_app_par text-center">Upcoming Appointments This Week</p>
     <div class="row">
-      <% current_user.seniors.each do |appointment| %>
-        <% if appointment.start_date >= Date.today %>
+      <% @seniors.each do |appointment| %>
           <% if appointment.accept === false %>
           <div class="col form_div">
           <button class="btn cal_but">
@@ -32,7 +31,6 @@
           </button>
           </div>
           <% end %>
-        <% end %>
       <% end %>
     </div>
   </div>
