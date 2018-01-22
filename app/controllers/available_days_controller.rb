@@ -47,6 +47,10 @@ class AvailableDaysController < ApplicationController
     @availableDay = AvailableDay.where({user_id:current_user,date: params[:id]})
     @availableDay[0].destroy
     redirect_to new_user_available_day_path(current_user)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   private

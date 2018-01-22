@@ -17,7 +17,7 @@
               <p class="notification"><%= date.strftime('%a') %></p>
             </button>
             <%= link_to 'Delete', available_day_path(date),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    method: :delete,remote: true %>
           <% else %>
             <button class="btn cal_but">
               <p class="notification"><%= date.strftime('%b') %></p>
