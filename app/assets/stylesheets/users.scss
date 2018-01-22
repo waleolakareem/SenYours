@@ -192,29 +192,25 @@ body {
 
 .comp_rate {
   height: 23px;
-  // border: 1px solid pink;
   position: absolute;
-  top:7px;
   font-weight: 700;
   opacity: 0.8;
   background-color: white;
   border-radius:1px;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 1024px) {
      top:0px;
   }
 }
 
 .comp_fee {
   height: 23px;
-  // border: 1px solid pink;
   position: absolute;
-  top:7px;
   right: 14px;
   font-weight: 700;
   opacity: 0.8;
   background-color: white;
   border-radius:1px;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 1024px) {
   top:0px;
   }
 }
