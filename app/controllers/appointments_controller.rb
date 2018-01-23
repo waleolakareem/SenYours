@@ -41,7 +41,6 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-
   end
 
   def comp_request
@@ -50,8 +49,10 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    @appointment = Appointment.find(params[:id])
-    @appointment.destroy
+    @user = User.find(params[:user_id])
+    @appointment = Appointment.where({senior_id: current_user,start_date: params[:id],companion_id: params[:user_id]})
+    @appointment[0].destroy
+    redirect_to user_path(@user)
   end
 
   private
