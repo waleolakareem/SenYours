@@ -34,7 +34,7 @@ class AppointmentsController < ApplicationController
       @appointment.destroy
       redirect_to user_path(current_user)
     elsif @appointment.update_attributes(appointment_params)
-      redirect_to user_path(current_user)
+      redirect_to '/comp_request'
     else
       render 'edit'
     end
