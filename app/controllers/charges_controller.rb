@@ -13,10 +13,13 @@ class ChargesController < ApplicationController
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
     )
-    # Store customer stripe_customer_id
-    current_user.stripe_customer_id = customer.id
-    current_user.save!
+    # Store customer stripe_customer_id if it does not exist
+    if !current_user.stripe_customer_id
+      current_user.stripe_customer_id = customer.id
+      current_user.save!
+    end
 
+    p current_user.stripe_customer_id
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
