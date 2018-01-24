@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      if @user.identification === 'Companion'
+      if @user.identification === 'Companion' && !@user.accurate_customer_id
         back_user(@user)
       end
       redirect_to user_path(@user)

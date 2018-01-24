@@ -39,6 +39,8 @@ module UsersHelper
     resp = http.request(req)
     puts resp.body
     response = JSON.parse(resp.body)
-    response["id"]
+    user.accurate_customer_id = response["id"]
+    user.save!
+    p user
   end
 end
