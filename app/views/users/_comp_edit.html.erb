@@ -1,3 +1,4 @@
+<% if current_user.id === @user.id  %>
 <%= form_for @user do |f| %>
     <div class="container text-center comp_edit_form_top">
         <span class="picture">
@@ -47,9 +48,13 @@
             <div class="col form_div">
                 <%= f.text_field :ssn, class: 'info_responsive-input',placeholder: 'Social Security Number' %>
             </div>
+             <div class="col form_div">
+                <%= f.date_field :dob, class: 'info_responsive-input',placeholder: 'dob' %>
+            </div>
             <div class="col form_div">
                 <%= f.submit "Complete Application", class: 'btn form_submit' %>
             </div>
         </div>
     </div>
+<% end %>
 <% end %>

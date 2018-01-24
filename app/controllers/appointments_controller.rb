@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    p appointment_params
+
     @appointment = Appointment.find(params[:id])
     if appointment_params[:accept] === "false"
       @appointment.destroy

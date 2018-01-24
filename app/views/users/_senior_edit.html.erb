@@ -1,3 +1,4 @@
+<% if current_user.id === @user.id  %>
 <%= form_for @user do |f| %>
     <div class="container text-center senior_edit_form_top">
         <div class="row">
@@ -36,6 +37,7 @@
             </div>
         </div>
     </div>
+<% end %>
 <% end %>
 
 
