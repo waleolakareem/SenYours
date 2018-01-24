@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  Stripe.api_key=ENV['SECRET_KEY']
+
   def index
   end
 
@@ -34,6 +36,15 @@ class AppointmentsController < ApplicationController
       @appointment.destroy
       redirect_to user_path(current_user)
     elsif @appointment.update_attributes(appointment_params)
+      @amount = @appointment.companion.fee * 100
+      charge = Stripe::Charge.create(
+      :customer    => @appointment.senior.stripe_customer_id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
+      @appointment.payment_status = "Paid"
+      @appointment.save
       redirect_to '/comp_request'
     else
       render 'edit'
@@ -57,6 +68,6 @@ class AppointmentsController < ApplicationController
 
   private
     def appointment_params
-      params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept)
+      params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
     end
 end

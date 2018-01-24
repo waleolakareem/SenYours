@@ -64,7 +64,7 @@
   <div class="row">
     <% if aval(@user,current_user).length >= 1 %>
       <% aval(@user,current_user).each do |date| %>
-        <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false}), method: :post, remote: true do %>
+        <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
           <div class="form_div daite">
             <% if current_user.seniors.where("companion_id = ? AND start_date = ?",@user.id,date).length >= 1 %>
             <button class="btn cal_but btn-warning">
