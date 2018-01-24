@@ -1,3 +1,4 @@
+require 'json'
 module UsersHelper
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -15,8 +16,6 @@ module UsersHelper
     clientId = ENV['clientId']
     clientSecret = ENV['clientSecret']
 
-    p @user
-
     params = {
       "firstName" => "#{@user.first_name}" ,
       "lastName" => "#{@user.last_name}",
@@ -30,10 +29,6 @@ module UsersHelper
       "country" => "US"
     }
 
-    p "e" * 99
-    p params
-    p "f" * 99
-
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
 
@@ -43,5 +38,7 @@ module UsersHelper
 
     resp = http.request(req)
     puts resp.body
+    response = JSON.parse(resp.body)
+    response["id"]
   end
 end
