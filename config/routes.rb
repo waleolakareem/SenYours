@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :available_days, shallow: true do
       resources :available_times, shallow: true
     end
+    resources :conversations, shallow: true do
+     resources :messages
+  end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
