@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save { email.downcase! }
   mount_uploader :avatar, AvatarUploader
-
+  attr_encrypted :ssn, key: 'This is a key that is 256 bits!!'
   has_many :seniors, class_name: 'Appointment', foreign_key: 'senior_id', dependent: :destroy
   has_many :companions, class_name: 'Appointment', foreign_key: 'companion_id', dependent: :destroy
   has_many :reviews, dependent: :destroy

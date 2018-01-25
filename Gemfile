@@ -47,6 +47,9 @@ gem 'stripe'
 #semantic
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
+# Encrypt database
+gem "attr_encrypted", "~> 3.0.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

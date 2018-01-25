@@ -10,7 +10,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :state
       t.string :city
       t.string :address
-      t.integer :ssn
+      t.string :encrypted_ssn
+      t.string :encrypted_ssn_iv
       t.integer :fee
       t.text :description
       t.string :avatar
