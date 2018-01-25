@@ -18,6 +18,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/users/<%= current_user.id %>/conversations">
+
+            <button class="header_large_button"> <i class="fa fa-comment-o fa-1x" aria-hidden="true"></i></i> Messages</button>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/users/<%=current_user.id %>/edit">
             <button class="header_large_button">Update Account</button>
           </a>
