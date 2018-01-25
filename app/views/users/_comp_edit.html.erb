@@ -1,3 +1,4 @@
+<% if current_user.id === @user.id  %>
 <%= form_for @user do |f| %>
     <div class="container text-center comp_edit_form_top">
         <span class="picture">
@@ -27,6 +28,14 @@
                 <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
             </div>
         </div>
+        <div class="row fee_div">
+            Fee <% (15..20).each do |fee| %>
+            <div class="col form_div">
+                <%= radio_button("user", "fee",fee) %>
+                <%= label_tag(:rate, fee) %>$
+            </div>
+            <% end %>
+        </div>
         <div class="row">
            <div class="col form_div">
                <%= f.text_area :description, class: 'descrip' %>
@@ -39,9 +48,13 @@
             <div class="col form_div">
                 <%= f.text_field :ssn, class: 'info_responsive-input',placeholder: 'Social Security Number' %>
             </div>
+             <div class="col form_div">
+                <%= f.date_field :dob, class: 'info_responsive-input',placeholder: 'dob' %>
+            </div>
             <div class="col form_div">
                 <%= f.submit "Complete Application", class: 'btn form_submit' %>
             </div>
         </div>
     </div>
+<% end %>
 <% end %>

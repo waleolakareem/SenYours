@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-  <a class="navbar-brand" href="/">SeenYours</a>
+  <a class="navbar-brand" href="/">SenYours</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= current_user.id %>/edit">
+          <a class="nav-link" href="/users/<%=current_user.id %>/edit">
             <button class="header_large_button">Update Account</button>
           </a>
         </li>
@@ -28,6 +28,17 @@
               <button class="header_large_button"> Find Companions</button>
             </a>
             </li>
+            <button class="btn">
+              <%= form_tag charges_path do %>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="Card Registration"
+                        data-amount="100"
+                        data-label="Register your Credit Card"
+                        data-email="<%= current_user.email %>"
+                        data-locale="auto"></script>
+              <% end %>
+            </button>
         <% end %>
         <% if current_user.identification === "Companion" %>
             <li class="nav-item">
@@ -38,8 +49,8 @@
         <% end %>
       <% else %>
         <li class="nav-item lead_nav">
-          <a class="nav-link" href="">
-            <button class="header_large_button">Need Companion</button>
+          <a class="nav-link" href="/need_a_comp">
+            <button class="header_large_button">Need A Companion</button>
           </a>
         </li>
         <li class="nav-item">
@@ -48,7 +59,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="/be_a_comp">
             <button class="header_large_button">Become a Companion</button>
           </a>
         </li>

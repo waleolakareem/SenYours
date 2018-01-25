@@ -3,11 +3,13 @@
     <div class="sen_img_upper" style="background-image: url(<%=@user.avatar if @user.avatar? %>);">
     <p class="comp_rate"><%= final_rating(@user) %>
       <span style="color: orange;">☆</span>
-      </p>
+    </p>
+    <p class="comp_fee notification"><%= @user.fee %>/Hr
+    </p>
     </div>
     <div class="sen_img_lower">
       <p><%= @user.city %></p>
-      <p><%= @user.age %></p>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
     </div>
   </div>
   <div class="col-lg-9 col-md-9 sen_app">
@@ -18,7 +20,7 @@
 </div>
 <% if @user.reviews.count >  0 %>
   <div class="sen_rating">
-    <div class="sen_stars">
+    <div class="sen_stars text-center">
       <div>
         <p class="notification">Recommendation</p>
         <% wyr(@user).times do  %>
@@ -62,13 +64,23 @@
   <div class="row">
     <% if aval(@user,current_user).length >= 1 %>
       <% aval(@user,current_user).each do |date| %>
-        <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false}), method: :post, remote: true do %>
-          <div class="col form_div">
+        <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
+          <div class="form_div daite">
+            <% if current_user.seniors.where("companion_id = ? AND start_date = ?",@user.id,date).length >= 1 %>
+            <button class="btn cal_but btn-warning">
+              <p class="notification"><%= date.strftime('%b') %></p>
+              <p class="notification"><%= date.strftime('%d') %></p>
+              <p class="notification"><%= date.strftime('%Y') %></p>
+            </button>
+            <%= link_to 'Delete', appointment_path(date,user_id: @user.id),
+                    method: :delete,remote: true %>
+            <% else %>
             <button class="btn cal_but">
               <p class="notification"><%= date.strftime('%b') %></p>
               <p class="notification"><%= date.strftime('%d') %></p>
               <p class="notification"><%= date.strftime('%Y') %></p>
             </button>
+            <% end %>
           </div>
         <% end %>
       <% end %>

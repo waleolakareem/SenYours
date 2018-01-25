@@ -1,6 +1,9 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #F8F8F8;
+}
 .home_div {
   margin-top: 10px;
   @media screen and (max-width: 1024px){
@@ -12,26 +15,26 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(http://comprehensiveinhomecare.com/wp-content/uploads/2017/09/Fotolia_169555968.jpg);
+  background-image:url(https://static.wixstatic.com/media/ac4f13c139f5098ee2e36f166f831617.jpg);
   background-attachment: fixed;
   width: 100%;
   height: 600px;
-  opacity: 0.8;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .image_div p {
-  font-size: 25px;
-  font-weight: 700;
-  color: orange;
+  font-size: 40px;
+  // font-weight: 900;
+  color: white;
   opacity: 1;
   text-shadow: 1px 1px 5px rgba(0,0,0,1);
   background-attachment: fixed;
+  font-family: 'Open Sans Condensed', sans-serif;
   @media screen and (max-width: 425px){
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 25px;
+    // font-weight: 700;
   }
 }
 
@@ -43,6 +46,7 @@
   color: orange;
   font-size:29px;
   font-weight: 700;
+  font-family: 'Hind', sans-serif;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 .comp_img_div {
@@ -61,11 +65,14 @@
 }
 
 .comp_img_text p {
-  font-size: 15px;
+  font-size: 22px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .comp_img_descrp p {
-  font-size: 15px;
+  font-size: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+
 }
 
 .comp_img_descrp {
@@ -73,7 +80,13 @@
 }
 
 .who_we {
-  padding: 0px 40px 40px;
+  padding: 0px 80px 80px;
+  height: 700px;
+  background-color: Azure;
+  font-family: 'Open Sans Condensed', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .who_we .text-center {
@@ -84,7 +97,8 @@
 }
 
 .who_we p {
-  font-weight: 500;
+  font-weight: 0;
+  font-size: 25px;
 }
 
 .font {
@@ -94,8 +108,14 @@
   margin: auto 0px;
 }
 
+.font_back{
+  background-color:Azure;
+}
+
 .font_p {
-  padding: 0 20px;
+  padding: 0 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
 }
 
 .image2_div {
@@ -105,7 +125,7 @@
   background-image:url(http://www.epitomemagazine.com/wp-content/uploads/2016/09/elderly-blk-man-white-woman1.jpg);
   width: 100%;
   height: 650px;
-  opacity: 0.8;
+  // opacity: 0.8;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -113,14 +133,106 @@
 }
 
 .image2_div p {
-  font-size: 25px;
-  font-weight: 700;
-  color: orange;
+  font-size: 40px;
+  // font-weight: 700;
+  color: white;
   opacity: 1;
   text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  font-family: 'Open Sans Condensed', sans-serif;
 
   @media screen and (max-width: 425px){
     font-size: 14px;
     font-weight: 700;
   }
+}
+
+.stepp {
+  // height: 400px;
+  margin: 20px 0px;
+  padding: 50px 150px 50px 200px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 23px;
+  color: orange;
+  background-color: Azure;
+  @media screen and (max-width: 768px){
+    padding: 100px 20px;
+  }
+}
+
+.stepp h1 {
+  // padding-bottom: 90px;
+}
+
+.require_div1{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.require_div2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+.require_img {
+   background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://www.bolde.com/wp-content/uploads/2015/08/iStock_000069509155_Small.jpg);
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 425px){
+    height: 250px;
+  }
+}
+
+.why_this {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+
+.why_this_img {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://ak0.picdn.net/shutterstock/videos/23250940/thumb/1.jpg);
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 425px){
+    height: 250px;;
+  }
+}
+
+.why_this_div {
+ padding-left: 150px;
+ @media screen and (max-width: 768px){
+    padding-left:0px;
+  }
+}
+
+.become_submit {
+  height: 60px;
+  width: 200px;
+  color: white;
+  background-color: orange;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  @media screen and (max-width: 1440px) {
+    height: 50px;
+    margin-bottom: 40px;
+  }
+}
+
+.need_com_img {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://blairsenior.org/wp-content/uploads/About-Blog-Box-Photo.jpg);
+  width: 100%;
+  height: 650px;
+  margin-bottom: 30px;
 }

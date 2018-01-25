@@ -21,4 +21,8 @@ $(document).on('turbolinks:load', function(){
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+
+  //
+  var stripe = Stripe('pk_test_e4dPbhbvuCa8iRYOKTxg8b3j');
+  var elements = stripe.elements();
 });

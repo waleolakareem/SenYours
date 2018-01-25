@@ -1,0 +1,8 @@
+<% if @appointment.length >= 1  %>
+  <% @appointment.each do |appointment| %>
+      <%= link_to "Accept this request", edit_appointment_path(appointment)%><br>
+  <% end %>
+<% else %>
+  <h1>You have no request</h1>
+  <%= link_to 'Back to Profile', user_path(current_user) %>
+<% end %>

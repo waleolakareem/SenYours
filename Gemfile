@@ -40,6 +40,9 @@ gem 'dotenv'
 # fog
 gem 'fog', '1.42'
 
+#stripe
+gem 'stripe'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

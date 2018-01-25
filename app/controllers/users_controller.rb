@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+ before_action :authorize, only: [:edit, :show]
+
   def index
     @user = User.all
   end
@@ -20,11 +22,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    p current_user
+    p @user
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
+      if @user.identification === 'Companion' && !@user.accurate_customer_id
+        back_user(@user)
+        place_order(@user)
+      end
       redirect_to user_path(@user)
     else
       render 'edit'
@@ -33,6 +41,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @companions = @user.companions.where("start_date >= ?",Date.today).order('start_date ASC')
+    @seniors = @user.seniors.where("start_date >= ?",Date.today).order('start_date ASC')
   end
 
   def destroy
@@ -41,6 +51,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability)
+      params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob)
     end
 end
