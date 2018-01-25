@@ -1,6 +1,5 @@
 class AvailableDaysController < ApplicationController
   def index
-
   end
 
   def new
