@@ -2,11 +2,11 @@ class User < ApplicationRecord
   before_save { email.downcase! }
   mount_uploader :avatar, AvatarUploader
 
-  has_many :seniors, class_name: 'Appointment', foreign_key: 'senior_id'
-  has_many :companions, class_name: 'Appointment', foreign_key: 'companion_id'
-  has_many :reviews
-  has_many :reviewers, class_name: 'Review', foreign_key: 'reviewer_id'
-  has_many :available_days
+  has_many :seniors, class_name: 'Appointment', foreign_key: 'senior_id', dependent: :destroy
+  has_many :companions, class_name: 'Appointment', foreign_key: 'companion_id', dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :reviewers, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
+  has_many :available_days, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
