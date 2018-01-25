@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       if @user.identification === 'Companion' && !@user.accurate_customer_id
         back_user(@user)
+        place_order(@user)
       end
       redirect_to user_path(@user)
     else
