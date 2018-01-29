@@ -10,6 +10,8 @@
 .navbar-brand {
   font-weight:600;
   color: orange !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .nav-link{
@@ -65,4 +67,15 @@
 
 .header_large_button:hover {
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.humble_text {
+  font-size: 22px;
+  font-style: italic;
+}
+
+.companion_text {
+  margin-top:-0.6em;
+  font-style: italic;
+
 }

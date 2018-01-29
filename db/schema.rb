@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180125012615) do
   end
 
   create_table "available_times", force: :cascade do |t|
-    t.integer "availableday_id"
+    t.integer "available_day_id"
     t.text "comment"
     t.time "time"
     t.datetime "created_at", null: false
