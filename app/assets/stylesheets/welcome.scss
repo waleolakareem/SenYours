@@ -45,11 +45,12 @@ body {
 }
 
 .comp_div .col-lg-12 p {
-  color: orange;
+
+  color: gray;
   font-size:29px;
   font-weight: 700;
-  font-family: 'Hind', sans-serif;
-  // text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 3px;
 }
 .comp_img_div {
   height: 60%;
@@ -62,9 +63,10 @@ body {
 }
 
 .comp_img_text {
-  height: 5%;
+  height: 10%;
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  align-items: center;
 }
 
 .comp_img_text p {
@@ -96,6 +98,7 @@ body {
   font-weight: 700;
   font-size:29px;
   color: orange;
+  letter-spacing: 3px;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
