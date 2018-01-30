@@ -1,9 +1,6 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-color: white;
-}
 
 .responsive-input {
   // Large input box
@@ -35,6 +32,10 @@ body {
   @media screen and (max-width: 375px) {
     width: 100% !important;
     border-radius: 0px;
+  }
+
+  @media screen and (max-width: 414px) {
+    margin-top: 0px !important;
   }
 
   @media screen and (max-width: 1024px) {

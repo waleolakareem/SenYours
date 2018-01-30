@@ -49,6 +49,19 @@
   }
 }
 
+
+.logged_in_lead_nav{
+  padding-left:750px;
+
+  @media screen and (max-width:1024px){
+    padding-left: 200px !important;
+  }
+
+   @media screen and (max-width:1440px){
+    padding-left: 580px;
+  }
+}
+
 .header_button {
   height: 40px;
   width: 80px;
