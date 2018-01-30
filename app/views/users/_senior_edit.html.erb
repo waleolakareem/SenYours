@@ -1,0 +1,43 @@
+<% if current_user.id === @user.id  %>
+<%= form_for @user do |f| %>
+    <div class="container text-center senior_edit_form_top">
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :last_name, class: 'user_responsive-input', placeholder: 'Last Name' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :address, class: 'add_responsive-input',placeholder: 'Address' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :city, class: 'info_responsive-input', placeholder: 'City' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :zipcode, class: 'info_responsive-input', placeholder: 'Zip Code' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form_div">
+                <%= f.text_field :phone_number, class: 'info_responsive-input',placeholder: 'Phone Number' %>
+            </div>
+            <div class="col form_div">
+                <%= f.text_field :age, class: 'info_responsive-input',placeholder: 'Age' %>
+            </div>
+            <div class="col form_div">
+                <%= f.submit "Complete Application", class: 'btn form_submit' %>
+            </div>
+        </div>
+    </div>
+<% end %>
+<% end %>
+
+

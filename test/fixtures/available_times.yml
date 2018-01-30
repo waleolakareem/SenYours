@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  availableday_id: 1
+  comment: MyText
+  time: 2018-01-09 14:09:54
+
+two:
+  availableday_id: 1
+  comment: MyText
+  time: 2018-01-09 14:09:54

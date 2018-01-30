@@ -1,0 +1,13 @@
+<%= form_tag sessions_path do %>
+<div class="container text-center form_top">
+  <div class="form_div">
+    <%= text_field_tag :email, params[:email], class: 'responsive-input',placeholder: 'Jane.email' %>
+  </div>
+  <div class="form_div">
+    <%= password_field_tag :password, params[:password], class: 'responsive-input', placeholder: 'Password' %>
+  </div>
+  <div class="form_div">
+    <%= submit_tag "Sign In", class: 'btn form_submit' %>
+  </div>
+</div>
+<% end %>

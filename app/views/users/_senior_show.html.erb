@@ -1,0 +1,77 @@
+<div class="row sen_img_app">
+  <div class="col-lg-3 col-md-3 sen_image">
+    <div class="sen_img_upper">
+    <p class="comp_rate"><%= final_rating(@user) %>
+      <span style="color: orange;">☆</span>
+      </p>
+    </div>
+    <div class="sen_img_lower">
+      <p class="notification"><%= @user.city %></p>
+      <p><%= @user.age %></p>
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-9 sen_app">
+    <p class="sen_app_par text-center">Upcoming Appointments This Week</p>
+    <div class="row">
+      <% @seniors.each do |appointment| %>
+          <% if appointment.accept === false %>
+          <div class="form_div daite">
+          <button class="btn cal_but">
+            <p class="notification">Waiting</p>
+            <p class="notification">On</p>
+            <p class="notification">Response</p>
+          </button>
+          </div>
+          <% else %>
+          <div class="form_div daite">
+          <button class="btn cal_but">
+            <p class="notification"><%= appointment.start_date.strftime('%b') %> <%= appointment.start_date.strftime('%d') %></p>
+            <p class="notification">With</p>
+            <p class="notification"><%= appointment.companion.first_name%></p>
+          </button>
+          </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if @user.reviews.count > 0 %>
+  <div class="sen_rating">
+    <div class="sen_stars text-center">
+      <div>
+        <p class="notification">Recommendation</p>
+        <% wyr(@user).times do  %>
+          <span style="color: orange;" class="text-center">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Companionship</p>
+        <% comp_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Communication</p>
+        <% comm_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row review_div">
+      <% @user.reviews.each do |review|%>
+        <div class="col-lg-4">
+          <div class="row form_div">
+            <div class="col-lg-3 col-md-3 col-3">
+              <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+            </div>
+            <div class="col-lg-9 col-md-9 col-9 form_div">
+              <p class="notification rev_paragraphs"><%= review.comment %></p>
+              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+              <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

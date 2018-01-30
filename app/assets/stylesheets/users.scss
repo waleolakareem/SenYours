@@ -1,0 +1,350 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+// Footer stick to bottom with help of this
+    position: relative;
+    min-height: 100%;
+}
+body {
+  background-color:white;
+  padding-top:70px;
+// Footer stick to bottom with help of this
+  margin: 0 0 150px;
+  @media screen and (max-width: 425px) {
+    margin: 0 0 500px;
+  }
+}
+.notification {
+  margin-bottom: 0em;
+}
+
+.sign_up_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 550px;
+  width:90%;
+  background-color:   white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.user_responsive-input {
+  height: 70px;
+  width: 500px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
+  @media screen and (max-width: 1440px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+}
+
+.info_responsive-input {
+  // Large input box
+  height: 70px;
+  width: 310px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
+  @media screen and (max-width: 1440px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+  }
+}
+
+.add_responsive-input {
+  // Large input box
+  height: 70px;
+  width: 1070px;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
+  @media screen and (max-width: 1440px) {
+    // Small input box
+    height: 50px;
+    width: 350px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+  }
+}
+
+.senior_edit_form_top {
+  padding-top:  20px;
+  margin-top: 90px;
+  height: 450px;
+  width:90%;
+  background-color:   white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.comp_edit_form_top {
+  padding-top:  20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  height: 700px;
+  width:90%;
+  background-color:   white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 0px;
+    height: 900px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.fee_div {
+  padding-left: 40px;
+  @media screen and (max-width: 320px) {
+  padding-left: 20px;
+  }
+}
+.descrip {
+  height: 120px;
+  width: 1070px;
+  border-radius: 6px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 350px;
+  }
+}
+
+.index_div{
+   margin-top:30px;
+}
+
+.comp_show {
+  height: 400px;
+}
+
+.comp_show a {
+  text-decoration: none;
+  color: black;
+}
+.comp_img {
+  height: 70%;
+  background-position: center;
+  background-repeat: none;
+  background-size:cover;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+
+}
+
+.comp_descrp {
+  height: 25%;
+  border: 1px solid gray;
+  border-top: 0px;
+  font-size: 14px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
+}
+
+.comp_rate {
+  height: 23px;
+  position: absolute;
+  font-weight: 700;
+  opacity: 0.8;
+  background-color: white;
+  border-radius:1px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
+
+  @media screen and (max-width: 425px) {
+     top:0px !important;
+  }
+
+  @media screen and (max-width: 1024px) {
+     top:10px;
+  }
+}
+
+.comp_fee {
+  height: 23px;
+  position: absolute;
+  right: 15px;
+  font-weight: 700;
+  opacity: 0.8;
+  background-color: white;
+  border-radius:1px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
+
+  @media screen and (max-width: 425px) {
+     top:0px !important;
+  }
+
+  @media screen and (max-width: 1024px) {
+     top:10px;
+  }
+}
+
+.sen_img_app {
+  margin: 0px 15px;
+  margin-top: 10px;
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
+}
+
+.sen_image {
+  height: 350px;
+}
+
+
+.sen_img_upper {
+  height: 70%;
+  width: 100%;
+  background-position: center;
+  background-repeat: none;
+  background-size:cover;
+  margin-top:10px;
+  border-radius:3px;
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
+}
+
+.sen_img_lower {
+  height: 30%;
+  // Understand Flex box
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+
+.sen_app {
+  // border: 1px solid gray;
+  height: 350px;
+}
+
+.sen_app_par {
+  font-weight:700;
+  font-size: 20px;
+}
+
+.sen_rating {
+  margin: 0px 15px;
+  border: 1px solid gray;
+  border-radius:3px;
+  @media screen and (max-width: 1440px) {
+    margin: 0px 5px;
+  }
+}
+
+.sen_stars {
+  display: flex;
+  justify-content: space-around;
+  font-weight:500;
+  font-size: 20px;
+  @media screen and (max-width: 1440px) {
+    font-weight: 0;
+    font-size: 12px;
+  }
+}
+
+.responsive-image {
+  width:90px;
+  height:90px;
+
+  @media screen and (max-width: 640px) {
+    width:60px;
+    height:60px;
+  }
+}
+
+.img-circle {
+  border-radius: 90px;
+  // border: 1px solid red;
+}
+
+.review_div {
+  padding-top: 50px;
+}
+
+.sen_comp {
+  margin: 0px 15px;
+  margin-top: 20px;
+  border: 1px solid gray;
+  border-radius:3px;
+}
+
+.comp_description {
+  margin: 16px;
+  // border: 1px solid gray;
+  height: 240px;
+  border-radius: 3px;
+  @media screen and (max-width: 640px) {
+    margin: 0px;
+  }
+}
+
+.comp_app_req {
+  padding: 0 15px;
+  margin: 15px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  @media screen and (max-width: 640px) {
+    margin: 5px;
+  }
+}
+
+.rev_paragraphs {
+  font-size: 18px;
+  @media screen and (max-width: 640px) {
+    font-size: 15px;
+  }
+}
+
+.daite {
+  margin: 0px 5px;
+}
+

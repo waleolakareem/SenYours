@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/"><img src="/assets/senyours1.png" class="nav_img"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">
+             Sign Out</a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/<%= current_user.id %>">
+            Profile</a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/<%= current_user.id %>/conversations">
+
+             <i class="fa fa-comment-o fa-1x" aria-hidden="true"></i></i> Messages</a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/<%=current_user.id %>/edit">
+            Update Account</a>
+          </a>
+        </li>
+        <% if current_user.identification === "Senior" %>
+            <li class="nav-item">
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
+               Find Companions</a>
+            </a>
+            </li>
+            <button class="btn">
+              <%= form_tag charges_path do %>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="Card Registration"
+                        data-amount="100"
+                        data-label="Register your Credit Card"
+                        data-email="<%= current_user.email %>"
+                        data-locale="auto"></script>
+              <% end %>
+            </button>;
+        <% end %>
+        <% if current_user.identification === "Companion" %>
+            <li class="nav-item">
+            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
+            Days you can work</a>
+            </a>
+            </li>
+        <% end %>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/need_a_comp">
+            Need A Companion</a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
+        </li>
+        <li class="nav-item lead_nav">
+          <a class="nav-link" href="/be_a_comp">
+            Become a Companion</a>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link press" href="#what_we">
+            What we do
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/new">
+            Sign Up
+          <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">
+            Sign In
+          <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

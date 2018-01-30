@@ -1,0 +1,5 @@
+<% if @user.identification === "Senior" %>
+    <%= render 'senior_edit' %>
+<% else %>
+    <%= render 'comp_edit' %>
+<% end %>

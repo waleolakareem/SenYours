@@ -1,0 +1,260 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: Azure;
+}
+.home_div {
+  margin-top: 10px;
+  @media screen and (max-width: 1024px){
+    margin-top: -20px;
+  }
+}
+
+.image_div {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://static.wixstatic.com/media/ac4f13c139f5098ee2e36f166f831617.jpg);
+  background-attachment: fixed;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.image_div p {
+  font-size: 40px;
+  // font-weight: 900;
+  color: white;
+  opacity: 1;
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  background-attachment: fixed;
+  font-family: 'Open Sans Condensed', sans-serif;
+  @media screen and (max-width: 425px){
+    font-size: 25px;
+    // font-weight: 700;
+  }
+}
+
+.comp_div {
+  margin: 10px 0px 10px 0px;
+  background-color: white;
+}
+
+.comp_div .col-lg-12 p {
+
+  color: gray;
+  font-size:29px;
+  font-weight: 700;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 3px;
+}
+.comp_img_div {
+  height: 60%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(http://static2.businessinsider.com/image/564fb8d584307617008b478a/this-25-year-old-founded-a-new-kind-of-vc-thats-helped-college-kids-raise-over-130-million.jpg);
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.comp_img_text {
+  height: 10%;
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+}
+
+.comp_img_text p {
+  font-size: 22px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.comp_img_descrp p {
+  font-size: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.comp_img_descrp {
+  height: 20%
+}
+
+.who_we {
+  padding: 0px 80px 80px;
+  height: 700px;
+  background-color: Azure;
+  font-family: 'Open Sans Condensed', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.who_we .text-center {
+  font-weight: 700;
+  font-size:29px;
+  color: orange;
+  letter-spacing: 3px;
+  // text-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.who_we p {
+  font-weight: 0;
+  font-size: 25px;
+}
+
+.font {
+  font-size: 8em;
+  color: orange;
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  margin: auto 0px;
+}
+
+.font_back{
+  background-color:Azure;
+}
+
+.font_p {
+  padding: 0 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+.image2_div {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(http://www.epitomemagazine.com/wp-content/uploads/2016/09/elderly-blk-man-white-woman1.jpg);
+  width: 100%;
+  height: 650px;
+  // opacity: 0.8;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.image2_div p {
+  font-size: 40px;
+  // font-weight: 700;
+  color: white;
+  opacity: 1;
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  @media screen and (max-width: 425px){
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.stepp {
+  // height: 400px;
+  margin: 20px 0px;
+  padding: 50px 0px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 23px;
+  color: orange;
+  background-color: Azure;
+  @media screen and (max-width: 768px){
+    padding: 100px 20px;
+  }
+}
+
+.stepp h1 {
+  padding-bottom: 50px;
+}
+
+.require {
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  padding: 40px 20px;
+}
+.require_div1{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.require_div2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+.require_img {
+   background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://www.bolde.com/wp-content/uploads/2015/08/iStock_000069509155_Small.jpg);
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 425px){
+    height: 250px;
+  }
+}
+
+.why_this {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  padding: 40px 20px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.why_this_comp {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  padding: 40px 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.why_this_img {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://ak0.picdn.net/shutterstock/videos/23250940/thumb/1.jpg);
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 425px){
+    height: 250px;;
+  }
+}
+
+.why_this_div {
+ padding-left: 150px;
+ @media screen and (max-width: 768px){
+    padding-left:0px;
+  }
+}
+
+.become_submit {
+  height: 60px;
+  width: 200px;
+  color: white;
+  background-color: orange;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  @media screen and (max-width: 1440px) {
+    height: 50px;
+    margin-bottom: 40px;
+  }
+}
+
+.need_com_img {
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(https://blairsenior.org/wp-content/uploads/About-Blog-Box-Photo.jpg);
+  width: 100%;
+  height: 650px;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,77 @@
+<div class="row sen_img_app">
+  <div class="col-lg-3 col-md-3 sen_image">
+    <div class="sen_img_upper" style="background-image: url(<%=@user.avatar if @user.avatar? %>);">
+      <p class="comp_rate notification"><%= final_rating(@user) %>
+        <span style="color: orange;">☆</span>
+      </p>
+      <p class="comp_fee notification"><%= @user.fee %>/Hr
+      </p>
+    </div>
+    <div class="sen_img_lower">
+      <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
+      <p><%= @user.city %></p>
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-9 sen_app">
+    <div class="comp_description">
+      <strong><%= @user.description %></strong>
+    </div>
+  </div>
+</div>
+<% if @user.reviews.count >  0 %>
+  <div class="sen_rating">
+    <div class="sen_stars text-center">
+      <div>
+        <p class="notification">Recommendation</p>
+        <% wyr(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Companionship</p>
+        <% comp_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification">Communication</p>
+        <% comm_rate(@user).times do  %>
+          <span style="color: orange;">☆</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row review_div">
+      <% @user.reviews.each do |review|%>
+        <div class="col-lg-4">
+          <div class="row form_div">
+            <div class="col-lg-3 col-md-3 col-3">
+              <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+            </div>
+            <div class="col col-lg-9 col-md-9 col-9 form_div">
+              <p class="notification rev_paragraphs"><%= review.comment %></p>
+              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+              <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="comp_app_req text-center">
+  <p class="sen_app_par">These are Your Next Appointments</p>
+  <div class="row">
+      <% @companions.each do |date| %>
+          <div class="col-lg-2 col-4 form_div">
+            <button class="btn cal_but" disabled="true">
+              <p class="notification"><%= date.start_date.strftime('%b') %> <%= date.start_date.strftime('%d') %></p>
+              <p class="notification">With</p>
+              <p class="notification"><%= date.senior.first_name %></p>
+            </button>
+          </div>
+      <% end %>
+  </div>
+</div>
+<div class="text-center">
+  <a href="/comp_request"> <button class="btn btn-warning form_submit">Accept Requests</button></a>
+</div>
