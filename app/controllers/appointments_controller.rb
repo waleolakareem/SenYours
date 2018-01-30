@@ -11,8 +11,20 @@ class AppointmentsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @appointment = Appointment.find_or_create_by(appointment_params)
-    if @appointment.save
+    @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
+      appointment_params[:companion_id])
+
+    p "e" * 99
+    p @appointment
+    p appointment_params[:start_date]
+    p appointment_params[:senior_id]
+    p appointment_params[:companion_id]
+    p "r" * 99
+    if @appointment.length >= 1
+      @appointment[0].destroy
+      redirect_to user_path(@user)
+    elsif @appointment.length <= 1
+      @appointment = Appointment.create(appointment_params)
       redirect_to user_path(@user)
     else
       render :new
