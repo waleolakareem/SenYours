@@ -77,8 +77,6 @@
               <p class="notification"><%= date.strftime('%d') %></p>
               <p class="notification"><%= date.strftime('%Y') %></p>
             </button>
-            <%= link_to 'Delete', appointment_path(date,user_id: @user.id),
-                    method: :delete,remote: true %>
             <% else %>
             <button class="btn cal_but">
               <p class="notification"><%= date.strftime('%b') %></p>

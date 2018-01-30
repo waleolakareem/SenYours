@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color: #F8F8F8;
+  background-color: Azure;
 }
 .home_div {
   margin-top: 10px;
@@ -22,6 +22,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 60px;
 }
 
 .image_div p {
@@ -40,14 +41,16 @@ body {
 
 .comp_div {
   margin: 10px 0px 10px 0px;
+  background-color: white;
 }
 
 .comp_div .col-lg-12 p {
-  color: orange;
+
+  color: gray;
   font-size:29px;
   font-weight: 700;
-  font-family: 'Hind', sans-serif;
-  // text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 3px;
 }
 .comp_img_div {
   height: 60%;
@@ -56,12 +59,14 @@ body {
   background-postion: center;
   background-image:url(http://static2.businessinsider.com/image/564fb8d584307617008b478a/this-25-year-old-founded-a-new-kind-of-vc-thats-helped-college-kids-raise-over-130-million.jpg);
   width: 100%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
 .comp_img_text {
-  height: 5%;
+  height: 10%;
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  align-items: center;
 }
 
 .comp_img_text p {
@@ -93,6 +98,7 @@ body {
   font-weight: 700;
   font-size:29px;
   color: orange;
+  letter-spacing: 3px;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
@@ -149,7 +155,7 @@ body {
 .stepp {
   // height: 400px;
   margin: 20px 0px;
-  padding: 50px 150px 50px 200px;
+  padding: 50px 0px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 23px;
   color: orange;
@@ -160,9 +166,14 @@ body {
 }
 
 .stepp h1 {
-  // padding-bottom: 90px;
+  padding-bottom: 50px;
 }
 
+.require {
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  padding: 40px 20px;
+}
 .require_div1{
   font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -190,7 +201,18 @@ body {
 .why_this {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
-  padding-bottom: 40px;
+  padding: 40px 20px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+
+.why_this_comp {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  padding: 40px 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
 .why_this_img {

@@ -1,5 +1,8 @@
 <%= form_for @user do |f| %>
     <div class="container text-center sign_up_form_top">
+    <% @user.errors.full_messages.each do |message| %>
+           <%= message %>
+    <% end %>
         <div class="row" style="font-size: 20px">
             <div class="col">
                 <%= radio_button("user", "identification","Senior") %>

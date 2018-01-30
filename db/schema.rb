@@ -84,7 +84,8 @@ ActiveRecord::Schema.define(version: 20180125012615) do
     t.string "state"
     t.string "city"
     t.string "address"
-    t.integer "ssn"
+    t.string "encrypted_ssn"
+    t.string "encrypted_ssn_iv"
     t.integer "fee"
     t.text "description"
     t.string "avatar"
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20180125012615) do
     t.string "stripe_customer_id"
     t.date "dob"
     t.string "accurate_customer_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

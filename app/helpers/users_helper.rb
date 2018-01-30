@@ -41,7 +41,6 @@ module UsersHelper
     response = JSON.parse(resp.body)
     user.accurate_customer_id = response["id"]
     user.save!
-    p user
   end
 
   def place_order(user)
