@@ -1,13 +1,26 @@
+<body style="">
 <%= form_tag sessions_path, remote: true do %>
 <div class="container text-center form_top">
+  <h2>Log In</h2>
   <div class="form_div">
-    <%= text_field_tag :email, params[:email], class: 'responsive-input',placeholder: 'Jane.email' %>
+    <%= text_field_tag :email, params[:email], class: 'responsive-input',placeholder: 'Jane@email' %>
   </div>
   <div class="form_div">
     <%= password_field_tag :password, params[:password], class: 'responsive-input', placeholder: 'Password' %>
   </div>
   <div class="form_div">
-    <%= submit_tag "Sign In", class: 'btn form_submit' %>
+    <%= submit_tag "Sign In", class: 'btn sign_in_form_submit' %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <a href="/users/new" style="color: orange;">
+        <p>Dont have an account</p>
+      </a>
+    </div>
+    <div class="col">
+      <p>Forget password</p>
+    </div>
   </div>
 </div>
 <% end %>
+</body>

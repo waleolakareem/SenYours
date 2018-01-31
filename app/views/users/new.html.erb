@@ -3,7 +3,8 @@
     <% @user.errors.full_messages.each do |message| %>
            <%= message %>
     <% end %>
-        <div class="row" style="font-size: 20px">
+        <h2>Sign Up</h2>
+        <div class="row form_div" style="font-size: 20px">
             <div class="col">
                 <%= radio_button("user", "identification","Senior") %>
                 <%= label_tag(:identification, "Senior") %>
@@ -53,7 +54,7 @@
                 <%= f.text_field :phone_number, class: 'user_responsive-input',placeholder: 'Phone Number' %>
             </div>
             <div class="col-lg-12 col-md-12 form_div">
-                <%= f.submit "Sign Up", class: 'btn form_submit' %>
+                <%= f.submit "Sign Up", class: 'btn sign_up_form_submit' %>
             </div>
         </div>
     </div>

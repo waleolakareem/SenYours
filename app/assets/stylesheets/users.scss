@@ -22,17 +22,18 @@ body {
 
 .sign_up_form_top {
   padding-top:  20px;
-  margin-top: 60px;
+  margin-top: 10px;
   // height: 550px;
-  // width:90%;
+  width:30%;
   background-color:   white;
-  // box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  font-family: 'Muli', sans-serif;
+  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  color: orange;
   // border-radius: 6px;
 
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
-    // height: 900px;
     width: 100%;
     border-radius: 3px;
   }
@@ -44,7 +45,8 @@ body {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
-
+  font-family: 'Muli', sans-serif;
+  outline: none;
 
   @media screen and (max-width: 320px) {
     width: 300px !important;
@@ -66,7 +68,8 @@ body {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
-
+  font-family: 'Muli', sans-serif;
+  outline: none;
 
   @media screen and (max-width: 320px) {
     width: 300px !important;
@@ -88,8 +91,8 @@ body {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
-
-
+  font-family: 'Muli', sans-serif;
+  outline: none;
 
   @media screen and (max-width: 320px) {
     width: 300px !important;
@@ -103,6 +106,26 @@ body {
     font-size: 12px;
     line-height: 1.5;
 
+  }
+}
+
+.sign_up_form_submit {
+  height: 60px;
+  width: 400px;
+  color: white;
+  background-color: orange;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+  }
+
+  @media screen and (max-width: 1440px) {
+    height: 50px;
+    width: 315px;
   }
 }
 
