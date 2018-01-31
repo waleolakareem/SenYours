@@ -14,7 +14,7 @@
   background-size:cover;
   background-postion: center;
   background-image:url(https://static.wixstatic.com/media/ac4f13c139f5098ee2e36f166f831617.jpg);
-  background-attachment: fixed;
+  // background-attachment: fixed;
   width: 100%;
   height: 600px;
   display: flex;
@@ -51,12 +51,11 @@
   letter-spacing: 3px;
 }
 .comp_img_div {
-  height: 60%;
+  height: 70%;
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
   background-image:url(http://static2.businessinsider.com/image/564fb8d584307617008b478a/this-25-year-old-founded-a-new-kind-of-vc-thats-helped-college-kids-raise-over-130-million.jpg);
-  width: 100%;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
@@ -75,7 +74,6 @@
 .comp_img_descrp p {
   font-size: 20px;
   font-family: 'Open Sans Condensed', sans-serif;
-
 }
 
 .comp_img_descrp {
@@ -84,9 +82,9 @@
 
 .who_we {
   padding: 0px 80px 80px;
-  height: 700px;
+  height: 300px;
   background-color: Azure;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -94,7 +92,7 @@
 
 .who_we .text-center {
   font-weight: 700;
-  font-size:29px;
+  font-size:19px;
   color: orange;
   letter-spacing: 3px;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
@@ -102,24 +100,21 @@
 
 .who_we p {
   font-weight: 0;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .font {
-  font-size: 8em;
-  color: orange;
-  text-shadow: 1px 1px 5px rgba(0,0,0,1);
-  margin: auto 0px;
+  margin-bottom: 30px;
 }
 
 .font_back{
-  background-color:Azure;
+  margin: 30px 0px;
 }
 
 .font_p {
-  padding: 0 40px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
+  padding: 0 10px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
 }
 
 .image2_div {
@@ -180,8 +175,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
 }
 
 .require_img {
