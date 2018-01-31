@@ -42,12 +42,25 @@
   background-color: white;
 }
 
-.comp_div .col-lg-12 p {
+.comp_div .col-lg-4 {
+  @media screen and (max-width: 425px){
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 
+  @media screen and (max-width: 1024px){
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+
+
+.comp_div .col-lg-12 p {
   color: gray;
-  font-size:29px;
+  font-size:20px;
   font-weight: 700;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
 }
 .comp_img_div {
