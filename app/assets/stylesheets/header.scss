@@ -8,9 +8,11 @@
   font-family: 'Muli', sans-serif;
 }
 
-.navbar button {
-  color: orange;
+.navbar-toggler {
+  background-color: light-orange !important;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
 }
+
 .dash {
   display: show;
   @media screen and (max-width:768px){
