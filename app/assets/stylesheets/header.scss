@@ -3,6 +3,16 @@
 //   box-shadow: 0px 0px 5px rgba(0,0,0,1);
 // }
 
+.navbar a {
+  color: #36454F;
+  font-family: 'Muli', sans-serif;
+}
+
+.navbar-toggler {
+  background-color: light-orange !important;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1);
+}
+
 .dash {
   display: show;
   @media screen and (max-width:768px){
@@ -11,12 +21,12 @@
 }
 
 .nav_img {
-  height: 90px;
-  width: 90px;
+  height: 50px;
+  width: 50px;
 
   @media screen and (max-width:1024px){
-    height: 65px;
-    width: 65px;
+    height: 40px;
+    width: 40px;
   }
 }
 
@@ -32,9 +42,8 @@
 }
 
 .nav-link{
-  // color: orange !important;
-  font-size: 23px ;
-  font-family: 'Open Sans Condensed', sans-serif;
+  color: orange !important;
+  font-size: 16px ;
 }
 
 .lead_nav{

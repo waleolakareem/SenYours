@@ -2,10 +2,20 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_limit: [352, 245]
+  process resize_to_fit: [352, 345]
   process :auto_orient
 
   # Rotate Image
+  version :large do
+    process :auto_orient,
+    resize_to_fill: [600, 600]
+  end
+
+  version :thumb do
+    process :auto_orient,
+    resize_to_fill: [100, 100]
+  end
+
 
   def auto_orient
     manipulate! do |image|
