@@ -243,9 +243,9 @@ body {
 
 
 .sen_img_upper {
-  height: 70%;
+  height: 80%;
   width: 100%;
-  background-position: center;
+  background-position: top center;
   background-repeat: none;
   background-size:cover;
   margin-top:10px;
@@ -256,7 +256,7 @@ body {
 }
 
 .sen_img_lower {
-  height: 30%;
+  height: 20%;
   // Understand Flex box
   display:flex;
   align-items:center;
