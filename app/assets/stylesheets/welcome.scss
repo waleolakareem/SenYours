@@ -1,9 +1,7 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-color: Azure;
-}
+
 .home_div {
   margin-top: 10px;
   @media screen and (max-width: 1024px){
@@ -16,7 +14,7 @@ body {
   background-size:cover;
   background-postion: center;
   background-image:url(https://static.wixstatic.com/media/ac4f13c139f5098ee2e36f166f831617.jpg);
-  background-attachment: fixed;
+  // background-attachment: fixed;
   width: 100%;
   height: 600px;
   display: flex;
@@ -44,21 +42,33 @@ body {
   background-color: white;
 }
 
-.comp_div .col-lg-12 p {
+.comp_div .col-lg-4 {
+  @media screen and (max-width: 425px){
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 
+  @media screen and (max-width: 1024px){
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+
+
+.comp_div .col-lg-12 p {
   color: gray;
-  font-size:29px;
+  font-size:20px;
   font-weight: 700;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
 }
 .comp_img_div {
-  height: 60%;
+  height: 70%;
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
   background-image:url(http://static2.businessinsider.com/image/564fb8d584307617008b478a/this-25-year-old-founded-a-new-kind-of-vc-thats-helped-college-kids-raise-over-130-million.jpg);
-  width: 100%;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
@@ -70,14 +80,13 @@ body {
 }
 
 .comp_img_text p {
-  font-size: 22px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  font-family: 'Muli', sans-serif;
 }
 
 .comp_img_descrp p {
-  font-size: 20px;
-  font-family: 'Open Sans Condensed', sans-serif;
-
+  font-size: 17px;
+  font-family: 'Muli', sans-serif;
 }
 
 .comp_img_descrp {
@@ -85,43 +94,43 @@ body {
 }
 
 .who_we {
-  padding: 0px 80px 80px;
-  height: 700px;
+  padding: 30px 80px 80px;
   background-color: Azure;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @media screen and (max-width: 425px){
+    padding: 10px 30px 20px;
+  }
 }
 
 .who_we .text-center {
-  font-weight: 700;
-  font-size:29px;
+  font-size:20px;
   color: orange;
   letter-spacing: 3px;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  @media screen and (max-width: 425px){
+    padding: 0px 30px 20px;
+  }
 }
 
 .who_we p {
-  font-weight: 0;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .font {
-  font-size: 8em;
-  color: orange;
-  text-shadow: 1px 1px 5px rgba(0,0,0,1);
-  margin: auto 0px;
+  margin-bottom: 30px;
 }
 
 .font_back{
-  background-color:Azure;
+  margin: 30px 0px;
 }
 
 .font_p {
-  padding: 0 40px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
+  padding: 0 10px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
 }
 
 .image2_div {
@@ -156,34 +165,38 @@ body {
   // height: 400px;
   margin: 20px 0px;
   padding: 50px 0px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 23px;
-  color: orange;
-  background-color: Azure;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
+  color: black;
+  background-color: white;
   @media screen and (max-width: 768px){
     padding: 100px 20px;
   }
 }
 
-.stepp h1 {
+.stepp h2 {
   padding-bottom: 50px;
 }
 
 .require {
   background-color: white;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-  padding: 40px 20px;
+  padding: 0px 5px;
+}
+
+.require .col-lg-6 {
+  box-shadow: 0px 0px 1px rgba(0,0,0,1);
 }
 .require_div1{
   font-family: 'Open Sans Condensed', sans-serif;
+  padding: 10px 0px;
 }
 
 .require_div2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
 }
 
 .require_img {
@@ -198,24 +211,29 @@ body {
   }
 }
 
+.require_par_last {
+  padding-bottom: 4em;
+  @media screen and (max-width: 768px){
+    padding-bottom: 0em;
+  }
+}
 .why_this {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
   padding: 40px 20px;
   background-color: white;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
 .why_this_comp {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
-  padding: 40px 40px;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
+  padding: 0px 5px;
   margin-bottom: 40px;
   background-color: white;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
 .why_this_img {
+  box-shadow: 0px 0px 1px rgba(0,0,0,1);
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
@@ -228,12 +246,19 @@ body {
 }
 
 .why_this_div {
- padding-left: 150px;
+ // padding-left: 50px;
+ box-shadow: 0px 0px 1px rgba(0,0,0,1);
  @media screen and (max-width: 768px){
-    padding-left:0px;
+    // padding-left:20px;
   }
 }
 
+.why_this_par_last {
+  padding-bottom: 3em;
+  @media screen and (max-width: 768px){
+    padding-bottom: 0em;
+  }
+}
 .become_submit {
   height: 60px;
   width: 200px;

@@ -14,12 +14,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
       appointment_params[:companion_id])
 
-    p "e" * 99
-    p @appointment
-    p appointment_params[:start_date]
-    p appointment_params[:senior_id]
-    p appointment_params[:companion_id]
-    p "r" * 99
     if @appointment.length >= 1
       @appointment[0].destroy
       redirect_to user_path(@user)

@@ -14,49 +14,50 @@
             </div>
         </div>
         <div class="row">
-            <div class="col form_div">
-                <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
+            <div class="col-lg-12 form_div">
+                <%= f.text_field :first_name, class: 'user_responsive-input',placeholder: 'First Name' %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :last_name, class: 'user_responsive-input', placeholder: 'Last Name' %>
             </div>
         </div>
-        <div class="row">
-            <div class="col form_div">
+        <div class="row text-center">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :email, class: 'info_responsive-input', placeholder: 'Email'  %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.password_field :password, class: 'info_responsive-input', placeholder: 'Password' %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.password_field :password_confirmation, class: 'info_responsive-input', placeholder: 'Password Confirmation'  %>
             </div>
         </div>
         <div class="row">
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :address, class: 'add_responsive-input',placeholder: 'Address' %>
             </div>
         </div>
         <div class="row">
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :city, class: 'info_responsive-input', placeholder: 'City' %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :zipcode, class: 'info_responsive-input', placeholder: 'Zip Code' %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 form_div">
                 <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
             </div>
         </div>
         <div class="row">
-            <div class="col form_div">
+            <div class="col-lg-12 col-md-12 form_div">
                 <%= f.text_field :phone_number, class: 'user_responsive-input',placeholder: 'Phone Number' %>
             </div>
-            <div class="col form_div">
+            <div class="col-lg-12 col-md-12 form_div">
                 <%= f.submit "Sign Up", class: 'btn form_submit' %>
             </div>
         </div>
     </div>
     <%= f.hidden_field :availability, value: true %>
+    <%= f.hidden_field :avatar, value: "/assets/avatar_image.png" %>
 <% end %>
 

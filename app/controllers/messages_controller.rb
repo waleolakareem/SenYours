@@ -28,6 +28,10 @@ def create
  if @message.save
   redirect_to conversation_messages_path(@conversation)
  end
+ respond_to do |format|
+  format.html {}
+  format.js {}
+ end
 end
 private
  def message_params
