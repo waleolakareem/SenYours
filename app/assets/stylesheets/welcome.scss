@@ -81,25 +81,28 @@
 }
 
 .who_we {
-  padding: 0px 80px 80px;
-  height: 300px;
+  padding: 30px 80px 80px;
   background-color: Azure;
   font-family: 'Muli', sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @media screen and (max-width: 425px){
+    padding: 10px 30px 20px;
+  }
 }
 
 .who_we .text-center {
-  font-weight: 700;
-  font-size:19px;
+  font-size:20px;
   color: orange;
   letter-spacing: 3px;
   // text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  @media screen and (max-width: 425px){
+    padding: 0px 30px 20px;
+  }
 }
 
 .who_we p {
-  font-weight: 0;
   font-size: 18px;
 }
 
