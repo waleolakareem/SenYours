@@ -1,3 +1,17 @@
 .mailbox {
   margin-top: 20px;
 }
+
+.inbox_div{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mailbox_div {
+  box-shadow: 0px 0px 0.5px rgba(0,0,0,1);
+  border: 1px solid gray;
+  border-radius: 30px;
+  margin-bottom: 5px;
+  padding: 2px 0px;
+}

@@ -7,12 +7,17 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :reviewers, class_name: 'Review', foreign_key: 'reviewer_id', dependent: :destroy
   has_many :available_days, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   has_secure_password
   validate  :avatar_size
+
+  def conversations
+    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
 
   # Validates the size of an uploaded picture.
     def avatar_size

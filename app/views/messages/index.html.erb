@@ -10,11 +10,11 @@
    <% user = User.find(message.user_id) %>
     <div class="row form_div mess_div">
       <div class="col-lg-2 col-md-2 col-3">
-        <img src=<%= user.avatar.thumb.url if user.avatar? %> class= "mess_responsive_image mess_img_circle img-fluid">
+        <img src="<%= user.avatar.thumb.url if user.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
       </div>
       <div class="col-lg-10 col-md-10 col-9 mess_display">
          <div>
-           <strong><%= user.first_name %></strong><%= message.message_time %>
+            <strong><%= user.first_name %></strong><%= message.message_time %>
          </div>
          <div>
           <i class='right triangle icon'></i>
@@ -25,7 +25,7 @@
   <% end %>
  <% end %>
  <div class="text-center">
-    <%= form_for [@conversation, @message], remote: true do |f| %>
+    <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
        <%= f.text_area :body, class: 'mess_descrip' %>
        <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
           <div>
@@ -34,7 +34,6 @@
     <% end %>
   </div>
 </div>
-<div class="col-lg-0 mailbox"></div>
 </div>
 </div>
 </body>
