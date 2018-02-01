@@ -1,6 +1,7 @@
 <% if current_user.id === @user.id  %>
 <%= form_for @user do |f| %>
     <div class="container text-center senior_edit_form_top">
+        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
         <div class="row">
             <div class="col form_div">
                 <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
