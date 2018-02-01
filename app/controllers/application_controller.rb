@@ -3,4 +3,5 @@ class ApplicationController < ActionController::Base
   include ReviewsHelper
   include UsersHelper
   include AvailableDaysHelper
+  include MessagesHelper
 end

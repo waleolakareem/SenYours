@@ -12,14 +12,21 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= current_user.id %>/conversations">
-             </i></i> Messages</a>
+          <a class="nav-link" href="/users/<%= current_user.id%>/conversations">
+            <% if get_unread.length >= 1 %>
+            <% p get_unread %>
+             Messages<i class="fa fa-circle"
+             style="color: red; font-size: 0.5em; position: absolute;"></i>
+             <% else %>
+             Messages<i class="fa fa-circle"
+             style="color: green; font-size: 0.5em; position: absolute;"></i>
+            <% end %>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="/users/<%=current_user.id %>/edit">
             Update Account</a>
-          </a>
+          </a> -->
         </li>
         <% if current_user.identification === "Senior" %>
             <li class="nav-item">
