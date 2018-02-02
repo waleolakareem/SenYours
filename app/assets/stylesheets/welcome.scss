@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_div {
-  margin-top: 10px;
   @media screen and (max-width: 1024px){
     margin-top: -20px;
   }
@@ -13,7 +12,7 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(https://static.wixstatic.com/media/ac4f13c139f5098ee2e36f166f831617.jpg);
+  background-image:url(http://s3.germany.travel/media/microsites_media/barrierefrei/3_how_to_book/1_lufthansa/older_couple.jpg);
   // background-attachment: fixed;
   width: 100%;
   height: 600px;
@@ -24,15 +23,15 @@
 }
 
 .image_div p {
-  font-size: 40px;
+  font-size: 30px;
   // font-weight: 900;
   color: white;
   opacity: 1;
   text-shadow: 1px 1px 5px rgba(0,0,0,1);
   background-attachment: fixed;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
   @media screen and (max-width: 425px){
-    font-size: 25px;
+    font-size: 12px;
     // font-weight: 700;
   }
 }
@@ -64,11 +63,9 @@
   letter-spacing: 3px;
 }
 .comp_img_div {
-  height: 70%;
-  background-repeat: no-repeat;
-  background-size:cover;
   background-postion: center;
-  background-image:url(http://static2.businessinsider.com/image/564fb8d584307617008b478a/this-25-year-old-founded-a-new-kind-of-vc-thats-helped-college-kids-raise-over-130-million.jpg);
+  height: 70%;
+  background-size:cover;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
@@ -148,15 +145,15 @@
 }
 
 .image2_div p {
-  font-size: 40px;
+  font-size: 30px;
   // font-weight: 700;
   color: white;
   opacity: 1;
   text-shadow: 1px 1px 5px rgba(0,0,0,1);
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Muli', sans-serif;
 
   @media screen and (max-width: 425px){
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
   }
 }

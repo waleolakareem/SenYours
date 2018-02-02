@@ -12,6 +12,11 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/users/<%= current_user.id%>/conversations">
             <% if get_unread.length >= 1 %>
             <% p get_unread %>
@@ -23,10 +28,10 @@
             <% end %>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/users/<%=current_user.id %>/edit">
-            Update Account</a>
-          </a> -->
+        <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
         </li>
         <% if current_user.identification === "Senior" %>
             <li class="nav-item">
@@ -34,19 +39,7 @@
                Find Companions</a>
             </a>
             </li>
-            <% if current_user.identification === "Senior" && !current_user.stripe_customer_id %>
-              <button class="btn">
-                <%= form_tag charges_path do %>
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                          data-description="Card Registration"
-                          data-amount="100"
-                          data-label="Register your Credit Card"
-                          data-email="<%= current_user.email %>"
-                          data-locale="auto"></script>
-                <% end %>
-              </button>
-            <% end %>
+
         <% end %>
         <% if current_user.identification === "Companion" %>
             <li class="nav-item">
@@ -55,6 +48,11 @@
               </a>
             </li>
         <% end %>
+         <li class="nav-item">
+          <a class="nav-link dash" href="/need_a_comp">
+            |</a>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">
              Sign Out</a>

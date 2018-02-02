@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-3 sen_image">
     <div class="sen_img_upper"
@@ -7,10 +8,14 @@
       style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
       <% end %>
       <p class="comp_rate notification"><%= final_rating(@user) %>
-        <span style="color: orange;">☆</span>
+        <i class="fa fa-star" style="color: orange;"></i>
       </p>
       <p class="comp_fee notification"><%= @user.fee %>/Hr
       </p>
+       <% if current_user.id === @user.id %>
+        <a class="edit_n_comp_rate" href="/users/<%=current_user.id %>/edit">
+            Edit Profile</a>
+      <% end %>
     </div>
     <div class="sen_img_lower">
       <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
@@ -19,29 +24,29 @@
   </div>
   <div class="col-lg-9 col-md-9 sen_app">
     <div class="comp_description">
-      <strong><%= @user.description %></strong>
+      <Strong>About me: </Strong><%= @user.description %>
     </div>
   </div>
 </div>
-<% if @user.reviews.count >  0 %>
+<% if @user.reviews.count >=  0 %>
   <div class="sen_rating">
     <div class="sen_stars text-center">
       <div>
         <p class="notification">Recommendation</p>
         <% wyr(@user).times do  %>
-          <span style="color: orange;">☆</span>
+          <i class="fa fa-star" style="color: orange;"></i>
         <% end %>
       </div>
       <div>
         <p class="notification">Companionship</p>
         <% comp_rate(@user).times do  %>
-          <span style="color: orange;">☆</span>
+          <i class="fa fa-star" style="color: orange;"></i>
         <% end %>
       </div>
       <div>
         <p class="notification">Communication</p>
         <% comm_rate(@user).times do  %>
-          <span style="color: orange;">☆</span>
+          <i class="fa fa-star" style="color: orange;"></i>
         <% end %>
       </div>
     </div>
@@ -79,4 +84,5 @@
 </div>
 <div class="text-center">
   <a href="/comp_request"> <button class="btn btn-warning form_submit">Accept Requests</button></a>
+</div>
 </div>
