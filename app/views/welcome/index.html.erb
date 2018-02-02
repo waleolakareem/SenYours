@@ -1,26 +1,42 @@
-<body style="background-color: white;">
+<body style="background-color: #ffffff;">
   <div class="home_div">
-    <div class="image_div">
-      <p>Combating loneliness one companionship at a time</p>
+    <div class="image_div img-responsive">
+      <p>Combating loneliness one at a time</p>
     </div>
-    <div class="container">
+    <!-- <div class="container-fluid"> -->
     <div class="row comp_div">
       <div class="col-lg-12 text-center">
         <p>MEET YOUR COMPANIONS<p>
       </div>
-      <% 3.times do %>
         <div class="col-lg-4 col-md-4" style=" height: 550px;">
-          <div class="comp_img_div" style="background-image: url(<%=@arr.sample%>);"></div>
+          <div class="comp_img_div" style="background-image: url(<%=@arr[0]%>);"></div>
           <div class="comp_img_text">
-            <p class="notification"> <strong>John Ledgend</strong>,  San francisco</p>
+            <p class="notification"> <strong>Jose Frenando</strong>,  San francisco</p>
           </div>
           <div class="comp_img_descrp">
-            <p>Description: "I started driving with Uber because I liked the idea that my own car could make me money."</p>
+            <p>Description: "I Love to help people on a day to day basics. Being a companion is something I enjoy doing"</p>
           </div>
         </div>
-      <% end %>
+        <div class="col-lg-4 col-md-4" style=" height: 550px;">
+          <div class="comp_img_div" style="background-image: url(<%=@arr[1]%>);"></div>
+          <div class="comp_img_text">
+            <p class="notification"> <strong>Peter Fred</strong>,  San francisco</p>
+          </div>
+          <div class="comp_img_descrp">
+            <p>Description: "Every day for me starts with a smile, impacting others with joyous moment is something I appreciate from being a companion."</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4" style=" height: 550px;">
+          <div class="comp_img_div" style="background-image: url(<%=@arr[2]%>);"></div>
+          <div class="comp_img_text">
+            <p class="notification"> <strong>Helen Kate</strong>,  San francisco</p>
+          </div>
+          <div class="comp_img_descrp">
+            <p>Description: "For me being a companion is a way to give back to the wonderful world I live in, some-days after class especially on the weekend I love to companion."</p>
+          </div>
+        </div>
     </div>
-  </div>
+  <!-- </div> -->
   <div class=" row who_we" id="what_we">
     <div class="col-lg-6">
       <p class="text-center notification">WHO WE ARE</p>
@@ -36,43 +52,44 @@
     <div class="text-center">
       <img src="/assets/verified.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Verification And Protection</p>
+    <p class="font_p">All companions have to pass a thorough background check. Plus we have you covered with our insurance.</p>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 font_back">
     <div class="text-center">
       <img src="/assets/time.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Punctual</p>
+    <p class="font_p">Our companions are available from 8AM to 8PM. Availability on short notice to attend to your needs.</p>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 font_back">
     <div class="text-center">
       <img src="/assets/phone.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Support Staff</p>
+    <p class="font_p">Our local support staff is available 24/7. You’re free to call us anytime you want with any questions or with any individual need.</p>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 font_back">
     <div class="text-center">
       <img src="/assets/car.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Transportation</p>
+    <p class="font_p">Wherever you need to go, our companions will ride with you. In your car and if you prefer to ride a bus we’ll get on board too.</p>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 font_back">
     <div class="text-center">
       <img src="/assets/shop.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Shopping</p>
+    <p class="font_p">Companions support you in obtaining your favorite groceries and prepare the meals you relish. It’s your choice to share the meal with them.
+.</p>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 font_back">
     <div class="text-center">
       <img src="/assets/sports.png" class="font">
     </div>
-    <p class="font_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <p class="text-center">Activities</p>
+    <p class="font_p">At home, in the park or gym –anywhere you want– we support you in staying active with exercises that you like or walks that you prefer.</p>
   </div>
 </div>
 </div>

@@ -16,7 +16,11 @@
     </div>
   </div>
   <div class="col-lg-9 col-md-9 sen_app">
-    <p class="sen_app_par text-center">Upcoming Appointments This Week</p>
+    <% if @seniors.count > 0 %>
+      <p class="sen_app_par text-center">Upcoming Appointments This Week</p>
+    <% else %>
+      <p class="sen_app_par text-center">You have no appointment</p>
+    <% end %>
     <div class="row">
       <% @seniors.each do |appointment| %>
           <% if appointment.accept === false %>
