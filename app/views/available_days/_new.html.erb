@@ -1,4 +1,5 @@
-<div class="container avail_form_top">
+<div class="container">
+<div class="avail_form_top">
   <div class="form_div">
     <% if current_user.identification === "Senior" %>
       <p class="notification">Which dates do you need companions</p>
@@ -23,6 +24,7 @@
     <% if current_user.identification === "Senior" %>
       <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
     <% end %>
+  </div>
   </div>
 </div>
 

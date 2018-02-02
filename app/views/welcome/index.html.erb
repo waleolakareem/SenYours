@@ -1,16 +1,16 @@
-<body style="background-color: white; margin: 0 auto;">
+<body style="background-color: white;">
   <div class="home_div">
     <div class="image_div">
-      <p>Combating loneliness with companionship</p>
+      <p>Combating loneliness one companionship at a time</p>
     </div>
-    <div class="container-fluid">
+    <div class="container">
     <div class="row comp_div">
       <div class="col-lg-12 text-center">
         <p>MEET YOUR COMPANIONS<p>
       </div>
       <% 3.times do %>
         <div class="col-lg-4 col-md-4" style=" height: 550px;">
-          <div class="comp_img_div"></div>
+          <div class="comp_img_div" style="background-image: url(<%=@arr.sample%>);"></div>
           <div class="comp_img_text">
             <p class="notification"> <strong>John Ledgend</strong>,  San francisco</p>
           </div>
@@ -77,6 +77,6 @@
 </div>
 </div>
 <div class="image2_div">
-    <p>Your Happiness is an important priority, Each companionship will leave you with a smile</p>
+    <p>Your Happiness is an important priority.</p>
 </div>
 </body>
