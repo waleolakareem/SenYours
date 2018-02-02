@@ -28,8 +28,9 @@ module ReviewsHelper
       collector += review.wyr_rating
     end
 
+
     if user.reviews.count === 0
-      avr_wyr = collector/1
+      avr_wyr = 5
     else
       avr_wyr = collector/user.reviews.count
     end
@@ -44,7 +45,7 @@ module ReviewsHelper
     end
 
     if user.reviews.count === 0
-     avr_comp_rate = collector/1
+     avr_comp_rate = 5
     else
      avr_comp_rate = collector/user.reviews.count
     end
@@ -59,7 +60,7 @@ module ReviewsHelper
     end
 
     if user.reviews.count === 0
-      avr_comm_rate = collector/1
+      avr_comm_rate = 5
     else
       avr_comm_rate = collector/user.reviews.count
     end
