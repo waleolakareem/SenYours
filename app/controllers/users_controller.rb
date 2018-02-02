@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @companions = @user.companions.where("start_date >= ?",Date.today).order('start_date ASC')
+    @companions = @user.companions.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @seniors = @user.seniors.where("start_date >= ?",Date.today).order('start_date ASC')
   end
 
