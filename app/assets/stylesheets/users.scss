@@ -75,7 +75,7 @@ body {
   }
 }
 .user_responsive-input {
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
@@ -83,11 +83,12 @@ body {
   font-family: 'Muli', sans-serif;
   outline: none;
   border-width:thin;
-
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
@@ -100,7 +101,7 @@ body {
 
 .info_responsive-input {
   // Large input box
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
@@ -108,11 +109,12 @@ body {
   font-family: 'Muli', sans-serif;
   outline: none;
   border-width:thin;
-
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
@@ -124,7 +126,7 @@ body {
 
 .add_responsive-input {
   // Large input box
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
@@ -132,11 +134,12 @@ body {
   font-family: 'Muli', sans-serif;
   outline: none;
   border-width:thin;
-
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
@@ -353,9 +356,9 @@ body {
 
 .sen_img_app {
   margin: 0px 15px;
-  margin-top: 10px;
+  margin-top: 60px;
   @media screen and (max-width: 640px){
-    margin: 0px;
+    margin: 20px;
   }
 }
 
