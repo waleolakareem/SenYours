@@ -82,6 +82,7 @@ body {
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
+  border-width:thin;
 
 
   @media screen and (max-width: 1440px) {
@@ -106,6 +107,7 @@ body {
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
+  border-width:thin;
 
 
   @media screen and (max-width: 1440px) {
@@ -129,6 +131,7 @@ body {
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
+  border-width:thin;
 
 
   @media screen and (max-width: 1440px) {
@@ -181,26 +184,66 @@ body {
     border-radius: 3px;
   }
 }
-
+.comp_edit_req{
+  background-color: orange;
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 20px;
+}
 .comp_edit_form_top {
   padding-top:  20px;
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-bottom: 40px;
-  height: 700px;
-  width:90%;
+  // width:90%;
   background-color:   white;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-  border-radius: 6px;
 
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
-    height: 900px;
+    // height: 900px;
     width: 100%;
     border-radius: 3px;
   }
 }
 
+.edit_responsive-input {
+  height: 40px;
+  width: 600px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 3px;
+  font-family: 'Muli', sans-serif;
+  outline: none;
+  border-width:thin;
+
+
+  @media screen and (max-width: 1440px) {
+    // Small input box
+    height: 30px;
+    width: 500px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 768px) {
+    // Small input box
+    height: 30px;
+    width:  450px;
+  }
+
+   @media screen and (max-width: 414px) {
+    // Small input box
+    height: 30px;
+    width:  280px;
+  }
+
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    padding-left: 0px;
+  }
+}
 .fee_div {
   padding-left: 40px;
   @media screen and (max-width: 320px) {
@@ -209,11 +252,11 @@ body {
 }
 .descrip {
   height: 120px;
-  width: 1070px;
+  width: 600px;
   border-radius: 6px;
 
   @media screen and (max-width: 320px) {
-    width: 300px !important;
+    width: 250px !important;
   }
 
   @media screen and (max-width: 1440px) {

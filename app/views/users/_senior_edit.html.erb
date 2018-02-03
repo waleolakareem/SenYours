@@ -1,44 +1,106 @@
+<body style="background-color: #f5f5f5">
 <% if current_user.id === @user.id  %>
-<%= form_for @user do |f| %>
-    <div class="container text-center senior_edit_form_top">
-        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
-        <div class="row">
-            <div class="col form_div">
-                <%= f.text_field :first_name,class: 'user_responsive-input',placeholder: 'First Name' %>
+    <div class="container">
+        <div class="row" >
+            <div class="col-lg-2 col-md-2" style="margin-top: 60px;">
+                <%= link_to 'Edit', edit_user_path(current_user) %><br>
+                <%= link_to 'View Profile', user_path(current_user) %>
             </div>
-            <div class="col form_div">
-                <%= f.text_field :last_name, class: 'user_responsive-input', placeholder: 'Last Name' %>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form_div">
-                <%= f.text_field :address, class: 'add_responsive-input',placeholder: 'Address' %>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form_div">
-                <%= f.text_field :city, class: 'info_responsive-input', placeholder: 'City' %>
-            </div>
-            <div class="col form_div">
-                <%= f.text_field :zipcode, class: 'info_responsive-input', placeholder: 'Zip Code' %>
-            </div>
-            <div class="col form_div">
-                <%= f.text_field :state, class: 'info_responsive-input', placeholder: 'State' %>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col form_div">
-                <%= f.text_field :phone_number, class: 'info_responsive-input',placeholder: 'Phone Number' %>
-            </div>
-            <div class="col form_div">
-                <%= f.text_field :age, class: 'info_responsive-input',placeholder: 'Age' %>
-            </div>
-            <div class="col form_div">
-                <%= f.submit "Complete Application", class: 'btn form_submit' %>
+            <div class="col-lg-10 col-md-10" style="margin-top: 60px;box-shadow: 1px 1px 5px rgba(0,0,0,0.1);padding: 0px 0px; border-radius: 6px;
+            ">
+            <div class="comp_edit_req"><p>Required</p></div>
+                <%= form_for @user do |f| %>
+                    <div class="container text-center comp_edit_form_top">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Picture</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <span class="picture">
+                                    <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>First Name</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :first_name,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Last Name</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :last_name,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Birth date</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.date_field :dob,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Email</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :email,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Address</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :address,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>State</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :state,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>City</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :city,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Zip code</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :zipcode,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Phone Number</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :phone_number,class: 'edit_responsive-input' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-2">
+                                <p>Description</p></div>
+                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                                <%= f.text_field :description,class: 'descrip' %>
+                            </div>
+                        </div>
+                            <div class="col form_div">
+                                <%= f.submit "Complete Application", class: 'btn form_submit' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
 <% end %>
-<% end %>
+</body>
+
 
 
