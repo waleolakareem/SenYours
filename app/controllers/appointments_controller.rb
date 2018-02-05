@@ -51,7 +51,8 @@ class AppointmentsController < ApplicationController
     )
       @appointment.payment_status = "Paid"
       @appointment.save
-      redirect_to '/comp_request'
+      render ''
+      redirect_to 'appointment//edit'
     else
       render 'edit'
     end
