@@ -8,24 +8,40 @@
   }
 }
 
-.image_div {
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-postion: center;
-  background-image:url(https://nebula.wsimg.com/134d129ff00236be6de7a0148bdbbf68?AccessKeyId=3B5F9E931A443B1130F2&disposition=0&alloworigin=1);
+#car1{
+  background-image:url(/assets/love.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  height: 630px;
   background-attachment: fixed;
-  width: 100%;
-  height: 700px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 0px;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-
   @media screen and (max-width: 1024px){
-    height: 500px;
+    height: 400px;
+    background-attachment: scroll;
   }
+}
 
+#car2{
+  background-image:url(/assets/love2.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  height: 630px;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+  }
+}
+
+#car3{
+  background-image:url(/assets/love3.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  height: 630px;
+  background-attachment: fixed;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+  }
 }
 
 .image_div p {
@@ -44,9 +60,8 @@
 
 .comp_div {
   margin: 0px 0px 0px 0px;
-  background-color: #f5f5f5;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-
+  // background-color: #f5f5f5;
+  // box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
 
 .comp_div .col-lg-4 {
@@ -54,27 +69,23 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-
-  @media screen and (max-width: 1024px){
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-  }
 }
 
 
 
 .comp_div .col-lg-12 p {
-  color: black;
+  color: orange;
   font-size:20px;
-  font-weight: 700;
-  font-family: 'Muli', sans-serif;
+  // font-weight: 700;
+  // font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
+  padding-top:20px;
 }
 .comp_img_div {
   background-postion: center;
-  height: 70%;
+  height: 60%;
   background-size:cover;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
 
 .comp_img_text {
@@ -106,7 +117,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+  margin-bottom: 50px;
+  // box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
   @media screen and (max-width: 425px){
     padding: 10px 30px 20px;
   }
@@ -144,6 +156,10 @@
   font-size: 15px;
 }
 
+.font_p_1 {
+  letter-spacing: 2px;
+  font-size: 15px;
+}
 .image2_div {
   background-repeat: no-repeat;
   background-size:cover;
@@ -191,7 +207,7 @@
 }
 
 .require {
-  margin-top: 40px;
+  margin: 60px 0px;;
   background-color: #f5f5f5;
   // padding: 0px 5px;
   @media screen and (max-width: 425px){
@@ -200,7 +216,7 @@
 }
 
 .require .col-lg-6 {
-  box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
 }
 .require_div1{
   font-family: 'Open Sans Condensed', sans-serif;
@@ -257,11 +273,11 @@
 }
 
 .why_this_img {
-  box-shadow: 0px 0px 1px rgba(0,0,0,1);
+  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(https://www.photocase.com/photos/2033442-teenager-girls-having-fun-taking-walk-on-the-beach-photocase-stock-photo-large.jpeg);
+  background-image:url(/assets/requirements_guy2.jpg);
   width: 100%;
   height: 400px;
   @media screen and (max-width: 425px){
@@ -271,7 +287,7 @@
 
 .why_this_div {
  // padding-left: 50px;
- box-shadow: 0px 0px 1px rgba(0,0,0,1);
+ // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
  background-color:#f5f5f5;
  @media screen and (max-width: 768px){
     // padding-left:20px;

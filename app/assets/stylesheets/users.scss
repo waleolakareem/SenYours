@@ -9,103 +9,144 @@ html {
 
 body {
   background-color:white;
-  padding-top:70px;
-// Footer stick to bottom with help of this
-  // margin: 0 0 150px;
-  // @media screen and (max-width: 425px) {
-  //   margin: 0 0 500px;
-  // }
+  padding-top:50px;
 }
 .notification {
   margin-bottom: 0em;
 }
 
 .sign_up_form_top {
-  padding-top:  20px;
-  margin-top: 10px;
-  // height: 550px;
-  width:30%;
-  background-color:   white;
-  font-family: 'Muli', sans-serif;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-  color: orange;
-  // border-radius: 6px;
 
+  padding-top: 20px;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  background-color: #f5f5f5;
+  font-family: 'Muli', sans-serif;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  color: orange;
+  width: 30%;
+  border-radius: 3px;
   @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 90px;
+    width: 30%;
+    border-radius: 3px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding-top:  40px;
+    margin-top: 90px;
+    width: 40%;
+    border-radius: 3px;
+  }
+
+   @media screen and (max-width: 768px) {
+    padding-top:  40px;
+    margin-top: 90px;
+    width: 50%;
+    border-radius: 3px;
+  }
+
+   @media screen and (max-width: 425px) {
     padding-top:  40px;
     margin-top: 0px;
     width: 100%;
     border-radius: 3px;
+    background-color: transparent;
   }
 }
 
+.sign_up_form_top .col-lg-12 {
+  @media screen and (max-width: 320px) {
+    padding-left: 0px;
+  }
+}
+
+.option{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.option-div_1 {
+  padding-right: 150px;
+  @media screen and (max-width: 1440px) {
+    padding-right: 70px;
+  }
+}
 .user_responsive-input {
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
-
-  @media screen and (max-width: 320px) {
-    width: 300px !important;
-  }
+  border-width:thin;
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
+    padding-left: 0px;
   }
 }
 
 .info_responsive-input {
   // Large input box
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
-
-  @media screen and (max-width: 320px) {
-    width: 300px !important;
-  }
+  border-width:thin;
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
   }
 }
 
 .add_responsive-input {
   // Large input box
-  height: 50px;
+  height: 45px;
   width: 400px;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
   font-family: 'Muli', sans-serif;
   outline: none;
-
-  @media screen and (max-width: 320px) {
-    width: 300px !important;
-  }
+  border-width:thin;
+  color: orange;
+  border-style: solid;
 
   @media screen and (max-width: 1440px) {
     // Small input box
-    height: 50px;
+    height: 45px;
     width: 315px;
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
-
+  }
+  @media screen and (max-width: 320px) {
+    width: 300px !important;
   }
 }
 
@@ -146,26 +187,66 @@ body {
     border-radius: 3px;
   }
 }
-
+.comp_edit_req{
+  background-color: orange;
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 20px;
+}
 .comp_edit_form_top {
   padding-top:  20px;
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-bottom: 40px;
-  height: 700px;
-  width:90%;
+  // width:90%;
   background-color:   white;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-  border-radius: 6px;
 
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
-    height: 900px;
+    // height: 900px;
     width: 100%;
     border-radius: 3px;
   }
 }
 
+.edit_responsive-input {
+  height: 40px;
+  width: 600px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 3px;
+  font-family: 'Muli', sans-serif;
+  outline: none;
+  border-width:thin;
+
+
+  @media screen and (max-width: 1440px) {
+    // Small input box
+    height: 30px;
+    width: 500px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 768px) {
+    // Small input box
+    height: 30px;
+    width:  450px;
+  }
+
+   @media screen and (max-width: 414px) {
+    // Small input box
+    height: 30px;
+    width:  280px;
+  }
+
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    padding-left: 0px;
+  }
+}
 .fee_div {
   padding-left: 40px;
   @media screen and (max-width: 320px) {
@@ -174,11 +255,11 @@ body {
 }
 .descrip {
   height: 120px;
-  width: 1070px;
+  width: 600px;
   border-radius: 6px;
 
   @media screen and (max-width: 320px) {
-    width: 300px !important;
+    width: 250px !important;
   }
 
   @media screen and (max-width: 1440px) {
@@ -275,9 +356,9 @@ body {
 
 .sen_img_app {
   margin: 0px 15px;
-  margin-top: 10px;
+  margin-top: 60px;
   @media screen and (max-width: 640px){
-    margin: 0px;
+    margin: 20px;
   }
 }
 
