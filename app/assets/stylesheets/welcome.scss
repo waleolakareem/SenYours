@@ -8,24 +8,40 @@
   }
 }
 
-.image_div {
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  background-image:url(/assets/love.jpg);
+#car1{
+  background-image:url(/assets/love.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  height: 630px;
   background-attachment: fixed;
-  width: 100%;
-  height: 660px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 30px;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
-
   @media screen and (max-width: 1024px){
-    height: 500px;
+    height: 400px;
+    background-attachment: scroll;
   }
+}
 
+#car2{
+  background-image:url(/assets/love2.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  height: 630px;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+  }
+}
+
+#car3{
+  background-image:url(/assets/love3.jpg) !important;
+  background-size: cover;
+  background-position: top center;
+  height: 630px;
+  background-attachment: fixed;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+  }
 }
 
 .image_div p {
@@ -52,11 +68,6 @@
   @media screen and (max-width: 425px){
     padding-left: 0px !important;
     padding-right: 0px !important;
-  }
-
-  @media screen and (max-width: 1024px){
-    padding-left: 5px !important;
-    padding-right: 5px !important;
   }
 }
 
