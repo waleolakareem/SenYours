@@ -1,18 +1,15 @@
 .footer-clean {
-  padding:10px 0;
-  background-color:#fff;
   color:orange;
-  // Stick to bottom
-  position: absolute;
   left: 0;
-  bottom: 0;
-  height: 150px;
+  bottom: 0px;
   width: 100%;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  margin-top: 100px;
+  background-color: transparent !important;
+  padding-bottom: 40px;
+  // height: 150px;
+  // box-shadow: 1px 1px 5px rgba(0,0,0,1);
   // border: 1px solid red;
-  @media screen and (max-width: 425px) {
-    height: 500px;
-  }
+
 }
 
 .footer-clean h3 {
