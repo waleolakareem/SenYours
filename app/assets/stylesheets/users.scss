@@ -269,7 +269,7 @@ body {
 }
 
 .index_div{
-   margin-top:30px;
+   margin-top:60px;
 }
 
 .comp_show {
@@ -364,7 +364,11 @@ body {
 }
 
 .sen_image {
-  height: 350px;
+  height: 300px;
+  @media screen and (max-width: 640px){
+    height: 350px;
+  }
+
 }
 
 
@@ -394,7 +398,9 @@ body {
 .sen_app {
   // border: 1px solid gray;
   // height: 350px;
+  font-family: 'Muli' sans-serif;
 }
+
 
 .sen_app_par {
   font-weight:700;

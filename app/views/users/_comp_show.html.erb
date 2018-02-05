@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row sen_img_app">
-  <div class="col-lg-3 col-md-3 sen_image">
+  <div class="col-lg-3 col-md-4 sen_image">
     <div class="sen_img_upper"
     <% if !@user.avatar.url %>
       style="background-image:url(/assets/avatar_image.png);"
@@ -22,14 +22,25 @@
       <p><%= @user.city %></p>
     </div>
   </div>
-  <div class="col-lg-9 col-md-9 sen_app">
+  <div class="col-lg-9 col-md-8 sen_app">
+    <div>
+      <h1 class="notification">Hello <%= @user.first_name %></h1>
+      <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
+      <% if current_user.id === @user.id %>
+        <a class="" href="/users/<%=current_user.id %>/edit">
+              Edit Profile</a>
+      <% end %>
+    </div>
     <div class="comp_description">
       <Strong>About me: </Strong><%= @user.description %>
     </div>
+    <% if @user.reviews.length === 0 %>
+      <Strong>Reviews</Strong>: Your first review is by SenYours, keep it up
+    <% end %>
   </div>
 </div>
 <% if @user.reviews.count >=  0 %>
-  <div class="sen_rating">
+  <div class="sen_rating container">
     <div class="sen_stars text-center">
       <div>
         <p class="notification">Recommendation</p>
