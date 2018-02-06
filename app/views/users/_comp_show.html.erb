@@ -2,10 +2,10 @@
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-4 sen_image">
     <div class="sen_img_upper"
-    <% if !@user.avatar.url %>
-      style="background-image:url(/assets/avatar_image.png);"
+      <% if !@user.avatar.url %>
+        style="background-image:url(/assets/avatar_image.png);"
       <% else %>
-      style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
+        style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
       <% end %>
       <p class="comp_rate notification"><%= final_rating(@user) %>
         <i class="fa fa-star" style="color: orange;"></i>
@@ -27,8 +27,14 @@
       <h1 class="notification">Hello <%= @user.first_name %></h1>
       <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
       <% if current_user.id === @user.id %>
-        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-              Edit Profile</a>
+        <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
+          <p>You must provide all required information to proceed
+          <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                  Required</a></p>
+        <% else %>
+          <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                  Edit Profile</a>
+        <% end %>
       <% end %>
     </div>
     <div class="comp_description">

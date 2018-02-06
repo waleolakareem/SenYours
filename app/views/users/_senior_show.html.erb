@@ -1,7 +1,12 @@
 <div class="container">
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-3 sen_image">
-    <div class="sen_img_upper" style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
+    <div class="sen_img_upper" <% if !@user.avatar.url %>
+        style="background-image:url(/assets/avatar_image.png);"
+      <% else %>
+        style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
+      <% end %>
+
       <p class="comp_rate"><%= final_rating(@user) %>
         <i class="fa fa-star" style="color: orange;"></i>
       </p>
@@ -12,11 +17,17 @@
     </div>
   </div>
   <div class="col-lg-9 col-md-9 sen_app">
-    <h1 class="notification">Hello <%= @user.first_name %></h1>
+    <h1>Hello <%= @user.first_name %></h1>
     <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
     <% if current_user.id === @user.id %>
-      <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-              Edit Profile</a>
+      <% if !current_user.description?   || !current_user.phone_number? || !current_user.address? %>
+        <p>You must provide all required information to proceed
+        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                Required</a></p>
+      <% else %>
+        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                Edit Profile</a>
+      <% end %>
     <% end %>
     <% if @user.reviews.length === 0 %>
       <p><Strong>Reviews</Strong>: Your first review is by SenYours, keep it up</p>
