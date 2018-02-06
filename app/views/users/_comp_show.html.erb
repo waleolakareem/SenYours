@@ -27,7 +27,7 @@
       <h1 class="notification">Hello <%= @user.first_name %></h1>
       <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
       <% if current_user.id === @user.id %>
-        <a class="" href="/users/<%=current_user.id %>/edit">
+        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
               Edit Profile</a>
       <% end %>
     </div>

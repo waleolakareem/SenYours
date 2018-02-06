@@ -68,6 +68,7 @@
   <button class="btn header_large_button">Message <%= @user.first_name %></button>
 <% end %>
 </div>
+<% if current_user.identification === 'Senior' %>
 <div class="comp_app_req text-center">
   <p class="notification">Available to work</p>
   <p>Click on each date to make a request</p>
@@ -95,4 +96,5 @@
     <% end %>
   </div>
 </div>
+<% end %>
 </div>

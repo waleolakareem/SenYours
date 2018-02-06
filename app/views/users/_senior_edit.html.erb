@@ -16,7 +16,12 @@
                                 <p>Picture</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
                                 <span class="picture">
-                                    <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+                                    <div class="image-upload">
+                                       <label for="file-input">
+                                         <span class="fa fa-camera edit_tag"></span>
+                                       </label>
+                                        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png',id: 'file-input' %>
+                                    </div>
                                 </span>
                             </div>
                         </div>

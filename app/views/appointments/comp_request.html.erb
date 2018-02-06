@@ -1,7 +1,14 @@
-<div style="margin-top: 60px;">
+<div class="container" style="margin-top: 60px;">
 <% if @appointment.length >= 1  %>
   <% @appointment.each do |appointment| %>
-      <%= link_to "Accept this request", edit_appointment_path(appointment)%><br>
+       <p><a href="/users/<%=appointment.senior.id%>" class="edit_tag"><%=appointment.senior.first_name%></a>  requests your companionship for <%= appointment.start_date %>
+      <%=link_to appointment_path(appointment,appointment: {start_date: appointment.start_date,end_date: appointment.start_date, senior_id: appointment.senior.id,companion_id: current_user.id,accept: true,payment_status: "pending"}), method: :patch, remote: true do %>
+        <a class="edit_tag" href="">Accept</a>
+      <% end %>
+      <%=link_to appointment_path(appointment,appointment: {start_date: appointment.start_date,end_date: appointment.start_date, senior_id: appointment.senior.id,companion_id: current_user.id,accept: false,payment_status: "pending"}), method: :patch, remote: true do %>
+        <a class="edit_tag" href="">Decline</a>
+      <% end %></p>
+      <%#= link_to "Accept this request", edit_appointment_path(appointment)%>
   <% end %>
 <% else %>
   <h1>You have no request</h1>

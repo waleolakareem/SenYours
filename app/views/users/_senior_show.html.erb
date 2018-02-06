@@ -15,14 +15,14 @@
     <h1 class="notification">Hello <%= @user.first_name %></h1>
     <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
     <% if current_user.id === @user.id %>
-      <a class="" href="/users/<%=current_user.id %>/edit">
+      <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
               Edit Profile</a>
     <% end %>
     <% if @user.reviews.length === 0 %>
       <p><Strong>Reviews</Strong>: Your first review is by SenYours, keep it up</p>
     <% end %>
     <% if @seniors.count > 0 %>
-      <p class="sen_app_par text-center">Upcoming Appointments This Week</p>
+      <p class="sen_app_par text-center">Upcoming Appointments</p>
     <% else %>
       <p class="sen_app_par text-center">You have no appointment</p>
     <% end %>
