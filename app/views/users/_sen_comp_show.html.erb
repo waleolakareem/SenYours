@@ -1,7 +1,11 @@
 <div class="container">
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-3 sen_image">
-    <div class="sen_img_upper" style="background-image: url(<%=@user.avatar if @user.avatar? %>);">
+    <div class="sen_img_upper" <% if !@user.avatar.url %>
+        style="background-image:url(/assets/avatar_image.png);"
+      <% else %>
+        style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
+      <% end %>
     <p class="comp_rate"><%= final_rating(@user) %>
       <i class="fa fa-star" style="color: orange;"></i>
     </p>
@@ -14,9 +18,14 @@
     </div>
   </div>
   <div class="col-lg-9 col-md-9 sen_app">
+    <h1 class="notification">Meet <%= @user.first_name %></h1>
+      <h4><%= @user.first_name %> became a companion <%= @user.created_at.strftime('%Y') %></h4>
     <div class="comp_description">
-      <strong>About me:</strong><%= @user.description %>
+      <strong>About <%= @user.first_name %>:</strong><%= @user.description %>
     </div>
+    <% if @user.reviews.length === 0 %>
+      <Strong>Reviews</Strong>: <%= @user.first_name %> first review is by SenYours, <%= @user.first_name  %> promises to keep this up.
+    <% end %>
   </div>
 </div>
 
@@ -63,6 +72,7 @@
   <button class="btn header_large_button">Message <%= @user.first_name %></button>
 <% end %>
 </div>
+<% if current_user.identification === 'Senior' %>
 <div class="comp_app_req text-center">
   <p class="notification">Available to work</p>
   <p>Click on each date to make a request</p>
@@ -72,7 +82,7 @@
         <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
           <div class="form_div daite">
             <% if current_user.seniors.where("companion_id = ? AND start_date = ?",@user.id,date).length >= 1 %>
-            <button class="btn cal_but btn-warning">
+            <button class="btn cal_but btn-warning" >
               <p class="notification"><%= date.strftime('%b') %></p>
               <p class="notification"><%= date.strftime('%d') %></p>
               <p class="notification"><%= date.strftime('%Y') %></p>
@@ -90,4 +100,5 @@
     <% end %>
   </div>
 </div>
+<% end %>
 </div>

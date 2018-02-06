@@ -236,7 +236,7 @@
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(https://www.bolde.com/wp-content/uploads/2015/08/iStock_000069509155_Small.jpg);
+  background-image:url(/assets/becomeacomp.jpg);
   width: 100%;
   height: 400px;
   @media screen and (max-width: 425px){
@@ -285,6 +285,20 @@
   }
 }
 
+.sen_why_this_img {
+  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-postion: center;
+  background-image:url(/assets/whychooseus.jpg);
+  width: 100%;
+  height: 400px;
+  @media screen and (max-width: 425px){
+    height: 250px;;
+  }
+}
+
+
 .why_this_div {
  // padding-left: 50px;
  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
@@ -321,9 +335,13 @@
 .need_com_img {
   background-repeat: no-repeat;
   background-size:cover;
-  background-postion: center;
-  background-image:url(https://blairsenior.org/wp-content/uploads/About-Blog-Box-Photo.jpg);
+  background-postion: top center;
+  background-image:url(/assets/landpic9.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
+  @media screen and (max-width: 645px) {
+    height: 350px;
+  }
+
 }

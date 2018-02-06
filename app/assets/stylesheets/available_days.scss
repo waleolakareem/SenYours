@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .avail_form_top {
-  padding:  10px 20px;
-  margin-top: 150px;
+  // padding:  10px 0px;
+  padding-left: 20px;
+  margin-top: 60px;
   width:55%;
   background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
@@ -11,22 +12,22 @@
   font-size: 25px;
   font-weight: 700;
 
+  @media screen and (max-width: 414px) {
+    padding-left: 20px;
+    margin-top: 0px;
+    box-shadow:none;
+  }
 
   @media screen and (max-width: 375px) {
-    padding-left: 50px !important;
+    padding-left: 50px;
     // box-shadow:none;
   }
 
   @media screen and (max-width: 320px) {
-    padding-left: 22px !important;
+    padding-left: 22px;
     box-shadow:none;
   }
 
-  @media screen and (max-width: 414px) {
-    padding-left: 20px;
-    margin-top: 0px !important;
-    box-shadow:none;
-  }
 
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
