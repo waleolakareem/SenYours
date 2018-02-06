@@ -12,6 +12,10 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
+  validates :dob, presence: true
+  validates :identification, presence: true
+  validate :over_18
+
   has_secure_password
   validate  :avatar_size
 
@@ -19,6 +23,13 @@ class User < ApplicationRecord
     Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
   end
 
+  # Validates that user is older than 18 years of age
+  def over_18
+    return nil unless dob.present?
+    if dob + 18.years >= Date.today
+      errors.add(:dob, "can't be under 18")
+    end
+  end
   # Validates the size of an uploaded picture.
     def avatar_size
       if avatar.size > 5.megabytes

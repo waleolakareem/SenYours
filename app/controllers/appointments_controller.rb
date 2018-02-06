@@ -30,14 +30,17 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-    @appointment = Appointment.find(params[:id])
+    @user = current_user
+    @next_appointment = @user.companions.where({accept: false}).first().id
+    @appointment = Appointment.find(params[:id] || '#{@next_appointment}')
     @senior = @appointment.senior
     @companion = @appointment.companion
   end
 
   def update
-
     @appointment = Appointment.find(params[:id])
+    p "e" * 99
+    p appointment_params
     if appointment_params[:accept] === "false"
       @appointment.destroy
       redirect_to user_path(current_user)
@@ -52,6 +55,10 @@ class AppointmentsController < ApplicationController
       @appointment.payment_status = "Paid"
       @appointment.save
       redirect_to '/comp_request'
+      respond_to do |format|
+      format.html {}
+      format.js {}
+    end
     else
       render 'edit'
     end
