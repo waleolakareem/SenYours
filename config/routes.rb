@@ -19,6 +19,12 @@ Rails.application.routes.draw do
 
   get '/need_a_comp' => 'welcome#need_a_comp'
 
+  get '/privacy_policy' => 'welcome#privacy_policy'
+
+  get '/terms_of_services' => 'welcome#terms_of_services'
+
+  get 'cookie_policy' => 'welcome#cookie_policy'
+
   get '/comp_request' => 'appointments#comp_request'
 
   get '/login' => 'sessions#new'

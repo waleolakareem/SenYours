@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201053743) do
+ActiveRecord::Schema.define(version: 20180207043734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 20180201053743) do
     t.string "stripe_customer_id"
     t.date "dob"
     t.string "accurate_customer_id"
+    t.string "terms_of_service"
+    t.string "privacy_policy"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
