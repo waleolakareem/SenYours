@@ -1,4 +1,6 @@
 require 'json'
+require 'carmen'
+include Carmen
 module UsersHelper
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -69,4 +71,20 @@ module UsersHelper
     resp = http.request(req)
     puts resp.body
   end
+
+  def us_states
+    [:CA]
+  end
+
+  # def cities
+  #   render json: CS.cities(params[:state], :us).to_json
+  # end
+
+  def cities
+    CS.get :us, :ca
+  end
+
+def only_us_and_canada
+  Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
+end
 end
