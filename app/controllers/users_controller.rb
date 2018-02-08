@@ -27,8 +27,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    p current_user
-    p @user
   end
 
   def update
@@ -48,6 +46,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @companions = @user.companions.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @seniors = @user.seniors.where("start_date >= ?",Date.today).order('start_date ASC')
+    @appointment = @user.companions.where({accept: false})
   end
 
   def destroy
@@ -56,6 +55,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob)
+      params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob, :terms_of_service, :privacy_policy)
     end
 end

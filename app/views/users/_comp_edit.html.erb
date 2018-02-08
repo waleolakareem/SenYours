@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row" >
             <div class="col-lg-2 col-md-2" style="margin-top: 60px;">
-                <%= link_to 'Edit', edit_user_path(current_user) %><br>
-                <%= link_to 'View Profile', user_path(current_user) %>
+                <%= link_to 'Edit', edit_user_path(current_user), class: 'edit_tag' %><br>
+                <%= link_to 'View Profile', user_path(current_user), class: 'edit_tag' %>
             </div>
             <div class="col-lg-10 col-md-10" style="margin-top: 60px;box-shadow: 1px 1px 5px rgba(0,0,0,0.1);padding: 0px 0px; border-radius: 6px;
             ">
@@ -16,7 +16,12 @@
                                 <p>Picture</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
                                 <span class="picture">
-                                    <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png',class: 'fa fa-camera' %>
+                                    <div class="image-upload">
+                                       <label for="file-input">
+                                         <span class="fa fa-camera edit_tag"></span>
+                                       </label>
+                                        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png',id: 'file-input' %>
+                                    </div>
                                 </span>
                             </div>
                         </div>
@@ -57,16 +62,22 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
-                                <p>State</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :state,class: 'edit_responsive-input' %>
+                                <p>State/City</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
-                                <p>City</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :city,class: 'edit_responsive-input' %>
+                                <div class="row select_div">
+                                    <div class="col-lg-2 col-md-2 col-2">
+                                        <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-10">
+                                        <select id="states-of-country" name="user[city]" class="select_input">
+                                            <option value="" selected="">Select Your City</option>
+                                            <% CS.cities(:ca,:us).each do |value| %>
+                                            <option value="<%= value%>"><%= value %></option>
+                                            <% end %>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -87,7 +98,7 @@
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Description</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :description,class: 'descrip' %>
+                                <%= f.text_area :description,class: 'descrip' %>
                             </div>
                         </div>
                         <div class="row">

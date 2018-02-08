@@ -14,10 +14,18 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  1
+  get 'cities/:state', to: 'application#cities'
 
   get '/be_a_comp' => 'welcome#be_a_comp'
 
   get '/need_a_comp' => 'welcome#need_a_comp'
+
+  get '/privacy_policy' => 'welcome#privacy_policy'
+
+  get '/terms_of_services' => 'welcome#terms_of_services'
+
+  get 'cookie_policy' => 'welcome#cookie_policy'
 
   get '/comp_request' => 'appointments#comp_request'
 

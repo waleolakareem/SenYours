@@ -152,6 +152,31 @@ body {
   }
 }
 
+.select_div{
+  padding-left: 60px;
+   @media screen and (max-width: 320px) {
+    padding-left: 10px;
+  }
+}
+.select_input_lead{
+  height: 40px;
+  border-color:orange;
+  border-style: 1px solid red;
+   @media screen and (max-width: 320px) {
+    height: 30px;
+  }
+}
+
+.select_input{
+  height: 40px;
+  width: 187px;
+  border-color:orange;
+  border-style: 1px solid red;
+  @media screen and (max-width: 320px) {
+    height: 30px;
+  }
+}
+
 .sign_up_form_submit {
   height: 60px;
   width: 400px;
@@ -222,6 +247,9 @@ body {
   font-family: 'Muli', sans-serif;
   outline: none;
   border-width:thin;
+  border-style: solid;
+  border-color: orange;
+
 
 
   @media screen and (max-width: 1440px) {
@@ -259,6 +287,7 @@ body {
   height: 120px;
   width: 600px;
   border-radius: 6px;
+  border-color:orange;
 
   @media screen and (max-width: 320px) {
     width: 250px !important;
