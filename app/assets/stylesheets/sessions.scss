@@ -87,3 +87,17 @@
     height: 50px;
   }
 }
+
+.request_form_submit {
+  height: 60px;
+  width: 200px;
+  color: white;
+  background-color: red;
+  // border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  @media screen and (max-width: 1440px) {
+    height: 50px;
+  }
+}

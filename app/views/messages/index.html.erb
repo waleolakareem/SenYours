@@ -24,7 +24,7 @@
     </div>
   <% end %>
  <% end %>
- <div class="text-center">
+ <div class="text-center" style="padding-top:60px;">
     <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
        <%= f.text_area :body, class: 'mess_descrip' %>
        <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>

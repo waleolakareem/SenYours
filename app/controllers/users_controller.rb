@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @companions = @user.companions.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @seniors = @user.seniors.where("start_date >= ?",Date.today).order('start_date ASC')
+    @appointment = @user.companions.where({accept: false})
   end
 
   def destroy
