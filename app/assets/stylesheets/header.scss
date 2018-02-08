@@ -68,12 +68,14 @@
 .logged_in_lead_nav{
   padding-left:1050px;
 
-  @media screen and (max-width:1024px){
-    padding-left: 500px !important;
-  }
-
    @media screen and (max-width:1440px){
     padding-left: 850px;
+  }
+  @media screen and (max-width:1024px){
+    padding-left: 500px;
+  }
+  @media screen and (max-width:768px){
+    padding-left: 0px;
   }
 }
 
