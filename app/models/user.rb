@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   validates :dob, presence: true
+  validates :privacy_policy, presence: true
+  validates :terms_of_service, presence: true
   validates :identification, presence: true
   validate :over_18
 

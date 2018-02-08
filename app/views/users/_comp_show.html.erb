@@ -86,7 +86,11 @@
   </div>
 <% end %>
 <div class="text-center">
-  <a href="/comp_request"> <button class="btn btn-warning form_submit">Accept Requests</button></a>
+  <% if @appointment.length >= 1 %>
+    <a href="/comp_request"> <button class="btn request_form_submit">Accept Requests</button></a>
+  <% else %>
+    <a href="/comp_request"> <button class="btn btn-warning form_submit">No Requests yet</button></a>
+  <% end %>
 </div>
 <div class="comp_app_req text-center">
   <p class="sen_app_par">These are Your Next Appointments</p>

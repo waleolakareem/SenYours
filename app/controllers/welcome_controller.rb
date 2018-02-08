@@ -8,4 +8,10 @@ class WelcomeController < ApplicationController
 
   def need_a_comp
   end
+
+  def privacy_policy
+  end
+
+  def cookie_policy
+  end
 end
