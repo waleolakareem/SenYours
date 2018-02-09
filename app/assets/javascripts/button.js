@@ -14,6 +14,10 @@ $(document).on('turbolinks:load', function(){
     $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
   });
 
+  // setTimeout(function() {
+  //   window.location.reload();
+  // }, 10000);
+
     // For scaling
   // $('#states-of-country').change(function () {
   //   var input_state = $(this);

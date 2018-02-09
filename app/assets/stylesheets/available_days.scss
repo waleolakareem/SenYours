@@ -12,6 +12,14 @@
   font-size: 25px;
   font-weight: 700;
 
+   @media screen and (max-width: 1440px) {
+    padding-top:  40px;
+    margin-top: 100px;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+
   @media screen and (max-width: 414px) {
     padding-left: 20px;
     margin-top: 0px;
@@ -28,14 +36,6 @@
     box-shadow:none;
   }
 
-
-  @media screen and (max-width: 1440px) {
-    padding-top:  40px;
-    margin-top: 100px;
-    width: 100%;
-    border-radius: 3px;
-    font-size: 15px;
-  }
 }
 
 .cal_but {

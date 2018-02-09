@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container no_cont">
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-4 sen_image">
     <div class="sen_img_upper"
@@ -12,10 +12,6 @@
       </p>
       <p class="comp_fee notification"><%= @user.fee %>/Hr
       </p>
-       <% if current_user.id === @user.id %>
-        <a class="edit_n_comp_rate" href="/users/<%=current_user.id %>/edit">
-            Edit Profile</a>
-      <% end %>
     </div>
     <div class="sen_img_lower">
       <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
