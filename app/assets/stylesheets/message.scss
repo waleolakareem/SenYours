@@ -36,14 +36,16 @@
 .mess_descrip {
 
   height: 120px;
-  width: 763px;
+  width: 1120px;
   border-radius: 6px;
-  margin-left: -17px;
-  left: 0;
-  bottom: 0px;
+  padding-left:0px;
 
   @media screen and (max-width: 1024px) {
-    width: 340px;
+    width: 900px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 700px;
   }
 
   @media screen and (max-width: 468px) {
