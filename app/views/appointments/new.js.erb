@@ -1,1 +1,1 @@
-$('body').html("<%=escape_javascript(render 'sen_comp_show')%>")
+$("#<%=@appointment.start_date.strftime('%d')%>").html("<%=escape_javascript(render 'new')%>")

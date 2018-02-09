@@ -1,5 +1,6 @@
 .mess_bod {
-  background-color:     #E5E4E2
+  background-color:     #E5E4E2;
+  position:bottom center;
 }
 .mess_responsive_image {
   width:50px;
@@ -43,6 +44,9 @@
     height: 30px;
     width: 340px;
     margin-left: 0px;
+    position: absolute;
+    bottom: 80px;
+    left: 10px;
   }
 
 

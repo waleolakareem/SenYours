@@ -1,1 +1,1 @@
-$('body').html("<%=escape_javascript(render 'new')%>")
+$("#<%=@availableDay.date.strftime('%d')%>").html("<%=escape_javascript(render 'new')%>")

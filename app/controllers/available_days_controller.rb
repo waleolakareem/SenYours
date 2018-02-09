@@ -15,23 +15,26 @@ class AvailableDaysController < ApplicationController
 
     @availableDay = AvailableDay.where('date = ? AND user_id = ?', available_days_params[:date], available_days_params[:user_id])
     if @availableDay.length >= 1
-      p "ft" * 99
+      @deldate = @availableDay[0]
       @availableDay[0].destroy
-      redirect_to new_user_available_day_path(@user)
+      respond_to do |format|
+        format.html {redirect_to new_user_available_day_path(@user)}
+        format.js {render 'new_del'}
+      end
     elsif @availableDay.length <= 1
       @availableDay = AvailableDay.create(available_days_params)
       arr = ["10:00:00","11:00:00","12:00:00","1:00:00","2:00:00","3:00:00","4:00:00","5:00:00","6:00:00","7:00:00","8:00:00"]
       arr.each do |time|
         @time = @availableDay.available_times.find_or_create_by(time: time)
       end
-      redirect_to new_user_available_day_path(@user)
+
+      respond_to do |format|
+        format.html {redirect_to new_user_available_day_path(@user)}
+        format.js {render 'new'}
+      end
     else
       redirect_to "new"
     end
-      respond_to do |format|
-        format.html {}
-        format.js {}
-      end
   end
 
   def edit
