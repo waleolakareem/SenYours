@@ -15,17 +15,20 @@ class AppointmentsController < ApplicationController
       appointment_params[:companion_id])
 
     if @appointment.length >= 1
+      @del_appt = @appointment[0]
       @appointment[0].destroy
-      redirect_to user_path(@user)
+      respond_to do |format|
+        format.html {redirect_to user_path(@user)}
+        format.js {render 'new_del'}
+      end
     elsif @appointment.length <= 1
       @appointment = Appointment.create(appointment_params)
-      redirect_to user_path(@user)
+      respond_to do |format|
+        format.html {redirect_to user_path(@user)}
+        format.js {render 'new'}
+      end
     else
       render :new
-    end
-    respond_to do |format|
-      format.html {}
-      format.js {}
     end
   end
 
@@ -47,18 +50,18 @@ class AppointmentsController < ApplicationController
     elsif @appointment.update_attributes(appointment_params)
       @amount = @appointment.companion.fee * 100
       charge = Stripe::Charge.create(
-      :customer    => @appointment.senior.stripe_customer_id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
-    )
+        :customer    => @appointment.senior.stripe_customer_id,
+        :amount      => @amount,
+        :description => 'Rails Stripe customer',
+        :currency    => 'usd'
+        )
       @appointment.payment_status = "Paid"
       @appointment.save
       redirect_to '/comp_request'
       respond_to do |format|
-      format.html {}
-      format.js {}
-    end
+        format.html {}
+        format.js {}
+      end
     else
       render 'edit'
     end
@@ -80,7 +83,8 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    def appointment_params
-      params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
-    end
+  def appointment_params
+    params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
+  end
 end
+

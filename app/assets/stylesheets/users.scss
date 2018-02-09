@@ -414,6 +414,7 @@ body {
   margin-top: 60px;
   @media screen and (max-width: 640px){
     margin: 20px;
+
   }
 }
 
@@ -421,10 +422,18 @@ body {
   height: 300px;
   @media screen and (max-width: 640px){
     height: 350px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
 }
 
+.no_cont{
+  @media screen and (max-width: 640px){
+  padding-left: 0px;
+  padding-right: 0px;
+  }
+}
 
 .sen_img_upper {
   height: 80%;
@@ -434,7 +443,7 @@ body {
   background-size:cover;
   margin-top:10px;
   border-radius:3px;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 
   @media screen and (max-width: 640px){
     margin: 0px;
