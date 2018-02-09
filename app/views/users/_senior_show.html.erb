@@ -1,6 +1,6 @@
 <div class="container no_cont" >
 <div class="row sen_img_app">
-  <div class="col-lg-3 col-md-3 sen_image">
+  <div class="col-lg-3 col-md-4 sen_image">
     <div class="sen_img_upper" <% if !@user.avatar.url %>
         style="background-image:url(/assets/avatar_image.png);"
       <% else %>
@@ -13,10 +13,10 @@
     </div>
     <div class="sen_img_lower">
       <p class="notification"><%= @user.city %></p>
-      <p><%= @user.age %></p>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
     </div>
   </div>
-  <div class="col-lg-9 col-md-9 sen_app">
+  <div class="col-lg-9 col-md-8 sen_app">
     <h1>Hello <%= @user.first_name %></h1>
     <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
     <% if current_user.id === @user.id %>
@@ -42,9 +42,9 @@
           <% if appointment.accept === false %>
           <div class="form_div daite">
           <button class="btn cal_but">
-            <p class="notification">Waiting</p>
-            <p class="notification">On</p>
-            <p class="notification">Response</p>
+            <p class="notification">Wait</p>
+            <p class="notification">for</p>
+            <p class="notification">Reply</p>
           </button>
           </div>
           <% else %>
