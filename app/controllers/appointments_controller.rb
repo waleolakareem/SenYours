@@ -42,8 +42,6 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    p "e" * 99
-    p appointment_params
     if appointment_params[:accept] === "false"
       @appointment.destroy
       redirect_to user_path(current_user)
