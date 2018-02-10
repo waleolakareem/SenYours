@@ -23,7 +23,7 @@ class AvailableDaysController < ApplicationController
       end
     elsif @availableDay.length <= 1
       @availableDay = AvailableDay.create(available_days_params)
-      arr = ["10:00:00","11:00:00","12:00:00","1:00:00","2:00:00","3:00:00","4:00:00","5:00:00","6:00:00","7:00:00","8:00:00"]
+      arr = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","1:00:00","2:00:00","3:00:00","4:00:00","5:00:00","6:00:00","7:00:00","8:00:00"]
       arr.each do |time|
         @time = @availableDay.available_times.find_or_create_by(time: time)
       end

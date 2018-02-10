@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   include AvailableDaysHelper
   include MessagesHelper
+  include AppointmentHelper
 end

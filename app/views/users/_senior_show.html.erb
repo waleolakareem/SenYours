@@ -1,104 +1,120 @@
-<div class="container no_cont" >
-<div class="row sen_img_app">
-  <div class="col-lg-3 col-md-4 sen_image">
-    <div class="sen_img_upper" <% if !@user.avatar.url %>
-        style="background-image:url(/assets/avatar_image.png);"
-      <% else %>
-        style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
-      <% end %>
-
-      <p class="comp_rate"><%= final_rating(@user) %>
-        <i class="fa fa-star" style="color: orange;"></i>
-      </p>
-    </div>
-    <div class="sen_img_lower">
-      <p class="notification"><%= @user.city %></p>
-      <p><%= @user.first_name %> <%= @user.last_name %></p>
-    </div>
-  </div>
-  <div class="col-lg-9 col-md-8 sen_app">
-    <h1>Hello <%= @user.first_name %></h1>
-    <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
-    <% if current_user.id === @user.id %>
-      <% if !current_user.description?   || !current_user.phone_number? || !current_user.address? %>
-        <p>You must provide all required information to proceed
-        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-                Required</a></p>
-      <% else %>
-        <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-                Edit Profile</a>
-      <% end %>
-    <% end %>
-    <% if @user.reviews.length === 0 %>
-      <p><Strong>Reviews</Strong>: Your first review is by SenYours, keep it up</p>
-    <% end %>
-    <% if @seniors.count > 0 %>
-      <p class="sen_app_par text-center">Upcoming Appointments</p>
-    <% else %>
-      <p class="sen_app_par text-center">You have no appointment</p>
-    <% end %>
-    <div class="row">
-      <% @seniors.each do |appointment| %>
-          <% if appointment.accept === false %>
-          <div class="form_div daite">
-          <button class="btn cal_but">
-            <p class="notification">Wait</p>
-            <p class="notification">for</p>
-            <p class="notification">Reply</p>
-          </button>
+<div class="container no_cont">
+  <div class="row" style="margin-top: 60px;">
+    <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
+      <div class="row sen_img_app">
+        <div class="col-lg-6 col-md-6 sen_image">
+          <div class="sen_img_upper"
+            <% if !@user.avatar.url %>
+              style="background-image:url(/assets/avatar_image.png);"
+            <% else %>
+              style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
+            <% end %>
+            <p class="comp_rate notification"><%= final_rating(@user) %>
+              <i class="fa fa-star" style="color: orange;"></i>
+            </p>
           </div>
-          <% else %>
-          <div class="form_div daite">
-          <button class="btn cal_but">
-            <p class="notification"><%= appointment.start_date.strftime('%b') %> <%= appointment.start_date.strftime('%d') %></p>
-            <p class="notification">With</p>
-            <p class="notification"><%= appointment.companion.first_name%></p>
-          </button>
+          <div class="sen_img_lower">
+            <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
+            <p><%= @user.city %></p>
           </div>
+      </div>
+      <div class="col-lg-6 col-md-6 sen_app">
+          <div>
+            <h1 class="notification">Hello <%= @user.first_name %></h1>
+            <h4>You became a companion <%= @user.created_at.strftime('%Y') %></h4>
+            <% if current_user.id === @user.id %>
+              <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
+                <p>You must provide all required information to proceed
+                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Required</a></p>
+              <% else %>
+                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Edit Profile</a>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="comp_description">
+            <Strong>About me: </Strong><%= @user.description %>
+          </div>
+          <% if @user.reviews.length === 0 %>
+            <Strong>Reviews</Strong>: Your first review is by SenYours, keep it up
           <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-  <div class="sen_rating">
-    <div class="sen_stars text-center">
-      <div>
-        <p class="notification">Recommendation</p>
-        <% wyr(@user).times do  %>
-          <i class="fa fa-star" style="color: orange;"></i>
-          <!-- <span style="color: orange;" class="text-center">☆</span> -->
-        <% end %>
+        </div>
       </div>
-      <div>
-        <p class="notification">Companionship</p>
-        <% comp_rate(@user).times do  %>
-          <i class="fa fa-star" style="color: orange;"></i>
-        <% end %>
-      </div>
-      <div>
-        <p class="notification">Communication</p>
-        <% comm_rate(@user).times do  %>
-          <i class="fa fa-star" style="color: orange;"></i>
-        <% end %>
-      </div>
-    </div>
-    <div class="row review_div">
-      <% @user.reviews.each do |review|%>
-        <div class="col-lg-4">
-          <div class="row form_div">
-            <div class="col-lg-3 col-md-3 col-3">
-              <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+      <% if @user.reviews.count >=  0 %>
+        <div class="sen_rating container">
+          <div class="sen_stars">
+            <div>
+              <p class="notification">Recommendation</p>
+              <% wyr(@user).times do  %>
+                <i class="fa fa-star" style="color: orange;"></i>
+              <% end %>
             </div>
-            <div class="col-lg-9 col-md-9 col-9 form_div">
-              <p class="notification rev_paragraphs"><%= review.comment %></p>
-              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
-              <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+            <div>
+              <p class="notification">Companionship</p>
+              <% comp_rate(@user).times do  %>
+                <i class="fa fa-star" style="color: orange;"></i>
+              <% end %>
             </div>
+            <div>
+              <p class="notification">Communication</p>
+              <% comm_rate(@user).times do  %>
+                <i class="fa fa-star" style="color: orange;"></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="row review_div">
+            <% @reviews.each do |review|%>
+              <div class="col-lg-12">
+                <div class="row form_div">
+                  <div class="col-lg-3 col-md-3 col-3">
+                    <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+                  </div>
+                  <div class="col col-lg-9 col-md-9 col-9 form_div">
+                    <p class="notification rev_paragraphs"><%= review.comment %></p>
+                    <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+                    <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
+    <div class="col-lg-6">
+      <p class="notification">Your Calender</p>
+      <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
+        <div class="row" style="padding-left: 15px; padding-right: 15px;">
+      <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
+        <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
+            <div class="col-lg-2 col-md-2 col-2 form_div cal_pad" id="<%= date.strftime('%d') %>">
+              <% if sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
+                <button class="btn days_cal_but" style="background-color: green;" disabled="true">
+                  <p class="notification"><%= date.strftime('%a') %></p>
+                  <p class="notification"><%= date.strftime('%d') %></p>
+                </button>
+              <%  elsif date_exit(current_user).include?(date) %>
+                  <button class="btn days_cal_but" style="background-color: orange;">
+                  <p class="notification"><%= date.strftime('%a') %></p>
+                  <p class="notification"><%= date.strftime('%d') %></p>
+                </button>
+              <% elsif Date.today > date %>
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;" disabled="true">
+                  <p class="notification"><%= date.strftime('%a') %></p>
+                  <p class="notification"><%= date.strftime('%d') %></p>
+                </button>
+              <% else %>
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;">
+                  <p class="notification"><%= date.strftime('%a') %></p>
+                  <p class="notification"><%= date.strftime('%d') %></p>
+                </button>
+              <% end %>
+            </div>
+        <% end %>
+    </div>
   </div>
-
 </div>
+
+
+
