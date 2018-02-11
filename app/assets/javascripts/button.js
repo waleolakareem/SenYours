@@ -19,6 +19,7 @@ $(document).on('turbolinks:load', function(){
     window.scrollTo(0,document.body.scrollHeight, 'slow');
   }
 
+
   // setTimeout(function() {
   //   window.location.reload();
   // }, 10000);
