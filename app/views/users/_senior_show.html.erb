@@ -37,17 +37,11 @@
           <div class="comp_description">
             <Strong>About me: </Strong><%= @user.description %>
           </div>
-          <% if @user.reviews.length === 0 %>
-            <Strong>Reviews</Strong>: Your first review is by SenYours, keep it up
-          <% end %>
         </div>
       </div>
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">
           <div class="sen_stars">
-            <% if @user.reviews.length === 0 %>
-              <Strong>Reviews</Strong>: Your first review is by SenYours, keep it up
-            <% end %>
             <div>
               <p class="notification">Recommendation</p>
               <% wyr(@user).times do  %>
@@ -72,7 +66,7 @@
               <div class="col-lg-12">
                 <div class="row form_div">
                   <div class="col-lg-3 col-md-3 col-3">
-                    <img src=<%='https://cdn1.nursinglicensemap.com/content/9d3968d2dc1b4bdeb09b74e20999ade4/Registered_nurse.jpg'%> class="img-circle responsive-image">
+                    <img src="<%= review.reviewer.avatar.thumb.url if review.reviewer.avatar? %>" class= "img-circle responsive-image">
                   </div>
                   <div class="col col-lg-9 col-md-9 col-9 form_div">
                     <p class="notification rev_paragraphs"><%= review.comment %></p>
