@@ -1,4 +1,4 @@
-<body style="background-color: #f6f6f6">
+<body style="background-color: #f6f6f6;margin-top: 40px;">
 <div class="container no_cont">
   <div class="row profile_show">
     <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
@@ -41,7 +41,8 @@
       </div>
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">
-          <div class="sen_stars">
+          <h3>Reviews</h3>
+          <div class="sen_stars text-center">
             <div>
               <p class="notification">Recommendation</p>
               <% wyr(@user).times do  %>

@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   get '/terms_of_services' => 'welcome#terms_of_services'
 
-  get 'cookie_policy' => 'welcome#cookie_policy'
+  get '/cookie_policy' => 'welcome#cookie_policy'
+
+  get '/payment_policy' => 'welcome#payment_policy'
 
   get '/comp_request' => 'appointments#comp_request'
 

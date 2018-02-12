@@ -1,6 +1,7 @@
-<div class="container">
+<body style="margin-top: 40px;">
+<div class="container pad_cont">
 <div class="row sen_img_app">
-  <div class="col-lg-3 col-md-3 sen_image">
+  <div class="col-lg-3 col-md-5 sen_image">
     <div class="sen_img_upper" <% if !@user.avatar.url %>
         style="background-image:url(/assets/avatar_image.png);"
       <% else %>
@@ -17,8 +18,8 @@
       <p><%= @user.first_name %> <%= @user.last_name %></p>
     </div>
   </div>
-  <div class="col-lg-9 col-md-9 sen_app">
-    <h1 class="notification">Meet <%= @user.first_name %></h1>
+  <div class="col-lg-9 col-md-7 sen_app">
+    <h1 class="notification">Meet<%= @user.first_name %></h1>
       <h4><%= @user.first_name %> became a companion <%= @user.created_at.strftime('%Y') %></h4>
     <div class="comp_description">
       <strong>About <%= @user.first_name %>:</strong><%= @user.description %>
@@ -102,3 +103,4 @@
 </div>
 <% end %>
 </div>
+</body>
