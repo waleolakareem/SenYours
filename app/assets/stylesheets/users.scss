@@ -323,16 +323,16 @@ body {
   background-position: center;
   background-repeat: none;
   background-size:cover;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 
 }
 
 .comp_descrp {
   height: 25%;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   border-top: 0px;
   font-size: 14px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,1);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
 }
 
 .comp_rate {
@@ -419,6 +419,7 @@ body {
 
 .sen_img_app {
   margin: 0px 15px;
+  // margin-top: 40px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
   margin-bottom: 10px;
@@ -435,7 +436,7 @@ body {
 }
 
 .sen_image {
-  height: 300px;
+  height: 350px;
   @media screen and (max-width: 640px){
     height: 350px;
     padding-left: 0px;
@@ -477,6 +478,7 @@ body {
 .sen_app {
   // border: 1px solid gray;
   // height: 350px;
+  margin-top: 15px;
   font-family: 'Muli' sans-serif;
 }
 
@@ -515,7 +517,7 @@ body {
   // flex-direction: column;
   justify-content: space-around;
   font-weight:500;
-  font-size: 20px;
+  font-size: 18px;
   @media screen and (max-width: 1440px) {
     font-weight: 0;
     font-size: 12px;
@@ -569,7 +571,7 @@ body {
 }
 
 .rev_paragraphs {
-  font-size: 18px;
+  font-size: 14px;
   @media screen and (max-width: 640px) {
     font-size: 15px;
   }

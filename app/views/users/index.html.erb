@@ -14,8 +14,8 @@
             </div>
             <div class="comp_descrp">
             <p class="notification"><%= user.first_name %> <%=user.last_name %></p>
-            <p class="notification">City: <%= user.city %></p>
-            <p>Description: <%= user.description %></p>
+            <p class="notification edit_tag">City: <%= user.city %></p>
+            <p>Description: <%=truncate(user.description, escape: false, length: 90,omission: '...')%></p>
             </div>
           </a>
           </div>
