@@ -47,6 +47,14 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    activevalidators (4.0.3)
+      activemodel (>= 3.0)
+      countries (~> 1.2)
+      credit_card_validations (~> 3.2)
+      date_validator
+      mail
+      phony (~> 2.0)
+      rake
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
@@ -84,7 +92,17 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    countries (1.2.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
     crass (1.0.3)
+    credit_card_validations (3.4.0)
+      activemodel (>= 3, <= 6)
+      activesupport (>= 3, <= 6)
+    currencies (0.4.2)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
@@ -255,6 +273,7 @@ GEM
       domain_name (~> 0.5)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
@@ -285,6 +304,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
+    phony (2.16.3)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -389,6 +409,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activevalidators (~> 4.0.1)
   attr_encrypted (~> 3.0.0)
   bcrypt (~> 3.1.7)
   byebug

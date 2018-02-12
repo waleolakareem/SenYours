@@ -82,7 +82,7 @@
       <% end %>
     </div>
     <div class="col-lg-6 calender container">
-      <p class="notification">Your Calender</p>
+      <h3 class="notification">Your Calender</h3>
       <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
@@ -112,6 +112,12 @@
             </div>
         <% end %>
     </div>
+    <% if @sen_write_review %>
+      <p class="text-center user_rev_par">Your reviews helps everyone</p>
+      <% @sen_write_review.each  do |appointment| %>
+        Review your appointment with <a href="/users/<%=appointment.companion.id  %>/reviews/new" class="edit_tag"><%= appointment.companion.first_name %></a>
+      <% end %>
+    <% end %>
   </div>
 </div>
 </body>

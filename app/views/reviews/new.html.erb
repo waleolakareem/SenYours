@@ -1,7 +1,8 @@
+<body style="background-color: #f6f6f6">
 <%= form_for([@user, @review]) do |f| %>
     <div class="container text-center review_form_top">
         <div class="row">
-            Communication rate<% (1..5).each do |rating| %>
+            <h3 class="h3_1">Communication</h3><% (1..5).each do |rating| %>
             <div class="col form_div">
                 <%= radio_button("review", "comm_rating",rating) %>
                 <%= label_tag(:rate, rating) %>
@@ -9,7 +10,7 @@
             <% end %>
         </div>
         <div class="row">
-            Will you recommend <% (1..5).each do |rating| %>
+            <h3 class="h3_2">Recommendation</h3> <% (1..5).each do |rating| %>
             <div class="col form_div">
                 <%= radio_button("review", "wyr_rating",rating) %>
                 <%= label_tag(:rate, rating) %>
@@ -17,7 +18,7 @@
             <% end %>
         </div>
         <div class="row">
-        Companion Behavior <% (1..5).each do |rating| %>
+        <h3 class="h3_3" ">Behavior</h3> <% (1..5).each do |rating| %>
         <div class="col form_div">
             <%= radio_button("review", "comp_rating",rating) %>
             <%= label_tag(:rate, rating) %>
@@ -36,3 +37,4 @@
         </div>
     </div>
 <% end %>
+</body>
