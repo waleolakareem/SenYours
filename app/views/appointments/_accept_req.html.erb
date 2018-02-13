@@ -1,8 +1,8 @@
-<div class="container gone" style="margin-top: 60px;">
+<div class="container" style="margin-top: 60px;">
 <% if @appointment.length >= 1  %>
   <% @appointment.each do |appointment| %>
        <p><%=link_to appointment.senior.first_name, user_path(appointment.senior) %> requests your companionship for <%= appointment.start_date %>
-      <%=link_to appointment_path(appointment,appointment: {start_date: appointment.start_date,end_date: appointment.start_date, senior_id: appointment.senior.id,companion_id: current_user.id,accept: true,payment_status: "pending"}), method: :patch, remote: true, class: 'delete_pony' do %>
+      <%=link_to appointment_path(appointment,appointment: {start_date: appointment.start_date,end_date: appointment.start_date, senior_id: appointment.senior.id,companion_id: current_user.id,accept: true,payment_status: "pending"}), method: :patch, remote: true do %>
         <%= label_tag(:appointment, "Accept") %>
       <% end %>
       <%=link_to appointment_path(appointment,appointment: {start_date: appointment.start_date,end_date: appointment.start_date, senior_id: appointment.senior.id,companion_id: current_user.id,accept: false,payment_status: "pending"}), method: :patch, remote: true do %>
@@ -15,4 +15,3 @@
   <%= link_to 'Back to Profile', user_path(current_user) %>
 <% end %>
 </div>
-<div class="stay"></div>
