@@ -41,7 +41,14 @@ module AvailableDaysHelper
     user.available_days.each do |day|
       dates.push(day.date)
     end
-
     dates
+  end
+
+  def stripoff(available_day)
+    convert = []
+    available_day.available_times.each do |time|
+      convert.push(time.time.strftime('%I:%M%p'))
+    end
+    convert
   end
 end

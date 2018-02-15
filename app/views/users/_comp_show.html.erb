@@ -1,4 +1,4 @@
-<body style="background-color: #f6f6f6">
+<body style="background-color: #f6f6f6; margin-top: 40px;">
   <div class="container no_cont">
     <div class="row profile_show">
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
@@ -84,7 +84,11 @@
         <% end %>
       </div>
       <div class="col-lg-6 calender container">
-        <p class="notification">Your Calender</p>
+        <div>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to make be available</p>
+          <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+        </div>
         <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
           <div class="row" style="padding-left: 15px; padding-right: 15px;">
         <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
@@ -96,17 +100,19 @@
                     <p class="notification"><%= date.strftime('%d') %></p>
                   </button>
                 <%  elsif date_exit(current_user).include?(date) %>
-                    <button class="btn days_cal_but" style="background-color: orange;">
-                    <p class="notification"><%= date.strftime('%a') %></p>
-                    <p class="notification"><%= date.strftime('%d') %></p>
-                  </button>
+                    <%= link_to available_day_path(available_day: {date: date, user_id: current_user}) do %>
+                      <button class="btn days_cal_but" style="background-color: orange;">
+                        <p class="notification"><%= date.strftime('%a') %></p>
+                        <p class="notification"><%= date.strftime('%d') %></p>
+                      </button>
+                    <% end %>
                 <% elsif Date.today > date %>
-                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;" disabled="true">
+                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
                     <p class="notification"><%= date.strftime('%a') %></p>
                     <p class="notification"><%= date.strftime('%d') %></p>
                   </button>
                 <% else %>
-                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;">
+                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
                     <p class="notification"><%= date.strftime('%a') %></p>
                     <p class="notification"><%= date.strftime('%d') %></p>
                   </button>

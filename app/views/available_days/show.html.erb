@@ -1,0 +1,27 @@
+<body style="margin-top: 60px;">
+  <div class="container">
+    <% if current_user.identification === 'Senior' %>
+      <p> Time you need companion for <%=@availableDay[0].date%> </p>
+    <% else %>
+      <p> Time you need companions for <%=@availableDay[0].date%> </p>
+    <% end %>
+    <div class="row">
+      <%@arr.each do |time|%>
+        <%=link_to available_day_path(@availableDay[0].id,time: time), method: :patch, remote: true do %>
+          <div class="col-lg-2 col-md-2 col-3 form_div" id="<%=time[0].to_i  %><%=time[1].to_i  %>" >
+            <% if stripoff(@availableDay[0]).include?(time) %>
+              <button class="btn t_cal_but" style="background-color: red;">
+                <%= time%>
+              </button>
+            <% else %>
+              <button class="btn t_cal_but">
+                <%= time%>
+              </button>
+            <% end %>
+          </div>
+        <% end %>
+      <%end%>
+    </div>
+    <a href="/users/<%= current_user.id %>/">Back to calender days</a>
+  </div>
+</body>

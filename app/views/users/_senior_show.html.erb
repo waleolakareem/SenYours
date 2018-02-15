@@ -22,7 +22,7 @@
       <div class="col-lg-6 col-md-6 sen_app">
           <div>
             <h1 class="notification">Hello <%= @user.first_name %></h1>
-            <h4>Companion since <%= @user.created_at.strftime('%Y') %></h4>
+            <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
             <% if current_user.id === @user.id %>
               <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
                 <p>You must provide all required information to proceed
@@ -82,7 +82,11 @@
       <% end %>
     </div>
     <div class="col-lg-6 calender container">
-      <h3 class="notification">Your Calender</h3>
+      <div>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i>Unavailable day click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to add days you need a companions</p>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day, Click on each day to set specific times you need companion</p>
+          <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+      </div>
       <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
@@ -94,17 +98,19 @@
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
               <%  elsif date_exit(current_user).include?(date) %>
-                  <button class="btn days_cal_but" style="background-color: orange;">
-                  <p class="notification"><%= date.strftime('%a') %></p>
-                  <p class="notification"><%= date.strftime('%d') %></p>
-                </button>
+                  <%= link_to available_day_path(@user,available_day: {date: date, userid: current_user}) do %>
+                      <button class="btn days_cal_but" style="background-color: orange;">
+                        <p class="notification"><%= date.strftime('%a') %></p>
+                        <p class="notification"><%= date.strftime('%d') %></p>
+                      </button>
+                  <% end %>
               <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
                   <p class="notification"><%= date.strftime('%a') %></p>
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
               <% else %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
                   <p class="notification"><%= date.strftime('%a') %></p>
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
@@ -112,6 +118,26 @@
             </div>
         <% end %>
     </div>
+        <div class="text-center">
+          <% if !current_user.stripe_customer_id %>
+              <p class="notification">You must register your card to find companions</p>
+              <%= form_tag charges_path do %>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="Card Registration"
+                        data-image="/assets/senyours1.png"
+                        data-name="senyours"
+                        data-amount="100"
+                        data-zip-code="true"
+                        data-billing-address="true"
+                        data-label="Register your Card"
+                        data-email="<%= current_user.email %>"
+                        data-locale="auto"></script>
+              <% end %>
+          <% else %>
+              <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+          <% end %>
+        </div>
     <% if @sen_write_review %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @sen_write_review.each  do |appointment| %>
