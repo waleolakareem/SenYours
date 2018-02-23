@@ -60,6 +60,15 @@ class AvailableDaysController < ApplicationController
   def show
     @availableDay = AvailableDay.where({user_id:current_user,date: available_days_params[:date]})
     @arr = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM"]
+    @checkdate = @availableDay[0].date
+    @last_date = current_user.available_days.last().date
+    @first_date = current_user.available_days.first().date
+
+    p "e" * 99
+    p @checkdate
+    p @last_date
+    p @first_date
+    p "g" * 99
   end
 
   def destroy

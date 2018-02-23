@@ -83,7 +83,7 @@
     </div>
     <div class="col-lg-6 calender container">
       <div>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i>Unavailable day click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to add days you need a companions</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i>Unavailable day click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to add days you need a companions</p>
           <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day, Click on each day to set specific times you need companion</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
       </div>
@@ -98,7 +98,7 @@
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
               <%  elsif date_exit(current_user).include?(date) %>
-                  <%= link_to available_day_path(@user,available_day: {date: date, userid: current_user}) do %>
+                  <%= link_to available_day_path(@user,available_day: {date: date, user_id: current_user}) do %>
                       <button class="btn days_cal_but" style="background-color: orange;">
                         <p class="notification"><%= date.strftime('%a') %></p>
                         <p class="notification"><%= date.strftime('%d') %></p>
@@ -141,7 +141,7 @@
     <% if @sen_write_review %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @sen_write_review.each  do |appointment| %>
-        Review your appointment with <a href="/users/<%=appointment.companion.id  %>/reviews/new" class="edit_tag"><%= appointment.companion.first_name %></a>
+          Review your appointment with <a href="/users/<%=appointment.companion.id  %>/reviews/new" class="edit_tag"><%= appointment.companion.first_name %></a>
       <% end %>
     <% end %>
   </div>

@@ -22,6 +22,20 @@
         <% end %>
       <%end%>
     </div>
-    <a href="/users/<%= current_user.id %>/">Back to calender days</a>
+    <div class="row">
+      <div class="col">
+        <a href="/users/<%= current_user.id %>/">Back to calender days</a>
+      </div>
+      <div class="col">
+          <% if @checkdate === @first_date%>
+            <%= link_to 'Next Day >', available_day_path(available_day: {date: @availableDay[0].date + 1, user_id: current_user}) %>
+          <% elsif @checkdate === @last_date %>
+            <%= link_to '< Prev Day', available_day_path(available_day: {date: @availableDay[0].date - 1, user_id: current_user}) %>
+          <% elsif @checkdate != @first_date %>
+            <%= link_to '< Prev Day', available_day_path(available_day: {date: @availableDay[0].date - 1, user_id: current_user}) %>
+            <%= link_to 'Next Day >', available_day_path(available_day: {date: @availableDay[0].date + 1, user_id: current_user}) %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </body>
