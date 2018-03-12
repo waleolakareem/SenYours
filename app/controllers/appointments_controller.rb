@@ -34,19 +34,25 @@ class AppointmentsController < ApplicationController
 
   def edit
     @user = current_user
-    @next_appointment = @user.companions.where({accept: false}).first().id
-    @appointment = Appointment.find(params[:id] || '#{@next_appointment}')
+    # @next_appointment = @user.companions.where({accept: false}).first().id
+    # @appointment = Appointment.find(params[:id] || '#{@next_appointment}')
     @senior = @appointment.senior
     @companion = @appointment.companion
   end
 
   def update
+    @user = current_user
     @appointment = Appointment.find(params[:id])
     if appointment_params[:accept] === "false"
       @appointment.destroy
-      redirect_to user_path(current_user)
+      @appointment = @user.companions.where({accept: false})
+      respond_to do |format|
+        format.html {redirect_to '/comp_request'}
+        format.js { render 'accept_req'}
+      end
     elsif @appointment.update_attributes(appointment_params)
-      @amount = @appointment.companion.fee * 100
+      time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
+      @amount = (@appointment.companion.fee * time) * 100
       charge = Stripe::Charge.create(
         :customer    => @appointment.senior.stripe_customer_id,
         :amount      => @amount,
@@ -55,10 +61,10 @@ class AppointmentsController < ApplicationController
         )
       @appointment.payment_status = "Paid"
       @appointment.save
-      redirect_to '/comp_request'
+      @appointment = @user.companions.where({accept: false})
       respond_to do |format|
-        format.html {}
-        format.js {}
+        format.html {redirect_to '/comp_request'}
+        format.js { render 'accept_req'}
       end
     else
       render 'edit'

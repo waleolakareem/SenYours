@@ -25,6 +25,7 @@ module AvailableDaysHelper
     time_two = []
       x = user1.available_days.where(date: date)
       y = user2.available_days.where(date: date)
+      # Just concatenate instead of going through each
     if x.length != 0 && y.length != 0
        x[0].available_times.each do |time|
         time_one.push(time.time)
@@ -41,7 +42,14 @@ module AvailableDaysHelper
     user.available_days.each do |day|
       dates.push(day.date)
     end
-
     dates
+  end
+
+  def stripoff(available_day)
+    convert = []
+    available_day.available_times.each do |time|
+      convert.push(time.time.strftime('%I:%M%p'))
+    end
+    convert
   end
 end

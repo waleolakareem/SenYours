@@ -17,12 +17,17 @@ class User < ApplicationRecord
   validates :terms_of_service, presence: true
   validates :identification, presence: true
   validate :over_18
+  # validates :ssn,  :ssn  => true
 
   has_secure_password
   validate  :avatar_size
 
   def conversations
     Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
+
+  def phone_number=(value)
+    super(value.blank? ? nil : value.gsub(/[^\w\s]/, ''))
   end
 
   # Validates that user is older than 18 years of age

@@ -44,6 +44,9 @@ gem 'fog', '1.42'
 #stripe
 gem 'stripe'
 
+#validate
+gem 'activevalidators', '~> 4.0.1'
+
 #semantic
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
