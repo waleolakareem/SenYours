@@ -10,9 +10,6 @@ class AvailableDaysController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @current_date = current_user.available_days
-
     @availableDay = AvailableDay.where('date = ? AND user_id = ?', available_days_params[:date], available_days_params[:user_id])
     if @availableDay.length >= 1
       @deldate = @availableDay[0]
@@ -23,11 +20,6 @@ class AvailableDaysController < ApplicationController
       end
     elsif @availableDay.length <= 1
       @availableDay = AvailableDay.create(available_days_params)
-      arr = ["08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","1:00:00","2:00:00","3:00:00","4:00:00","5:00:00","6:00:00","7:00:00","8:00:00"]
-      arr.each do |time|
-        @time = @availableDay.available_times.find_or_create_by(time: time)
-      end
-
       respond_to do |format|
         format.html {redirect_to new_user_available_day_path(@user)}
         format.js {render 'new'}
@@ -42,11 +34,41 @@ class AvailableDaysController < ApplicationController
   end
 
   def update
-
+    @availableDay = AvailableDay.find(params[:id])
+    @time = @availableDay.available_times.where('time = ? ', params[:time].to_time)
+    if @time.length >= 1
+      @show_del = @time[0].time.strftime('%I')
+      @real_show_del = @time[0].time.strftime('%I:%M%p')
+      @time[0].destroy
+      respond_to do |format|
+        format.html {redirect_to available_day_path(available_day:{date: @availableDay.date,user_id: current_user.id,comment: 'I am ready'},id: @availableDay.id)}
+        format.js {render 'show_del'}
+      end
+    else
+      @time = @availableDay.available_times.new(time: params[:time])
+      if @time.save
+        @real_time = @time.time.strftime('%I:%M%p')
+        @time = @time.time.strftime('%I')
+        respond_to do |format|
+          format.html {redirect_to available_day_path(available_day:{date: @availableDay.date,user_id: current_user.id,comment: 'I am ready'},id: @availableDay.id)}
+          format.js {render 'show'}
+        end
+      end
+    end
   end
 
   def show
+    @availableDay = AvailableDay.where({user_id:current_user,date: available_days_params[:date]})
+    @arr = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM"]
+    @checkdate = @availableDay[0].date
+    @last_date = current_user.available_days.last().date
+    @first_date = current_user.available_days.first().date
 
+    p "e" * 99
+    p @checkdate
+    p @last_date
+    p @first_date
+    p "g" * 99
   end
 
   def destroy

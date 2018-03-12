@@ -301,6 +301,9 @@ body {
     width: 250px !important;
   }
 
+   @media screen and (max-width: 414px) {
+    width: 290px !important;
+  }
   @media screen and (max-width: 1440px) {
     width: 350px;
   }
@@ -423,7 +426,7 @@ body {
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
   margin-bottom: 10px;
-  width: 95%;
+  width: 96%;
   // margin-top: 60px;
   @media screen and (max-width: 640px){
     margin: 20px;
@@ -490,12 +493,17 @@ body {
 
 .sen_rating {
   margin: 0px 15px;
-  width: 95%;
-  // border: 1px solid gray;
+  width: 96%;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
   border-radius:3px;
   margin-bottom: 10px;
+
+    @media screen and (max-width: 414px) {
+    margin: 0px 5px;
+    margin: 20px;
+    width: 91%;
+  }
   @media screen and (max-width: 320px) {
     margin: 0px 5px;
     margin: 20px;
@@ -504,6 +512,7 @@ body {
 }
 
 .calender{
+  padding-top:10px;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
    background-color: white;
    width: 95%;
@@ -580,4 +589,15 @@ body {
 .daite {
   margin: 0px 5px;
 }
+
+.user_rev_par{
+  margin-top: 10px;
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;;
+}
+
+.date_time{
+  display: none;
+}
+
 

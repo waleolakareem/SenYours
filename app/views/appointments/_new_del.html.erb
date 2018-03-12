@@ -1,5 +1,5 @@
 <button class="btn cal_but" style="background-color: gray">
-  <p class="notification"><%= @del_appt.start_date.strftime('%b') %></p>
-  <p class="notification"><%= @del_appt.start_date.strftime('%d') %></p>
-  <p class="notification"><%= @del_appt.start_date.strftime('%Y') %></p>
+  <p class="notification"><%= @del_appt.start_date.strftime('%b') %> <%= @del_appt.start_date.strftime('%d') %></p>
+  <p class="notification">REQ</p>
+  <p class="notification">CXL</p>
 </button>

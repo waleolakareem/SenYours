@@ -1,10 +1,11 @@
 $(document).on('turbolinks:load', function(){
+
   // To hide buttons when not on home page to scroll to where needed.
   var className = $('.home_div').attr('class')
   if(className) {
-    $('.press').show()
+    $('.press').show();
   } else {
-    $('.press').hide()
+    $('.press').hide();
   }
 
   // Scroll to the field needed
@@ -19,6 +20,7 @@ $(document).on('turbolinks:load', function(){
     window.scrollTo(0,document.body.scrollHeight, 'slow');
   }
 
+  // display time
 
   // setTimeout(function() {
   //   window.location.reload();

@@ -19,7 +19,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/<%= current_user.id%>/conversations">
             <% if get_unread.length >= 1 %>
-            <% p get_unread %>
              Messages<i class="fa fa-circle"
              style="color: red; font-size: 0.5em; position: absolute;"></i>
              <% else %>
@@ -29,26 +28,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link dash" href="/need_a_comp">
-            |</a>
-          </a>
-        </li>
-        <% if current_user.identification === "Senior" %>
-            <li class="nav-item">
-            <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
-               Find Companions</a>
-            </a>
-            </li>
-
-        <% end %>
-        <% if current_user.identification === "Companion" %>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/<%= current_user.id %>/available_days/new">
-              Days you can work</a>
-              </a>
-            </li>
-        <% end %>
-         <li class="nav-item">
           <a class="nav-link dash" href="/need_a_comp">
             |</a>
           </a>
