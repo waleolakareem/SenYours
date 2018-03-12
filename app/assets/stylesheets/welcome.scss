@@ -9,23 +9,24 @@
 }
 
 #car1{
-  background-image:url(/assets/love.jpg) !important;
+  background-image:url(/assets/boardgame.jpg) !important;
   background-size: cover;
   background-position: top center;
-  height: 630px;
+  height: 730px;
   background-attachment: fixed;
   @media screen and (max-width: 1024px){
     height: 400px;
     background-attachment: scroll;
+    background-position: top center;
   }
 }
 
 #car2{
-  background-image:url(/assets/love2.jpg) !important;
+  background-image:url(/assets/help.jpg) !important;
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
-  height: 630px;
+  height: 730px;
   @media screen and (max-width: 1024px){
     height: 400px;
     background-attachment: scroll;
@@ -33,10 +34,10 @@
 }
 
 #car3{
-  background-image:url(/assets/love3.jpg) !important;
+  background-image:url(/assets/smilyblac.jpg) !important;
   background-size: cover;
   background-position: top center;
-  height: 630px;
+  height: 730px;
   background-attachment: fixed;
   @media screen and (max-width: 1024px){
     height: 400px;
@@ -242,17 +243,21 @@
   justify-content: space-around;
   font-family: 'Muli', sans-serif;
   font-size: 17px;
+  height: 500px;
+  @media screen and (max-width: 425px){
+    height: 350px;
+  }
 }
 
 .require_img {
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/becomeacomp.jpg);
+  background-image:url(/assets/bagcheck.jpg);
   width: 100%;
-  height: 400px;
+  height: 600px;
   @media screen and (max-width: 425px){
-    height: 250px;
+    height: 450px;
   }
 }
 
@@ -298,12 +303,12 @@
   // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   background-repeat: no-repeat;
   background-size:cover;
-  background-postion: center;
-  background-image:url(/assets/requirements_guy2.jpg);
+  background-postion: left center;
+  background-image:url(/assets/youngman.jpg);
   width: 100%;
-  height: 400px;
+  height: 600px;
   @media screen and (max-width: 425px){
-    height: 250px;;
+    height: 450px;;
   }
 }
 
@@ -311,12 +316,12 @@
   // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   background-repeat: no-repeat;
   background-size:cover;
-  background-postion: center;
-  background-image:url(/assets/whychooseus.jpg);
+  background-postion: left;
+  background-image:url(/assets/cocktail.jpg);
   width: 100%;
-  height: 400px;
+  height: 600px;
   @media screen and (max-width: 425px){
-    height: 250px;;
+    height: 250px;
   }
 }
 
@@ -325,18 +330,19 @@
  // padding-left: 50px;
  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
  background-color:#f5f5f5;
+ display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Muli', sans-serif;
+  font-size: 17px;
+  height: 600px;
  @media screen and (max-width: 768px){
     // padding-left:20px;
- box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
- background-color:white;
-
-
+   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+   background-color:white;
   }
 }
 
-.why_this_div h2 {
-  color: orange;
-}
 .why_this_par_last {
   padding-bottom: 3em;
   @media screen and (max-width: 768px){
@@ -362,7 +368,7 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/landpic9.jpg);
+  background-image:url(/assets/boule.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
@@ -420,6 +426,7 @@
   letter-spacing: 3px;
   text-decoration-line: none;
   font-size: 25px;
+  padding-top: 30px;
 }
 
 .faq .card{
@@ -431,5 +438,13 @@
 .faq .card-header{
   border: none;
   background-color: transparent;
+  padding: .375rem .55rem;
+
 }
 
+.faq .card-header .btn {
+    @media screen and (max-width: 645px) {
+    letter-spacing: none;
+    font-size: 0.65rem !important;
+  }
+}
