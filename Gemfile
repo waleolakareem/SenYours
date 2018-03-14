@@ -65,7 +65,7 @@ gem 'city-state'
 #   gem 'rails_12factor'
 # end
 
-# cache
+gem 'jammit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
