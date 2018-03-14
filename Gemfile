@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 
-gem 'heroku-deflater', :group => :production
+gem 'heroku-deflater', :group => :production, git: "https://github.com/romanbsd/heroku-deflater.git"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -64,6 +64,8 @@ gem 'city-state'
 # group :production do
 #   gem 'rails_12factor'
 # end
+
+# cache
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
