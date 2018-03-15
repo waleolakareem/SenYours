@@ -1,0 +1,5 @@
+# .traceroute.yaml
+ignore_unreachable_actions:
+- ^jasmine_rails\/
+ignore_unused_routes:
+- ^users#index
