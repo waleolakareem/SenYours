@@ -65,7 +65,7 @@ gem 'city-state'
 #   gem 'rails_12factor'
 # end
 
-gem 'jammit'
+gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

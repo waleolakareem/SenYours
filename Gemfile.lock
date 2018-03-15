@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/documentcloud/jammit.git
+  revision: dc866f1ac3eb069d65215599c451db39d66119a7
+  specs:
+    jammit (0.7.1)
+      cssmin (~> 1.0)
+      jsmin (~> 1.0)
+
+GIT
   remote: https://github.com/doabit/semantic-ui-sass.git
   revision: ba3acee5bb44f2532436f83e3d7d0cd3152b5fe9
   branch: v1.0beta
@@ -284,9 +292,6 @@ GEM
     i18n_data (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
-    jammit (0.7.0)
-      cssmin (~> 1.0)
-      jsmin (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -433,7 +438,7 @@ DEPENDENCIES
   dotenv
   fog (= 1.42)
   heroku-deflater!
-  jammit
+  jammit!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
