@@ -66,7 +66,7 @@ gem 'city-state'
 # end
 
 # gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
-gem 'traceroute'
+# gem 'traceroute'
 
 
 group :development, :test do
