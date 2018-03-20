@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_div {
+  padding-top:0px;
   @media screen and (max-width: 1024px){
     margin-top: -20px;
   }
@@ -11,25 +12,25 @@
 #car1{
   background-image:url(/assets/boardgamecomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
-  height: 730px;
+  height: 530px;
   background-attachment: fixed;
-  opacity:0.8px;
+  opacity:0.7;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    height: 350px;
     background-attachment: scroll;
     background-position: top center;
   }
 }
 
 #car2{
-  background-image:url(/assets/helpcomp.jpg) !important;
+  background-image:url(/assets/coffietimecomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
   background-attachment: fixed;
-  height: 730px;
+  opacity:0.7;
+  height: 530px;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    background-position: top center;
+    height: 350px;
     background-attachment: scroll;
   }
 }
@@ -37,11 +38,11 @@
 #car3{
   background-image:url(/assets/smilyblaccomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
-  height: 730px;
+  opacity:0.7;
+  height: 530px;
   background-attachment: fixed;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    height: 350px;
     background-attachment: scroll;
   }
 }
@@ -167,14 +168,20 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(http://www.epitomemagazine.com/wp-content/uploads/2016/09/elderly-blk-man-white-woman1.jpg);
+  background-image:url(/assets/helpcomp.jpg);
+  background-attachment: fixed;
   width: 100%;
   height: 650px;
-  // opacity: 0.8;
+  opacity: 0.6;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+    background-position: top center;
+  }
   @media screen and (max-width: 425px){
     height: 400px;
   }
@@ -424,10 +431,13 @@
 }
 
 .faq .edit_tag{
-  letter-spacing: 3px;
-  text-decoration-line: none;
-  font-size: 25px;
+  letter-spacing: 0px;
+  text-decoration-line: underline;
+  font-size: 50px;
   padding-top: 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 }
 
 .faq .card{

@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/documentcloud/jammit.git
-  revision: dc866f1ac3eb069d65215599c451db39d66119a7
-  specs:
-    jammit (0.7.1)
-      cssmin (~> 1.0)
-      jsmin (~> 1.0)
-
-GIT
   remote: https://github.com/doabit/semantic-ui-sass.git
   revision: ba3acee5bb44f2532436f83e3d7d0cd3152b5fe9
   branch: v1.0beta
@@ -114,7 +106,6 @@ GEM
     credit_card_validations (3.4.0)
       activemodel (>= 3, <= 6)
       activesupport (>= 3, <= 6)
-    cssmin (1.0.3)
     currencies (0.4.2)
     date_validator (0.9.0)
       activemodel
@@ -295,7 +286,6 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jsmin (1.0.1)
     json (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -440,7 +430,6 @@ DEPENDENCIES
   dotenv
   fog (= 1.42)
   heroku-deflater!
-  jammit!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
