@@ -98,5 +98,5 @@ Rails.application.configure do
     'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
 
-  config.gem "jammit"
+  # config.gem "jammit"
 end
