@@ -9,11 +9,12 @@
 }
 
 #car1{
-  background-image:url(/assets/boardgame.jpg) !important;
+  background-image:url(/assets/boardgamecomp.jpg) !important;
   background-size: cover;
   background-position: top center;
   height: 730px;
   background-attachment: fixed;
+  opacity:0.8px;
   @media screen and (max-width: 1024px){
     height: 400px;
     background-attachment: scroll;
@@ -22,7 +23,7 @@
 }
 
 #car2{
-  background-image:url(/assets/help.jpg) !important;
+  background-image:url(/assets/helpcomp.jpg) !important;
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
@@ -34,7 +35,7 @@
 }
 
 #car3{
-  background-image:url(/assets/smilyblac.jpg) !important;
+  background-image:url(/assets/smilyblaccomp.jpg) !important;
   background-size: cover;
   background-position: top center;
   height: 730px;
@@ -253,7 +254,7 @@
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/bagcheck.jpg);
+  background-image:url(/assets/backcheckcomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -304,7 +305,7 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left center;
-  background-image:url(/assets/youngman.jpg);
+  background-image:url(/assets/youngmancomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -317,7 +318,7 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
-  background-image:url(/assets/cocktail.jpg);
+  background-image:url(/assets/cocktailcomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -368,7 +369,7 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/boule.jpg);
+  background-image:url(/assets/boulecomp.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;

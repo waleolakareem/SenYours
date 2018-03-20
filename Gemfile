@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
+gem 'heroku-deflater', :group => :production, git: "https://github.com/romanbsd/heroku-deflater.git"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -58,6 +60,14 @@ gem "attr_encrypted", "~> 3.0.0"
 #state and cities
 gem 'carmen-rails', '~> 1.0.0'
 gem 'city-state'
+
+# group :production do
+#   gem 'rails_12factor'
+# end
+
+gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
+gem 'traceroute'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
