@@ -12,7 +12,6 @@
   font-size: 20px;
   font-weight: 700;
   padding-left: 50px;
-
   @media screen and (max-width: 1024px) {
     padding-top:  40px;
     margin-top: 30px;
@@ -24,7 +23,6 @@
     background-color: none;
     border-radius: 0px;
   }
-
    @media screen and (max-width: 414px) {
     padding-top:  40px;
     margin-top: 30px;
@@ -35,7 +33,6 @@
     border-radius: 0px;
     height: 100%;
   }
-
      @media screen and (max-width: 320px) {
     padding-top:  40px;
     margin-top: 30px;
@@ -47,29 +44,24 @@
     height: 100%;
   }
 }
-
 .descrip_rev {
   height: 120px;
   width: 720px;
   border-radius: 6px;
   margin-left: -55px;
-
   @media screen and (max-width: 1440px) {
     width: 600px;
     margin-left: 0px;
   }
-
   @media screen and (max-width: 768px) {
     width: 300px;
     margin-left: 0px;
   }
-
   @media screen and (max-width: 320px) {
     width: 280px !important;
     margin-left: 0px;
   }
 }
-
 .h3_1{
   padding-right: 100px;
   @media screen and (max-width: 414px) {
@@ -82,7 +74,6 @@
     padding-right: 0px;
   }
 }
-
 .h3_3{
   padding-right: 155px;
   @media screen and (max-width: 414px) {

@@ -3,76 +3,65 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_div {
+  padding-top:0px;
   @media screen and (max-width: 1024px){
     margin-top: -20px;
   }
 }
-
 #car1{
   background-image:url(/assets/boardgamecomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
-  height: 730px;
+  height: 530px;
   background-attachment: fixed;
-  opacity:0.8px;
+  opacity:0.7;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    height: 350px;
     background-attachment: scroll;
     background-position: top center;
   }
 }
-
 #car2{
-  background-image:url(/assets/helpcomp.jpg) !important;
+  background-image:url(/assets/coffietimecomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
   background-attachment: fixed;
-  height: 730px;
+  opacity:0.7;
+  height: 530px;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    background-position: top center;
+    height: 350px;
     background-attachment: scroll;
   }
 }
-
 #car3{
   background-image:url(/assets/smilyblaccomp.jpg) !important;
   background-size: cover;
-  background-position: top center;
-  height: 730px;
+  opacity:0.7;
+  height: 530px;
   background-attachment: fixed;
   @media screen and (max-width: 1024px){
-    height: 400px;
+    height: 350px;
     background-attachment: scroll;
   }
 }
-
 .image_div p {
   font-size: 30px;
   padding-top:460px;
   color: white;
-  // opacity: 1;
-  // text-shadow: 1px 1px 5px rgba(0,0,0,1);
   background-attachment: fixed;
   font-family: 'Muli', sans-serif;
   @media screen and (max-width: 425px){
     font-size: 12px;
-    // font-weight: 700;
   }
 }
-
 .comp_div {
   margin: 0px 0px 0px 0px;
-  // background-color: #f5f5f5;
-  // box-shadow: 1px 1px 5px rgba(0,0,0,1);
 }
-
 .comp_div .col-lg-4 {
   @media screen and (max-width: 425px){
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
 }
-
 .pad_cont{
   padding-right:5px;
   padding-left:5px;
@@ -80,8 +69,6 @@
 .comp_div .col-lg-12 p {
   color: orange;
   font-size:20px;
-  // font-weight: 700;
-  // font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
   padding-top:20px;
 }
@@ -91,29 +78,23 @@
   background-size:cover;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
-
 .comp_img_text {
   height: 10%;
   display: flex;
-  // justify-content: space-around;
   align-items: center;
 }
-
 .comp_img_text p {
   color: orange;
   font-size: 17px;
   font-family: 'Muli', sans-serif;
 }
-
 .comp_img_descrp p {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
 }
-
 .comp_img_descrp {
   height: 20%
 }
-
 .who_we {
   padding: 30px 80px 30px 80px;
   background-color: Azure;
@@ -121,44 +102,35 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  // box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
   @media screen and (max-width: 425px){
     padding: 10px 30px 20px;
   }
 }
-
 .who_we .text-center {
   font-size:20px;
   color: orange;
   letter-spacing: 3px;
-  // text-shadow: 1px 1px 5px rgba(0,0,0,1);
   @media screen and (max-width: 425px){
     padding: 0px 30px 20px;
   }
 }
-
 .who_we p {
   font-size: 18px;
 }
-
 .font {
   margin-bottom: 30px;
 }
-
 .font_back{
   margin: 30px 0px;
 }
-
 .font_back .text-center {
   color: orange
 }
-
 .font_p {
   padding: 0 20px;
   font-family: 'Muli', sans-serif;
   font-size: 15px;
 }
-
 .font_p_1 {
   letter-spacing: 2px;
   font-size: 15px;
@@ -167,35 +139,36 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(http://www.epitomemagazine.com/wp-content/uploads/2016/09/elderly-blk-man-white-woman1.jpg);
+  background-image:url(/assets/helpcomp.jpg);
+  background-attachment: fixed;
   width: 100%;
   height: 650px;
-  // opacity: 0.8;
+  opacity: 0.6;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
+  @media screen and (max-width: 1024px){
+    height: 400px;
+    background-attachment: scroll;
+    background-position: top center;
+  }
   @media screen and (max-width: 425px){
     height: 400px;
   }
 }
-
 .image2_div p {
   font-size: 30px;
-  // font-weight: 700;
   color: white;
   opacity: 1;
   text-shadow: 1px 1px 5px rgba(0,0,0,1);
   font-family: 'Muli', sans-serif;
-
   @media screen and (max-width: 425px){
     font-size: 12px;
     font-weight: 700;
   }
 }
-
 .stepp {
-  // height: 400px;
   margin: 20px 0px;
   padding: 50px 0px;
   font-family: 'Muli', sans-serif;
@@ -207,37 +180,30 @@
     padding: 100px 20px;
   }
 }
-
 .stepp h2 {
   padding-bottom: 50px;
 }
-
 .require {
   margin: 60px 0px;;
   background-color: #f5f5f5;
-  // padding: 0px 5px;
   @media screen and (max-width: 425px){
     margin-top: 20px;
     background-color: white;
     box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   }
 }
-
 .require .col-lg-6 {
-  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
 }
 .require_div1{
   padding: 15px 0px;
   color: orange;
 }
-
 .require_div1 h2{
   font-family: 'Muli', sans-serif;
   color: orange;
   letter-spacing: 3px;
   font-size:25px;
 }
-
 .require_div2 {
   display: flex;
   flex-direction: column;
@@ -249,62 +215,55 @@
     height: 350px;
   }
 }
-
 .require_img {
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
   background-image:url(/assets/backcheckcomp.jpg);
+  opacity:0.8;
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
     height: 450px;
   }
 }
-
 .require_par_last {
   padding-bottom: 2.5em;
   @media screen and (max-width: 768px){
     padding-bottom: 0em;
   }
 }
-
 .be_a_comp_icons{
   padding-right:10px;
 }
-
 .why_this {
   font-family: 'Muli', sans-serif;
   font-size: 17px;
   padding: 40px 20px;
 }
-
 .why_this h2 {
   font-family: 'Muli', sans-serif;
   color: orange;
   letter-spacing: 3px;
   font-size:25px;
 }
-
 .why_this_div h2{
   font-family: 'Muli', sans-serif;
   color: orange;
   letter-spacing: 3px;
   font-size:25px;
 }
-
 .why_this_comp {
   font-family: 'Muli', sans-serif;
   font-size: 17px;
   padding: 0px 5px;
   margin-bottom: 40px;
 }
-
 .why_this_img {
-  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left center;
+  opacity:0.8;
   background-image:url(/assets/youngmancomp.jpg);
   width: 100%;
   height: 600px;
@@ -312,9 +271,7 @@
     height: 450px;;
   }
 }
-
 .sen_why_this_img {
-  // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
@@ -325,11 +282,7 @@
     height: 250px;
   }
 }
-
-
 .why_this_div {
- // padding-left: 50px;
- // box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
  background-color:#f5f5f5;
  display: flex;
   flex-direction: column;
@@ -338,12 +291,10 @@
   font-size: 17px;
   height: 600px;
  @media screen and (max-width: 768px){
-    // padding-left:20px;
    box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
    background-color:white;
   }
 }
-
 .why_this_par_last {
   padding-bottom: 3em;
   @media screen and (max-width: 768px){
@@ -355,7 +306,6 @@
   width: 200px;
   color: white;
   background-color: orange;
-  // border: 1px solid black;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
@@ -364,7 +314,6 @@
     margin-bottom: 40px;
   }
 }
-
 .need_com_img {
   background-repeat: no-repeat;
   background-size:cover;
@@ -376,73 +325,53 @@
   @media screen and (max-width: 645px) {
     height: 350px;
   }
-
 }
-
 .policy_header {
   color: orange;
 }
-
 .par_last_policys{
   padding-bottom: 15px;
 }
-
 .values{
-  // height: 600px;
   background-color: #f5f5f5;
   padding-top:20px;
 }
-
 .values .edit_tag{
-  // font-size: 2.5em;
   font-size:25px;
   font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
 }
-
-.values .font_p_1{
-  // font-size: 1.5em;
-}
-
-.values .font_p{
-  // font-size: 1.3em;
-}
-
 .text_header{
   color: orange;
   font-size:20px;
-  // font-weight: 700;
-  // font-family: 'Muli', sans-serif;
   letter-spacing: 3px;
   padding-top:20px;
 }
-
 .btn-link{
   color: orange;
   letter-spacing: 2px;
   text-decoration-line: none;
 }
-
 .faq .edit_tag{
-  letter-spacing: 3px;
-  text-decoration-line: none;
-  font-size: 25px;
+  letter-spacing: 0px;
+  text-decoration-line: underline;
+  font-size: 50px;
   padding-top: 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 }
-
 .faq .card{
   border: none;
   font-size: 15px;
   font-family: 'Muli', sans-serif;
 }
-
 .faq .card-header{
   border: none;
   background-color: transparent;
   padding: .375rem .55rem;
 
 }
-
 .faq .card-header .btn {
     @media screen and (max-width: 645px) {
     letter-spacing: none;

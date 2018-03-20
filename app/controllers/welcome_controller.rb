@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @arr = ["/assets/companion2.jpg","/assets/companion3.jpg", "/assets/companion1.jpg"];
+    @arr = ["/assets/companion2.jpg","/assets/companion3.jpg", "/assets/companion1.jpg"]
   end
 
   def be_a_comp

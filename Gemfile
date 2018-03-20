@@ -65,7 +65,7 @@ gem 'city-state'
 #   gem 'rails_12factor'
 # end
 
-gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
+# gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
 gem 'traceroute'
 
 
