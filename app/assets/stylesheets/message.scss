@@ -9,55 +9,40 @@
     height:40px;
   }
 }
-
 .mess_img_circle {
-  border-radius: 200px;
+  border-radius:200px;
 }
-
 .mess_display {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
 }
-
 .mess_div {
-  margin-bottom: 5px;
-  padding-top: 20px;
-  background-color: Azure;
-  // width: 100%;
+  margin-bottom:5px;
+  padding-top:20px;
+  background-color:Azure;
 }
-
 #recent_mess{
-  position: relative;
+  position:relative;
 }
-
-
 .mess_descrip {
-
-  height: 120px;
-  width: 1120px;
-  border-radius: 6px;
+  height:120px;
+  width:1120px;
+  border-radius:6px;
   padding-left:0px;
-
-  @media screen and (max-width: 1024px) {
-    width: 900px;
+  @media screen and (max-width:1024px) {
+    width:900px;
   }
-
-  @media screen and (max-width: 768px) {
-    width: 700px;
+  @media screen and (max-width:768px) {
+    width:700px;
   }
-
-  @media screen and (max-width: 468px) {
-    height: 30px;
-    width: 340px;
-    margin-left: 0px;
+  @media screen and (max-width:468px) {
+    height:30px;
+    width:340px;
+    margin-left:0px;
   }
-
-
-
-  @media screen and (max-width: 320px) {
-    width: 300px;
-    margin-left: 0px;
+  @media screen and (max-width:320px) {
+    width:300px;
+    margin-left:0px;
   }
-
 }

@@ -4,35 +4,32 @@
 
 .responsive-input {
   // Large input box
-  height: 45px;
-  width: 400px;
-  padding: 10px 16px;
-  font-size: 18px;
+  height:45px;
+  width:400px;
+  padding:10px 16px;
+  font-size:18px;
   border-radius:3px;
-  font-family: 'Muli', sans-serif;
-  color: orange;
-  outline: none;
+  font-family:'Muli', sans-serif;
+  color:orange;
+  outline:none;
   border-width:thin;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-  border-style: solid;
-
+  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+  border-style:solid;
   // border: 1px orange solid;
   @media screen and (max-width: 425px) {
     // Small input box
-    height: 50px;
-    width: 300px;
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
+    height:50px;
+    width:300px;
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5;
   }
 }
-
 .form_top {
   opacity: 1;
   background-color:white;
-  padding:  40px 0px;
-  margin-top: 200px;
-  // background-color: orange;
+  padding: 40px 0px;
+  margin-top:200px;
   width:30%;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   box-shadow-color: orange;
@@ -41,24 +38,20 @@
   @media screen and (max-width: 375px) {
     width: 100% !important;
   }
-
   @media screen and (max-width: 414px) {
     margin-top: 0px !important;
     background-color: transparent;
     box-shadow: none;
   }
-
   @media screen and (max-width: 1024px) {
     padding-top:  80px;
     margin-top: 100px;
     width: 80%;
   }
 }
-
 .form_div {
   padding-bottom:20px;
 }
-
 .sign_in_form_submit {
   height: 60px;
   width: 400px;
@@ -73,13 +66,11 @@
     width: 300px;
   }
 }
-
 .form_submit {
   height: 60px;
   width: 200px;
   color: black;
   background-color: orange;
-  // border: 1px solid black;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -87,13 +78,11 @@
     height: 50px;
   }
 }
-
 .request_form_submit {
   height: 60px;
   width: 200px;
   color: white;
   background-color: red;
-  // border: 1px solid black;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 20px;

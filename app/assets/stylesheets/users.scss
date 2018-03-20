@@ -7,25 +7,20 @@ html {
     min-height: 100%;
     height: 100%;
 }
-
 body {
   background-color: white;
   padding-top:50px;
 }
-
 .profile_show{
   margin-top: 60px;
   @media screen and (max-width: 1440px) {
     margin-top:0px;
   }
 }
-
 .notification {
   margin-bottom: 0em;
 }
-
 .sign_up_form_top {
-
   padding-top: 20px;
   margin-top: 100px;
   margin-bottom: 0px;
@@ -42,21 +37,18 @@ body {
     width: 30%;
     border-radius: 3px;
   }
-
   @media screen and (max-width: 1024px) {
     padding-top:  40px;
     margin-top: 90px;
     width: 40%;
     border-radius: 3px;
   }
-
    @media screen and (max-width: 768px) {
     padding-top:  40px;
     margin-top: 90px;
     width: 50%;
     border-radius: 3px;
   }
-
    @media screen and (max-width: 425px) {
     padding-top:  40px;
     margin-top: 0px;
@@ -65,19 +57,16 @@ body {
     background-color: transparent;
   }
 }
-
 .sign_up_form_top .col-lg-12 {
   @media screen and (max-width: 320px) {
     padding-left: 0px;
   }
 }
-
 .option{
   display: flex;
   justify-content: center;
   font-size: 15px;
 }
-
 .option-div_1 {
   padding-right: 150px;
   @media screen and (max-width: 1440px) {
@@ -95,7 +84,6 @@ body {
   border-width:thin;
   color: orange;
   border-style: solid;
-
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 45px;
@@ -108,7 +96,6 @@ body {
     padding-left: 0px;
   }
 }
-
 .info_responsive-input {
   // Large input box
   height: 45px;
@@ -121,7 +108,6 @@ body {
   border-width:thin;
   color: orange;
   border-style: solid;
-
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 45px;
@@ -133,7 +119,6 @@ body {
     width: 300px !important;
   }
 }
-
 .add_responsive-input {
   // Large input box
   height: 45px;
@@ -146,7 +131,6 @@ body {
   border-width:thin;
   color: orange;
   border-style: solid;
-
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 45px;
@@ -159,7 +143,6 @@ body {
     width: 300px !important;
   }
 }
-
 .select_div{
   padding-left: 60px;
    @media screen and (max-width: 320px) {
@@ -174,7 +157,6 @@ body {
     height: 30px;
   }
 }
-
 .select_input{
   height: 40px;
   width: 187px;
@@ -184,7 +166,6 @@ body {
     height: 30px;
   }
 }
-
 .sign_up_form_submit {
   height: 60px;
   width: 400px;
@@ -194,17 +175,14 @@ body {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 20px;
-
   @media screen and (max-width: 320px) {
     width: 300px !important;
   }
-
   @media screen and (max-width: 1440px) {
     height: 50px;
     width: 315px;
   }
 }
-
 .senior_edit_form_top {
   padding-top:  20px;
   margin-top: 90px;
@@ -213,7 +191,6 @@ body {
   background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
-
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
@@ -232,20 +209,15 @@ body {
 }
 .comp_edit_form_top {
   padding-top:  20px;
-  // margin-top: 30px;
   margin-bottom: 40px;
-  // width:90%;
   background-color:   white;
-
   @media screen and (max-width: 1440px) {
     padding-top:  40px;
     margin-top: 0px;
-    // height: 900px;
     width: 100%;
     border-radius: 3px;
   }
 }
-
 .edit_responsive-input {
   height: 40px;
   width: 600px;
@@ -257,9 +229,6 @@ body {
   border-width:thin;
   border-style: solid;
   border-color: orange;
-
-
-
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 30px;
@@ -267,19 +236,16 @@ body {
     padding: 5px 10px;
     font-size: 12px;
   }
-
   @media screen and (max-width: 768px) {
     // Small input box
     height: 30px;
     width:  450px;
   }
-
    @media screen and (max-width: 414px) {
     // Small input box
     height: 30px;
     width:  280px;
   }
-
   @media screen and (max-width: 320px) {
     width: 240px;
     padding-left: 0px;
@@ -308,15 +274,12 @@ body {
     width: 350px;
   }
 }
-
 .index_div{
    margin-top:60px;
 }
-
 .comp_show {
   height: 400px;
 }
-
 .comp_show a {
   text-decoration: none;
   color: black;
@@ -329,7 +292,6 @@ body {
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 
 }
-
 .comp_descrp {
   height: 25%;
   // border: 1px solid gray;
@@ -337,7 +299,6 @@ body {
   font-size: 14px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
 }
-
 .comp_rate {
   height: 23px;
   position: absolute;
@@ -346,17 +307,13 @@ body {
   background-color: white;
   border-radius:1px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-
   @media screen and (max-width: 425px) {
      top:0px !important;
   }
-
   @media screen and (max-width: 1024px) {
      top:10px;
   }
 }
-
-
 .edit_n_comp_rate {
   color: orange;
   height: 23px;
@@ -367,31 +324,23 @@ body {
   background-color: white;
   border-radius:1px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-
   @media screen and (max-width: 425px) {
      top:74% !important;
   }
-
   @media screen and (max-width: 1024px) {
      top:76%;
   }
 }
-
-
 .edit_tag{
   color: orange;
   text-decoration: none;
 }
-
 .edit_tag {
   color: orange;
 }
-
 .edit_tag:link{
   text-decoration: none;
 }
-
-
 .image-upload > input
 {
    display: none;
@@ -399,8 +348,6 @@ body {
 .image-upload > label{
   cursor:pointer;
 }
-
-
 .comp_fee {
   height: 23px;
   position: absolute;
@@ -410,34 +357,27 @@ body {
   background-color: white;
   border-radius:1px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-
   @media screen and (max-width: 425px) {
      top:0px !important;
   }
-
   @media screen and (max-width: 1024px) {
      top:10px;
   }
 }
-
 .sen_img_app {
   margin: 0px 15px;
-  // margin-top: 40px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
   margin-bottom: 10px;
   width: 96%;
-  // margin-top: 60px;
   @media screen and (max-width: 640px){
     margin: 20px;
     width: 90%;
   }
-
   @media screen and (max-width: 320px){
     width: 89%;
   }
 }
-
 .sen_image {
   height: 350px;
   @media screen and (max-width: 640px){
@@ -445,16 +385,13 @@ body {
     padding-left: 0px;
     padding-right: 0px;
   }
-
 }
-
 .no_cont{
   @media screen and (max-width: 640px){
   padding-left: 0px;
   padding-right: 0px;
   }
 }
-
 .sen_img_upper {
   height: 80%;
   width: 100%;
@@ -464,12 +401,10 @@ body {
   margin-top:10px;
   border-radius:3px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-
   @media screen and (max-width: 640px){
     margin: 0px;
   }
 }
-
 .sen_img_lower {
   height: 20%;
   // Understand Flex box
@@ -479,18 +414,13 @@ body {
 }
 
 .sen_app {
-  // border: 1px solid gray;
-  // height: 350px;
   margin-top: 15px;
   font-family: 'Muli' sans-serif;
 }
-
-
 .sen_app_par {
   font-weight:700;
   font-size: 20px;
 }
-
 .sen_rating {
   margin: 0px 15px;
   width: 96%;
@@ -498,7 +428,6 @@ body {
   background-color: white;
   border-radius:3px;
   margin-bottom: 10px;
-
     @media screen and (max-width: 414px) {
     margin: 0px 5px;
     margin: 20px;
@@ -510,13 +439,11 @@ body {
     width: 89%;
   }
 }
-
 .calender{
   padding-top:10px;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
    background-color: white;
    width: 95%;
-
    @media screen and (max-width: 640px){
     margin: 20px;
   }
@@ -532,34 +459,26 @@ body {
     font-size: 12px;
   }
 }
-
 .responsive-image {
   width:60px;
   height:60px;
-
   @media screen and (max-width: 640px) {
     width:60px;
     height:60px;
   }
 }
-
 .img-circle {
   border-radius: 60px;
-  // border: 1px solid red;
 }
-
 .review_div {
   padding-top: 50px;
-  // border: 1px solid gray;
 }
-
 .sen_comp {
   margin: 0px 15px;
   margin-top: 20px;
   border: 1px solid gray;
   border-radius:3px;
 }
-
 .comp_description {
   margin: 16px 0px;;
   font-family: 'Muli';
@@ -568,34 +487,28 @@ body {
     margin: 20px 0px;
   }
 }
-
 .comp_app_req {
   padding: 0 15px;
   margin: 15px;
-  // border: 1px solid gray;
   border-radius: 3px;
   @media screen and (max-width: 640px) {
     margin: 5px;
   }
 }
-
 .rev_paragraphs {
   font-size: 14px;
   @media screen and (max-width: 640px) {
     font-size: 15px;
   }
 }
-
 .daite {
   margin: 0px 5px;
 }
-
 .user_rev_par{
   margin-top: 10px;
   font-size: 16px;
   font-family: 'Muli', sans-serif;;
 }
-
 .date_time{
   display: none;
 }
