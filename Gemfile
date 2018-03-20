@@ -61,12 +61,13 @@ gem "attr_encrypted", "~> 3.0.0"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'city-state'
 
-# group :production do
-#   gem 'rails_12factor'
-# end
+group :production do
+  gem 'rails_12factor'
+end
 
 # gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
 # gem 'traceroute'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
 group :development, :test do
