@@ -8,7 +8,7 @@
     <div class="row">
       <%@arr.each do |time|%>
         <%=link_to available_day_path(@availableDay[0].id,time: time), method: :patch, remote: true do %>
-          <div class="col-lg-2 col-md-2 col-3 form_div" id="<%=time[0].to_i  %><%=time[1].to_i  %>" >
+          <div class="col-lg-2 col-md-2 col-3 form_div" id="<%=time[0].to_i%><%=time[1].to_i  %>" >
             <% if stripoff(@availableDay[0]).include?(time) %>
               <button class="btn t_cal_but" style="background-color: red;">
                 <%= time%>
