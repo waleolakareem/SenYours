@@ -97,6 +97,11 @@
                   <p class="notification"><%= date.strftime('%a') %></p>
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
+              <% elsif Date.today > date %>
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
+                  <p class="notification"><%= date.strftime('%a') %></p>
+                  <p class="notification"><%= date.strftime('%d') %></p>
+                </button>
               <%  elsif date_exit(current_user).include?(date) %>
                   <%= link_to available_day_path(@user,available_day: {date: date, user_id: current_user}) do %>
                       <button class="btn days_cal_but" style="background-color: orange;">
@@ -104,11 +109,6 @@
                         <p class="notification"><%= date.strftime('%d') %></p>
                       </button>
                   <% end %>
-              <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
-                  <p class="notification"><%= date.strftime('%a') %></p>
-                  <p class="notification"><%= date.strftime('%d') %></p>
-                </button>
               <% else %>
                 <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
                   <p class="notification"><%= date.strftime('%a') %></p>
