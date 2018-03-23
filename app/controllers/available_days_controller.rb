@@ -35,7 +35,11 @@ class AvailableDaysController < ApplicationController
 
   def update
     @availableDay = AvailableDay.find(params[:id])
-    @time = @availableDay.available_times.where('time = ? ', params[:time].to_time)
+    p "e" * 100
+    p params[:time]
+    @time = @availableDay.available_times.where('time = ? ', params[:time])
+    p "d" * 77
+    p @time
     if @time.length >= 1
       @show_del = @time[0].time.strftime('%I')
       @real_show_del = @time[0].time.strftime('%I:%M%p')
@@ -63,12 +67,6 @@ class AvailableDaysController < ApplicationController
     @checkdate = @availableDay[0].date
     @last_date = current_user.available_days.last().date
     @first_date = current_user.available_days.first().date
-
-    p "e" * 99
-    p @checkdate
-    p @last_date
-    p @first_date
-    p "g" * 99
   end
 
   def destroy
