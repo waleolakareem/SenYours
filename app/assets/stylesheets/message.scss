@@ -20,29 +20,34 @@
 .mess_div {
   margin-bottom:5px;
   padding-top:20px;
-  background-color:Azure;
+  background-color:white;
 }
 #recent_mess{
   position:relative;
 }
 .mess_descrip {
-  height:120px;
-  width:1120px;
+  height:60px;
+  width:100%;
   border-radius:6px;
-  padding-left:0px;
-  @media screen and (max-width:1024px) {
-    width:900px;
-  }
-  @media screen and (max-width:768px) {
-    width:700px;
-  }
+  margin-left:-10px;
   @media screen and (max-width:468px) {
     height:30px;
-    width:340px;
-    margin-left:0px;
+    margin-left:-3px;
   }
   @media screen and (max-width:320px) {
-    width:300px;
-    margin-left:0px;
+    width:100%;
+    margin-left:-8px;
+  }
+}
+
+.mess_sub {
+  height: 60px;
+  width: 100%;
+  border-radius:6px;
+  margin-left: -25px;
+  @media screen and (max-width:468px) {
+    height:30px;
+    margin-left: -15px;
+
   }
 }
