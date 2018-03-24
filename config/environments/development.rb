@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   #timezone
-  config.time_zone = "Pacific Time (US & Canada)"
+  # config.time_zone = "Pacific Time (US & Canada)"
   # Do not eager load code on boot.
   config.eager_load = false
 
