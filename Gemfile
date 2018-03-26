@@ -55,6 +55,10 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 # Encrypt database
 gem "attr_encrypted", "~> 3.0.0"
 
+#sync life update
+gem 'sync'
+gem 'faye'
+gem 'thin', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #state and cities
