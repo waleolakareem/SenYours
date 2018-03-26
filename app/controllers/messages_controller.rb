@@ -36,6 +36,7 @@ def create
  end
 end
 
+
 private
  def message_params
   params.require(:message).permit(:body, :user_id, :conversation_id)
@@ -49,4 +50,5 @@ private
     message.save
   end
  end
+
 end

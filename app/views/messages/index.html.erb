@@ -2,20 +2,15 @@
   <div class="container mailbox">
     <div class="row">
       <div class="col-lg-12 mess_mailbox">
-      <%= render 'messages' %>
-       <div class="" id="recent_mess">
-          <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
-              <div class="row">
-              <div class="col-lg-10 col-9">
-               <%= f.text_area :body, class: 'mess_descrip' %>
-              </div>
-             <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-               <div class="col-lg-2 col-3">
-                 <%= f.submit 'Send', class: 'btn-warning mess_sub'  %>
-               </div>
-               </div>
+        <div>
+          <% if @messages.any? %>
+            <%= render 'messages' %>
           <% end %>
         </div>
+        <div>
+          <%= render 'message_form' %>
+        </div>
+        <div id="messages-table" class="messages-table">
       </div>
     </div>
   </div>
