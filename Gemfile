@@ -56,7 +56,7 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem "attr_encrypted", "~> 3.0.0"
 
 #sync life update
-gem 'sync'
+gem 'render_sync'
 gem 'faye'
 gem 'thin', require: false
 # Use Capistrano for deployment
