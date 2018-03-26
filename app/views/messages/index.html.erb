@@ -2,8 +2,7 @@
   <div class="container mailbox">
     <div class="row">
       <div class="col-lg-12 mess_mailbox">
-      <%= sync partial: 'messages', resource: @message %>
-      <%= sync_new partial: 'message_row', resource: Message.new %>
+      <%= render 'messages' %>
        <div class="" id="recent_mess">
           <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
               <div class="row">

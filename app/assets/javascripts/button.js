@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function(){
     window.scrollTo(0,document.body.scrollHeight, 'slow');
   }
 
-  $(".pending").hide()
+
 
   // display time
 
