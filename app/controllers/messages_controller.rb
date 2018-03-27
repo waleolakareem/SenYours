@@ -29,11 +29,13 @@ end
 def create
  @message = @conversation.messages.new(message_params)
  if @message.save
+  ActionCable.server.broadcast 'room_channel',
+                                   content:  @message.body
+ end
    respond_to do |format|
     format.html {redirect_to conversation_messages_path(@conversation)}
     format.js {render 'index'}
    end
- end
 end
 
 
