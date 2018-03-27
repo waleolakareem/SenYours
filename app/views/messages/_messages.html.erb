@@ -1,26 +1,26 @@
 <% if @over_ten %>
-         <%= link_to 'Show Previous', '?m=all' %>
-        <% end %>
-       <% @messages.each do |message| %>
-        <% if message.body %>
-         <% user = User.find(message.user_id) %>
-         <% if message.id === @messages.last.id %>
-          <div class="row form_div mess_div">
-         <% else %>
-          <div class="row form_div mess_div">
-         <% end %>
-            <div class="col-lg-1 col-md-2 col-3">
-              <img src="<%= user.avatar.thumb.url if user.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
-            </div>
-            <div class="col-lg-10 col-md-10 col-9 mess_display">
-               <div>
-                  <strong><%= user.first_name %></strong> <%= message.message_time %>
-               </div>
-               <div>
-                <i class='right triangle icon edit_tag'></i>
-                 <%= message.body %>
-               </div>
-            </div>
-          </div>
-        <% end %>
-       <% end %>
+<%= link_to 'Show Previous', '?m=all' %>
+<% end %>
+<% @messages.each do |message| %>
+<% if message.body %>
+<% user = User.find(message.user_id) %>
+<% if message.id === @messages.last.id %>
+<div class="row form_div mess_div">
+ <% else %>
+ <div class="row form_div mess_div">
+   <% end %>
+   <div class="col-lg-1 col-md-2 col-3">
+    <img src="<%= user.avatar.thumb.url if user.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
+  </div>
+  <div class="col-lg-10 col-md-10 col-9 mess_display">
+   <div>
+    <strong><%= user.first_name %></strong> <%= message.message_time %>
+  </div>
+  <div>
+    <i class='right triangle icon edit_tag'></i>
+    <%= message.body %>
+  </div>
+</div>
+</div>
+<% end %>
+<% end %>
