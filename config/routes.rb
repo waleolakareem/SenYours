@@ -38,5 +38,4 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-   mount ActionCable.server, at: '/cable'
 end
