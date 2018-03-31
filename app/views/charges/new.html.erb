@@ -11,7 +11,7 @@
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_sbYShoEalMzmoYBu4AL0QAWp"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Companions compensation"
           data-amount="500"
           data-locale="auto"></script>
