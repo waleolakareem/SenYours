@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require js.cookie
+//= require jstz
 //= require rails_emoji_picker
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+    var tz = jstz.determine();
+    Cookies.set('timezone', tz.name(), {path: '/'});
+});

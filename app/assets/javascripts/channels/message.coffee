@@ -19,19 +19,33 @@ App.message = App.cable.subscriptions.create {
         setTimeout (-> $('.typing_message').hide()), 1000
         console.log('typing')
     else
-      $('.mess_div:last').after('<div class="row form_div mess_div">' +
-      '<div class="col-lg-1 col-md-2 col-3">' +
-      '<img src="' + data['user']['avatar'].thumb.url + '" class= "mess_responsive_image mess_img_circle img-fluid">' +
-      '</div>' +
-      '<div class="col-lg-10 col-md-10 col-9 mess_display">' +
-      '<div>' +
-      '<strong>' + data['user'].first_name + '</strong> ' + data.message_time +
-      '</div>' +
-      '<div>' +
-      '<i class="right triangle icon edit_tag"></i>' +
-      data.message.body +
-      '</div>' +
-      '</div>')
+      if(data['user'].id.toString()==$('#user_id').val())
+        element='<div class="row form_div mess_div current_user">' +
+          '<div class="col-lg-1 col-md-2 col-3">' +
+          '<img src="' + data['user']['avatar'].thumb.url + '" class= "mess_responsive_image mess_img_circle img-fluid">' +
+          '</div>' +
+          '<div class="col-lg-10 col-md-10 col-9 mess_display">' +
+          '<div>'
+      else
+        element='<div class="row form_div mess_div">' +
+          '<div class="col-lg-1 col-md-2 col-3">' +
+          '<img src="' + data['user']['avatar'].thumb.url + '" class= "mess_responsive_image mess_img_circle img-fluid">' +
+          '</div>' +
+          '<div class="col-lg-10 col-md-10 col-9 mess_display">' +
+          '<div>'
+
+      if(data['user'].id.toString()==$('#user_id').val())
+        element += '<strong>me </strong>'
+      else
+        element += '<strong>' +  data['user'].first_name + ' </strong>'
+      element+=data.message_time +
+        '</div>' +
+        '<div>' +
+        '<i class="right triangle icon edit_tag"></i>' +
+        data.message.body +
+        '</div>' +
+        '</div>'
+      $('.mess_div:last').after(element)
       window.scrollTo(0, document.body.scrollHeight);
 
 
