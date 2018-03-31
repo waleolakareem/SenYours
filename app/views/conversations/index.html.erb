@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-10 col-md-10 col-9">
           <p class="notification">
-            <%= link_to recipient.first_name,   conversation_messages_path(conversation)%>
+            <%= link_to recipient.first_name,   conversation_messages_path(conversation), "data-turbolinks":"false"%>
           </p>
           <p>
             <%= conversation.messages.last.body %>
