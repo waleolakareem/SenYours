@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: SeenYours_production
-  username: SeenYours
-  password: <%= ENV['SEENYOURS_DATABASE_PASSWORD'] %>
+  username: manish
+  password: macbook

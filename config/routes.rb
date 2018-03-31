@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
+  mount ActionCable.server => '/cable'
   resources :charges
   resources :sessions
   resources :users do

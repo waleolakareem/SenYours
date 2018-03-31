@@ -113,6 +113,8 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
+    emoji (1.0.7)
+      json
     encryptor (3.0.0)
     erubi (1.7.0)
     excon (0.60.0)
@@ -337,6 +339,8 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_emoji_picker (0.1.5)
+      emoji
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.1.4)
@@ -440,6 +444,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails_12factor
+  rails_emoji_picker
   sass-rails (~> 5.0)
   selenium-webdriver
   semantic-ui-sass!
@@ -453,4 +458,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

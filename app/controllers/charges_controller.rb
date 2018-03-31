@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
 
-  Stripe.api_key=ENV['SECRET_KEY']
+  Stripe.api_key="sk_test_5IkqUgzKf4Mmvaah0dFvSqGA"
 
   def new
   end
