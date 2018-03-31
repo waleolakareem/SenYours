@@ -37,14 +37,14 @@ App.message = App.cable.subscriptions.create {
       if(data['user'].id.toString()==$('#user_id').val())
         element += '<strong>me </strong>'
       else
-        element += '<strong>' +  data['user'].first_name + ' </strong>'
-      element+=data.message_time +
+        element += '<a href="/users/'+data['user'].id+'"><strong>' +  data['user'].first_name + ' </strong></a>'
+      element+=
         '</div>' +
         '<div>' +
         '<i class="right triangle icon edit_tag"></i>' +
         data.message.body +
-        '</div>' +
-        '</div>'
+        '</div><div class="message_time_div">' +data.message_time +
+        '</div></div>'
       $('.mess_div:last').after(element)
       window.scrollTo(0, document.body.scrollHeight);
 
