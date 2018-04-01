@@ -15,6 +15,9 @@
 //= require jstz
 //= require rails_emoji_picker
 //= require rails-ujs
+//= require jquery-ui
+//= require select2
+
 //= require turbolinks
 //= require_tree .
 
