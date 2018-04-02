@@ -18,9 +18,10 @@
   justify-content:space-around;
 }
 .mess_div {
-  margin-bottom:5px;
   padding-top:20px;
   background-color:white;
+  border: solid #C5C5C5;
+  border-width: 1px 0px;
 }
 #recent_mess{
   position:relative;
@@ -43,13 +44,32 @@
 }
 
 .mess_sub {
-  height: 60px;
+  height: 40px;
   width: 100%;
-  border-radius:6px;
+  margin-top: 10px;
+  border-radius: 6px;
   margin-left: -25px;
   @media screen and (max-width:468px) {
     height:30px;
     margin-left: -15px;
 
   }
+
+}
+.mess_descrip{
+  background-color: #fff !important;
+  border: solid #C5C5C5;
+  border-width: 1px 1px;
+}
+.message_time_div{
+  font-size: 10px;
+  color: #BDBDBE;
+
+}
+.last_message_div{
+  margin-left: auto;
+  margin-right: 10px;
+}
+.typing_message {
+  margin-left: 10px;
 }

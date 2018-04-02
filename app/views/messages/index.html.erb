@@ -1,16 +1,59 @@
 <body class="mess_bod">
-  <div class="container mailbox">
-    <div class="row">
-      <div class="col-lg-12 mess_mailbox">
-        <div>
-          <% if @messages.any? %>
-            <%= render 'messages' %>
-          <% end %>
-        </div>
-        <div>
-          <%= render 'message_form' %>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="container mailbox">
+  <div class="row">
+    <div class="col-lg-12 mess_mailbox">
+      <% if @over_ten %>
+        <center>
+          <%= button_tag 'Show Previous', onclick:'window.location.href="?m=all"',class:'btn btn-default',style:"    margin-top: 10px;margin-bottom: 10px;" %>
+        </center>
+      <% end %>
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="row form_div mess_div <%= user.id!=current_user.id ? "" : "current_user" %>">
+
+            <div class="col-lg-1 col-md-2 col-3">
+              <img src="<%= user.avatar.thumb.url if user.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
+            </div>
+            <div class="col-lg-10 col-md-10 col-9 mess_display">
+              <div>
+                <% if user.id!=current_user.id %>
+                <strong><%= link_to user.first_name,user_path(user) %></strong>
+                  <% else %>
+                <strong>me</strong>
+              <% end %>
+
+                  </div>
+              <div>
+                <i class='right triangle icon edit_tag'></i>
+                <%= message.body %>
+              </div>
+              <div class="message_time_div">
+                <%= message.message_time %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="" id="recent_mess">
+        <%= hidden_field_tag "user_id",current_user.id%>
+        <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
+          <div class="row">
+            <div class="typing_message " style="display: none">typing ...</div>
+            <div class="last_message_div "  style="text-align: right"><span style="color: #BDBDBE">Last Time</span> <%= @messages.last.message_time %></div>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+            <div class="col-lg-10 col-9">
+              <%= f.text_area :body, class: 'mess_descrip' , data: { emojiable: true } %>
+            </div>
+            <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
+            <div class="col-lg-2 col-3">
+              <%= f.submit 'Send', class: 'btn-warning mess_sub'  %>
+            </div>
+          </div>
+        <% end %>
+</div>
 </body>
