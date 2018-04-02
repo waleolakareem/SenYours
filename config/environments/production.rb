@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   #timezone
-  config.time_zone = "Pacific Time (US & Canada)"
+  # config.time_zone = "Pacific Time (US & Canada)"
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

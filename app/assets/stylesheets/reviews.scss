@@ -64,20 +64,38 @@
 }
 .h3_1{
   padding-right: 100px;
+  font-family:'Muli', sans-serif;
+  color: orange;
   @media screen and (max-width: 414px) {
-    padding-right: 0px;
+    padding-right: 10px;
+    font-size:12px;
+  }
+  @media screen and (max-width: 375px) {
+    padding-right: 15px;
   }
 }
 .h3_2{
-  padding-right: 83px;
+  padding-right: 79px;
+  font-family:'Muli', sans-serif;
+  color: orange;
   @media screen and (max-width: 414px) {
     padding-right: 0px;
+    font-size:12px;
+  }
+  @media screen and (max-width: 375px) {
+    padding-right: 5px;
   }
 }
 .h3_3{
-  padding-right: 155px;
+  padding-right: 192px;
+  font-family:'Muli', sans-serif;
+  color: orange;
   @media screen and (max-width: 414px) {
-    padding-right: 0px;
+    padding-right: 48px;
+    font-size:12px;
+  }
+  @media screen and (max-width: 375px) {
+    padding-right: 53px;
   }
 }
 

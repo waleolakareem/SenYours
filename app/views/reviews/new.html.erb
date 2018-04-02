@@ -13,7 +13,7 @@
             <h3 class="h3_2">Recommendation</h3> <% (1..5).each do |rating| %>
             <div class="col form_div">
                 <%= radio_button("review", "wyr_rating",rating) %>
-                <%= label_tag(:rate, rating) %>
+                <%= label_tag(:rate, rating)  %>
             </div>
             <% end %>
         </div>

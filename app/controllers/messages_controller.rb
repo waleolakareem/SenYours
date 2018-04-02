@@ -38,10 +38,12 @@ class MessagesController < ApplicationController
     end
   end
 
+
   private
   def message_params
     params.require(:message).permit(:body, :user_id, :conversation_id)
   end
+
 
   def mark_messages_as_read
     @messages.each do |message|
@@ -51,4 +53,6 @@ class MessagesController < ApplicationController
       message.save
     end
   end
-end
+
+ end
+
