@@ -7,18 +7,17 @@ $(document).on('turbolinks:load', function(){
   } else {
     $('.press').hide();
   }
-
   // Scroll to the field needed
   $(".press").click(function(e) {
     e.preventDefault();
     var aid = $(this).attr("href");
     $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
   });
-
   var mess = $('.mess_bod').attr('class')
   if (mess) {
     window.scrollTo(0,document.body.scrollHeight, 'slow');
   }
+
 
   // display time
 
@@ -59,3 +58,4 @@ $(document).on('turbolinks:load', function(){
   // });
 
 });
+
