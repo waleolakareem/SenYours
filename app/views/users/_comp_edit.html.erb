@@ -2,12 +2,12 @@
 <% if current_user.id === @user.id  %>
     <div class="container">
         <div class="row" >
-            <div class="col-lg-2 col-md-2" style="margin-top: 60px;">
+            <!-- <div class="col-lg-2 col-md-2" style="margin-top: 60px;">
                 <%= link_to 'Edit', edit_user_path(current_user), class: 'edit_tag' %><br>
                 <%= link_to 'View Profile', user_path(current_user), class: 'edit_tag' %>
-            </div>
-            <div class="col-lg-10 col-md-10" style="margin-top: 60px;box-shadow: 1px 1px 5px rgba(0,0,0,0.1);padding: 0px 0px; border-radius: 6px;
-            ">
+            </div> -->
+            <!-- <div class="col-lg-10 col-md-10" style="margin-top: 60px;box-shadow: 1px 1px 5px rgba(0,0,0,0.1);padding: 0px 0px; border-radius: 6px;
+            "> -->
             <div class="comp_edit_req"><p>Required</p></div>
                 <%= form_for @user do |f| %>
                     <div class="container text-center comp_edit_form_top">
