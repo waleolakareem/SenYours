@@ -63,6 +63,7 @@ gem "attr_encrypted", "~> 3.0.0"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'city-state'
 
+gem 'faker'
 group :production do
   gem 'rails_12factor'
 end
