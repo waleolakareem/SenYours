@@ -69,13 +69,13 @@ body {
 }
 .option-div_1 {
   padding-right: 150px;
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 2560px) {
     padding-right: 70px;
   }
 }
 .user_responsive-input {
   height: 45px;
-  width: 400px;
+  width: 85%;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
@@ -84,22 +84,21 @@ body {
   border-width:thin;
   color: orange;
   border-style: solid;
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 2560px) {
     // Small input box
     height: 45px;
-    width: 315px;
+    width: 100%;
     padding: 5px 10px;
-    font-size: 12px;
   }
   @media screen and (max-width: 320px) {
-    width: 300px !important;
+    width: 105% !important;
     padding-left: 0px;
   }
 }
 .info_responsive-input {
   // Large input box
   height: 45px;
-  width: 400px;
+  width: 85%;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;
@@ -111,12 +110,11 @@ body {
   @media screen and (max-width: 1440px) {
     // Small input box
     height: 45px;
-    width: 315px;
+    width: 100%;
     padding: 5px 10px;
-    font-size: 12px;
   }
   @media screen and (max-width: 320px) {
-    width: 300px !important;
+    width: 105% !important;
   }
 }
 .add_responsive-input {
@@ -168,19 +166,19 @@ body {
 }
 .sign_up_form_submit {
   height: 60px;
-  width: 400px;
+  width: 85%;
   color: white;
   background-color: orange;
   // border: 1px solid black;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 20px;
-  @media screen and (max-width: 320px) {
-    width: 300px !important;
-  }
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 256px) {
     height: 50px;
-    width: 315px;
+    width: 100%;
+  }
+  @media screen and (max-width: 320px) {
+    width: 105% !important;
   }
 }
 .senior_edit_form_top {
@@ -191,7 +189,7 @@ body {
   background-color:   white;
   box-shadow: 1px 1px 5px rgba(0,0,0,1);
   border-radius: 6px;
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 256px) {
     padding-top:  40px;
     margin-top: 0px;
     height: 900px;
