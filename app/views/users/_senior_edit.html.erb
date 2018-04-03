@@ -70,13 +70,8 @@
                                     <div class="col-lg-2 col-md-2">
                                         <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
                                     </div>
-                                    <div class="col-lg-10 col-md-10">
-                                        <select id="states-of-country" name="user[city]" class="select_input">
-                                            <option value="" selected="">Select Your City</option>
-                                            <% CS.cities(:ca,:us).each do |value| %>
-                                            <option value="<%= value%>"><%= value %></option>
-                                            <% end %>
-                                        </select>
+                                    <div class="col-lg-10 col-md-10 col-10">
+                                      <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"form-control",id:"states-of-country" %>
                                     </div>
                                 </div>
                             </div>
