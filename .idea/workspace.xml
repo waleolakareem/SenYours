@@ -77,7 +77,11 @@
       <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/available_days/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="660">
+=======
+            <state relative-caret-position="232">
+>>>>>>> c3b0709c7dd1a804c1ed863c2403341719bfb87e
               <caret line="44" column="84" lean-forward="false" selection-start-line="44" selection-start-column="84" selection-end-line="44" selection-end-column="84" />
               <folding />
             </state>
@@ -87,8 +91,13 @@
       <file leaf-file-name="available_days_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/available_days_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="195">
               <caret line="68" column="133" lean-forward="false" selection-start-line="68" selection-start-column="133" selection-end-line="68" selection-end-column="133" />
+=======
+            <state relative-caret-position="138">
+              <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+>>>>>>> c3b0709c7dd1a804c1ed863c2403341719bfb87e
               <folding />
             </state>
           </provider>
@@ -478,7 +487,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="76397000" />
+=======
+    <option name="totallyTimeSpent" value="75956000" />
+>>>>>>> c3b0709c7dd1a804c1ed863c2403341719bfb87e
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="23" width="1920" height="989" extended-state="6" />
@@ -905,7 +918,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/available_days/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="660">
+=======
+        <state relative-caret-position="232">
+>>>>>>> c3b0709c7dd1a804c1ed863c2403341719bfb87e
           <caret line="44" column="84" lean-forward="false" selection-start-line="44" selection-start-column="84" selection-end-line="44" selection-end-column="84" />
           <folding />
         </state>
@@ -913,8 +930,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/available_days_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="195">
           <caret line="68" column="133" lean-forward="false" selection-start-line="68" selection-start-column="133" selection-end-line="68" selection-end-column="133" />
+=======
+        <state relative-caret-position="138">
+          <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+>>>>>>> c3b0709c7dd1a804c1ed863c2403341719bfb87e
           <folding />
         </state>
       </provider>
