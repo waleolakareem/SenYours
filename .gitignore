@@ -18,3 +18,4 @@
 
 .byebug_history
 .env
+/config/env_variables.yml

@@ -218,7 +218,7 @@ body {
 }
 .edit_responsive-input {
   height: 40px;
-  width: 600px;
+  //width: 600px;
   padding: 10px 16px;
   font-size: 15px;
   border-radius: 3px;
@@ -227,27 +227,29 @@ body {
   border-width:thin;
   border-style: solid;
   border-color: orange;
-  @media screen and (max-width: 1440px) {
-    // Small input box
-    height: 30px;
-    width: 500px;
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-  @media screen and (max-width: 768px) {
-    // Small input box
-    height: 30px;
-    width:  450px;
-  }
-   @media screen and (max-width: 414px) {
-    // Small input box
-    height: 30px;
-    width:  280px;
-  }
-  @media screen and (max-width: 320px) {
-    width: 240px;
-    padding-left: 0px;
-  }
+
+  //doesnt require as we are using form control
+  //@media screen and (max-width: 1440px) {
+  //  // Small input box
+  //  height: 30px;
+  //  width: 500px;
+  //  padding: 5px 10px;
+  //  font-size: 12px;
+  //}
+  //@media screen and (max-width: 768px) {
+  //  // Small input box
+  //  height: 30px;
+  //  width:  450px;
+  //}
+  // @media screen and (max-width: 414px) {
+  //  // Small input box
+  //  height: 30px;
+  //  width:  280px;
+  //}
+  //@media screen and (max-width: 320px) {
+  //  width: 240px;
+  //  padding-left: 0px;
+  //}
 }
 .fee_div {
   padding-left: 40px;

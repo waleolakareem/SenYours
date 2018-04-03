@@ -29,28 +29,28 @@
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>First Name</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :first_name,class: 'edit_responsive-input', :maxlength => 15 %>
+                                <%= f.text_field :first_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Last Name</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :last_name,class: 'edit_responsive-input', :maxlength => 15 %>
+                                <%= f.text_field :last_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Birth date</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.date_field :dob,class: 'edit_responsive-input' %>
+                                <%= f.date_field :dob,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Email</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :email,class: 'edit_responsive-input' %>
+                                <%= f.text_field :email,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
@@ -58,7 +58,7 @@
                                 <p>Address</p>
                             </div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :address,class: 'edit_responsive-input' %>
+                                <%= f.text_field :address,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
@@ -71,12 +71,8 @@
                                         <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
                                     </div>
                                     <div class="col-lg-10 col-md-10">
-                                        <select id="states-of-country" name="user[city]" class="select_input">
-                                            <option value="" selected="">Select Your City</option>
-                                            <% CS.cities(:ca,:us).each do |value| %>
-                                            <option value="<%= value%>"><%= value %></option>
-                                            <% end %>
-                                        </select>
+                                      <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"edit_responsive-input form-control",id:"states-of-country" %>
+
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +87,7 @@
                                 <option value="<%= value%>"><%= value %></option>
                                 <% end %>
                                 </select>
-                                <%#= f.text_field :city,class: 'edit_responsive-input' %>
+                                <%#= f.text_field :city,class: 'edit_responsive-input form-control' %>
                                  <%#= f.select :city, options_for_select(cities) %>
                                  <!-- <select id="cities-of-state" name="user[city]">
                                         <option value="" selected="">Select Your City</option>
@@ -102,14 +98,14 @@
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Zip code</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :zipcode,class: 'edit_responsive-input', :maxlength => 5 %>
+                                <%= f.text_field :zipcode,class: 'edit_responsive-input form-control', :maxlength => 5 %>
                             </div>
                         </div>
                          <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
                                 <p>Phone Number</p></div>
                             <div class="col-lg-10 col-md-10 col-10 form_div">
-                                <%= f.text_field :phone_number,class: 'edit_responsive-input', :maxlength => 10 %>
+                                <%= f.text_field :phone_number,class: 'edit_responsive-input form-control', :maxlength => 10 %>
                             </div>
                         </div>
                         <div class="row">
