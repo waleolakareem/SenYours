@@ -46,8 +46,8 @@ App.message = App.cable.subscriptions.create {
         '</div><div class="message_time_div">' +data.message_time +
         '</div></div>'
       $('.mess_div:last').after(element)
+      $(".start_conversation").remove()
       window.scrollTo(0, document.body.scrollHeight);
-
 
   typing: (data)->
     console.log('typing')
