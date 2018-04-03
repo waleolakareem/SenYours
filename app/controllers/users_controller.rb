@@ -2,13 +2,16 @@ class UsersController < ApplicationController
  before_action :authorize, only: [:edit, :show]
 
   def index
-    @user = User.all
+    unless params["search"]
+      @user = User.all
+    else
+      @user=User.where("fee <= ? AND fee >= ? AND city = ? ", params[:search][:max_price],params[:search][:min_price],params[:search][:city])
+    end
   end
 
   def new
     @user = User.new
   end
-
 
   def create
     @user = User.new(user_params)
