@@ -1,65 +1,48 @@
 <body class="mess_bod">
-  <div class='mailbox'>
-   <div class='container'>
-     <h3>Inbox</h3>
+<div class='mailbox'>
+  <div class='container'>
+    <h3>Inbox</h3>
 
-     <table class="table" style="background-color: #fff">
-       <thead>
-       <tr>
-         <th scope="col">Sender</th>
-         <th scope="col">Last Message</th>
-         <th scope="col">Updated</th>
-       </tr>
-       </thead>
-       <tbody>
-       <% @conversations.each do |conversation| %>
-         <tr style="cursor: pointer;">
-           <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-             <% if conversation.sender_id == current_user.id %>
-               <% recipient = User.find(conversation.recipient_id) %>
-             <% else %>
-               <% recipient = User.find(conversation.sender_id) %>
-             <% end %>
-             <td>
-               <img src="<%= recipient.avatar.thumb.url if recipient.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
-               <%=  recipient.first_name%>
+    <table class="table" style="background-color: #fff">
+      <thead>
+      <tr>
+        <th scope="col">Sender</th>
+        <th scope="col">Last Message</th>
+        <th scope="col">Updated</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% if(@conversations.present?) %>
+      <% @conversations.each do |conversation| %>
+        <% if conversation.messages.present? %>
+          <tr style="cursor: pointer;">
+            <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
+              <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+              <% else %>
+                <% recipient = User.find(conversation.sender_id) %>
+              <% end %>
+              <td>
+                <img src="<%= recipient.avatar.thumb.url if recipient.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
+                <%=  recipient.first_name%>
 
-             </td>
-             <td >
+              </td>
+              <td >
 
-                 <%= link_to conversation.messages.last.body ,   conversation_messages_path(conversation), "data-turbolinks":"false"%>
-             </td>
-             <td><%= conversation.messages.last.message_time %></td>
-           <% end %>
-         </tr>
-       <% end %>
-       </tbody>
-     </table>
-     <!--<% @conversations.each do |conversation| %>-->
-      <!--<div class='row mailbox_div'>-->
-       <!--<% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>-->
-        <!--<% if conversation.sender_id == current_user.id %>-->
-          <!--<% recipient = User.find(conversation.recipient_id) %>-->
-        <!--<% else %>-->
-          <!--<% recipient = User.find(conversation.sender_id) %>-->
-        <!--<% end %>-->
-        <!--<div class="col-lg-2 col-md-2 col-3">-->
-          <!--<img src="<%= recipient.avatar.thumb.url if recipient.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">-->
-        <!--</div>-->
-        <!--<div class="col-lg-10 col-md-10 col-9">-->
-          <!--<p class="notification">-->
-            <!--<%= link_to recipient.first_name,   conversation_messages_path(conversation), "data-turbolinks":"false"%>-->
-          <!--</p>-->
-          <!--<p>-->
-            <!--<%= conversation.messages.last.body %>-->
-          <!--</p>-->
-        <!--</div>-->
-       <!--<% end %>-->
-      <!--</div>-->
-     <!--<% end %>-->
-   </div>
-  </div>
-  <!-- <div class='ui segment'>
+                <%= link_to conversation.messages.last.body ,   conversation_messages_path(conversation), "data-turbolinks":"false"%>
+              </td>
+              <td><%= conversation.messages.last.message_time %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+        <%else %>
+        <tr><td colspan="3" style="text-align: center">No Messages present</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<!-- <div class='ui segment'>
    <h3>All Users</h3>
     <div class='ui list'>
      <%# @users.each do |user| %>

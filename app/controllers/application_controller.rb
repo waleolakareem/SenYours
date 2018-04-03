@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
-    Time.use_zone(timezone) { yield }
+    unless params[:id].present? && request.path==available_day_path
+      Time.use_zone(timezone) { yield }
+    else
+       yield
+    end
   end
 end
