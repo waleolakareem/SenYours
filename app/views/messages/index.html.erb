@@ -3,6 +3,9 @@
 <div class="container mailbox">
   <div class="row">
     <div class="col-lg-12 mess_mailbox">
+      <% if  @messages.length ==0 %>
+        <div class="mess_div start_conversation" style="text-align: center"><strong> Start your conversation!</strong></div>
+      <% end %>
       <% if @over_ten %>
         <center>
           <%= button_tag 'Show Previous', onclick:'window.location.href="?m=all"',class:'btn btn-default',style:"    margin-top: 10px;margin-bottom: 10px;" %>
@@ -19,12 +22,12 @@
             <div class="col-lg-10 col-md-10 col-9 mess_display">
               <div>
                 <% if user.id!=current_user.id %>
-                <strong><%= link_to user.first_name,user_path(user) %></strong>
-                  <% else %>
-                <strong>me</strong>
-              <% end %>
+                  <strong><%= link_to user.first_name,user_path(user) %></strong>
+                <% else %>
+                  <strong>me</strong>
+                <% end %>
 
-                  </div>
+              </div>
               <div>
                 <i class='right triangle icon edit_tag'></i>
                 <%= message.body %>
@@ -41,7 +44,11 @@
         <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
           <div class="row">
             <div class="typing_message " style="display: none">typing ...</div>
-            <div class="last_message_div "  style="text-align: right"><span style="color: #BDBDBE">Last Time</span> <%= @messages.last.try(:message_time) %></div>
+            <div class="last_message_div "  style="text-align: right">
+              <% if( @messages.length>0) %>
+                <span style="color: #BDBDBE">Last Time</span> <%= @messages.last.try(:message_time) %>
+              <% end %>
+            </div>
 
           </div>
           <div class="clearfix"></div>
@@ -55,5 +62,8 @@
             </div>
           </div>
         <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
