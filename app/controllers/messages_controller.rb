@@ -53,6 +53,5 @@ class MessagesController < ApplicationController
       message.save
     end
   end
-
- end
+end
 

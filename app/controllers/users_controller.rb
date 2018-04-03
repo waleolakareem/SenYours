@@ -55,10 +55,6 @@ class UsersController < ApplicationController
     @appointment = @user.companions.where({accept: false})
   end
 
-  def destroy
-  end
-
-
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob, :terms_of_service, :privacy_policy)

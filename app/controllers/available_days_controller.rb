@@ -35,11 +35,7 @@ class AvailableDaysController < ApplicationController
 
   def update
     @availableDay = AvailableDay.find(params[:id])
-    p "e" * 100
-    p params[:time]
     @time = @availableDay.available_times.where('time = ? ', params[:time])
-    p "d" * 77
-    p @time
     if @time.length >= 1
       @show_del = @time[0].time.strftime('%I')
       @real_show_del = @time[0].time.strftime('%I:%M%p')
