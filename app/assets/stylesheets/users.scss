@@ -107,7 +107,7 @@ body {
   border-width:thin;
   color: orange;
   border-style: solid;
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 2560px) {
     // Small input box
     height: 45px;
     width: 100%;
@@ -270,7 +270,7 @@ body {
    @media screen and (max-width: 414px) {
     width: 290px !important;
   }
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 2560px) {
     width: 350px;
   }
 }
