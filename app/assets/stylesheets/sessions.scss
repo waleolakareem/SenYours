@@ -13,7 +13,7 @@
   color:orange;
   outline:none;
   border-width:thin;
-  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow:1px 1px 5px rgba(0,0,0,0.3);
   border-style:solid;
   // border: 1px orange solid;
   @media screen and (max-width: 425px) {
@@ -30,7 +30,7 @@
   padding: 40px 0px;
   margin-top:200px;
   width:50%;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   box-shadow-color: orange;
   border-radius: 6px;
   color: orange;
@@ -38,6 +38,11 @@
     padding-top:  80px;
     margin-top: 100px;
     width: 30%;
+  }
+  @media screen and (max-width: 1024px) {
+    padding-top:  80px;
+    margin-top: 100px;
+    width: 50%;
   }
   @media screen and (max-width: 414px) {
     margin-top: 0px;

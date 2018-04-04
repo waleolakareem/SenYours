@@ -12,7 +12,6 @@ App.message = App.cable.subscriptions.create {
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log('data',data)
     if(data["action"]=='typing')
       if(data["user_id"]!=$('#user_id').val())
         $('.typing_message').show()
