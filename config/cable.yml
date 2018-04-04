@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:3fe9acf7447c3ec9e19e48546530590e@tarpon.redistogo.com:11489/
   channel_prefix: SeenYours_production
