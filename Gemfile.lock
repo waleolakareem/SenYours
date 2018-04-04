@@ -365,6 +365,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    redis (3.3.5)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -453,6 +454,7 @@ DEPENDENCIES
   rails (~> 5.1.4)
   rails_12factor
   rails_emoji_picker
+  redis (~> 3.3, >= 3.3.1)
   sass-rails (~> 5.0)
   select2-rails
   selenium-webdriver
