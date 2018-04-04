@@ -2,17 +2,25 @@ class UsersController < ApplicationController
  before_action :authorize, only: [:edit, :show]
 
   def index
-    @user = User.all
+    unless params["search"]
+      @user = User.all
+    else
+      @user=User.where("fee <= ? AND fee >= ? AND city = ? ", params[:search][:max_price],params[:search][:min_price],params[:search][:city])
+    end
   end
 
   def new
     @user = User.new
   end
 
-
   def create
     @user = User.new(user_params)
+    if @user.avatar === nil
+      @user.avatar = "/assets/avatar_image.png"
+    end
     if @user.save
+      p "e" * 99
+      p @user.avatar
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -51,10 +59,6 @@ class UsersController < ApplicationController
     @seniors = @user.seniors.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @appointment = @user.companions.where({accept: false})
   end
-
-  def destroy
-  end
-
 
   private
     def user_params

@@ -31,7 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'jquery-ui-rails'
+gem 'select2-rails'
+gem 'rails_emoji_picker'
 
 #uploader
 gem 'carrierwave',             '1.2.2'
@@ -61,6 +63,7 @@ gem "attr_encrypted", "~> 3.0.0"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'city-state'
 
+gem 'faker'
 group :production do
   gem 'rails_12factor'
 end
