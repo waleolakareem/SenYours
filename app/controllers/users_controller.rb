@@ -18,14 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-<<<<<<< HEAD
-    # image = MiniMagick::Image.open("app/assets/images/avatar_image.png")
-    # @user.avatar = image
-=======
-    if @user.avatar === nil
-      @user.avatar = "/assets/avatar_image.png"
-    end
->>>>>>> b543757a309648f4d55b950dce6c280ee379ba45
+
     if @user.save
       p "e" * 99
       p @user.avatar
