@@ -3,17 +3,12 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
       <% if current_user %>
-        <li class="nav-item logged_in_lead_nav">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto in_navbar-nav">
+        <li class="nav-item">
           <a class="nav-link" href="/users/<%= current_user.id %>">
             Profile</a>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dash" href="/need_a_comp">
-            |</a>
           </a>
         </li>
         <li class="nav-item">
@@ -28,39 +23,29 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link dash" href="/need_a_comp">
-            |</a>
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/logout">
              Sign Out</a>
           </a>
         </li>
-      <% else %>
-        <li class="nav-item">
+    </ul>
+  </div>
+  <% else %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
           <a class="nav-link" href="/need_a_comp">
             Need a Companion</a>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link dash" href="/need_a_comp">
-            |</a>
-          </a>
-        </li>
-        <li class="nav-item lead_nav">
           <a class="nav-link" href="/be_a_comp">
             Become a Companion</a>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="/">
             Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dash press" href="/need_a_comp">
-            |</a>
           </a>
         </li>
         <li class="nav-item">
@@ -68,20 +53,15 @@
             What we do
           </a>
         </li>
-        <li class="nav-item">
+      <!--   <li class="nav-item">
           <a class="nav-link dash" href="/need_a_comp">
             |</a>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item active">
           <a class="nav-link" href="/users/new">
             Sign Up
           <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dash" href="/need_a_comp">
-            |</a>
-          </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/login">
@@ -89,7 +69,7 @@
           <span class="sr-only">(current)</span>
           </a>
         </li>
-      <% end %>
     </ul>
   </div>
+      <% end %>
 </nav>
