@@ -20,3 +20,4 @@
 .env
 /config/env_variables.yml
 /public/uploads/user/avatar/*
+.idea/

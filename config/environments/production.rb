@@ -98,5 +98,9 @@ Rails.application.configure do
     'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
 
+  #redis websocket
+  config.web_socket_server_url = "wss://senyours.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://senyours.herokuapp.com', 'http://senyours.herokuapp.com']
+
   # config.gem "jammit"
 end

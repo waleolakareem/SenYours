@@ -62,7 +62,10 @@ gem "attr_encrypted", "~> 3.0.0"
 #state and cities
 gem 'carmen-rails', '~> 1.0.0'
 gem 'city-state'
+#redis for action cable in production
+gem 'redis', '~> 3.3', '>= 3.3.1'
 
+gem 'faker'
 group :production do
   gem 'rails_12factor'
 end

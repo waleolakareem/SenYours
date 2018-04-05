@@ -30,8 +30,13 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
     if @message.save
       user = User.find(@message.user_id)
+<<<<<<< HEAD
       ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:{id:@message.user_id, avatar:user.avatar, first_name:user.first_name}
       # ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:User.find(@message.user_id)
+=======
+      ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:{id:@message.user_id,avatar:user.avatar, first_name: user.first_name}
+
+>>>>>>> b543757a309648f4d55b950dce6c280ee379ba45
 
       respond_to do |format|
         format.html {redirect_to conversation_messages_path(@conversation)}
@@ -55,6 +60,5 @@ class MessagesController < ApplicationController
       message.save
     end
   end
-
- end
+end
 

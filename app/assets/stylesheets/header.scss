@@ -15,11 +15,16 @@
   }
 }
 .nav_img {
-  height:62px;
-  width:62px;
+  height:40px;
+  width:130px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   @media screen and (max-width:1024px){
     height:40px;
-    width:40px;
+    width:120px;
+  }
+  @media screen and (max-width:768px){
+    height:30px;
+    width:100px;
   }
 }
 .navbar-brand {
@@ -46,21 +51,21 @@
   color:gray !important;
 }
 .lead_nav{
-  padding-right:780px;
+  padding-right:740px;
   @media screen and (max-width:1024px){
     padding-right:200px !important;
   }
-   @media screen and (max-width:1440px){
-    padding-right:580px;
+   @media screen and (max-width:2560px){
+    padding-right:780px;
   }
 }
 .logged_in_lead_nav{
-  padding-left:1200px;
-   @media screen and (max-width:1440px){
-    padding-left:850px;
+  padding-left:1150px;
+   @media screen and (max-width:2560px){
+    padding-left:1150px;
   }
   @media screen and (max-width:1024px){
-    padding-left:650px;
+    padding-left:0px;
   }
   @media screen and (max-width:768px){
     padding-left:0px;

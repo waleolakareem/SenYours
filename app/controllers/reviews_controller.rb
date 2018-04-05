@@ -18,22 +18,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
-  def edit
-
-  end
-
-  def show
-
-  end
-
-  def destroy
-
-  end
-
   private
   def review_params
     params.require(:review).permit( :comment, :user_id, :reviewer_id, :wyr_rating, :comm_rating, :comp_rating )

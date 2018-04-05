@@ -10,14 +10,25 @@ class UsersController < ApplicationController
   end
 
   def new
+    if current_user
+      redirect_to user_path(current_user)
+    end
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+<<<<<<< HEAD
     # image = MiniMagick::Image.open("app/assets/images/avatar_image.png")
     # @user.avatar = image
+=======
+    if @user.avatar === nil
+      @user.avatar = "/assets/avatar_image.png"
+    end
+>>>>>>> b543757a309648f4d55b950dce6c280ee379ba45
     if @user.save
+      p "e" * 99
+      p @user.avatar
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -56,10 +67,6 @@ class UsersController < ApplicationController
     @seniors = @user.seniors.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @appointment = @user.companions.where({accept: false})
   end
-
-  def destroy
-  end
-
 
   private
     def user_params

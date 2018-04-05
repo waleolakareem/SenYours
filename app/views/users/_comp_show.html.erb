@@ -17,7 +17,7 @@
               </p>
             </div>
             <div class="sen_img_lower">
-              <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
+              <p><%= @user.first_name %> <%= @user.last_name %></p>
               <p><%= @user.city %></p>
             </div>
         </div>
@@ -86,7 +86,7 @@
       <div class="col-lg-6 calender container">
         <div>
           <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to make be available</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to choose available dates</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
         </div>
         <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
