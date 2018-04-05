@@ -41,36 +41,54 @@
   font-size:14px ;
   letter-spacing:1px;
   @media screen and (max-width:2560px){
-    font-size:12px;
+    font-size:13px;
   }
   @media screen and (max-width:375px){
-    font-size:10px;
+    font-size:12px;
   }
 }
 .nav-item a:hover {
   color:gray !important;
 }
-.lead_nav{
-  padding-right:740px;
-  @media screen and (max-width:1024px){
-    padding-right:200px !important;
+.navbar-nav{
+  margin-left:59%;
+    @media screen and (max-width:2560px){
+    margin-left:58%;
   }
-   @media screen and (max-width:2560px){
-    padding-right:780px;
+   @media screen and (max-width:1440px){
+    margin-left:48%;
   }
-}
-.logged_in_lead_nav{
-  padding-left:1150px;
-   @media screen and (max-width:2560px){
-    padding-left:1150px;
+  @media screen and (max-width:1331px){
+    margin-left:28%;
   }
-  @media screen and (max-width:1024px){
-    padding-left:0px;
-  }
-  @media screen and (max-width:768px){
-    padding-left:0px;
+  @media screen and (max-width:991px){
+    margin-left:0;
   }
 }
+.in_navbar-nav{
+  margin-left:80%;
+   @media screen and (max-width:2560px){
+    margin-left:82%;
+  }
+  @media screen and (max-width:991px){
+    margin-left:0;
+  }
+}
+// .logged_in_lead_nav{
+//   padding-left:1150px;
+//    @media screen and (max-width:2560px){
+//     padding-left:1150px;
+//   }
+//     @media screen and (max-width:1440px){
+//     padding-left:840px;
+//   }
+//   @media screen and (max-width:1326px){
+//     padding-left:520px;
+//   }
+//   @media screen and (max-width:768px){
+//     padding-left:0px;
+//   }
+// }
 .header_button {
   height:40px;
   width:80px;

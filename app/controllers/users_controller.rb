@@ -20,8 +20,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      p "e" * 99
-      p @user.avatar
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
