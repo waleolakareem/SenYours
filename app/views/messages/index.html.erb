@@ -26,7 +26,6 @@
                 <% else %>
                   <strong>me</strong>
                 <% end %>
-
               </div>
               <div>
                 <i class='right triangle icon edit_tag'></i>
@@ -43,13 +42,12 @@
         <%= hidden_field_tag "user_id",current_user.id%>
         <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
           <div class="row">
-            <div class="typing_message " style="display: none">typing ...</div>
+            <div class="typing_message " style="display: none"></div>
             <div class="last_message_div "  style="text-align: right">
               <% if( @messages.length>0) %>
                 <span style="color: #BDBDBE">Last Time</span> <%= @messages.last.try(:message_time) %>
               <% end %>
             </div>
-
           </div>
           <div class="clearfix"></div>
           <div class="row">
@@ -58,7 +56,7 @@
             </div>
             <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
             <div class="col-lg-2 col-3">
-              <%= f.submit 'Send', class: 'btn-warning mess_sub'  %>
+              <%= f.submit 'Send', class: 'mess_sub'  %>
             </div>
           </div>
         <% end %>
