@@ -50,5 +50,9 @@ App.message = App.cable.subscriptions.create {
 
   typing: (data)->
     console.log('typing')
+    k = 0
+    k += 1
+    console.clear()
+    console.log(k)
     @perform 'typing',conversation_id:window.location.pathname.split('/')[2],user_id:data
 
