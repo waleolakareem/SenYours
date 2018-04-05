@@ -18,7 +18,7 @@
           <tr style="cursor: pointer;">
             <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
               <% if conversation.sender_id == current_user.id %>
-                <% recipient = User.find(conversation.recipient_id) %>
+                <% recipient = User.find(current_user.id) %>
               <% else %>
                 <% recipient = User.find(conversation.sender_id) %>
               <% end %>
