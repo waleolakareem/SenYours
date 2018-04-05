@@ -12,7 +12,9 @@ App.message = App.cable.subscriptions.create {
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log('data',data)
+    console.log('data',data.user)
+    k = 0;
+    
     if(data["action"]=='typing')
       if(data["user_id"]!=$('#user_id').val())
         $('.typing_message').show()
@@ -51,5 +53,9 @@ App.message = App.cable.subscriptions.create {
 
   typing: (data)->
     console.log('typing')
+    k = 0
+    k += 1
+    console.clear()
+    console.log(k)
     @perform 'typing',conversation_id:window.location.pathname.split('/')[2],user_id:data
 
