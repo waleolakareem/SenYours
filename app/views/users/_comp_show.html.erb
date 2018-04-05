@@ -89,7 +89,7 @@
           <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to choose available dates</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
         </div>
-        <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
+        <h3><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
           <div class="row" style="padding-left: 15px; padding-right: 15px;">
         <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
           <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
@@ -112,7 +112,7 @@
                       </button>
                     <% end %>
                 <% else %>
-                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
+                  <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #f6f6f6;" disabled="true">
                     <p class="notification"><%= date.strftime('%a') %></p>
                     <p class="notification"><%= date.strftime('%d') %></p>
                   </button>
