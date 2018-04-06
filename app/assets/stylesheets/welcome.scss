@@ -123,6 +123,10 @@
 .font_back:hover{
   padding:10px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  @media screen and (max-width: 1024px){
+    padding: 0px;
+    box-shadow: none;
+  }
 }
 .font_back .text-center {
   color: orange
