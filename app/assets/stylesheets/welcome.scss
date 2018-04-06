@@ -120,7 +120,17 @@
 .font_back{
   margin: 30px 0px;
 }
+.font_back:hover{
+  padding:10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
 .font_back .text-center {
+  color: orange
+}
+.font_back_val{
+  margin: 30px 0px;
+}
+.font_back_val .text-center {
   color: orange
 }
 .font_p {

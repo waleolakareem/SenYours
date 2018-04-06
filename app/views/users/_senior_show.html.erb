@@ -138,7 +138,7 @@
               <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
           <% end %>
         </div>
-    <% if @sen_write_review %>
+    <% if @sen_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @sen_write_review.each  do |appointment| %>
           Review your appointment with <a href="/users/<%=appointment.companion.id  %>/reviews/new" class="edit_tag"><%= appointment.companion.first_name %></a>
