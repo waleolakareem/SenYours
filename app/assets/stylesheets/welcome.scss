@@ -118,13 +118,22 @@
   margin-bottom: 30px;
 }
 .font_back{
-  margin: 30px 0px;
-}
-.font_back:hover{
   padding:10px;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  margin: 30px 0px;
   @media screen and (max-width: 1024px){
     padding: 0px;
+  }
+}
+.font_back:hover{
+   -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow-color: orange;
+  @media screen and (max-width: 1024px){
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
     box-shadow: none;
   }
 }
