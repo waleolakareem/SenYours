@@ -15,13 +15,13 @@
             </p>
           </div>
           <div class="sen_img_lower">
-            <p class="notification"><%= @user.first_name %> <%= @user.last_name %></p>
+            <p><%= @user.first_name %> <%= @user.last_name %></p>
             <p><%= @user.city %></p>
           </div>
       </div>
       <div class="col-lg-6 col-md-6 sen_app">
           <div>
-            <h1 class="notification">Hello <%= @user.first_name %></h1>
+            <h1 class="notification"><%= @user.first_name %></h1>
             <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
             <% if current_user.id === @user.id %>
               <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
@@ -83,11 +83,11 @@
     </div>
     <div class="col-lg-6 calender container">
       <div>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i>Unavailable day click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to add days you need companions</p>
-          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day, Click on each day to set specific times you need companion</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to add days you need companions</p>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day. Click on each day to set specific times you need companion</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
       </div>
-      <h3><%= Date.today.beginning_of_month.strftime('%b')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
+      <h3><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
         <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
@@ -110,7 +110,7 @@
                       </button>
                   <% end %>
               <% else %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:#f6f6f6;" disabled="true">
                   <p class="notification"><%= date.strftime('%a') %></p>
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
@@ -138,7 +138,7 @@
               <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
           <% end %>
         </div>
-    <% if @sen_write_review %>
+    <% if @sen_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @sen_write_review.each  do |appointment| %>
           Review your appointment with <a href="/users/<%=appointment.companion.id  %>/reviews/new" class="edit_tag"><%= appointment.companion.first_name %></a>

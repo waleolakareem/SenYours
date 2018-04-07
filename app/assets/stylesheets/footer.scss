@@ -1,11 +1,12 @@
 .footer-clean {
-  color:orange;
+  color:black;
+  height:100%;
   left:0;
   bottom:0px;
   width:100%;
   margin-top:100px;
   background-color:transparent !important;
-  padding-bottom:40px;
+  padding:40px 0px;
   @media screen and (max-width: 1024px) {
     display:none;
   }
@@ -15,6 +16,7 @@
   margin-bottom:12px;
   font-weight:bold;
   font-size:16px;
+  letter-spacing:1px;
 }
 .footer-clean ul {
   padding:0;
@@ -22,6 +24,7 @@
   line-height:1.6;
   font-size:14px;
   margin-bottom:0;
+  letter-spacing:1px;
 }
 .footer-clean ul a {
   color:inherit;

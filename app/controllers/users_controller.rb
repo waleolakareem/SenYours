@@ -10,11 +10,16 @@ class UsersController < ApplicationController
   end
 
   def new
+    if current_user
+      redirect_to user_path(current_user)
+    end
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+    image = MiniMagick::Image.open("app/assets/images/avatar_image.png")
+    @user.avatar = image
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
@@ -48,16 +53,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews.last(3)
-    @comp_write_review = @user.companions.where("end_date > ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 5.day.ago).last(5)
-    @sen_write_review = @user.seniors.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 5.day.ago).last(5)
+    #If the end date is less than todays date and greater than 3 days ago
+    @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
+    @sen_write_review = @user.seniors.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
     @companions = @user.companions.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @seniors = @user.seniors.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @appointment = @user.companions.where({accept: false})
   end
-
-  def destroy
-  end
-
 
   private
     def user_params

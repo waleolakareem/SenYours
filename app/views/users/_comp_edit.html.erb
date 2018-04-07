@@ -2,19 +2,18 @@
 <% if current_user.id === @user.id  %>
     <div class="container">
         <div class="row" >
-            <div class="col-lg-2 col-md-2" style="margin-top: 60px;">
+            <div class="col-lg-2 col-md-2 edit_tab1" >
                 <%= link_to 'Edit', edit_user_path(current_user), class: 'edit_tag' %><br>
                 <%= link_to 'View Profile', user_path(current_user), class: 'edit_tag' %>
             </div>
-            <div class="col-lg-10 col-md-10" style="margin-top: 60px;box-shadow: 1px 1px 5px rgba(0,0,0,0.1);padding: 0px 0px; border-radius: 6px;
-            ">
+             <div class="col-lg-10 col-md-10 edit_tab2">
             <div class="comp_edit_req"><p>Required</p></div>
                 <%= form_for @user do |f| %>
                     <div class="container text-center comp_edit_form_top">
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Picture</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <span class="picture">
                                     <div class="image-upload">
                                        <label for="file-input">
@@ -26,92 +25,90 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>First Name</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :first_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Last Name</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :last_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Birth date</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.date_field :dob,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Email</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :email,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Address</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :address,class: 'edit_responsive-input form-control',
                                 :maxlength => 50 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>State/City</p>
                             </div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <div class="row select_div">
-                                    <div class="col-lg-2 col-md-2 col-2">
+                                    <div class="col-lg-2 col-md-2 col-12">
 
                                       <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
                                     </div>
-                                    <div class="col-lg-10 col-md-10 col-10">
-                                      <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"edit_responsive-input form-control",id:"states-of-country" %>
-
-
+                                    <div class="col-lg-10 col-md-10 col-12">
+                                      <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"form-control",id:"states-of-country" %>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Zip code</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :zipcode,class: 'edit_responsive-input form-control', :maxlength => 5 %>
                             </div>
                         </div>
                          <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Phone Number</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :phone_number,class: 'edit_responsive-input form-control', :maxlength => 10 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>Description</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_area :description,class: 'descrip', :maxlength => 250 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
+                            <div class="col-lg-2 col-md-2 col-12">
                                 <p>SSN</p></div>
-                            <div class="col-lg-10 col-md-10 col-10 form_div">
+                            <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <%= f.text_field :ssn,class: 'edit_responsive-input form-control', :maxlength => 9 %>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-2 col-2">
+                            <div class="col-lg-2 col-12">
                                 Fee
                             </div>
-                            <div class="col-lg-10 col-md-10">
+                            <div class="col-lg-10 col-md-10 col-12">
                             <% (15..20).each do |fee| %>
                             <!-- <div class="col form_div"> -->
                                 <%= radio_button("user", "fee",fee) %>
@@ -122,7 +119,7 @@
                         </div>
 
                             <div class="col form_div">
-                                <%= f.submit "Complete Application", class: 'btn form_submit' %>
+                                <%= f.submit "Save", class: 'btn form_submit' %>
                             </div>
                         </div>
                     </div>

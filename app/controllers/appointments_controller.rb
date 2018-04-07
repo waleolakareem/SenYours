@@ -34,8 +34,6 @@ class AppointmentsController < ApplicationController
 
   def edit
     @user = current_user
-    # @next_appointment = @user.companions.where({accept: false}).first().id
-    # @appointment = Appointment.find(params[:id] || '#{@next_appointment}')
     @senior = @appointment.senior
     @companion = @appointment.companion
   end

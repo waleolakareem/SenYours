@@ -5,7 +5,7 @@
 .responsive-input {
   // Large input box
   height:45px;
-  width:400px;
+  width:85%;
   padding:10px 16px;
   font-size:18px;
   border-radius:3px;
@@ -13,15 +13,14 @@
   color:orange;
   outline:none;
   border-width:thin;
-  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow:1px 1px 5px rgba(0,0,0,0.3);
   border-style:solid;
   // border: 1px orange solid;
   @media screen and (max-width: 425px) {
     // Small input box
     height:50px;
-    width:300px;
+    width:102%;
     padding:5px 10px;
-    font-size:12px;
     line-height:1.5;
   }
 }
@@ -30,23 +29,26 @@
   background-color:white;
   padding: 40px 0px;
   margin-top:200px;
-  width:30%;
-  box-shadow: 1px 1px 5px rgba(0,0,0,1);
+  width:50%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   box-shadow-color: orange;
   border-radius: 6px;
   color: orange;
-  @media screen and (max-width: 375px) {
-    width: 100% !important;
-  }
-  @media screen and (max-width: 414px) {
-    margin-top: 0px !important;
-    background-color: transparent;
-    box-shadow: none;
+  @media screen and (max-width: 2560px) {
+    padding-top:  80px;
+    margin-top: 100px;
+    width: 30%;
   }
   @media screen and (max-width: 1024px) {
     padding-top:  80px;
     margin-top: 100px;
+    width: 50%;
+  }
+  @media screen and (max-width: 414px) {
+    margin-top: 0px;
+    background-color: transparent;
     width: 80%;
+    box-shadow: none;
   }
 }
 .form_div {
@@ -54,7 +56,7 @@
 }
 .sign_in_form_submit {
   height: 60px;
-  width: 400px;
+  width: 85%;
   color: white;
   background-color: orange;
   // border: 1px solid black;
@@ -63,7 +65,7 @@
   margin-bottom: 20px;
   @media screen and (max-width: 425px) {
     height: 50px;
-    width: 300px;
+    width: 102%;
   }
 }
 .form_submit {

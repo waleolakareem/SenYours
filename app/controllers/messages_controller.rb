@@ -31,7 +31,9 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
     if @message.save
-      ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:User.find(@message.user_id)
+      user = User.find(@message.user_id)
+      ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:{id:@message.user_id, avatar:user.avatar, first_name:user.first_name}
+      # ActionCable.server.broadcast "message_channel#{@message.conversation_id}",message_time:@message.message_time,message: @message,conversation:@conversation,user:User.find(@message.user_id)
 
       respond_to do |format|
         format.html {redirect_to conversation_messages_path(@conversation)}
@@ -56,6 +58,7 @@ class MessagesController < ApplicationController
     end
   end
 
+
   private
 
   def with_timezone
@@ -67,4 +70,6 @@ class MessagesController < ApplicationController
     end
   end
  end
+end
+
 

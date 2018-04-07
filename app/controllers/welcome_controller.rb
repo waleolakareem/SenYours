@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
   def index
-    @arr = ["/assets/companion2.jpg","/assets/companion3.jpg", "/assets/companion1.jpg"]
+    if current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def be_a_comp
