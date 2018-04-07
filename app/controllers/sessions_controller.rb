@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       # logged in when they navigate around our website.
       if user.activated?
         log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        params[:remember_me] == '1' ? remember(user) : forget(user)
         redirect_back_or user
       else
         message  = "Account not activated. "
