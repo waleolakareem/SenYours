@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   has_secure_password
   validate  :avatar_size
+  # minimum cost to decrypt in development and high cost for production chapt 8
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
   def conversations
     Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
