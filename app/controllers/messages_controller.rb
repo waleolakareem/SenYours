@@ -3,6 +3,8 @@ class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
+  around_action :with_timezone
+
   def index
     @messages = @conversation.messages.order('created_at ASC')
     if @messages.length > 10
@@ -55,5 +57,19 @@ class MessagesController < ApplicationController
       message.save
     end
   end
+
+
+  private
+
+  def with_timezone
+    timezone = Time.find_zone(cookies[:timezone])
+    unless params[:id].present? && request.path==available_day_path
+      Time.use_zone(timezone) { yield }
+    else
+      yield
+    end
+  end
+ end
 end
+
 
