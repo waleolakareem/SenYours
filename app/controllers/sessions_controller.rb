@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
       log_in user
+      # Replace remeber me
+      params[:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
     # If user's login doesn't work, send them back to the login form.
@@ -19,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    log_out if logged_in?
     redirect_to '/'
   end
 end
