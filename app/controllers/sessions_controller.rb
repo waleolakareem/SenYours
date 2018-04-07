@@ -9,16 +9,25 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_back_or user
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
     # If user's login doesn't work, send them back to the login form.
+      flash[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
 
   def destroy
-    session[:user_id] = nil
+    log_out if logged_in?
     redirect_to '/'
   end
 end

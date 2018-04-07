@@ -10,6 +10,12 @@
     <%= password_field_tag :password, params[:password], class: 'responsive-input', placeholder: 'Password' %>
   </div>
   <div class="form_div">
+    <%= label_tag :remember_me, class: "checkbox inline" do %>
+      <%= check_box_tag :remember_me, params[:remember_me] %>
+      <span>Remember me on this computer</span>
+    <% end %>
+  </div>
+  <div class="form_div">
     <%= submit_tag "Sign In", class: 'btn sign_in_form_submit' %>
   </div>
   <div class="row">

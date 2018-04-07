@@ -5,5 +5,7 @@ class ApplicationController < ActionController::Base
   include AvailableDaysHelper
   include MessagesHelper
   include AppointmentHelper
+  include SessionsHelper
+  around_action :with_timezone
 
 end

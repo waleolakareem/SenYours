@@ -2,15 +2,6 @@ require 'json'
 require 'carmen'
 include Carmen
 module UsersHelper
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  # helper_method :current_user
-
-  def authorize
-    redirect_to '/login' unless current_user
-  end
-
   def back_user(user)
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/candidate/"
