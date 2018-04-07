@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and return unless FILL_IN
+    # redirect_to root_url and return unless FILL_IN
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
     @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)

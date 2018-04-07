@@ -69,7 +69,6 @@ class MessagesController < ApplicationController
       yield
     end
   end
- end
 end
 
 
