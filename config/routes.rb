@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   resources :charges
   resources :sessions
+  resources :account_activations, only: [:edit]
   resources :users do
     resources :appointments, shallow: true
     resources :reviews,shallow: true
