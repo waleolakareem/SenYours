@@ -3,7 +3,7 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
   mount_uploader :avatar, AvatarUploader
-  attr_encrypted :ssn, key: 'This is a key that is 256 bits!!'
+  attr_encrypted :ssn, key: ENV['decyher_ssn']
   has_many :seniors, class_name: 'Appointment', foreign_key: 'senior_id', dependent: :destroy
   has_many :companions, class_name: 'Appointment', foreign_key: 'companion_id', dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -15,11 +15,12 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   validates :dob, presence: true
-  validates :privacy_policy, presence: true
-  validates :terms_of_service, presence: true
   validates :identification, presence: true
   validate :over_18
-  # validates :ssn,  :ssn  => true
+  validates :phone_number, phony_plausible: true,uniqueness: true
+  # Normalizes the attribute itself before validation
+  phony_normalize :phone_number, default_country_code: 'US'
+
 
   has_secure_password
   validate  :avatar_size
@@ -97,6 +98,10 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  #Send founder an email
+  def send_signed_up_email
+    UserMailer.signed_up(self).deliver_now
+  end
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago

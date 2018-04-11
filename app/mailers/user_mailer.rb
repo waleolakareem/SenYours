@@ -19,4 +19,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+
+  def signed_up(user)
+    @user = user
+    mail to: "wale.senyours.io", subject: "Just signed up"
+  end
 end

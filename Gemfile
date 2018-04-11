@@ -35,6 +35,8 @@ gem 'jquery-ui-rails'
 gem 'select2-rails'
 gem 'rails_emoji_picker'
 
+#twilo
+gem 'twilio-ruby', '~> 5.7.2'
 #uploader
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
@@ -48,6 +50,8 @@ gem 'fog', '1.42'
 #stripe
 gem 'stripe'
 
+#phone
+gem 'phony_rails'
 #validate
 gem 'activevalidators', '~> 4.0.1'
 

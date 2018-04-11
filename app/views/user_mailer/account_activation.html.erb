@@ -1,10 +1,12 @@
-<h1>Account Verification</h1>
+<div class="text-center" style="padding-top: 120px;height: 600px;width: 100%;
+  ">
+    <h3 style="color: orange">Account Verification</h3>
 
-<p>Hi <%= @user.first_name %>,</p>
+    <p>Hi <%= @user.first_name %>,</p>
 
-<p>
-Welcome to the Senyours! Click on the link below to activate your account:
-</p>
+    <p>
+    Welcome to the Senyours! Click on the link below to activate your account:
+    </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
+  <%= link_to "Activate", edit_account_activation_url(@user.activation_token,                                                   email: @user.email) %>
+</div>

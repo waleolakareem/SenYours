@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- before_action :authorize, only: [:edit, :show]
+ before_action :authorize, only: [:index,:edit, :show,:update]
 
   def index
     unless params["search"]
@@ -16,18 +16,38 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def sen_new
+    if current_user
+      redirect_to user_path(current_user)
+    end
+    @user = User.new
+  end
+
+  def comp_new
+    if current_user
+      redirect_to user_path(current_user)
+    end
+    @user = User.new
+  end
+
   def create
+
+    @claim = params[:user][:identification]
     @user = User.new(user_params)
     image = MiniMagick::Image.open("app/assets/images/avatar_image.png")
     @user.avatar = image
     if @user.save
       @user.send_activation_email
+      @user.send_signed_up_email
+      send_message(@user)
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
       # session[:user_id] = @user.id
       # redirect_to user_path(@user)
-    else
-      render 'new'
+    elsif @claim === "Senior"
+        render 'sen_new'
+    elsif @claim === "Companion"
+        render 'comp_new'
     end
 
     respond_to do |format|
