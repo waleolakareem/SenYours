@@ -2,15 +2,6 @@ require 'json'
 require 'carmen'
 include Carmen
 module UsersHelper
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  # helper_method :current_user
-
-  def authorize
-    redirect_to '/login' unless current_user
-  end
-
   def back_user(user)
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/candidate/"
@@ -86,5 +77,25 @@ module UsersHelper
 
 def only_us_and_canada
   Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
+end
+
+def send_message(user)
+  require 'rubygems' # not necessary with ruby 1.9 but included for completeness
+  require 'twilio-ruby'
+
+  # put your own credentials here
+  account_sid = ENV['account_sid']
+  auth_token = ENV['auth_token']
+
+  # set up a client to talk to the Twilio REST API
+  @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+  message = @client.messages.create(
+    body: 'Welcome to Senyours!!!. Check your email to activate your account, so we can start this journey together',
+    to: "#{user.phone_number}",
+    from: '+16125004243',
+  )
+
+  puts message.sid
 end
 end

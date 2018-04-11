@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- before_action :authorize, only: [:edit, :show]
+ before_action :authorize, only: [:index,:edit, :show,:update]
 
   def index
     unless params["search"]
@@ -16,15 +16,38 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def sen_new
+    if current_user
+      redirect_to user_path(current_user)
+    end
+    @user = User.new
+  end
+
+  def comp_new
+    if current_user
+      redirect_to user_path(current_user)
+    end
+    @user = User.new
+  end
+
   def create
+
+    @claim = params[:user][:identification]
     @user = User.new(user_params)
     image = MiniMagick::Image.open("app/assets/images/avatar_image.png")
     @user.avatar = image
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-      render 'new'
+      @user.send_activation_email
+      @user.send_signed_up_email
+      send_message(@user)
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+      # session[:user_id] = @user.id
+      # redirect_to user_path(@user)
+    elsif @claim === "Senior"
+        render 'sen_new'
+    elsif @claim === "Companion"
+        render 'comp_new'
     end
 
     respond_to do |format|
@@ -52,6 +75,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # redirect_to root_url and return unless FILL_IN
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
     @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
@@ -64,5 +88,21 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob, :terms_of_service, :privacy_policy)
+    end
+    # Before filters
+
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

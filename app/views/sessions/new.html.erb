@@ -1,5 +1,5 @@
 <body style="background-color: #f6f6f6;">
-<%= form_tag sessions_path, remote: true do %>
+<%= form_tag sessions_path do %>
 <div class="container text-center form_top">
 <img src="/assets/lock2.png">
   <h2>Log In</h2>
@@ -8,6 +8,12 @@
   </div>
   <div class="form_div">
     <%= password_field_tag :password, params[:password], class: 'responsive-input', placeholder: 'Password' %>
+  </div>
+  <div class="form_div">
+    <%= label_tag :remember_me, class: "checkbox inline" do %>
+      <%= check_box_tag :remember_me, params[:remember_me] %>
+      <span>Remember me on this computer</span>
+    <% end %>
   </div>
   <div class="form_div">
     <%= submit_tag "Sign In", class: 'btn sign_in_form_submit' %>
@@ -19,7 +25,9 @@
       </a>
     </div>
     <div class="col">
+    <a href="/password_resets/new" style="color: orange">
       <p>Forget password</p>
+    </a>
     </div>
   </div>
 </div>

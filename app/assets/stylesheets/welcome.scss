@@ -8,6 +8,13 @@
     margin-top: -20px;
   }
 }
+
+.flash {
+  height: 40px;
+  width: 80%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  margin: 0 auto;
+}
 #car1{
   background-image:url(/assets/boardgamecomp.jpg) !important;
   background-size: cover;
@@ -398,5 +405,23 @@
     @media screen and (max-width: 645px) {
     letter-spacing: none;
     font-size: 0.65rem !important;
+  }
+}
+
+.choose{
+  padding-top: 320px;
+  height: 600px;
+  width: 100%;
+
+  @media screen and (max-width: 468px) {
+  padding-top: 220px;
+  height: 400px;
+  width: 100%;
+  }
+
+   @media screen and (max-width: 320px) {
+  padding-top: 160px;
+  height: 400px;
+  width: 100%;
   }
 }

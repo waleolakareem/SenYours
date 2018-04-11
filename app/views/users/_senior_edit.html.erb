@@ -28,28 +28,28 @@
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>First Name</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :first_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
+                                <%= f.text_field :first_name,required: true, class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Last Name</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :last_name,class: 'edit_responsive-input form-control', :maxlength => 15 %>
+                                <%= f.text_field :last_name,required: true,class: 'edit_responsive-input form-control', :maxlength => 15 %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Birth date</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.date_field :dob,class: 'edit_responsive-input form-control' %>
+                                <%= f.date_field :dob,required: true,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Email</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :email,class: 'edit_responsive-input form-control' %>
+                                <%= f.text_field :email,required: true,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
@@ -57,7 +57,7 @@
                                 <p>Address</p>
                             </div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :address,class: 'edit_responsive-input form-control' %>
+                                <%= f.text_field :address,required: true,class: 'edit_responsive-input form-control' %>
                             </div>
                         </div>
                         <div class="row">
@@ -97,21 +97,21 @@
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Zip code</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :zipcode,class: 'edit_responsive-input form-control', :maxlength => 5 %>
+                                <%= f.text_field :zipcode,required: true,class: 'edit_responsive-input form-control', :maxlength => 5 %>
                             </div>
                         </div>
                          <div class="row">
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Phone Number</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_field :phone_number,class: 'edit_responsive-input form-control', :maxlength => 10 %>
+                                <%= f.text_field :phone_number,required: true,class: 'edit_responsive-input form-control', :maxlength => 10 %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-12">
                                 <p>Description</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
-                                <%= f.text_area :description,class: 'descrip', :maxlength => 250 %>
+                                <%= f.text_area :description,required: true,class: 'descrip', :maxlength => 250 %>
                             </div>
                         </div>
                             <div class="col form_div">

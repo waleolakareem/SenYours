@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'welcome/index'
   mount ActionCable.server => '/cable'
   resources :charges
   resources :sessions
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :users do
     resources :appointments, shallow: true
     resources :reviews,shallow: true
@@ -20,6 +26,10 @@ Rails.application.routes.draw do
   get '/be_a_comp' => 'welcome#be_a_comp'
 
   get '/need_a_comp' => 'welcome#need_a_comp'
+
+  get '/sen_new' => 'users#sen_new'
+
+  get '/comp_new' => 'users#comp_new'
 
   get '/privacy_policy' => 'welcome#privacy_policy'
 

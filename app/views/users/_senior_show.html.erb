@@ -25,9 +25,9 @@
             <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
             <% if current_user.id === @user.id %>
               <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
-                <p>You must provide all required information to proceed
-                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-                        Required</a></p>
+                <p>You must provide all <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Required</a> information to proceed
+                </p>
               <% else %>
                 <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
                         Edit Profile</a>
@@ -82,11 +82,15 @@
       <% end %>
     </div>
     <div class="col-lg-6 calender container">
+      <% if !current_user.address? || !current_user.description? %>
+          <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
+      <% else %>
       <div>
           <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to add days you need companions</p>
           <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day. Click on each day to set specific times you need companion</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
       </div>
+      <% end %>
       <h3><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
@@ -135,7 +139,9 @@
                         data-locale="auto"></script>
               <% end %>
           <% else %>
-              <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+              <% if current_user.description && current_user.address %>
+                <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+              <% end %>
           <% end %>
         </div>
     <% if @sen_write_review.length > 0 %>
