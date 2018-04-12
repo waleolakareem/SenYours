@@ -16,19 +16,55 @@
   margin: 0 auto;
 }
 #car1{
-  background-image:url(/assets/boardgamecomp.jpg) !important;
   background-size: cover;
   height: 530px;
-  // background-attachment: fixed;
+  background-image:url(/assets/boardgamecomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boardgamecomp.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
     background-position: top center;
   }
 }
+
+.scrollh1{
+  padding-top: 240px;
+  color:white;
+  font-family: 'Muli', sans-serif;
+  @media screen and (max-width: 1024px){
+    padding-top: 120px;
+    font-size:25px;
+  }
+  @media screen and (max-width: 468px){
+    padding-top: 150px;
+    font-size:15px;
+  }
+}
+.scrollh2{
+  color:white;
+  font-family: 'Muli', sans-serif;
+  @media screen and (max-width: 1024px){
+    font-size:20px;
+  }
+   @media screen and (max-width: 468px){
+    font-size:10px;
+  }
+}
+.scrollh3{
+  color:white;
+  font-family: 'Muli', sans-serif;
+  font-weight: 900;
+   @media screen and (max-width: 1024px){
+    font-size:15px;
+  }
+  @media screen and (max-width: 468px){
+    font-size:10px;
+  }
+}
 #car2{
-  background-image:url(/assets/coffietimecomp.jpg) !important;
   background-size: cover;
+  background-image:url(/assets/coffietimecomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/coffietimecomp.jpg);
   // background-attachment: fixed;
   height: 530px;
   @media screen and (max-width: 1024px){
@@ -38,10 +74,10 @@
   }
 }
 #car3{
-  background-image:url(/assets/smilyblaccomp.jpg) !important;
   background-size: cover;
   height: 530px;
-  // background-attachment: fixed;
+  background-image:url(/assets/smilyblaccomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/smilyblaccomp.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -131,19 +167,19 @@
     padding: 0px;
   }
 }
-.font_back:hover{
-   -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  box-shadow-color: orange;
-  @media screen and (max-width: 1024px){
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-    box-shadow: none;
-  }
-}
+// .font_back:hover{
+//    -webkit-transform: scale(1.1);
+//     -ms-transform: scale(1.1);
+//     transform: scale(1.1);
+//   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+//   box-shadow-color: orange;
+//   @media screen and (max-width: 1024px){
+//     -webkit-transform: none;
+//     -ms-transform: none;
+//     transform: none;
+//     box-shadow: none;
+//   }
+// }
 .font_back .text-center {
   color: orange
 }
@@ -166,7 +202,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/helpcomp.jpg);
+  background-image:url(/assets/helpcomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/helpcomp.jpg);
   background-attachment: fixed;
   width: 100%;
   height: 650px;
@@ -246,7 +283,8 @@
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/backcheckcomp.jpg);
+  background-image:url(/assets/backcheckcomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/backcheckcomp.jpg);
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   // opacity:0.8;
   width: 100%;
@@ -293,7 +331,8 @@
   background-postion: left center;
   // opacity:0.8;
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-  background-image:url(/assets/youngmancomp.jpg);
+  background-image:url(/assets/youngmancomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/youngmancomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -304,7 +343,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
-  background-image:url(/assets/cocktailcomp.jpg);
+  background-image:url(/assets/cocktailcomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -347,7 +387,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/boulecomp.jpg);
+  background-image:url(/assets/boulecomp.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boulecomp.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;

@@ -17,45 +17,18 @@ $(document).on('turbolinks:load', function(){
   if (mess) {
     window.scrollTo(0,document.body.scrollHeight, 'slow');
   }
-
-
-  // display time
-
-  // setTimeout(function() {
-  //   window.location.reload();
-  // }, 10000);
-
-    // For scaling
-  // $('#states-of-country').change(function () {
-  //   var input_state = $(this);
-  //   var cities_of_state = $("#cities-of-state");
-
-  //   if($(this).val() == "") {
-  //     cities_of_state.html("");
-
-  //   } else {
-  //     $.getJSON('/cities/' + $(this).val(), function (data) {
-  //     // cities_of_state.empty();
-  //     var opt = '<option value="" selected="">Select Your City</option>';
-  //     console.log(data);
-  //     if(data.length == 0){
-
-  //     } else {
-  //       data.forEach(function(i) {
-  //         opt += "<option value="+ i +">" + i + '</option>';
-  //         cities_of_state.html(opt);
-  //       });
-  //     }
-  //   });
-  //   }
-  // });
-  // Cliend side verify
-  // $('#micropost_picture').bind('change', function() {
-  //   var size_in_megabytes = this.files[0].size/1024/1024;
-  //   if (size_in_megabytes > 5) {
-  //     alert('Maximum file size is 5MB. Please choose a smaller file.');
-  //   }
-  // });
+  //chatra
+  (function(d, w, c) {
+    w.ChatraID = 'CraZHDarmzW2h7DBC';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = (d.location.protocol === 'https:' ? 'https:': 'http:')
+    + '//call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+  })(document, window, 'Chatra');
 
 });
 
