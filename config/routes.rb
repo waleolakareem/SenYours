@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get '/comp_new' => 'users#comp_new'
 
+  get '/comp_test' => 'users#comp_test'
+
   get '/privacy_policy' => 'welcome#privacy_policy'
 
   get '/terms_of_services' => 'welcome#terms_of_services'
