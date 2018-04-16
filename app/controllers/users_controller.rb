@@ -30,8 +30,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def comp_test
+  end
 
+  def create
     @claim = params[:user][:identification]
     @user = User.new(user_params)
     image = MiniMagick::Image.open("app/assets/images/avatar_image.png")

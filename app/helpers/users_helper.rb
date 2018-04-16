@@ -98,4 +98,5 @@ def send_message(user)
 
   puts message.sid
 end
+
 end

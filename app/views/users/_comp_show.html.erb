@@ -40,6 +40,10 @@
             </div>
           </div>
         </div>
+
+        <div class="container sen_rating text-center">
+          <p> You need to <%= link_to "Take Assessment", comp_test_path  %> before you continue</p>
+        </div>
         <% if @user.reviews.count >=  0 %>
           <div class="sen_rating container">
             <h3>Reviews</h3>
