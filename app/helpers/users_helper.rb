@@ -99,4 +99,13 @@ def send_message(user)
   puts message.sid
 end
 
+def survey_complete(user)
+  require 'rest-client'
+  result = ENV['resultId']
+  user = user.email
+  url = "http://api.dxsurvey.com/api/Survey/isCompleted?resultId=#{result}&clientId=#{user}"
+  response = RestClient.get(url, headers={})
+  response = JSON.parse(response.body)
+end
+
 end

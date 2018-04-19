@@ -467,3 +467,14 @@
   width: 100%;
   }
 }
+
+.quiz_cont {
+  margin-top: 40px;
+  height: 700px;
+  background-color: white;
+  padding: 50px;
+  border-radius: 6px;
+  @media screen and (max-width: 468px) {
+  padding:15px
+  }
+}
