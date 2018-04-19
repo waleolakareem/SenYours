@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       @user.send_signed_up_email
-      send_message(@user)
+      # send_message(@user)
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
       # session[:user_id] = @user.id
@@ -77,6 +77,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    p "e" * 99
+    p survey_complete(@user)
     # redirect_to root_url and return unless FILL_IN
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
