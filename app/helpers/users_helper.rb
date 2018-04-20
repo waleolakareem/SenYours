@@ -75,37 +75,39 @@ module UsersHelper
     CS.get :us, :ca
   end
 
-def only_us_and_canada
-  Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
-end
+  def only_us_and_canada
+    Carmen::Country.all.select{|c| %w{US CA}.include?(c.code)}
+  end
 
-def send_message(user)
-  require 'rubygems' # not necessary with ruby 1.9 but included for completeness
-  require 'twilio-ruby'
+  def send_message(user)
+    require 'rubygems' # not necessary with ruby 1.9 but included for completeness
+    require 'twilio-ruby'
 
-  # put your own credentials here
-  account_sid = ENV['account_sid']
-  auth_token = ENV['auth_token']
+    # put your own credentials here
+    account_sid = ENV['account_sid']
+    auth_token = ENV['auth_token']
 
-  # set up a client to talk to the Twilio REST API
-  @client = Twilio::REST::Client.new(account_sid, auth_token)
+    # set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
 
-  message = @client.messages.create(
-    body: 'Welcome to Senyours!!!. Check your email to activate your account, so we can start this journey together',
-    to: "#{user.phone_number}",
-    from: '+16125004243',
-  )
+    message = @client.messages.create(
+      body: 'Welcome to Senyours!!!. Check your email to activate your account, so we can start this journey together',
+      to: "#{user.phone_number}",
+      from: '+16125004243',
+    )
 
-  puts message.sid
-end
+    puts message.sid
+  end
 
-def survey_complete(user)
-  require 'rest-client'
-  result = ENV['resultId']
-  user = user.email
-  url = "http://api.dxsurvey.com/api/Survey/isCompleted?resultId=#{result}&clientId=#{user}"
-  response = RestClient.get(url, headers={})
-  response = JSON.parse(response.body)
-end
+  def survey_complete(user)
+    require 'rest-client'
+    result = ENV['resultId']
+    user = user.email
+    url = "http://api.dxsurvey.com/api/Survey/isCompleted?resultId=#{result}&clientId=#{user}"
+    response = RestClient.get(url, headers={})
+    response = JSON.parse(response.body)
+    current_user.assessment = response
+    current_user.save!
+  end
 
 end

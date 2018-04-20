@@ -33,6 +33,10 @@ class UsersController < ApplicationController
   def comp_test
   end
 
+  def assesment
+    redirect_to user_path(current_user)
+  end
+
   def create
     @claim = params[:user][:identification]
     @user = User.new(user_params)
@@ -41,6 +45,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       @user.send_signed_up_email
+
       # send_message(@user)
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
@@ -77,8 +82,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    p "e" * 99
-    p survey_complete(@user)
+    if @user.assessment === "no" && @user.identification === "Companion"
+      survey_complete(@user)
+    end
+
     # redirect_to root_url and return unless FILL_IN
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
