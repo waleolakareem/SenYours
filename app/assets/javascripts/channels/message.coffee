@@ -32,7 +32,6 @@ App.message = App.cable.subscriptions.create {
           '</div>' +
           '<div class="col-lg-10 col-md-10 col-9 mess_display">' +
           '<div>'
-
       if(data['user'].id.toString()==$('#user_id').val())
         element += '<strong>me </strong>'
       else
@@ -49,10 +48,7 @@ App.message = App.cable.subscriptions.create {
       window.scrollTo(0, document.body.scrollHeight);
 
   typing: (data)->
-    console.log('typing')
     k = 0
     k += 1
-    console.clear()
-    console.log(k)
     @perform 'typing',conversation_id:window.location.pathname.split('/')[2],user_id:data
 

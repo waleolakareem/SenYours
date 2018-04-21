@@ -1,6 +1,11 @@
 <body style="background-color: #f6f6f6; margin-top: 40px;">
   <div class="container no_cont">
     <div class="row profile_show">
+      <% if @appointment.length >= 1 %>
+          <div class="accept">
+            <p>This is amazing</p>
+          </div>
+      <% end %>
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
         <div class="row sen_img_app">
           <div class="col-lg-6 col-md-6 sen_image">
@@ -128,15 +133,15 @@
               </div>
           <% end %>
       </div>
-      <% if current_user.ssn && !current_user.description.empty? && current_user.address %>
-      <div class="text-center">
-        <% if @appointment.length >= 1 %>
+      <%# if current_user.ssn && !current_user.description.empty? && current_user.address %>
+      <!-- <div class="text-center">
+        <%# if @appointment.length >= 1 %>
           <a href="/comp_request"> <button class="btn request_form_submit">Accept Requests</button></a>
-        <% else %>
+        <%# else %>
           <a href="/comp_request"> <button class="btn btn-warning form_submit">No Requests yet</button></a>
-        <% end %>
-      </div>
-      <% end %>
+        <%# end %>
+      </div> -->
+      <%# end %>
     <% if @comp_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @comp_write_review.each  do |appointment| %>
