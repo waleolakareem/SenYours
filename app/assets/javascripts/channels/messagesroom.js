@@ -1,7 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
     setTimeout(function() {
         messageTyping();
-
     }, 1000);
 });
 

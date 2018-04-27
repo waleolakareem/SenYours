@@ -1,6 +1,25 @@
 <body style="background-color: #f6f6f6; margin-top: 40px;">
   <div class="container no_cont">
     <div class="row profile_show">
+      <div class="asspt1 text-center container" style="display: none">
+        <!-- <img src="/assets/checkmark.png"> -->
+        <p>Accepted, wait a moment so we can get you your money</p>
+      </div>
+      <div class="asspt2 text-center container" style="display: none">
+        <p>Declined</p>
+      </div>
+      <% if @appointment.length >= 1 %>
+          <div class="accept text-center">
+             <p style="padding-top: 15px;"><%=link_to @accept_this_app.senior.first_name, user_path(@accept_this_app.senior) %> requests your companionship for <%= @accept_this_app.start_date.strftime('%m/%d') %>
+            <%=link_to appointment_path(@accept_this_app,appointment: {start_date: @accept_this_app.start_date,end_date: @accept_this_app.start_date, senior_id: @accept_this_app.senior.id,companion_id: current_user.id,accept: true,payment_status: "pending"}), method: :patch, remote: true, class: "btn btn-warning assptclick1" do %>
+              <%= label_tag(:appointment, "Accept") %>
+              <% end %>
+            <%=link_to appointment_path(@accept_this_app,appointment: {start_date: @accept_this_app.start_date,end_date: @accept_this_app.start_date, senior_id: @accept_this_app.senior.id,companion_id: current_user.id,accept: false,payment_status: "pending"}), method: :patch, remote: true, class: "btn btn-warning assptclick2" do %>
+              <%= label_tag(:appointment, "Decline") %>
+            <% end %>
+            </p>
+          </div>
+      <% end %>
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
         <div class="row sen_img_app">
           <div class="col-lg-6 col-md-6 sen_image">
@@ -16,16 +35,20 @@
               <p class="comp_fee notification">$<%= @user.fee %>/Hr
               </p>
             </div>
+            <% if @user.first_name %>
             <div class="sen_img_lower">
-              <p><%= @user.first_name %> <%= @user.last_name %></p>
+              <p><%= @user.first_name.humanize %> <%= @user.last_name.humanize %></p>
               <p><%= @user.city %></p>
             </div>
+            <% end %>
         </div>
         <div class="col-lg-6 col-md-6 sen_app">
             <div>
-              <h1 class="notification"><%= @user.first_name %></h1>
+              <% if @user.first_name %>
+              <h1 class="notification"><%= @user.first_name.humanize %></h1>
+              <% end %>
               <h4>Companion since <%= @user.created_at.strftime('%Y') %></h4>
-              <% if current_user.id === @user.id %>
+              <% if current_user.id === @user.id && current_user.assessment === "completed"  %>
                 <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
                   <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
                   </p>
@@ -40,6 +63,11 @@
             </div>
           </div>
         </div>
+        <% if @user.assessment === "no" %>
+            <div class="container sen_rating text-center">
+            <p> You need to <%= link_to "Take Assessment", comp_test_path  %> before you continue</p>
+          </div>
+        <% end %>
         <% if @user.reviews.count >=  0 %>
           <div class="sen_rating container">
             <h3>Reviews</h3>
@@ -83,7 +111,8 @@
         <% end %>
       </div>
       <div class="col-lg-6 calender container">
-        <% if !current_user.ssn? || !current_user.address? || !current_user.description? %>
+      <% if current_user.assessment === "completed" %>
+        <% if !current_user.ssn? || !current_user.address? || !current_user.description?  %>
           <h4 class="edit_tag text-center">Provide all necessary info for verification</h4>
         <% else %>
         <div>
@@ -91,6 +120,7 @@
           <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to choose available dates</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
         </div>
+        <% end %>
         <% end %>
         <h3><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
           <div class="row" style="padding-left: 15px; padding-right: 15px;">
@@ -123,15 +153,15 @@
               </div>
           <% end %>
       </div>
-      <% if current_user.ssn && !current_user.description.empty? && current_user.address %>
-      <div class="text-center">
-        <% if @appointment.length >= 1 %>
+      <%# if current_user.ssn && !current_user.description.empty? && current_user.address %>
+      <!-- <div class="text-center">
+        <%# if @appointment.length >= 1 %>
           <a href="/comp_request"> <button class="btn request_form_submit">Accept Requests</button></a>
-        <% else %>
+        <%# else %>
           <a href="/comp_request"> <button class="btn btn-warning form_submit">No Requests yet</button></a>
-        <% end %>
-      </div>
-      <% end %>
+        <%# end %>
+      </div> -->
+      <%# end %>
     <% if @comp_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @comp_write_review.each  do |appointment| %>
