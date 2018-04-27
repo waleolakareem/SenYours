@@ -16,7 +16,6 @@ App.message = App.cable.subscriptions.create {
       if(data["user_id"]!=$('#user_id').val())
         $('.typing_message').show()
         setTimeout (-> $('.typing_message').hide()), 1000
-        console.log('typing')
     else
       if(data['user'].id.toString()==$('#user_id').val())
         element='<div class="row form_div mess_div current_user">' +

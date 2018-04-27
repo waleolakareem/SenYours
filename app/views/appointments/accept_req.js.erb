@@ -1,2 +1,8 @@
-$(".gone").html("<%=escape_javascript(render 'accept_req')%>")
+$(".accept").html("<%=escape_javascript(render 'accept_req')%>")
+$('<%=@accept_appoint%>').show();
+  setTimeout(function(){
+   $('<%=@accept_appoint%>').hide();
+  }, 1000);
+
+
 
