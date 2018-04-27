@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'cities/:state', to: 'application#cities'
 
+  get '/assesment' => 'users#assesment'
+
   get '/be_a_comp' => 'welcome#be_a_comp'
 
   get '/need_a_comp' => 'welcome#need_a_comp'

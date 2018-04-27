@@ -15,10 +15,10 @@
                                 <p>Picture</p></div>
                             <div class="col-lg-10 col-md-10 col-12 form_div">
                                 <span class="picture">
-                                    <div class="image-upload">
-                                       <label for="file-input">
+                                    <div class="image-upload edit_tag">
+                                       <!-- <label for="file-input">
                                          <span class="fa fa-camera edit_tag"></span>
-                                       </label>
+                                       </label> -->
                                         <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png',id: 'file-input' %>
                                     </div>
                                 </span>
@@ -112,7 +112,7 @@
                             <% (15..20).each do |fee| %>
                             <!-- <div class="col form_div"> -->
                                 <%= radio_button("user", "fee",fee) %>
-                                <%= label_tag(:rate, fee) %>$
+                                $<%= label_tag(:rate, fee) %>
                             <!-- </div> -->
                             <% end %>
                             </div>

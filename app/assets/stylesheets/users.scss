@@ -351,8 +351,8 @@ body {
   text-decoration: none;
 }
 .image-upload > input
-{
-   display: none;
+{   // display: none
+   display: show;
 }
 .image-upload > label{
   cursor:pointer;
@@ -435,24 +435,43 @@ body {
   width: 96%;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
-  border-radius:3px;
   margin-bottom: 10px;
     @media screen and (max-width: 414px) {
     margin: 0px 5px;
-    margin: 20px;
+    margin: 18px;
     width: 91%;
   }
   @media screen and (max-width: 320px) {
     margin: 0px 5px;
-    margin: 20px;
+    margin: 18px;
     width: 89%;
+  }
+}
+
+.accept{
+  width:100%;
+  margin-left: 15px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  background-color: white;
+  margin-bottom: 10px;
+  @media screen and (max-width: 768px) {
+    margin-left:17px;
+    width: 96%;
+  }
+    @media screen and (max-width: 414px) {
+    margin-left:20px;
+    width: 90%;
+  }
+  @media screen and (max-width: 320px) {
+    margin: 0px 5px;
+    width: 98%;
   }
 }
 .calender{
   padding-top:10px;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
    background-color: white;
-   width: 95%;
+   width: 96%;
    @media screen and (max-width: 640px){
     margin: 20px;
   }

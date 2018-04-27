@@ -44,12 +44,16 @@ class AppointmentsController < ApplicationController
     if appointment_params[:accept] === "false"
       @appointment.destroy
       @appointment = @user.companions.where({accept: false})
+      @accept_appoint = ".asspt2"
+      @accept_this_app = @appointment[0]
       respond_to do |format|
         format.html {redirect_to '/comp_request'}
         format.js { render 'accept_req'}
       end
     elsif @appointment.update_attributes(appointment_params)
       time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
+      @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
+      @accept_appoint = ".asspt1"
       @amount = (@appointment.companion.fee * time) * 100
       charge = Stripe::Charge.create(
         :customer    => @appointment.senior.stripe_customer_id,

@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages.order('created_at ASC')
+    @senderr = User.find(@conversation.recipient_id)
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]

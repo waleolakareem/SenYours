@@ -28,15 +28,15 @@
 }
 
 .scrollh1{
-  padding-top: 240px;
+  padding-top: 340px;
   color:white;
   font-family: 'Muli', sans-serif;
   @media screen and (max-width: 1024px){
-    padding-top: 120px;
+    padding-top: 220px;
     font-size:25px;
   }
   @media screen and (max-width: 468px){
-    padding-top: 150px;
+    padding-top: 250px;
     font-size:15px;
   }
 }
@@ -470,7 +470,7 @@
 
 .quiz_cont {
   margin-top: 40px;
-  height: 700px;
+  height: 400px;
   background-color: white;
   padding: 50px;
   border-radius: 6px;
