@@ -17,9 +17,9 @@
 }
 #car1{
   background-size: cover;
-  height: 530px;
-  background-image:url(/assets/boardgamecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boardgamecomp.jpg);
+  height: 630px;
+  background-image:url(/assets/newcompanioneditor.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/newcompanioneditor.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -28,15 +28,16 @@
 }
 
 .scrollh1{
-  padding-top: 340px;
+  padding-top: 440px;
   color:white;
   font-family: 'Muli', sans-serif;
+  font-weight:bold;
   @media screen and (max-width: 1024px){
-    padding-top: 220px;
+    padding-top: 160px;
     font-size:25px;
   }
   @media screen and (max-width: 468px){
-    padding-top: 250px;
+    padding-top: 150px;
     font-size:15px;
   }
 }
@@ -64,9 +65,9 @@
 #car2{
   background-size: cover;
   background-image:url(/assets/coffietimecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/coffietimecomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/coffietimecomp.jpg);
   // background-attachment: fixed;
-  height: 530px;
+  height: 630px;
   @media screen and (max-width: 1024px){
     background-position: top center;
     height: 350px;
@@ -75,9 +76,9 @@
 }
 #car3{
   background-size: cover;
-  height: 530px;
+  height: 630px;
   background-image:url(/assets/smilyblaccomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/smilyblaccomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/smilyblaccomp.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -203,8 +204,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/helpcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/helpcomp.jpg);
+  background-image:url(/assets/facebookprofile.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/facebookprofile.jpg);
   background-attachment: fixed;
   width: 100%;
   height: 650px;
@@ -222,17 +223,17 @@
     height: 400px;
   }
 }
-.image2_div p {
-  font-size: 30px;
-  color: white;
-  opacity: 1;
-  text-shadow: 1px 1px 5px rgba(0,0,0,1);
-  font-family: 'Muli', sans-serif;
-  @media screen and (max-width: 425px){
-    font-size: 12px;
-    font-weight: 700;
-  }
-}
+// .image2_div p {
+//   // font-size: 30px;
+//   color: white;
+//   opacity: 1;
+//   text-shadow: 1px 1px 5px rgba(0,0,0,1);
+//   font-family: 'Muli', sans-serif;
+//   @media screen and (max-width: 425px){
+//     font-size: 12px;
+//     font-weight: 700;
+//   }
+// }
 .stepp {
   margin: 20px 0px;
   padding: 50px 0px;
@@ -345,7 +346,7 @@
   background-size:cover;
   background-postion: left;
   background-image:url(/assets/cocktailcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -388,13 +389,14 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/boulecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boulecomp.jpg);
+  background-image:url(/assets/needacomppic.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/needacomppic.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
   @media screen and (max-width: 645px) {
     height: 350px;
+    background-position: center center;
   }
 }
 .policy_header {
@@ -493,10 +495,9 @@
 
 .comp_ind_pics{
   height: 100%;
-  width: 100%;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,1) 100%),url(/assets/friendpic.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%),url(/assets/facebookprofile.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   display: flex;
   justify-content: center;
   flex-direction: column;
