@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420012312) do
+ActiveRecord::Schema.define(version: 20180519004952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180420012312) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_available_days_on_date"
   end
 
   create_table "available_times", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20180420012312) do
     t.time "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["time"], name: "index_available_times_on_time"
   end
 
   create_table "conversations", force: :cascade do |t|
