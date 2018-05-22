@@ -16,7 +16,7 @@
 }
 #car1{
   background-size: cover;
-  height: 630px;
+  height: 830px;
   background-image:url(/assets/newcompanioneditor.jpg); /* fallback for older browsers */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/newcompanioneditor.jpg);
   @media screen and (max-width: 1024px){
@@ -30,6 +30,7 @@
   padding-top: 440px;
   color:white;
   font-family: 'Muli', sans-serif;
+  letter-spacing:3px;
   font-weight:bold;
   @media screen and (max-width: 1024px){
     padding-top: 160px;
@@ -42,6 +43,7 @@
 }
 .scrollh2{
   color:white;
+  letter-spacing:3px;
   font-family: 'Muli', sans-serif;
   @media screen and (max-width: 1024px){
     font-size:20px;
@@ -52,6 +54,7 @@
 }
 .scrollh3{
   color:white;
+  letter-spacing:3px;
   font-family: 'Muli', sans-serif;
   font-weight: 900;
    @media screen and (max-width: 1024px){
@@ -66,7 +69,7 @@
   background-image:url(/assets/coffietimecomp.jpg); /* fallback for older browsers */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/coffietimecomp.jpg);
   // background-attachment: fixed;
-  height: 630px;
+  height: 830px;
   @media screen and (max-width: 1024px){
     background-position: top center;
     height: 350px;
@@ -75,7 +78,7 @@
 }
 #car3{
   background-size: cover;
-  height: 630px;
+  height: 830px;
   background-image:url(/assets/smilyblaccomp.jpg); /* fallback for older browsers */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/smilyblaccomp.jpg);
   @media screen and (max-width: 1024px){
@@ -542,6 +545,7 @@
 .comp_pow_h1 {
   transition: display 0.9s;
   letter-spacing: 3px;
+  margin-bottom: 20px;
   color : black;
   font-family: sans-serif;
   @media screen and (max-width: 425px){

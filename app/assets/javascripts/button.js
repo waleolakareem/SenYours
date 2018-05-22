@@ -1,10 +1,19 @@
 $(document).on('turbolinks:load', function(){
   // To hide buttons when not on home page to scroll to where needed.
-  var className = $('.home_div').attr('class')
+  var className = $('.home_div').attr('class');
+  var nameName = $('.comp_sec').attr('class');
   if(className) {
-    $('.press').show();
+    $('.press').css("display","show");
+    $('.press2').css("display","none");
+    $('.press3').css("display","none");
+  } else if(nameName) {
+   $('.press').css("display","none");
+    $('.press2').css("display","none");
+    $('.press3').css("display","show");
   } else {
-    $('.press').hide();
+    $('.press').css("display","none");
+    $('.press2').css("display","show");
+    $('.press3').css("display","none");
   }
   // Scroll to the field needed
   $(".press").click(function(e) {
