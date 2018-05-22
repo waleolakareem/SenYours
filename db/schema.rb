@@ -77,19 +77,6 @@ ActiveRecord::Schema.define(version: 20180519004952) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.boolean "errands", default: false
-    t.boolean "companionship", default: false
-    t.boolean "doctor_appointment", default: false
-    t.boolean "gardening", default: false
-    t.boolean "preparing_meals", default: false
-    t.boolean "pet_care", default: false
-    t.boolean "shopping", default: false
-    t.boolean "transportation", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
