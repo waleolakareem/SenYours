@@ -73,7 +73,6 @@ gem 'faker'
 group :production do
   gem 'rails_12factor'
 end
-
 # gem 'jammit', :git => "git://github.com/documentcloud/jammit.git"
 # gem 'traceroute'
 gem 'sprockets-rails', :require => 'sprockets/railtie'

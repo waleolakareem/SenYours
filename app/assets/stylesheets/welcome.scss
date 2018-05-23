@@ -8,7 +8,6 @@
     margin-top: -20px;
   }
 }
-
 .flash {
   height: 40px;
   width: 80%;
@@ -17,9 +16,9 @@
 }
 #car1{
   background-size: cover;
-  height: 530px;
-  background-image:url(/assets/boardgamecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boardgamecomp.jpg);
+  height: 830px;
+  background-image:url(/assets/newcompanioneditor.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/newcompanioneditor.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -28,20 +27,23 @@
 }
 
 .scrollh1{
-  padding-top: 340px;
+  padding-top: 440px;
   color:white;
   font-family: 'Muli', sans-serif;
+  letter-spacing:3px;
+  font-weight:bold;
   @media screen and (max-width: 1024px){
-    padding-top: 220px;
+    padding-top: 160px;
     font-size:25px;
   }
   @media screen and (max-width: 468px){
-    padding-top: 250px;
+    padding-top: 150px;
     font-size:15px;
   }
 }
 .scrollh2{
   color:white;
+  letter-spacing:3px;
   font-family: 'Muli', sans-serif;
   @media screen and (max-width: 1024px){
     font-size:20px;
@@ -52,6 +54,7 @@
 }
 .scrollh3{
   color:white;
+  letter-spacing:3px;
   font-family: 'Muli', sans-serif;
   font-weight: 900;
    @media screen and (max-width: 1024px){
@@ -64,9 +67,9 @@
 #car2{
   background-size: cover;
   background-image:url(/assets/coffietimecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/coffietimecomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/coffietimecomp.jpg);
   // background-attachment: fixed;
-  height: 530px;
+  height: 830px;
   @media screen and (max-width: 1024px){
     background-position: top center;
     height: 350px;
@@ -75,9 +78,9 @@
 }
 #car3{
   background-size: cover;
-  height: 530px;
+  height: 830px;
   background-image:url(/assets/smilyblaccomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/smilyblaccomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/smilyblaccomp.jpg);
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -203,8 +206,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/helpcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/helpcomp.jpg);
+  background-image:url(/assets/facebookprofile.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/facebookprofile.jpg);
   background-attachment: fixed;
   width: 100%;
   height: 650px;
@@ -222,17 +225,17 @@
     height: 400px;
   }
 }
-.image2_div p {
-  font-size: 30px;
-  color: white;
-  opacity: 1;
-  text-shadow: 1px 1px 5px rgba(0,0,0,1);
-  font-family: 'Muli', sans-serif;
-  @media screen and (max-width: 425px){
-    font-size: 12px;
-    font-weight: 700;
-  }
-}
+// .image2_div p {
+//   // font-size: 30px;
+//   color: white;
+//   opacity: 1;
+//   text-shadow: 1px 1px 5px rgba(0,0,0,1);
+//   font-family: 'Muli', sans-serif;
+//   @media screen and (max-width: 425px){
+//     font-size: 12px;
+//     font-weight: 700;
+//   }
+// }
 .stepp {
   margin: 20px 0px;
   padding: 50px 0px;
@@ -345,7 +348,7 @@
   background-size:cover;
   background-postion: left;
   background-image:url(/assets/cocktailcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -388,13 +391,14 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/boulecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/boulecomp.jpg);
+  background-image:url(/assets/needacomppic.jpg); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/needacomppic.jpg);
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
   @media screen and (max-width: 645px) {
     height: 350px;
+    background-position: center center;
   }
 }
 .policy_header {
@@ -478,3 +482,92 @@
   padding:15px
   }
 }
+
+.prefinery-form-cta:hover {
+  background-color: white !important;
+  color: #ffa500 !important;
+  box-shadow: inset 0 0 0 3px #ffa500;
+}
+.comp_sec{
+  height:900px;
+  @media screen and (max-width: 425px){
+    height: 450px;
+  }
+}
+
+.comp_ind_pics{
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%),url(/assets/facebookprofile.jpg);
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.comp_ind_pics_button{
+  background-color: #ffa500;
+  color: white;
+  height: 50px;
+  width: 30%;
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 1px;
+  @media screen and (max-width: 425px){
+    width: 70%;
+  }
+}
+
+.pow .col-lg-4{
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.comp_pow{
+  height:500px;
+  // background-image:url(/assets/newcompanioneditor.jpg);
+  background-size: cover;
+  background-position: top center;
+  padding: 10px;
+  transition: opacity 0.6s;
+  -webkit-transition: opacity 0.6s;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 425px){
+    height: 250px;
+  }
+}
+
+.comp_form_div{
+  padding-bottom: 10px;
+}
+
+.comp_pow_h1 {
+  transition: display 0.9s;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  color : black;
+  font-family: sans-serif;
+  @media screen and (max-width: 425px){
+    font-size: 35px;
+  }
+}
+
+.comp_pow_p {
+  display: none;
+  transition: display 0.9s;
+  letter-spacing: 3px;
+  color : white;
+}
+
+.comp_pow:hover .comp_pow_p {
+  display: block;
+}
+.comp_pow:hover {
+  opacity: 0.8;
+}
+
+
+// .comp_pow_h1:hover {
+//   display: inline;
+// }
