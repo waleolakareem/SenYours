@@ -1,5 +1,5 @@
-<body style="background-color: #ffffff;">
-  <main>
+<body style="background-color: #ffffff;" itemscope itemtype="http://schema.org/WebPage">
+  <main itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement">
     <section class="home_div">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -27,9 +27,10 @@
           </div>
         </div>
     </section>
-    <section class="container">
-        <div class="col-lg-12 text-center">
-          <h1 class="text_header">WHAT YOU GET FROM SENYOURS PLATFORM<h1>
+    <section itemprop="about" itemscope itemtype="http://schema.org/Service" class="container">
+        <meta itemprop="serviceType" content="Senior Health Care"/>
+        <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+          <h1 class="text_header">WHAT YOU GET FROM <span itemprop="name">SENYOURS</span> PLATFORM<h1>
         </div>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
@@ -88,33 +89,36 @@
         </div>
       </div>
     </section>
-    <section class="container">
+    <section itemprop="about" itemscope itemtype="http://schema.org/ProgramMembership" class="container">
       <div class="row comp_div">
         <div class="col-lg-12 text-center">
           <h1 class="text_header">HEAR FROM OUR COMPANIONS<h1>
         </div>
-          <div class="col-lg-4 col-md-4" style=" height: 550px;">
+          <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
             <div class="comp_img_div" style="background-image: url(/assets/head_shot_copy.jpg);"></div>
             <div class="comp_img_text">
-              <p class="notification"> <strong>Merty Mcgraw</strong>,  San francisco</p>
+              <p class="notification"> <strong itemprop="name">Merty Mcgraw</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
+              <meta itemprop="jobTitle" content="Companion"/>
             </div>
             <div class="comp_img_descrp">
               <p>"I have learned so much from the seniors I have worked with. Senyours is a great way for me to build meaningful relationships while serving my community and it works with my busy schedule!"</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4" style=" height: 550px;">
+          <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
             <div class="comp_img_div" style="background-image: url(/assets/wale-compress-image.jpg);"></div>
             <div class="comp_img_text">
-              <p class="notification"> <strong>Wale Kareem</strong>,  San francisco</p>
+              <p class="notification"> <strong itemprop="name">Wale Kareem</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
+              <meta itemprop="jobTitle" content="Companion"/>
             </div>
             <div class="comp_img_descrp">
               <p>"I am a Companion after work and on the weekends. For me being a Companion is a way to give back to the wonderful world I live in.  Everyone deserves a smile."</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-4" style=" height: 550px;">
+          <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
             <div class="comp_img_div" style="background-image: url(/assets/jamez.png);"></div>
             <div class="comp_img_text">
-              <p class="notification"> <strong>Mez Manning</strong>,  San francisco</p>
+              <p class="notification"> <strong itemprop="name">Mez Manning</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
+              <meta itemprop="jobTitle" content="Companion"/>
             </div>
             <div class="comp_img_descrp" id="what_we">
               <p>"The Seniors I help always put a smile on my face. . Impacting others with joyous moment is something I appreciate about being a Companion."</p>
