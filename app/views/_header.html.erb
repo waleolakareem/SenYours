@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+<nav itemscope role=navigation class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="/"><img src="/assets/S_2edit.jpg" class="nav_img"></a>
   <a href="" style="text-decoration: none;"><h3 style="color: white;">senyours</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto in_navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= current_user.id %>">
+          <a class="nav-link" itemprop="url" href="/users/<%= current_user.id %>">
             Profile</a>
           </a>
         </li>
@@ -38,24 +39,24 @@
   </div>
   <% else %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/need_a_comp">
+    <ul class="navbar-nav mr-auto" itemtype="http://www.schema.org/SiteNavigationElement">
+      <li class="nav-item" itemprop="name">
+          <a class="nav-link" itemprop="url" href="/need_a_comp">
             Need a Companion</a>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/be_a_comp">
+        <li class="nav-item" itemprop="name">
+          <a class="nav-link" itemprop="url" href="/be_a_comp">
             Become a Companion</a>
           </a>
         </li>
-        <li class="nav-item press">
-          <a class="nav-link " href="#what_we">
+        <li class="nav-item" itemprop="name">
+          <a class="nav-link" itemprop="url" href="/">
+            Home
+          </a>
+        </li>
+        <li class="nav-item press" itemprop="name">
+          <a class="nav-link" itemprop="url" href="#what_we">
             What we do
           </a>
         </li>
@@ -78,9 +79,9 @@
           <a class="nav-link" href="/users/new">
             Sign Up
         </li> -->
-        <!-- Sign In when everything is ready to go -->
-        <!-- <li class="nav-item active"> -->
-          <!-- <a class="nav-link" href="/login">
+           <!-- Sign In when everything is ready to go -->
+        <!--<li class="nav-item active" itemprop="name">
+          <a class="nav-link" itemprop="url" href="/login">
             Sign In
           </a> -->
         <!-- </li> -->
