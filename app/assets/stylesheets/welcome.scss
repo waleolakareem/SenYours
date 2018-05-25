@@ -163,6 +163,14 @@
 .font {
   margin-bottom: 30px;
 }
+.services_font{
+  margin-bottom: 30px;
+  height: 90px;
+  width: auto;
+   @media screen and (max-width: 425px){
+    height: 60px;
+  }
+}
 .font_back{
   padding:10px;
   margin: 30px 0px;
@@ -194,6 +202,10 @@
 }
 .font_p {
   padding: 0 20px;
+  font-family: 'Muli', sans-serif;
+  font-size: 15px;
+}
+.services_font_p {
   font-family: 'Muli', sans-serif;
   font-size: 15px;
 }
@@ -421,6 +433,22 @@
   font-size:20px;
   letter-spacing: 3px;
   padding-top:20px;
+}
+// Drawing a line through our services
+.servises_text_header{
+  color: orange;
+  font-size:20px;
+  letter-spacing: 3px;
+  padding-top:20px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid orange;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.servises_text_header span {
+    background:#fff;
+    padding:0 10px;
 }
 .btn-link{
   color: orange;
