@@ -21,7 +21,7 @@
           </div>
 
           <div id='show_blog_title_container'>
-            <h1> <%= @blog.title %> </h1>
+            <h1> <%= raw(@blog.title) %> </h1>
           </div>
 
         </div>
@@ -36,7 +36,7 @@
 
       <div class='blog_section' id='show_blog_body_container'>
         <p>
-          <%= @blog.body %>
+          <%= raw(@blog.body) %>
         </p>
       </div>
 
