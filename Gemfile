@@ -70,6 +70,9 @@ gem 'city-state'
 gem 'redis', '~> 3.3', '>= 3.3.1'
 
 gem 'faker'
+
+gem 'ckeditor' 
+
 group :production do
   gem 'rails_12factor'
 end
