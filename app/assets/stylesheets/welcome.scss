@@ -546,9 +546,12 @@
 
 .comp_ind_pics_button{
   height: 50px;
-  width:60%;
+  width:30%;
+  color:white;
+  background-color:orange;
   letter-spacing: 1px;
   @media screen and (max-width: 425px){
+    height: 40px;
     width: 70%;
   }
 }
