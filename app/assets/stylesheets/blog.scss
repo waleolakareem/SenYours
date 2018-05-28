@@ -16,7 +16,7 @@
 
 }
 
-/* Blog Index Page */
+/* BEGIN Blog Index Page */
 #index_blog_container{
   display: flex;
   flex-wrap: nowrap;
@@ -37,9 +37,8 @@
   #index_blog_title_container{
     margin: 5px;
   }
-
-
-  /* Blog Show Page */
+  /* END Blog Index Page */
+  /* BEGIN Blog Show Page */
   #show_blog_container{
     display: flex;
     flex-wrap: wrap;
@@ -135,3 +134,29 @@
     padding-top: 20px;
     color: black;
   }
+  /* END Blog Show Page */
+  /* BEGIN Blog New Page */
+#new_blog_form_container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+}
+  #new_blog_form{
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+  }
+
+
+
+
+  /* END Blog New Page */
+
+
+
+
+
+  /* BEGIN Blog ____ Page */
+  /* END Blog ____ Page */

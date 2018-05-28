@@ -1,2 +1,23 @@
-<h1>Blog#new</h1>
-<p>Find me in app/views/blog/new.html.erb</p>
+
+<div id="new_blog_form_container">
+    <div id="new_blog_form">
+        <h1>Create New Blog Post:</h1>
+        <%= form_for @blog, url: {action: "create"} do |f| %>
+            <div id='new_blog_form_section'>
+                <%= f.label :title %>
+                <%= f.text_field :title %>
+            </div>
+            <div id='new_blog_form_section'>
+                <%= f.label :body %>
+                <%= f.text_field :body %>
+            </div>
+            <!-- <div id='new_blog_form_section'>
+                <%= f.label :image %>
+                <%= f.email_field :body %>
+            </div> -->
+            <div id='new_blog_form_section'>
+                <%= f.submit "Create new post", class: "" %>
+            </div>
+        <% end %>
+    </div>
+</div>

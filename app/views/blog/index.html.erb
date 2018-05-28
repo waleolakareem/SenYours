@@ -1,5 +1,8 @@
+<%= link_to "Create Blog Post", new_blog_url %>
+
 <% @blogs.each do |blog|%>
   <div id='index_container'>
+
     <div id='index_blog_container'>
 
       <div id='index_blog_date_container'>
@@ -13,3 +16,11 @@
     </div>
   </div>
 <% end %>
+
+<a href="#" onclick="enterPassword()">Create Blog Post</a>
+<script type="text/javascript">
+  function enterPassword() {
+
+    alert('this is a password alert!')
+  }
+</script>
