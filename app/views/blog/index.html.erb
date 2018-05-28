@@ -1,0 +1,15 @@
+<% @blogs.each do |blog|%>
+  <div id='index_container'>
+    <div id='index_blog_container'>
+
+      <div id='index_blog_date_container'>
+        <h1> 09/09/2018 </h1>
+      </div>
+
+      <div id='index_blog_title_container'>
+        <a href="/blog/<%= blog.id %>"><%= blog.title %></a>
+      </div>
+
+    </div>
+  </div>
+<% end %>
