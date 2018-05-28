@@ -1,24 +1,46 @@
-# README
+# Senyours Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> "A strong team can take any crazy vision and turn it into reality".- John Carmack
 
-Things you may want to cover:
 
-* Ruby version
+## WARNING ##
+- Do not merge your branch to development.
+- Only make a pull request of your branch to development and let team lead merge to development.
 
-* System dependencies
+## Prerequisites ##
+If you get the error "Jquery cannot be defined"
+** Yarn install Jquery ** will solve this issue
 
-* Configuration
+** .env Creation **
+- Create a file inside the Senyours App
+- Name it .env
+- Insert all keys into .env
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+- Ruby Version - ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-darwin16]
+- Rails Version - Rails 5.1.4
+- Database - Postgres SQL, S3 storage
 
-* Services (job queues, cache servers, search engines, etc.)
+# Dependences
+- Survey.js
+- Prefinery
 
-* Deployment instructions
 
-* ...
+
+# API
+- Stripe
+- Accurate background API
+
+# Deployment
+- Merge to development branch
+- Merge development to master
+- push to heroku senyoursdevtest
+- Wait 72 Hours before pushing to Senyours Production
+
+# Test Suite
+_Coming Soon_
+
+
+
+
