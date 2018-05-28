@@ -43,9 +43,7 @@ require 'faker'
     #   User.create({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email:Faker::Name.first_name + '@gmail.com', phone_number:'9485949383', password:'password', password_confirmation:'password', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Senior', description: 'I will be willing to travel to take care of individuals, take them on a walk and also for shopping', address: Faker::Address.street_address, city:'Oakland', state:'California', dob: '08/12/1966',availability: true})
     # end
 
-
-
-
-
-
-
+    # Seed for Blog testing:
+    20.times do
+      Blog.create!(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraphs)
+    end
