@@ -1,3 +1,4 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
 
 <div id="new_blog_form_container">
     <div id="new_blog_form">
@@ -5,15 +6,15 @@
         <%= form_for @blog, url: {action: "create"} do |f| %>
             <div id='new_blog_form_section'>
                 <%= f.label :title %>
-                <%= f.text_field :title %>
+                <%= f.cktext_area :title %>
             </div>
             <div id='new_blog_form_section'>
                 <%= f.label :body %>
-                <%= f.text_field :body %>
+                <%= f.cktext_area :body %>
             </div>
             <!-- <div id='new_blog_form_section'>
                 <%= f.label :image %>
-                <%= f.email_field :body %>
+                <%= f.cktext_area :body %>
             </div> -->
             <div id='new_blog_form_section'>
                 <%= f.submit "Create new post", class: "" %>
@@ -21,3 +22,11 @@
         <% end %>
     </div>
 </div>
+
+<script>
+ClassicEditor
+.create( document.querySelector( '#editor' ) )
+.catch( error => {
+    console.error( error );
+} );
+</script>
