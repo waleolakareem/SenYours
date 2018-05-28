@@ -1,5 +1,5 @@
 .navbar {
-  background-color: orange !important;
+  background-color: white !important;
  }
 // #36454F
 .navbar a {
@@ -31,7 +31,7 @@
 // }
 // #4c4c4c
 .nav-link{
-  color:white !important;
+  color:orange !important;
   font-size:16px !important;
   letter-spacing:2px;
   @media screen and (max-width:375px){
@@ -66,6 +66,9 @@
   }
   @media screen and (max-width:1215px){
     margin-left:5%;
+  }
+  @media screen and (max-width:1024px){
+    margin-left:0;
   }
   @media screen and (max-width:465px){
     margin-left:0;

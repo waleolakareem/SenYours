@@ -108,6 +108,7 @@
 .pad_cont{
   padding-right:5px;
   padding-left:5px;
+  font-family: 'Muli', sans-serif;
 }
 .comp_div .col-lg-12 p {
   color: orange;
@@ -533,12 +534,19 @@
   flex-direction: column;
   align-items: center;
 }
-.comp_ind_pics_button{
-  background-color: #ffa500;
+
+.comp_ind_pics p {
   color: white;
-  height: 50px;
-  width: 30%;
   font-family: 'Muli', sans-serif;
+  font-size: 25px;
+  @media screen and (max-width: 425px){
+    font-size: 18px;
+  }
+}
+
+.comp_ind_pics_button{
+  height: 50px;
+  width:60%;
   letter-spacing: 1px;
   @media screen and (max-width: 425px){
     width: 70%;
