@@ -1,2 +1,35 @@
-<h1>Blog#edit</h1>
-<p>Find me in app/views/blog/edit.html.erb</p>
+<script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+<!-- Resources for ckeditor -->
+<!-- http://www.dailysmarty.com/posts/how-to-integrate-ckeditor-into-a-rails-5-application -->
+<!-- https://github.com/galetahub/ckeditor -->
+
+<div id="edit_blog_form_container">
+    <div id="edit_blog_form">
+        <h1>Update Blog Post:</h1>
+        <%= form_for @blog, url: {action: "update"} do |f| %>
+            <div id='edit_blog_form_section'>
+                <%= f.label :title %>
+                <%= f.cktext_area :title, value: @blog.title %>
+            </div>
+            <div id='edit_blog_form_section'>
+                <%= f.label :body %>
+                <%= f.cktext_area :body, value: @blog.body %>
+            </div>
+            <!-- <div id='edit_blog_form_section'>
+                <%= f.label :image %>
+                <%= f.cktext_area :body %>
+            </div> -->
+            <div id='edit_blog_form_section'>
+                <%= f.submit "Edit post", class: "" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<script>
+ClassicEditor
+.create( document.querySelector( '#editor' ) )
+.catch( error => {
+    console.error( error );
+} );
+</script>

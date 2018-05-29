@@ -54,9 +54,9 @@ class BlogController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
       flash[:success] = "Blog succesfully updated."
-      redirect_to root_path
+      redirect_to :blog_index
     else
-      redirect_to edit_user_path
+      redirect_to edit_blog_path
     end
   end
 
