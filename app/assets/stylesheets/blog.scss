@@ -183,6 +183,137 @@
       border-right: 3px black solid;
       border-radius: 50%;
     }
+
+  // ADMIN SECTION:
+  #index_blog_admin_options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Muli', sans-serif;
+    font-size: 100%;
+
+  }
+    #index_blog_admin_create_link{
+      text-decoration: none;
+      color: black;
+      background: #fff;
+      margin: 20px;
+      padding: 10px;
+      border-top: 3px black solid;
+      border-bottom: 3px black solid;
+      border-radius: 20px;
+      text-decoration: none; /* no underline */
+      text-shadow: 1px 1px black;
+      transition:
+        border 0.3s ease-out,
+        color 0.3s ease-out,
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
+    }
+      #index_blog_admin_create_link:hover{
+        color: black;
+        text-decoration: none; /* no underline */
+        border-left: 10px solid #ffc107;
+        border-right: 10px solid #ffc107;
+        border-top: 3px black solid;
+        border-bottom: 3px black solid;
+        box-shadow: 5px 5px 3px rgba(black, 0.15);
+        background: #ffc107;
+      }
+    #index_blog_admin_logout_link{
+      text-decoration: none;
+      color: black;
+      background: #fff;
+      margin: 20px;
+      padding: 10px;
+      border-top: 3px black solid;
+      border-bottom: 3px black solid;
+      border-radius: 20px;
+      text-decoration: none; /* no underline */
+      text-shadow: 1px 1px black;
+      transition:
+        border 0.3s ease-out,
+        color 0.3s ease-out,
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
+    }
+      #index_blog_admin_logout_link:hover{
+        color: black;
+        text-decoration: none; /* no underline */
+        border-left: 10px solid #ffc107;
+        border-right: 10px solid #ffc107;
+        border-top: 3px black solid;
+        border-bottom: 3px black solid;
+        box-shadow: 5px 5px 3px rgba(black, 0.15);
+        background: #ffc107;
+      }
+
+
+    #index_blog_edit_remove_container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      vertical-align: middle;
+      font-family: 'Muli', sans-serif;
+      font-size: 100%;
+    }
+      #index_blog_admin_edit_link{
+        text-decoration: none;
+        color: black;
+        background: #fff;
+        margin: 20px;
+        padding: 10px;
+        border-top: 3px black solid;
+        border-bottom: 3px black solid;
+        border-radius: 20px;
+        text-decoration: none; /* no underline */
+        text-shadow: 1px 1px black;
+        transition:
+          border 0.3s ease-out,
+          color 0.3s ease-out,
+          background 0.3s ease-out,
+          box-shadow 0.3s ease-out;
+      }
+        #index_blog_admin_edit_link:hover{
+          color: black;
+          text-decoration: none; /* no underline */
+          border-left: 10px solid #ffc107;
+          border-right: 10px solid #ffc107;
+          border-top: 3px black solid;
+          border-bottom: 3px black solid;
+          box-shadow: 5px 5px 3px rgba(black, 0.15);
+          background: #ffc107;
+        }
+      #index_blog_admin_delete_link{
+        text-decoration: none;
+        color: black;
+        background: #fff;
+        margin: 20px;
+        padding: 10px;
+        border-top: 3px black solid;
+        border-bottom: 3px black solid;
+        border-radius: 20px;
+        text-decoration: none; /* no underline */
+        text-shadow: 1px 1px black;
+        transition:
+          border 0.3s ease-out,
+          color 0.3s ease-out,
+          background 0.3s ease-out,
+          box-shadow 0.3s ease-out;
+      }
+        #index_blog_admin_delete_link:hover{
+          color: black;
+          text-decoration: none; /* no underline */
+          border-left: 10px solid #ffc107;
+          border-right: 10px solid #ffc107;
+          border-top: 3px black solid;
+          border-bottom: 3px black solid;
+          box-shadow: 5px 5px 3px rgba(black, 0.15);
+          background: #ffc107;
+        }
   /* END Blog Index Page */
 
 
