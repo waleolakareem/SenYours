@@ -15,7 +15,7 @@ class BlogController < ApplicationController
   end
 
   def password_authenticate
-    if params[:input][:password] == "1234"
+    if params[:input][:password] == "111" # NEW
       redirect_to :new_blog
     else
       flash[:success] = "Please try again."
@@ -32,7 +32,7 @@ class BlogController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      flash[:success] = "Blog created succesfully"
+      flash[:success] = "Blog created succesfully."
       redirect_to @blog
     else
       render new_user_path
@@ -40,9 +40,23 @@ class BlogController < ApplicationController
   end
 
   def edit
+    @blog = Blog.find(params[:id])
   end
 
-  def delete
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      flash[:success] = "Blog succesfully updated."
+      redirect_to root_path
+    else
+      redirect_to edit_user_path
+    end
+  end
+
+  def destroy
+    Blog.find(params[:id]).destroy
+    flash[:success] = "Blog succesfully deleted."
+    redirect_to root_path
   end
 
   private
