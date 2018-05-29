@@ -1,6 +1,7 @@
 
 <% if session[:admin] == false %>
   <%= link_to "Log in", password_input_path %>
+  <%= will_paginate @blogs %>
   <% @blogs.each do |blog|%>
     <div id='index_container'>
       <div id='index_blog_container'>
