@@ -1,6 +1,6 @@
   <div id='show_container'>
     <div id='show_blog_container'>
-      <%= link_to "Blogs Home ", blog_index_path %>
+
       <div id='show_blog_top_container'>
 <!-- When individual editor are added in, this can be used. -->
         <!-- <div id='show_blog_editor_box'>
@@ -12,6 +12,7 @@
           </div>
         </div> -->
           <div id='show_blog_title_box'>
+            <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
           <div id='show_blog_date_container'>
             <h4> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
           </div>
