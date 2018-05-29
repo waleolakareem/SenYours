@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
 
   def index
-    @blogs = Blog.paginate(:page => params[:page], :per_page => 30).order("created_at ASC")
+    @blogs = Blog.paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
   end
 
   def show
@@ -14,9 +14,8 @@ class BlogController < ApplicationController
   end
 
   def password_authenticate
-    if params[:input][:password] == "111"
+    if params[:input][:password] == "blaine"
       session[:admin] = true
-      puts session[:admin]
       redirect_to :blog_index
     else
       flash[:failure] = "Please try again."
@@ -26,7 +25,6 @@ class BlogController < ApplicationController
 
   def end_session
     session[:admin] = false
-    puts session[:admin]
     redirect_to :blog_index
   end
 

@@ -1,26 +1,40 @@
-
 <% if session[:admin] == false %>
-  <%= link_to "Log in", password_input_path %>
-  <%= will_paginate @blogs %>
-  <% @blogs.each do |blog|%>
+  <div id='index_container_background'>
+
+    <%= link_to "Log in", password_input_path %>
+    <%= will_paginate @blogs %>
     <div id='index_container'>
-      <div id='index_blog_container'>
-        <div id='index_blog_date_container'>
-          <h4> <%= blog.created_at.strftime("%d %b %y") %> </h4>
+    <% @blogs.each do |blog|%>
+
+
+
+
+
+
+        <div id='index_blog_container'>
+          <div id='index_blog_date_container'>
+            <h3 id='index_blog_date'> <%= blog.created_at.strftime("%d %b %y") %> </h3>
+          </div>
+          <div id='index_blog_title_container'>
+            <%= link_to raw(blog.title), blog_path(blog.id), id: 'index_blog_title' %>
+          </div>
         </div>
-        <div id='index_blog_title_container'>
-          <h1><a href="/blog/<%= blog.id %>"><%= raw(blog.title) %></a></h1>
-        </div>
-      </div>
+
+
+
+
+
+
+
+    <% end %>
     </div>
-  <% end %>
+  </div>
 <% elsif session[:admin] == true %>
 <%= link_to "Create Blog Post | ", new_blog_path %>
 <%= link_to "Log Out", end_session_path %>
 <%= will_paginate @blogs %>
   <% @blogs.each do |blog|%>
     <div id='index_container'>
-      <h6><%= blog.id %></h6>
       <div id='index_blog_container'>
         <div id='index_blog_date_container'>
           <h4> <%= blog.created_at.strftime("%d %b %y") %> </h4>
@@ -34,11 +48,3 @@
     </div>
   <% end %>
 <% end %>
-
-<!-- <a href="#" onclick="enterPassword()">Create Blog Post</a>
-<script type="text/javascript">
-  function enterPassword() {
-
-    alert('this is a password alert!')
-  }
-</script> -->
