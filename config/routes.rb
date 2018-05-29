@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :blog
   get '/password_input' => 'blog#password_input'
   post '/password_authenticate' => 'blog#password_authenticate'
+  get '/end_session' => 'blog#end_session'
 
   get 'password_resets/new'
 

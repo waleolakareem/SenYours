@@ -1,20 +1,35 @@
-<%= link_to "Create Blog Post", password_input_path %>
 
-<% @blogs.each do |blog|%>
-  <div id='index_container'>
-
-    <div id='index_blog_container'>
-
-      <div id='index_blog_date_container'>
-        <h1> 09/09/2018 </h1>
+<% if session[:admin] == false %>
+  <%= link_to "Log in", password_input_path %>
+  <% @blogs.each do |blog|%>
+    <div id='index_container'>
+      <div id='index_blog_container'>
+        <div id='index_blog_date_container'>
+          <h4> <%= blog.created_at.strftime("%d %b %y") %> </h4>
+        </div>
+        <div id='index_blog_title_container'>
+          <h1><a href="/blog/<%= blog.id %>"><%= raw(blog.title) %></a></h1>
+        </div>
       </div>
-
-      <div id='index_blog_title_container'>
-        <a href="/blog/<%= blog.id %>"><%= raw(blog.title) %></a>
-      </div>
-
     </div>
-  </div>
+  <% end %>
+<% elsif session[:admin] == true %>
+  <%= link_to "Create Blog Post | ", new_blog_path %>
+  <%= link_to "Log Out", end_session_path %>
+  <% @blogs.each do |blog|%>
+    <div id='index_container'>
+      <div id='index_blog_container'>
+        <div id='index_blog_date_container'>
+          <h4> <%= blog.created_at.strftime("%d %b %y") %> </h4>
+          <%= link_to "Edit Post", edit_blog_path(blog.id) %>
+          <%= link_to "Delete Post", blog_path(blog.id), method: :delete %>
+        </div>
+        <div id='index_blog_title_container'>
+          <h1><a href="/blog/<%= blog.id %>"><%= raw(blog.title) %></a></h1>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 <a href="#" onclick="enterPassword()">Create Blog Post</a>

@@ -11,16 +11,23 @@ class BlogController < ApplicationController
   end
 
   def password_input
-    puts "password_input route"
   end
 
   def password_authenticate
-    if params[:input][:password] == "111" # NEW
-      redirect_to :new_blog
+    if params[:input][:password] == "111"
+      session[:admin] = true
+      puts session[:admin]
+      redirect_to :blog_index
     else
-      flash[:success] = "Please try again."
+      flash[:failure] = "Please try again."
       redirect_to :password_input
     end
+  end
+
+  def end_session
+    session[:admin] = false
+    puts session[:admin]
+    redirect_to :blog_index
   end
 
   def new
@@ -56,7 +63,7 @@ class BlogController < ApplicationController
   def destroy
     Blog.find(params[:id]).destroy
     flash[:success] = "Blog succesfully deleted."
-    redirect_to root_path
+    redirect_to :blog_index
   end
 
   private
