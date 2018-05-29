@@ -102,24 +102,86 @@
         background: #ffc107;
       }
 
-  #pagination_container{
+  #pagination_container{ // Div containing 'will_paginate'
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     vertical-align: middle;
   }
-  .pagination{
+  .pagination{ // The entire 'will_paginate' object.
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    // border: 5px gray solid;
+    font-family: 'Muli', sans-serif;
+    font-size: 100%;
+  }
+    .pagination a{     // Selctable Page Links
+      margin: 5px;
+      padding: 5px;
+      color: black;
+      transition:
+        border 0.3s ease-out,
+        background 0.3s ease-out;
+    }
+    .pagination span{  // Non-Selectable previous or next button
+      margin: 5px;
+      padding: 5px;
+      color: black;
+      transition:
+        border 0.3s ease-out,
+        background 0.3s ease-out;
+    }
+    .pagination em{    // Current Page Selector
+      margin: 5px;
+      padding: 5px;
+      color: black;
+      transition:
+        border 0.3s ease-out,
+        background 0.3s ease-out;
+    }
+    .pagination em:visited, .pagination span:visited, .pagination a:visited{    // Current Page Selector
+      color: black;
+    }
+    .pagination em:hover, .pagination span:hover, .pagination a:hover{    // Current Page Selector
+      border-left: 3px black solid;
+      border-right: 3px black solid;
+      border-radius: 50%;
+      background: #ffc107;
+    }
+
+  #blog_log_in_link_container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Muli', sans-serif;
+    font-size: 100%;
+    justify-content: flex-end;
 
   }
-    .pagination div{
-
+    #blog_log_in_link{
+      text-decoration: none;
+      color: black;
+      margin: 10px;
+      padding: 10px;
+      transition:
+        border 0.3s ease-out;
     }
-    .pagination a{
-
+    #blog_log_in_link:visited{
+      text-decoration: none;
+      color: black;
     }
-    .pagination span{
-
+    #blog_log_in_link:hover{
+      text-decoration: none;
+      color: black;
+      border-left: 3px black solid;
+      border-right: 3px black solid;
+      border-radius: 50%;
     }
   /* END Blog Index Page */
 
