@@ -478,7 +478,10 @@
   #new_blog_form{
     display: flex;
     flex-wrap: wrap;
-    min-width: 100%;
+    min-width: 70%;
+    max-width: 70%;
+  }
+  #new_blog_form_section{
   }
   /* END Blog New Page */
 
