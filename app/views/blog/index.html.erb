@@ -14,10 +14,12 @@
     </div>
   <% end %>
 <% elsif session[:admin] == true %>
-  <%= link_to "Create Blog Post | ", new_blog_path %>
-  <%= link_to "Log Out", end_session_path %>
+<%= link_to "Create Blog Post | ", new_blog_path %>
+<%= link_to "Log Out", end_session_path %>
+<%= will_paginate @blogs %>
   <% @blogs.each do |blog|%>
     <div id='index_container'>
+      <h6><%= blog.id %></h6>
       <div id='index_blog_container'>
         <div id='index_blog_date_container'>
           <h4> <%= blog.created_at.strftime("%d %b %y") %> </h4>

@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
@@ -31,8 +31,6 @@ class BlogController < ApplicationController
   end
 
   def new
-    # INSECURE - Needs sessions of some kind.
-    # Can currently be accessed by typing in URL '/blog/new'
     @blog = Blog.new
   end
 

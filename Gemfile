@@ -71,7 +71,8 @@ gem 'redis', '~> 3.3', '>= 3.3.1'
 
 gem 'faker'
 
-gem 'ckeditor' 
+gem 'ckeditor'
+gem 'will_paginate'
 
 group :production do
   gem 'rails_12factor'

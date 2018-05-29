@@ -44,6 +44,6 @@ require 'faker'
     # end
 
     # Seed for Blog testing:
-    20.times do
+    100.times do
       Blog.create!(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraphs)
     end
