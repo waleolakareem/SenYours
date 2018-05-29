@@ -1,4 +1,5 @@
 class BlogController < ApplicationController
+
   def index
     @blogs = Blog.all
   end
@@ -9,18 +10,23 @@ class BlogController < ApplicationController
     redirect_to :root, alert: 'Blog not found'
   end
 
-  def password
-    #code
+  def password_input
+    puts "password_input route"
+  end
+
+  def password_authenticate
+    if params[:input][:password] == "1234"
+      redirect_to :new_blog
+    else
+      flash[:success] = "Please try again."
+      redirect_to :password_input
+    end
   end
 
   def new
+    # INSECURE - Needs sessions of some kind.
+    # Can currently be accessed by typing in URL '/blog/new'
     @blog = Blog.new
-
-    # if correct_password
-    #   # Entry to create a blog
-    # else
-    #   # Back to index with messages
-    # end
   end
 
   def create
