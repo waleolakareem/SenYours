@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :blog
+  get '/password_input' => 'blog#password_input'
+  post '/password_authenticate' => 'blog#password_authenticate'
 
   get 'password_resets/new'
 
