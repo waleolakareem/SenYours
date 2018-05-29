@@ -1,16 +1,11 @@
 <% if session[:admin] == false %>
   <div id='index_container_background'>
-
     <%= link_to "Log in", password_input_path %>
-    <%= will_paginate @blogs %>
+    <div id='pagination_container'>
+      <%= will_paginate @blogs, :id => 'my_element', :class => 'my_class' %>
+    </div>
     <div id='index_container'>
-    <% @blogs.each do |blog|%>
-
-
-
-
-
-
+      <% @blogs.each do |blog|%>
         <div id='index_blog_container'>
           <div id='index_blog_date_container'>
             <h3 id='index_blog_date'> <%= blog.created_at.strftime("%d %b %y") %> </h3>
@@ -19,14 +14,7 @@
             <%= link_to raw(blog.title), blog_path(blog.id), id: 'index_blog_title' %>
           </div>
         </div>
-
-
-
-
-
-
-
-    <% end %>
+      <% end %>
     </div>
   </div>
 <% elsif session[:admin] == true %>
