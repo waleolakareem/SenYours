@@ -7,6 +7,10 @@
     <div id="new_blog_form">
         <h1>Create New Blog Post:</h1>
         <%= form_for @blog, url: {action: "create"} do |f| %>
+            <div id='edit_blog_form_section'>
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+            </div>
             <div id='new_blog_form_section'>
                 <%= f.label :title %>
                 <%= f.cktext_area :title %>
@@ -15,10 +19,6 @@
                 <%= f.label :body %>
                 <%= f.cktext_area :body %>
             </div>
-            <!-- <div id='new_blog_form_section'>
-                <%= f.label :image %>
-                <%= f.cktext_area :body %>
-            </div> -->
             <div id='new_blog_form_section'>
                 <%= f.submit "Create new post", class: "" %>
             </div>

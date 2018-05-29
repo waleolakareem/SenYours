@@ -6,9 +6,19 @@ class BlogImageUploader < CarrierWave::Uploader::Base
   process :auto_orient
 
   # Rotate Image
+  version :full_width do
+    process :auto_orient,
+    resize_to_fill: [1200, 1200]
+  end
+
   version :large do
     process :auto_orient,
     resize_to_fill: [600, 600]
+  end
+
+  version :small do
+    process :auto_orient,
+    resize_to_fill: [300, 300]
   end
 
   version :thumb do

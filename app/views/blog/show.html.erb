@@ -11,6 +11,7 @@
             <h1> <%=  %> </h1>
           </div>
         </div> -->
+        <h1> <%= @blog.image %> </h1>
           <div id='show_blog_title_box'>
             <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
           <div id='show_blog_date_container'>
@@ -23,7 +24,12 @@
       </div>
       <span class='top_divider'></span>
       <div class='blog_section' id='show_blog_image_container'>
-        <%= image_tag("http://via.placeholder.com/1500x1000", :alt => "Image", :id => 'show_blog_image' ) %>
+
+
+
+        <%= image_tag(@blog.image, :alt => "Image", :id => 'show_blog_image' ) %>
+
+
       </div>
       <span class='bottom_divider'></span>
       <div class='blog_section' id='show_blog_body_container'>
