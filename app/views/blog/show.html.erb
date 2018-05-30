@@ -10,5 +10,14 @@
     <div class='container'>
       <%= sanitize @blog.body %>
     </div>
+    <div class='blog_index_selection_options'>
+      <% if @blog.previous.presence %>
+        <%= link_to "Previous", blog_path(@blog.previous), class: 'index_link_to_button' %>
+      <% end %>
+        <%= link_to "Blogs Home", blog_index_path, class: 'index_link_to_button' %>
+      <% if @blog.next.presence %>
+        <%= link_to "Next", blog_path(@blog.next), class: 'index_link_to_button' %>
+      <% end %>
+    </div>
   </div>
 </div>

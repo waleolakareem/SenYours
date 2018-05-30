@@ -246,17 +246,13 @@
 .pagination a, .pagination span, .pagination em{// All
   padding-left: 10px;
   padding-right: 10px;
-  border: 1px black solid;
   background: white;
   text-decoration: none;
   font-family: 'Muli', sans-serif;
   color: black;
   margin: 5px;
   transition:
-    color 0.3s ease-out,
-    border 0.3s ease-out,
-    background 0.3s ease-out,
-    box-shadow 0.3s ease-out;
+    text-decoration 0.3s ease-out;
   @media screen and (max-width: 435px){
     font-size: 10px;
     margin: 3px;
@@ -267,10 +263,7 @@
 .pagination a:hover,
 .pagination span:hover,
 .pagination em:hover{// All
-  border: 1px white solid;
-  background: orange;
-  color: white;
-  box-shadow: inset 0 0 15px white;
+  text-decoration:  underline;
 }
 .pagination a{// Selectable
 }
@@ -278,7 +271,16 @@
 }
 .pagination em{//Current selection
 }
-
+.blog_index_selection_options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+}
+.blog_index_selection_options a{
+  width: 150px;
+}
 
 
 
