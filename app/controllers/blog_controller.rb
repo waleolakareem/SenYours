@@ -7,7 +7,7 @@ class BlogController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     rescue ActiveRecord::RecordNotFound => e
-    redirect_to :root, alert: 'Blog not found'
+    redirect_to :blog_index, alert: 'Blog not found'
   end
 
   def password_input
