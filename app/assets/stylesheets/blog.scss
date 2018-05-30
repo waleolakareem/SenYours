@@ -98,9 +98,13 @@
     align-items: flex-start;
   }
     #blog_index_title{
+      margin-top: 20px;
       text-decoration: none;
       color: black;
       font-size: xx-large;
+    }
+    #blog_index_title:hover{
+      color: gray;
     }
   #blog_log_in_link_container{
     display: flex;
