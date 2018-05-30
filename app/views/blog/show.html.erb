@@ -11,7 +11,6 @@
             <h1> <%=  %> </h1>
           </div>
         </div> -->
-        <h1> <%= @blog.image %> </h1>
           <div id='show_blog_title_box'>
             <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
           <div id='show_blog_date_container'>
@@ -25,9 +24,14 @@
       <span class='top_divider'></span>
       <div class='blog_section' id='show_blog_image_container'>
 
+      <% if @blog.image? %>
+        <!-- If there is an uploaded image in the DB then use this -->
+        <%= image_tag(@blog.image.large, :alt => "Image", :id => 'show_blog_image' ) %>
+      <% else %>
+        <!-- If there is NO uploaded image in the DB then use this -->
+        <!-- Intentionally left blank. -->
+      <% end %>
 
-
-        <%= image_tag(@blog.image, :alt => "Image", :id => 'show_blog_image' ) %>
 
 
       </div>

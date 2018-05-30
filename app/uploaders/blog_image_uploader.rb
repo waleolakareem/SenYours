@@ -6,19 +6,24 @@ class BlogImageUploader < CarrierWave::Uploader::Base
   process :auto_orient
 
   # Rotate Image
-  version :full_width do
+  version :maximum_size do
     process :auto_orient,
-    resize_to_fill: [1200, 1200]
+    resize_to_fill: [1920, 1200]
+  end
+
+  version :huge do
+    process :auto_orient,
+    resize_to_fill: [1680, 1050]
   end
 
   version :large do
     process :auto_orient,
-    resize_to_fill: [600, 600]
+    resize_to_fill: [1280, 800]
   end
 
   version :small do
     process :auto_orient,
-    resize_to_fill: [300, 300]
+    resize_to_fill: [300, 150]
   end
 
   version :thumb do
@@ -50,7 +55,7 @@ class BlogImageUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path("app/assets/images/blog_image.png")
+    ActionController::Base.helpers.asset_path("app/assets/images/blog_image.jpg")
 
   end
 
