@@ -1,31 +1,68 @@
 <% if session[:admin] == true %>
-  <div id='index_container_background'>
-    <div id="index_blog_admin_options">
-      <%= link_to "Create Blog Post", new_blog_path, id: 'index_blog_admin_create_link' %>
-      <%= link_to "Log Out", end_session_path, id: 'index_blog_admin_logout_link' %>
+  <div id='blog_index_container'>
+    <div id="blog_index_admin_options">
+        <%= link_to "Create Blog Post", new_blog_path, class: 'index_link_to_button' %>
+        <%= link_to "Log Out", end_session_path, class: 'index_link_to_button' %>
     </div>
-    <div id='pagination_container'>
-      <%= will_paginate @blogs %>
-    </div>
-    <div id='index_container'>
-      <% @blogs.each do |blog|%>
-        <div id='index_blog_container'>
-          <div id='index_blog_date_container'>
-            <h3 id='index_blog_date'> <%= blog.created_at.strftime("%d %b %y") %> </h3>
-          </div>
-          <div id='index_blog_edit_remove_container'>
-            <%= link_to "Edit Post", edit_blog_path(blog.id), id: 'index_blog_admin_edit_link'  %>
-            <%= link_to "Delete Post", blog_path(blog.id), method: :delete, id: 'index_blog_admin_delete_link'  %>
-          </div>
-          <div id='index_blog_title_container'>
-            <%= link_to raw(blog.title), blog_path(blog.id), id: 'index_blog_title' %>
-          </div>
+    <% @blogs.each do |blog|%>
+    <div id="blog_index_contents">
+    <% if blog.image? %>
+        <div id='blog_index_image_container'><!-- top container -->
+            <!-- If there is an uploaded image in the DB then use this -->
+            <%= image_tag(blog.image.small, :alt => "Image", :id => 'show_blog_image' ) %>
         </div>
-      <% end %>
+    <% else %>
+            <!-- If there is NO uploaded image in the DB then use this -->
+    <% end %>
+        <div id='blog_index_content_container'><!-- middle container -->
+            <div id='blog_index_extras'>
+              <div class='index_extras_container' id='index_blog_date'>
+                <%=blog.created_at.strftime("%d %b %y")%>
+              </div>
+              <div class='index_extras_container'>
+                <%= link_to "Edit Post", edit_blog_path(blog.id), class: 'index_link_to_button' %>
+              </div>
+              <div class='index_extras_container'>
+                <%= link_to "Delete Post", blog_path(blog.id), method: :delete, class: 'index_link_to_button' %>
+              </div>
+            </div>
+            <div id='blog_index_title'>
+                <%= link_to raw(blog.title), blog_path(blog.id), id: 'index_blog_title' %>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    <% end %>
+
+
+      <%= will_paginate @blogs %>
+
     </div>
-    <%= will_paginate @blogs %>
   </div>
+
+
+
+
+
+
+
+
+
+
+
 <% else %>
+
+<!-- FIX THIS -->
+
+
+
+
+
   <div id='index_container_background'>
     <div id='pagination_container'>
       <%= will_paginate @blogs %>

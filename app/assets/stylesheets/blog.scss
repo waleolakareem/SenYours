@@ -1,10 +1,5 @@
-
-/* Shared Class */
-#index_container_background{
-  background: linear-gradient(-90deg, rgb(238, 178, 107), rgb(237, 230, 135), rgb(238, 178, 107));
-  font-family: 'Muli', sans-serif;
-}
-#index_container {
+/* BEGIN Blog Index Page */
+#blog_index_container{
   display: flex;
   vertical-align: middle;
   align-items: center;
@@ -18,312 +13,84 @@
   max-width: 90%;
   min-height: 100%;
   max-height: 100%;
+  padding-top: 25px;
 }
-
-
-
-
-/* BEGIN Blog Index Page */
-#index_blog_container{
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  text-align: center;
-  vertical-align: middle;
-  max-width: 80%;
-  min-width: 80%;
-  border-bottom: 3px black solid;
-  padding: 10px;
-  margin: 5px;
-}
-  #index_blog_date_container{
+  #blog_index_contents{
     flex: 1;
-    flex-basis: 1 1 30%;
     display: flex;
-    align-items: center;
-    text-align: center;
-    vertical-align: middle;
-    align-items: baseline;
-    text-align: center;
-    margin: 5px;
-  }
-  #index_blog_title_container{
-    flex: 6;
-    flex-basis: 1 1 70%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    vertical-align: middle;
-    margin: 5px;
-  }
-    #index_blog_date{
-      color: black;
-      border-top: 2px black solid;
-      border-bottom: 2px black solid;
-      border-radius: 25%;
-      margin: 15px;
-      padding: 10px;
-      font-size: 100%;
-      // background: #fff;
-      background: #ffc107;
-    }
-    #index_blog_title{
-      font-size: 200%;
-      border-top: 3px black solid;
-      border-bottom: 3px black solid;
-      color: black;
-      background: #fff;
-      border-radius: 20px;
-      text-decoration: none; /* no underline */
-      text-shadow: 1px 1px black;
-      transition:
-        border 0.3s ease-out,
-        color 0.3s ease-out,
-        background 0.3s ease-out,
-        box-shadow 0.3s ease-out;
-      width: 100%;
-      margin: 0 auto;
-      padding: 10px;
-    }
-      #index_blog_title:visited{
-        font-size: 200%;
-        color: gray;
-        text-decoration: none; /* no underline */
-      }
-      #index_blog_title:hover{
-        font-size: 200%;
-        color: black;
-        text-decoration: none; /* no underline */
-        border-left: 30px solid #ffc107;
-        border-right: 30px solid #ffc107;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        box-shadow: 5px 5px 3px rgba(black, 0.15);
-        background: #ffc107;
-      }
-
-  #pagination_container{ // Div containing 'will_paginate'
-    display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    vertical-align: middle;
+    flex-wrap: wrap;
+    min-width: 100%;
+    padding-top: 25px;
   }
-  .pagination{ // The entire 'will_paginate' object.
-    display: flex;
+    #blog_index_image_container{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 100%;
+    }
+    #blog_index_content_container{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 100%;
+    }
+
+
+
+
+
+  #blog_index_admin_options{
+    flex: 1;
+    min-width: 100%;
+    vertical-align: middle;
     align-items: center;
+    text-align: center;
     justify-content: center;
-    text-align: center;
-    vertical-align: middle;
-    text-decoration: none;
-    // border: 5px gray solid;
-    font-family: 'Muli', sans-serif;
-    font-size: 100%;
+    flex-wrap: wrap;
   }
-    .pagination a{     // Selctable Page Links
-      margin: 5px;
-      padding: 5px;
-      color: black;
-      transition:
-        border 0.3s ease-out,
-        background 0.3s ease-out;
-    }
-    .pagination span{  // Non-Selectable previous or next button
-      margin: 5px;
-      padding: 5px;
-      color: black;
-      transition:
-        border 0.3s ease-out,
-        background 0.3s ease-out;
-    }
-    .pagination em{    // Current Page Selector
-      margin: 5px;
-      padding: 5px;
-      color: black;
-      transition:
-        border 0.3s ease-out,
-        background 0.3s ease-out;
-    }
-    .pagination em:visited, .pagination span:visited, .pagination a:visited{    // Current Page Selector
-      color: black;
-    }
-    .pagination em:hover, .pagination span:hover, .pagination a:hover{    // Current Page Selector
-      border-left: 3px black solid;
-      border-right: 3px black solid;
-      border-radius: 50%;
-      background: #ffc107;
-    }
-
-  #blog_log_in_link_container{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    vertical-align: middle;
-    font-family: 'Muli', sans-serif;
-    font-size: 100%;
-    justify-content: flex-end;
-
-  }
-    #blog_log_in_link{
-      text-decoration: none;
-      color: black;
+    .index_extras_container{
       margin: 10px;
       padding: 10px;
+    }
+      #index_blog_date{
+        background: white;
+        color: black;
+        border: 5px black solid;
+      }
+    .index_link_to_button{
+      margin: 10px;
+      padding: 10px;
+      background: white;
+      color: black;
+      border: 5px black solid;
+      text-decoration: none;
       transition:
-        border 0.3s ease-out;
+        border 0.3s ease-out,
+        color 0.3s ease-out,
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
     }
-    #blog_log_in_link:visited{
+    .index_link_to_button:hover{
+      background: black;
+      border: 5px white solid;
+      color: white;
+      box-shadow: inset 0 0 50px white;
       text-decoration: none;
-      color: black;
-    }
-    #blog_log_in_link:hover{
-      text-decoration: none;
-      color: black;
-      border-left: 3px black solid;
-      border-right: 3px black solid;
-      border-radius: 50%;
     }
 
-  // ADMIN SECTION:
-  #index_blog_admin_options{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    vertical-align: middle;
-    font-family: 'Muli', sans-serif;
-    font-size: 100%;
+  #index_container{
 
   }
-    #index_blog_admin_create_link{
-      text-decoration: none;
-      color: black;
-      background: #fff;
-      margin: 20px;
-      padding: 10px;
-      border-top: 3px black solid;
-      border-bottom: 3px black solid;
-      border-radius: 20px;
-      text-decoration: none; /* no underline */
-      text-shadow: 1px 1px black;
-      transition:
-        border 0.3s ease-out,
-        color 0.3s ease-out,
-        background 0.3s ease-out,
-        box-shadow 0.3s ease-out;
-    }
-      #index_blog_admin_create_link:hover{
-        color: black;
-        text-decoration: none; /* no underline */
-        border-left: 10px solid #ffc107;
-        border-right: 10px solid #ffc107;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        box-shadow: 5px 5px 3px rgba(black, 0.15);
-        background: #ffc107;
-      }
-    #index_blog_admin_logout_link{
-      text-decoration: none;
-      color: black;
-      background: #fff;
-      margin: 20px;
-      padding: 10px;
-      border-top: 3px black solid;
-      border-bottom: 3px black solid;
-      border-radius: 20px;
-      text-decoration: none; /* no underline */
-      text-shadow: 1px 1px black;
-      transition:
-        border 0.3s ease-out,
-        color 0.3s ease-out,
-        background 0.3s ease-out,
-        box-shadow 0.3s ease-out;
-    }
-      #index_blog_admin_logout_link:hover{
-        color: black;
-        text-decoration: none; /* no underline */
-        border-left: 10px solid #ffc107;
-        border-right: 10px solid #ffc107;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        box-shadow: 5px 5px 3px rgba(black, 0.15);
-        background: #ffc107;
-      }
-
-
-    #index_blog_edit_remove_container{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      vertical-align: middle;
-      font-family: 'Muli', sans-serif;
-      font-size: 100%;
-    }
-      #index_blog_admin_edit_link{
-        text-decoration: none;
-        color: black;
-        background: #fff;
-        margin: 20px;
-        padding: 10px;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        border-radius: 20px;
-        text-decoration: none; /* no underline */
-        text-shadow: 1px 1px black;
-        transition:
-          border 0.3s ease-out,
-          color 0.3s ease-out,
-          background 0.3s ease-out,
-          box-shadow 0.3s ease-out;
-      }
-        #index_blog_admin_edit_link:hover{
-          color: black;
-          text-decoration: none; /* no underline */
-          border-left: 10px solid #ffc107;
-          border-right: 10px solid #ffc107;
-          border-top: 3px black solid;
-          border-bottom: 3px black solid;
-          box-shadow: 5px 5px 3px rgba(black, 0.15);
-          background: #ffc107;
-        }
-      #index_blog_admin_delete_link{
-        text-decoration: none;
-        color: black;
-        background: #fff;
-        margin: 20px;
-        padding: 10px;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        border-radius: 20px;
-        text-decoration: none; /* no underline */
-        text-shadow: 1px 1px black;
-        transition:
-          border 0.3s ease-out,
-          color 0.3s ease-out,
-          background 0.3s ease-out,
-          box-shadow 0.3s ease-out;
-      }
-        #index_blog_admin_delete_link:hover{
-          color: black;
-          text-decoration: none; /* no underline */
-          border-left: 10px solid #ffc107;
-          border-right: 10px solid #ffc107;
-          border-top: 3px black solid;
-          border-bottom: 3px black solid;
-          box-shadow: 5px 5px 3px rgba(black, 0.15);
-          background: #ffc107;
-        }
-  /* END Blog Index Page */
 
 
 
 
 
+/* END Blog Index Page */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* BEGIN Blog Show Page */
 
-  /* BEGIN Blog Show Page */
-
-  /* Shared Class */
   #show_container {
     background: linear-gradient(-90deg, rgb(238, 178, 107), rgb(237, 230, 135), rgb(238, 178, 107));
     font-family: 'Muli', sans-serif;
