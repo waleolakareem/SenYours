@@ -42,7 +42,8 @@ class BlogController < ApplicationController
       flash[:success] = "Blog created succesfully."
       redirect_to @blog
     else
-      render new_user_path
+      flash[:success] = "Blog needs more information."
+      redirect_to new_blog_path
     end
   end
 
@@ -58,8 +59,9 @@ class BlogController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
       flash[:success] = "Blog succesfully updated."
-      redirect_to :blog_index
+      redirect_to @blog
     else
+      flash[:success] = "Blog needs more information."
       redirect_to edit_blog_path
     end
   end

@@ -1,31 +1,15 @@
-  <div id='blog_show_container'>
-      <div id='blog_show_index_link_container'>
-          <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
-      </div>
+<div class='blog_show'>
   <% if @blog.image? %>
-      <div id='blog_show_image_container'>
-        <%= image_tag(@blog.image.maximum_size, :alt => "Image", :id => 'show_blog_image' ) %>
-      </div>
-      <h1 id='blog_show_title'><%= raw(@blog.title) %></h1>
-      
+    <div class='blog_image_show' style='background-image: url(<%= @blog.image.large %>);'>
   <% else %>
   <% end %>
-      <div id='blog_show_body_container'>
-        <%= raw(@blog.body) %>
-      </div>
-
-
-
-
-
-
-
-
-
-
-    <h4> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
-
-
-
-
+    <h1 class='text-center blog_title_show'><%= sanitize @blog.title %></h1>
   </div>
+  <div class='container'>
+    <h4 class='text-center' style='padding-top: 30px;'> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
+    <div class='container'>
+      <%= sanitize @blog.body %>
+    </div>
+  </div>
+
+</div>

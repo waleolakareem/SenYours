@@ -2,28 +2,12 @@ class BlogImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [352, 345]
   process :auto_orient
 
   # Rotate Image
-  version :maximum_size do
-    process :auto_orient,
-    resize_to_fill: [1920, 1200]
-  end
-
-  version :huge do
-    process :auto_orient,
-    resize_to_fill: [1680, 1050]
-  end
-
   version :large do
     process :auto_orient,
-    resize_to_fill: [1280, 800]
-  end
-
-  version :small do
-    process :auto_orient,
-    resize_to_fill: [300, 150]
+    resize_to_fill: [1200, 400]
   end
 
   version :thumb do
