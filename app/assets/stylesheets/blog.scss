@@ -230,6 +230,54 @@
   box-shadow: inset 0 0 50px white;
   text-decoration: none;
 }
+.pagination{// Container
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  @media screen and (max-width: 414px){
+    padding: 5px;
+  }
+}
+.pagination a, .pagination span, .pagination em{// All
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px black solid;
+  background: white;
+  text-decoration: none;
+  font-family: 'Muli', sans-serif;
+  color: black;
+  margin: 5px;
+  transition:
+    color 0.3s ease-out,
+    border 0.3s ease-out,
+    background 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+  @media screen and (max-width: 414px){
+    font-size: 10px;
+    margin: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+.pagination a:hover,
+.pagination span:hover,
+.pagination em:hover{// All
+  border: 1px white solid;
+  background: black;
+  color: white;
+  box-shadow: inset 0 0 50px white;
+}
+.pagination a{// Selectable
+}
+.pagination span{ //Non-selectable
+}
+.pagination em{//Current selection
+}
+
+
+
+
 /* END Blog Show Page */
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
 /* BEGIN Blog New Page */

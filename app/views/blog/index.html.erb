@@ -4,6 +4,7 @@
       <%= link_to "Create Blog Post", new_blog_path, class: 'index_link_to_button' %>
       <%= link_to "Log Out", end_session_path, class: 'index_link_to_button' %>
   </div>
+  <div class='container'><%= will_paginate @blogs %></div>
   <% @blogs.each do |blog|%>
   <div id="blog_index_contents">
     <div id='datebox'>
@@ -32,6 +33,7 @@
 <%= will_paginate @blogs %>
 <% else %>
   <div class='container'>
+    <%= will_paginate @blogs %>
     <% @blogs.each do |blog|%>
     <div id="blog_index_contents">
       <div id='datebox'>
