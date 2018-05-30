@@ -149,6 +149,10 @@
   color: white;
   font-family: 'Muli', sans-serif;
   font-size: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .blog_image_index{
   background-size: cover;
@@ -176,6 +180,7 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Muli', sans-serif;
+  margin-right: 10px;
   width: 5%;
   @media screen and (max-width: 1024px){
     width: 5%;
