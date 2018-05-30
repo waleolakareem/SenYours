@@ -29,7 +29,11 @@ class BlogController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+    if session[:admin]
+      @blog = Blog.new
+    else
+      redirect_to password_input_path
+    end
   end
 
   def create
@@ -43,7 +47,11 @@ class BlogController < ApplicationController
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    if session[:admin]
+      @blog = Blog.find(params[:id])
+    else
+      redirect_to password_input_path
+    end
   end
 
   def update
@@ -57,9 +65,14 @@ class BlogController < ApplicationController
   end
 
   def destroy
-    Blog.find(params[:id]).destroy
-    flash[:success] = "Blog succesfully deleted."
-    redirect_to :blog_index
+    if session[:admin]
+      Blog.find(params[:id]).destroy
+      flash[:success] = "Blog succesfully deleted."
+      redirect_to :blog_index
+    else
+      redirect_to password_input_path
+    end
+
   end
 
   private
