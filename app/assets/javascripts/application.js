@@ -18,6 +18,7 @@
 //= require jquery-ui
 //= require select2
 //= require turbolinks
+//= require ckeditor/init
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
