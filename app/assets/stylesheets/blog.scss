@@ -9,8 +9,8 @@
   color: black;
   font-size: 100%;
   margin: 0 auto;
-  min-width: 90%;
-  max-width: 90%;
+  min-width: 70%;
+  max-width: 70%;
   min-height: 100%;
   max-height: 100%;
   padding-top: 25px;
@@ -22,24 +22,9 @@
     flex-wrap: wrap;
     min-width: 100%;
     padding-top: 25px;
+    padding-bottom: 55px;
+    border-bottom: 5px black solid;
   }
-    #blog_index_image_container{
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      min-width: 100%;
-    }
-    #blog_index_content_container{
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      min-width: 100%;
-    }
-
-
-
-
-
   #blog_index_admin_options{
     flex: 1;
     min-width: 100%;
@@ -49,11 +34,38 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+
+    #blog_index_image_container{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 100%;
+    }
+    #index_blog_image{
+      min-width: 900px;
+      max-height: 400px;
+    }
+  #blog_index_content_container{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+  }
+  #blog_index_extras{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 1 1 30%;
+  }
     .index_extras_container{
       margin: 10px;
       padding: 10px;
+      width: 100%;
     }
       #index_blog_date{
+        margin: 10px;
+        padding: 10px;
         background: white;
         color: black;
         border: 5px black solid;
@@ -78,11 +90,46 @@
       box-shadow: inset 0 0 50px white;
       text-decoration: none;
     }
-
-  #index_container{
-
+  #blog_index_title_container{
+    flex: 2;
+    flex-basis: 1 2 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
-
+    #blog_index_title{
+      text-decoration: none;
+      color: black;
+      font-size: xx-large;
+    }
+  #blog_log_in_link_container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: flex-end;
+  }
+    #blog_log_in_link{
+      margin: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      background: white;
+      color: black;
+      border: 5px black solid;
+      text-decoration: none;
+      transition:
+        border 0.3s ease-out,
+        color 0.3s ease-out,
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
+    }
+    #blog_log_in_link:hover{
+      background: black;
+      border: 5px white solid;
+      color: white;
+      box-shadow: inset 0 0 50px white;
+      text-decoration: none;
+    }
 
 
 
