@@ -7,20 +7,10 @@
     <div id="edit_blog_form">
         <h1>Update Blog Post:</h1>
         <%= form_for @blog, url: {action: "update"} do |f| %>
-            <% if @blog.image? %>
-              <!-- If there is an uploaded image in the DB then use this -->
-              <div id='edit_blog_form_section'>
-                <%= f.label :image %>
-                <%= f.file_field :image %>
-              </div>
-            <% else %>
-              <!-- If there is NO uploaded image in the DB then use this -->
-              <div id='edit_blog_form_section'>
-                <%= f.label :image %>
-                <%= f.file_field :image %>
-              </div>
-            <% end %>
-
+            <div id='edit_blog_form_section'>
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+            </div>
             <div id='edit_blog_form_section'>
                 <%= f.label :title %>
                 <%= f.cktext_area :title, value: @blog.title %>
