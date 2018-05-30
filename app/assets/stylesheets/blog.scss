@@ -485,6 +485,46 @@
   }
   /* END Blog New Page */
 
+  /* BEGIN Blog Edit Page */
+#edit_blog_form_container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  margin: 0 auto;
+  font-family: 'Muli', sans-serif;
+}
+  #edit_blog_form{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    flex: 1;
+  }
+  #edit_blog_form_section{
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+    #edit_blog_form_section label{
+      min-width: 100%;
+      flex: 1;
+      text-align: center;
+      font-size: 200%;
+      padding: 20px;
+      margin: 20px;
+      border-top: 5px black solid;
+      border-bottom: 1px black solid;
+    }
+  #edit_blog_form_button{
+
+  }
+  /* END Blog Edit Page */
+
 
 
 

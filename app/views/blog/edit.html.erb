@@ -4,26 +4,26 @@
 <!-- https://github.com/galetahub/ckeditor -->
 
 <div id="edit_blog_form_container">
-    <div id="edit_blog_form">
-        <h1>Update Blog Post:</h1>
-        <%= form_for @blog, url: {action: "update"} do |f| %>
-            <div id='edit_blog_form_section'>
-              <%= f.label :image %>
-              <%= f.file_field :image %>
-            </div>
-            <div id='edit_blog_form_section'>
-                <%= f.label :title %>
-                <%= f.cktext_area :title, value: @blog.title %>
-            </div>
-            <div id='edit_blog_form_section'>
-              <%= f.label :body %>
-              <%= f.cktext_area :body, value: @blog.body %>
-            </div>
-            <div id='edit_blog_form_section'>
-                <%= f.submit "Edit post", class: "" %>
-            </div>
-        <% end %>
-    </div>
+  <h1>Update Blog Post:</h1>
+  <div id="edit_blog_form">
+      <%= form_for @blog, url: {action: "update"} do |f| %>
+          <div id='edit_blog_form_section'>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+          </div>
+          <div id='edit_blog_form_section'>
+              <%= f.label :title %>
+              <%= f.cktext_area :title, value: @blog.title %>
+          </div>
+          <div id='edit_blog_form_section'>
+            <%= f.label :body %>
+            <%= f.cktext_area :body, value: @blog.body %>
+          </div>
+          <div id='edit_blog_form_section'>
+              <%= f.submit "Edit post", id: "edit_blog_form_button" %>
+          </div>
+      <% end %>
+  </div>
 </div>
 
 <script>
