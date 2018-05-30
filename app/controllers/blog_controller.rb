@@ -14,7 +14,7 @@ class BlogController < ApplicationController
   end
 
   def password_authenticate
-    if params[:input][:password] == "blaine"
+    if params[:input][:password] == ENV["BLOG_PASSWORD"]
       session[:admin] = true
       redirect_to :blog_index
     else
