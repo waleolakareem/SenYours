@@ -149,10 +149,18 @@
   color: white;
   font-family: 'Muli', sans-serif;
   font-size: 50px;
-  background: rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+  // background: rgba(0, 0, 0, 0.5);
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  @media screen and (max-width: 1024px){
+  }
+  @media screen and (max-width: 768px){
+  }
+  @media screen and (max-width: 435px){
+    font-size: 35px;
+  }
 }
 .blog_image_index{
   background-size: cover;
@@ -216,18 +224,14 @@
   text-decoration: none;
   border-radius: 15px;
   transition:
-    color 0.3s ease-out,
-    background 0.3s ease-out,
-    box-shadow 0.3s ease-out;
+    color 0.3s ease-out;
   @media screen and (max-width: 435px){
     font-size: 20px;
     margin: 3px;
   }
 }
 .blog_index_title a:hover{
-  background: black;
-  color: white;
-  box-shadow: inset 0 0 50px white;
+  color: gray;
   text-decoration: none;
 }
 .pagination{// Container
@@ -264,9 +268,9 @@
 .pagination span:hover,
 .pagination em:hover{// All
   border: 1px white solid;
-  background: black;
+  background: orange;
   color: white;
-  box-shadow: inset 0 0 50px white;
+  box-shadow: inset 0 0 15px white;
 }
 .pagination a{// Selectable
 }
