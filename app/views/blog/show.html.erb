@@ -1,44 +1,29 @@
-  <div id='show_container'>
-    <div id='show_blog_container'>
-      <div id='show_blog_index_link_container'>
-        <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
+  <div id='blog_show_container'>
+      <div id='blog_show_index_link_container'>
+          <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
       </div>
-      <div class='blog_section' id='show_blog_image_container'>
-        <% if @blog.image? %>
-          <!-- If there is an uploaded image in the DB then use this -->
-          <%= image_tag(@blog.image.maximum_size, :alt => "Image", :id => 'show_blog_image' ) %>
-        <% else %>
-          <!-- If there is NO uploaded image in the DB then use this -->
-          <!-- Intentionally left blank. -->
-        <% end %>
-      </div>
+      <% if @blog.image? %>
+          <div id='blog_show_image_container'>
+            <%= image_tag(@blog.image.maximum_size, :alt => "Image", :id => 'show_blog_image' ) %>
+            <h1 id='blog_show_title'><%= raw(@blog.title) %></h1>
+          </div>
+      <% else %>
+      <% end %>
 
-      <div id='show_blog_top_container'>
-<!-- When individual editor are added in, this can be used. -->
-        <!-- <div id='show_blog_editor_box'>
-          <div id='show_blog_editor_image'>
-            <%= image_tag("", :alt => "BlankAvatar", :id => 'show_editor_image' ) %>
-          </div>
-          <div id='show_blog_editor_name'>
-            <h1> <%=  %> </h1>
-          </div>
-        </div> -->
-          <div id='show_blog_title_box'>
-          <div id='show_blog_date_container'>
-            <h4> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
-          </div>
-          <div id='show_blog_title_container'>
-            <h1> <%= raw(@blog.title) %> </h1>
-          </div>
-        </div>
-      </div>
-      <span class='top_divider'></span>
 
-      <span class='bottom_divider'></span>
-      <div class='blog_section' id='show_blog_body_container'>
-        <p>
-          <%= raw(@blog.body) %>
-        </p>
-      </div>
-    </div>
+
+
+
+
+
+
+
+
+
+    <h4> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
+
+    <%= raw(@blog.body) %>
+
+
+
   </div>
