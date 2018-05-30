@@ -2,14 +2,17 @@
       <div id='blog_show_index_link_container'>
           <%= link_to "Blogs Home ", blog_index_path, id: 'show_blog_index_link' %>
       </div>
-      <% if @blog.image? %>
-          <div id='blog_show_image_container'>
-            <%= image_tag(@blog.image.maximum_size, :alt => "Image", :id => 'show_blog_image' ) %>
-            <h1 id='blog_show_title'><%= raw(@blog.title) %></h1>
-          </div>
-      <% else %>
-      <% end %>
-
+  <% if @blog.image? %>
+      <div id='blog_show_image_container'>
+        <%= image_tag(@blog.image.maximum_size, :alt => "Image", :id => 'show_blog_image' ) %>
+      </div>
+      <h1 id='blog_show_title'><%= raw(@blog.title) %></h1>
+      
+  <% else %>
+  <% end %>
+      <div id='blog_show_body_container'>
+        <%= raw(@blog.body) %>
+      </div>
 
 
 
@@ -22,7 +25,6 @@
 
     <h4> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
 
-    <%= raw(@blog.body) %>
 
 
 

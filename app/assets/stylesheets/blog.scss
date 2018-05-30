@@ -148,7 +148,12 @@
     padding-top: 50px;
   }
     #blog_show_index_link_container{
-
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100%;
+      margin: 0 auto;
     }
       #show_blog_index_link{
         margin: 10px;
@@ -171,42 +176,67 @@
         box-shadow: inset 0 0 50px white;
         text-decoration: none;
       }
-      #blog_show_image_container{
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        min-width: 100%;
-        background: green; /* IE */
+    #blog_show_image_container{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 100%;
+    }
+      #show_blog_image{
+        margin: 0 auto;
+        max-height: 700px;
+        max-width: auto;
+        position: relative;
       }
       #blog_show_title{
-          z-index: 2;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          right: 0;
-          font-size: 20px;
-          width: 80%;
-          height: 26px;
-          padding: 0;
-          margin: 0 auto;
-          text-align: center;
-          max-width: 1200px;
-          max-height: 700px;
-          background: red;
+        max-width: 1200px;
+        z-index: 2;
+        position: absolute;
+        color: white;
+        font-size: 200%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 5%;
+        padding-right: 5%;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px black solid;
+        border-radius: 50px;
       }
-      #show_blog_image{
-          z-index: 1;
-          width: 80%;
-          height: 100%;
-          position: absolute;
-          top:0;
-          right:0;
-          bottom:0;
-          left:0;
-          margin: 0 auto;
-          max-width: 1200px;
-          max-height: 700px;
-          background:green;
+
+
+
+      // #blog_show_title{
+      //     z-index: 2;
+      //     position: absolute;
+      //     top: 50%;
+      //     left: 0;
+      //     right: 0;
+      //     font-size: 20px;
+      //     width: 80%;
+      //     height: 26px;
+      //     padding: 0;
+      //     margin: 0 auto;
+      //     text-align: center;
+      //     max-width: 1200px;
+      //     max-height: 700px;
+      // }
+      // #show_blog_image{
+      //     z-index: 1;
+      //     width: 80%;
+      //     height: 100%;
+      //     position: absolute;
+      //     top:0;
+      //     right:0;
+      //     bottom:0;
+      //     left:0;
+      //     margin: 0 auto;
+      //     max-width: 1200px;
+      //     max-height: 700px;
+      // }
+      #blog_show_body_container{
+        display: flex;
+
       }
 
 /* END Blog Show Page */
