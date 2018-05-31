@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
     $('.press').css("display","show");
     $('.press2').css("display","none");
     $('.press3').css("display","none");
-    $('.press4').css("display","none");
+    $('.press4').css("display","show");
   } else if(nameName) {
    $('.press').css("display","none");
     $('.press2').css("display","none");
