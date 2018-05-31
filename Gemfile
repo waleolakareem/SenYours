@@ -70,6 +70,10 @@ gem 'city-state'
 gem 'redis', '~> 3.3', '>= 3.3.1'
 
 gem 'faker'
+
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'will_paginate'
+
 group :production do
   gem 'rails_12factor'
 end

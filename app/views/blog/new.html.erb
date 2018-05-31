@@ -1,0 +1,36 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+<!-- Resources for ckeditor -->
+<!-- http://www.dailysmarty.com/posts/how-to-integrate-ckeditor-into-a-rails-5-application -->
+<!-- https://github.com/galetahub/ckeditor -->
+
+<div id="new_blog_form_container">
+  <h1>Create New Blog Post:</h1>
+  <div id="new_blog_form">
+        <%= form_for @blog, url: {action: "create"} do |f| %>
+            <div id='edit_blog_form_section'>
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+              <p>Images should be 1200 x 400 at minimum to prevent blurryness.</p>
+            </div>
+            <div id='new_blog_form_section'>
+                <%= f.label :title %>
+                <%= f.cktext_area :title %>
+            </div>
+            <div id='new_blog_form_section'>
+                <%= f.label :body %>
+                <%= f.cktext_area :body %>
+            </div>
+            <div id='new_blog_form_section'>
+                <%= f.submit "Create new post", id: "new_blog_form_button" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+    } );
+</script>
