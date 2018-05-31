@@ -11,6 +11,36 @@
     <div class='container'>
       <%= sanitize @blog.body %>
     </div>
+    <div class='blog_social_media'>
+      <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
+      <% @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
+      <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
+      <% @social_media_domain = "senyours.io" %>
+      <%= link_to "LINKEDIN", "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank %>
+      <%= link_to "LINKEDIN", "https://api.linkedin.com/v1/people/~/shares?format=json", target: :_blank %>
+
+
+      <%= link_to "TWITTER",
+      "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}",
+      target: :_blank %>
+      <%= link_to "FACEBOOK",
+      "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}",
+      target: :_blank %>
+      <!-- <%= link_to "INSTAGRAM",
+      "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}",
+      target: :_blank %> -->
+      <!-- <%= link_to "PINTEREST",
+       "http://pinterest.com/pin/create/bookmarklet/?media=#{@blog.image}&url=#{@social_media_url}&is_video=false&description=#{@social_media_title}}",
+       target: :_blank %> -->
+      <!-- Facebook
+            Twitter
+            Linkedin
+            Pinterest
+            Instagram
+            Youtube
+       -->
+      <!-- <a href="http://twitter.com/intent/tweet?status=<%= @blog.title %>+http://localhost:3000/blog/<%= @blog.id %>" target="_blank">BOB</a> -->
+    </div>
     <div class='blog_index_selection_options'>
       <% if @blog.previous.presence %>
         <%= link_to "Previous", blog_path(@blog.previous), class: 'index_link_to_button' %>
