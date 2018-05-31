@@ -46,7 +46,12 @@
   }
 }
 .nav-item a:hover {
-  color:gray !important;
+  color:black !important;
+  transition: all .3s ease-out;
+  box-shadow:   0 2px 0 0;
+  @media screen and (max-width:414px){
+    box-shadow:   0 0 0 0;
+  }
 }
 .navbar-nav{
     @media screen and (max-width:2560px){
@@ -68,7 +73,7 @@
     margin-left:5%;
   }
   @media screen and (max-width:1024px){
-    margin-left:0;
+    margin-left:2%;
   }
   @media screen and (max-width:465px){
     margin-left:0;
