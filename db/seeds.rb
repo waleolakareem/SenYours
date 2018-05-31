@@ -47,6 +47,6 @@ require 'faker'
     # 100.times do
     #   Blog.create!(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraphs)
     # end
-    100.times do
-      Blog.create!(title: Faker::Hipster.sentence(3), body: Faker::Hipster.paragraph(10, true, 10))
-    end
+    # 100.times do
+    #   Blog.create!(title: Faker::Hipster.sentence(3), body: Faker::Hipster.paragraph(10, true, 10), image: Faker::LoremPixel.image("1000x600"))
+    # end

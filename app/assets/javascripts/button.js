@@ -2,18 +2,27 @@ $(document).on('turbolinks:load', function(){
   // To hide buttons when not on home page to scroll to where needed.
   var className = $('.home_div').attr('class');
   var nameName = $('.comp_sec').attr('class');
+  var blogName = $('.blog_show').attr('class');
   if(className) {
     $('.press').css("display","show");
     $('.press2').css("display","none");
     $('.press3').css("display","none");
+    $('.press4').css("display","none");
   } else if(nameName) {
    $('.press').css("display","none");
     $('.press2').css("display","none");
     $('.press3').css("display","show");
+    $('.press4').css("display","none");
+  } else if(blogName) {
+   $('.press').css("display","none");
+    $('.press2').css("display","none");
+    $('.press3').css("display","none");
+    $('.press4').css("display","show");
   } else {
     $('.press').css("display","none");
     $('.press2').css("display","show");
     $('.press3').css("display","none");
+    $('.press4').css("display","none");
   }
   // Scroll to the field needed
   $(".press").click(function(e) {
@@ -46,4 +55,3 @@ $(document).on('turbolinks:load', function(){
 
   var _pfy = _pfy || [];(function(){function pfy_load(){var pfys=document.createElement('script');pfys.type='text/javascript';pfys.async=true;pfys.src='https://widget.prefinery.com/widget/v2/bjcljd0s.js';var pfy=document.getElementsByTagName('script')[0];pfy.parentNode.insertBefore(pfys,pfy);}if (window.attachEvent){window.attachEvent('onload',pfy_load);}else{window.addEventListener('load',pfy_load,false);}})();
 });
-

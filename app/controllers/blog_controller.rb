@@ -1,20 +1,20 @@
 class BlogController < ApplicationController
 
   def index
-    @blogs = Blog.paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    @blogs = Blog.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
 
   def show
     @blog = Blog.find(params[:id])
     rescue ActiveRecord::RecordNotFound => e
-    redirect_to :root, alert: 'Blog not found'
+    redirect_to :blog_index, alert: 'Blog not found'
   end
 
   def password_input
   end
 
   def password_authenticate
-    if params[:input][:password] == "blaine"
+    if params[:input][:password] == ENV["BLOG_PASSWORD"]
       session[:admin] = true
       redirect_to :blog_index
     else
@@ -29,7 +29,11 @@ class BlogController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+    if session[:admin]
+      @blog = Blog.new
+    else
+      redirect_to password_input_path
+    end
   end
 
   def create
@@ -38,33 +42,44 @@ class BlogController < ApplicationController
       flash[:success] = "Blog created succesfully."
       redirect_to @blog
     else
-      render new_user_path
+      flash[:success] = "Blog needs more information."
+      redirect_to new_blog_path
     end
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    if session[:admin]
+      @blog = Blog.find(params[:id])
+    else
+      redirect_to password_input_path
+    end
   end
 
   def update
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
       flash[:success] = "Blog succesfully updated."
-      redirect_to :blog_index
+      redirect_to @blog
     else
+      flash[:success] = "Blog needs more information."
       redirect_to edit_blog_path
     end
   end
 
   def destroy
-    Blog.find(params[:id]).destroy
-    flash[:success] = "Blog succesfully deleted."
-    redirect_to :blog_index
+    if session[:admin]
+      Blog.find(params[:id]).destroy
+      flash[:success] = "Blog succesfully deleted."
+      redirect_to :blog_index
+    else
+      redirect_to password_input_path
+    end
+
   end
 
   private
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :image)
     end
 
 end
