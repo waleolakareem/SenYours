@@ -10,28 +10,44 @@
   <img class='hidden_pinterest_image' src="<%=@blog.image.large%>" alt="Pinterest_Image" data-pin-description="<%= @social_media_title %>" >
 
   <!-- LinkedIn -->
-  <%= link_to "LINKEDIN", "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank %>
+  <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank do %>
+    <%= image_tag("social/linkedin.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Twitter -->
-  <%= link_to "TWITTER", "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}", target: :_blank %>
+  <%= link_to "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}", target: :_blank do %>
+    <%= image_tag("social/twitter.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Facebook -->
-  <%= link_to "FACEBOOK", "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}", target: :_blank %>
+  <%= link_to "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}", target: :_blank do %>
+    <%= image_tag("social/facebook.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Pinterest -->
-  <%= link_to "PINTEREST", "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true', 'data-pin-url' => "#{@social_media_url}" %>
+  <%= link_to "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true', 'data-pin-url' => "#{@social_media_url}" do %>
+    <%= image_tag("social/pinterest.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Google+ -->
-  <%= link_to "Google +", "https://plus.google.com/share?url=#{@social_media_url}&text=#{@social_media_title}", target: :_blank %>
+  <%= link_to "https://plus.google.com/share?url=#{@social_media_url}&text=#{@social_media_title}", target: :_blank do %>
+    <%= image_tag("social/google.plus.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Reddit -->
-  <%= link_to "Reddit", "https://reddit.com/submit?url=#{@social_media_url}&title=#{@social_media_title}", target: :_blank %>
+  <%= link_to "https://reddit.com/submit?url=#{@social_media_url}&title=#{@social_media_title}", target: :_blank do %>
+    <%= image_tag("social/reddit.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Digg -->
-  <%= link_to "Digg", "http://www.digg.com/submit?url=#{@social_media_url}", target: :_blank %>
+  <%= link_to "http://www.digg.com/submit?url=#{@social_media_url}", target: :_blank do %>
+    <%= image_tag("social/digg.png", :alt => "like", :class => "like") %>
+  <% end %>
 
   <!-- Email -->
-  <%= link_to "Email", "mailto:?subject=#{@social_media_title}&body=#{@social_media_summary}", target: :_blank %>
+  <%= link_to "mailto:?subject=#{@social_media_title}&body=#{@social_media_summary}", target: :_blank do %>
+    <%= image_tag("social/gmail.png", :alt => "like", :class => "like") %>
+  <% end %>
 
 
 </div>
