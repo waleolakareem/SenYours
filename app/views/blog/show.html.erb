@@ -15,6 +15,8 @@
       <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
       <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
       <% @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
+      <!-- <% @social_media_url = "senyours.io" %> -->
+      <!-- <% @social_media_url = "senyours.io/blog/#{@blog.id}" %> -->
       <!-- <% @social_media_image = "http://localhost:3000/public/uploads/blog/image/#{@blog.id}/20180224_141938.jpg" %> -->
       <% @social_media_domain = "senyours.io" %>
       <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
@@ -23,11 +25,13 @@
       <%= link_to "LINKEDIN", "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank %>
       <%= link_to "TWITTER", "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}", target: :_blank %>
       <%= link_to "FACEBOOK", "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}", target: :_blank %>
+      <!-- Reference: https://developers.pinterest.com/docs/widgets/save/?  -->
       <%= link_to "PINTEREST", "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true', 'data-pin-url' => "#{@social_media_url}" %>
+      <%= link_to "Google +", "https://plus.google.com/share?url=#{@social_media_url}&text=#{@social_media_title}", target: :_blank %>
 
-      <!-- <%= link_to "INSTAGRAM",
-      "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}",
-      target: :_blank %> -->
+
+
+
       <!-- Facebook
             Twitter
             Linkedin
@@ -35,7 +39,6 @@
             Instagram
             Youtube
        -->
-      <!-- <a href="http://twitter.com/intent/tweet?status=<%= @blog.title %>+http://localhost:3000/blog/<%= @blog.id %>" target="_blank">BOB</a> -->
     </div>
     <div class='blog_index_selection_options'>
       <% if @blog.previous.presence %>
