@@ -458,14 +458,30 @@
           box-shadow: inset 0 0 20px white;
         }
   /* END Blog Password_Input Page */
-  /* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
-  /* BEGIN Blog ____ Page */
-  /* END Blog ____ Page */
-
-
-
-  .hidden_pinterest_image{
-    display: none;
-    height: 0;
-    width: 0;
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* BEGIN Blog _social Page */
+.hidden_pinterest_image{
+  display: none;
+  height: 0;
+  width: 0;
+}
+.blog_social_media{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blog_social_media_image{
+  width: 50px;
+  height: 50px;
+  background: orange;
+  margin: 5px;
+  transition:
+    box-shadow 0.3s ease-out;
+}
+  .blog_social_media_image:hover{
+    box-shadow: inset 0 0 50px white;
   }
+/* END Blog _social Page */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* BEGIN Blog ____ Page */
+/* END Blog ____ Page */
