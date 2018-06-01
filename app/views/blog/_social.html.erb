@@ -1,0 +1,51 @@
+<div class='blog_social_media'>
+  <!-- Amazing resource: https://github.com/bradvin/social-share-urls -->
+  <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
+  <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
+  <% @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
+  <% @social_media_url = "https://senyours.io/blog/#{@blog.id}" %>
+  <% @social_media_domain = "senyours.io" %>
+  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+  <img class='hidden_pinterest_image' src="<%=@blog.image.large%>" alt="Pinterest_Image" data-pin-description="<%= @social_media_title %>" >
+
+  <!-- LinkedIn -->
+  <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/linkedin.png", :alt => "Social_Media_LinkedIn_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Twitter -->
+  <%= link_to "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/twitter.png", :alt => "Social_Media_Twitter_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Facebook -->
+  <%= link_to "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/facebook.png", :alt => "Social_Media_Facebook_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Pinterest -->
+  <%= link_to "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true', 'data-pin-url' => "#{@social_media_url}", :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/pinterest.png", :alt => "Social_Media_Pinterest_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Google+ -->
+  <%= link_to "https://plus.google.com/share?url=#{@social_media_url}&text=#{@social_media_title}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/google.plus.png", :alt => "Social_Media_Google+_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Reddit -->
+  <%= link_to "https://reddit.com/submit?url=#{@social_media_url}&title=#{@social_media_title}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/reddit.png", :alt => "Social_Media_Reddit_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Digg -->
+  <%= link_to "http://www.digg.com/submit?url=#{@social_media_url}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/digg.png", :alt => "Social_Media_Digg_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+  <!-- Email -->
+  <%= link_to "mailto:?subject=#{@social_media_title}&body=#{@social_media_url}%0D%0A%0D%0A#{@social_media_summary}", target: :_blank, :class => 'blog_social_media_link' do %>
+    <%= image_tag("social/gmail.png", :alt => "Social_Media_Email_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
+  <% end %>
+
+</div>

@@ -11,6 +11,7 @@
     <div class='container'>
       <%= sanitize @blog.body %>
     </div>
+    <%= render partial: "social" %>
     <div class='blog_index_selection_options'>
       <% if @blog.previous.presence %>
         <%= link_to "Previous", blog_path(@blog.previous), class: 'index_link_to_button' %>
