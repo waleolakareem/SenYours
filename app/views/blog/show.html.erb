@@ -12,18 +12,18 @@
       <%= sanitize @blog.body %>
     </div>
     <div class='blog_social_media'>
-      <img class='hidden_pinterest_image' src="<%= @blog.image.large %>" alt="Pinterest_Image" data-pin-description="This is a desc in the image itself">
       <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
       <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
       <% @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
       <!-- <% @social_media_image = "http://localhost:3000/public/uploads/blog/image/#{@blog.id}/20180224_141938.jpg" %> -->
       <% @social_media_domain = "senyours.io" %>
       <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+      <img class='hidden_pinterest_image' src="<%=@blog.image.large%>" alt="Pinterest_Image" data-pin-description="<%= @social_media_title %>" >
 
       <%= link_to "LINKEDIN", "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank %>
       <%= link_to "TWITTER", "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}", target: :_blank %>
       <%= link_to "FACEBOOK", "http://www.facebook.com/sharer/sharer.php?u=#{@social_media_url}&title=#{@social_media_title}", target: :_blank %>
-      <%= link_to "PINTEREST", "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true' %>
+      <%= link_to "PINTEREST", "https://www.pinterest.com/pin/create/button/", target: :_blank, 'data-pin-do' => `buttonBookmark`, 'data-pin-custom' => 'true', 'data-pin-url' => "#{@social_media_url}" %>
 
       <!-- <%= link_to "INSTAGRAM",
       "http://twitter.com/intent/tweet?status=#{@social_media_title}+#{@social_media_url}",
