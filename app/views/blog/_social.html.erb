@@ -44,7 +44,7 @@
   <% end %>
 
   <!-- Email -->
-  <%= link_to "mailto:?subject=#{@social_media_title}&body=#{@social_media_summary}", target: :_blank, :class => 'blog_social_media_link' do %>
+  <%= link_to "mailto:?subject=#{@social_media_title}&body=#{@social_media_url}%0D%0A%0D%0A#{@social_media_summary}", target: :_blank, :class => 'blog_social_media_link' do %>
     <%= image_tag("social/gmail.png", :alt => "Social_Media_Email_Image", :class => "blog_social_media_image", 'data-pin-nopin' => "true") %>
   <% end %>
 
