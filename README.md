@@ -41,6 +41,5 @@ If you get the error "Jquery cannot be defined"
 # Test Suite
 _Coming Soon_
 
-
-
-
+# Resource Contribution Credit
+- Social Media Icons: https://github.com/bradvin/social-share-urls#google
