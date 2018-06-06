@@ -86,12 +86,15 @@
     background-attachment: scroll;
   }
 }
-.circle
-  {
+.circle {
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background: orange;
+  }
+
+  #circle2 {
+    padding-top: 30px;
   }
 
 .image_div p {
