@@ -42,9 +42,15 @@
 
       <div class='sen_services container'>
         <h3>Services I provide:</h3>
+        <!-- If @user has NO tasks selected -->
+          <!-- Task Selection Page -->
+        <!-- If @user has LESS than 10 tasks selected -->
         <% @user.tasks.each do |task| %>
+          <p><%= task.service.name %></p>
           <p><%= task.name %></p>
         <% end %>
+        <!-- If @user has 10 or MORE tasks selected -->
+          <!-- Show all Tasks box expansion -->
       </div>
 
       <% if @user.reviews.count >=  0 %>
