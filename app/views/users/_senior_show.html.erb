@@ -45,9 +45,21 @@
         <!-- If @user has NO tasks selected -->
           <!-- Task Selection Page -->
         <!-- If @user has LESS than 10 tasks selected -->
-        <% @user.tasks.each do |task| %>
-          <p><%= task.service.name %></p>
-          <p><%= task.name %></p>
+        <% Service.all.each do |service|%>
+
+          <p><%= service.name %></p>
+          <% service.tasks.each do |s_task| %>
+            <% @user.tasks.each do |u_task| %>
+
+              <% if s_task.user_id == @user.id %>
+                <p style='background-color: red;'>MINE: <%= u_task.name %></p>
+              <% else %>
+                <p>NOT: <%= s_task.name %></p>
+              <% end %>
+            <% end %>
+
+          <% end %>
+
         <% end %>
         <!-- If @user has 10 or MORE tasks selected -->
           <!-- Show all Tasks box expansion -->

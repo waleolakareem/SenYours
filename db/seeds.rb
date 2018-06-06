@@ -6,6 +6,41 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# User to Test Database:
+  User.create!({first_name: 'Blaine', last_name: 'Anderson', email: 'blaine@gmail.com', phone_number:'9485949383', password:'password', password_confirmation:'password', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Companion', description: 'I will be willing to travel to take care of individuals, take them on a walk and also for shopping', address: Faker::Address.street_address, city:'Oakland', state:'California', fee: '20', dob: '08/12/1986',availability: true})
+  User.create!({first_name: 'Kelli', last_name: 'Potter', email: 'kelli@gmail.com', phone_number:'9485949382', password:'password', password_confirmation:'password', terms_of_service:'yes' ,privacy_policy:'yes', identification:'senior', description: 'I will be willing to travel to take care of individuals, take them on a walk and also for shopping', address: Faker::Address.street_address, city:'Oakland', state:'California', fee: '20', dob: '08/12/1986',availability: true})
+# Database Task Seed Data - MUST BE SEEDED INTO PRODUCTION:
+  Service.create!(name: 'Companionship')   #service_id = 1
+  Service.create!(name: 'Travel')          #service_id = 2
+  Service.create!(name: 'Shopping')        #service_id = 3
+  Service.create!(name: 'Housekeeping')    #service_id = 4
+  Service.create!(name: 'Meal Prep')       #service_id = 5
+  Service.create!(name: 'Errands')         #service_id = 6
+  Service.create!(name: 'Yardwork')        #service_id = 7
+  Task.create!(name: 'Socialization', service_id: 1)
+  Task.create!(name: 'Movies', service_id: 1)
+  Task.create!(name: 'Events', service_id: 1)
+  Task.create!(name: 'Drive Your Ride', service_id: 2)
+  Task.create!(name: 'Ride Share Services', service_id: 2)
+  Task.create!(name: 'Malls', service_id: 3)
+  Task.create!(name: 'Flea Markets', service_id: 3)
+  Task.create!(name: 'Laundry', service_id: 4)
+  Task.create!(name: 'Vacuum', service_id: 4)
+  Task.create!(name: 'Light Cleaning', service_id: 4)
+  Task.create!(name: 'Cooking', service_id: 5)
+  Task.create!(name: 'Vegetable Mixing', service_id: 5)
+  Task.create!(name: 'Grocery Shopping', service_id: 6)
+  Task.create!(name: 'Doctors Appointments', service_id: 6)
+  Task.create!(name: 'Gardening', service_id: 7)
+  Task.create!(name: 'Lawnmowing', service_id: 7)
+  Task.create!(name: 'Hedge Trimming', service_id: 7)
+
+
+
+
+
+
     # User.destroy_all
     # User.create([
     #   {
@@ -50,8 +85,3 @@ require 'faker'
     # 100.times do
     #   Blog.create!(title: Faker::Hipster.sentence(3), body: Faker::Hipster.paragraph(10, true, 10), image: Faker::LoremPixel.image("1000x600"))
     # end
-
-    # Blaine's User Seed so when he resets the db he does not have to reenter it each time! PLEASE DONT DELETE ME!
-    # User.create({ first_name: "Kelli", last_name: "Potter", email: 'Kellipotter@gmail.com', phone_number:'4802583851', password:'kelli', password_confirmation:'kelli', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Companion', description: 'I am more than happy to spend large amounts of time with my senior friends!', address: Faker::Address.street_address, city:'Oakland', state:'California', fee:'20', dob: '08/12/1986',availability: true })
-    #
-    # User.create({ first_name: "Blaine", last_name: "Anderson", email: 'BlaineA97@gmail.com', phone_number:'4803053307', password:'blaine', password_confirmation:'blaine', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Senior', description: 'I cant wait to spend all of my time with my companion friend!', address: Faker::Address.street_address, city:'Oakland', state:'California', fee:'20', dob: '08/12/1986',availability: true })
