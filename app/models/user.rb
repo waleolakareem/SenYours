@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :available_days, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :services, through: :tasks
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
