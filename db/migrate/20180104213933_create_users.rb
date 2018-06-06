@@ -16,6 +16,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :avatar
       t.string :verification_image
+      t.string :services_selected
 
       t.timestamps
     end

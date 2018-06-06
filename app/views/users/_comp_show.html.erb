@@ -68,6 +68,16 @@
             <p> You need to <%= link_to "Take Assessment", comp_test_path  %> before you continue</p>
           </div>
         <% end %>
+
+        <div class='sen_rating container'>
+          <h3>Services I provide:</h3>
+          <p>Service 1</p>
+          <p>Service 2</p>
+          <p>Service 3</p>
+          <p>Service 4</p>
+          <p>Service 5</p>
+        </div>
+
         <% if @user.reviews.count >=  0 %>
           <div class="sen_rating container">
             <h3>Reviews</h3>
@@ -171,5 +181,3 @@
     </div>
   </div>
 </body>
-
-
