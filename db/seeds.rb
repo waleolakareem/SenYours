@@ -52,8 +52,6 @@ require 'faker'
     # end
 
     # Blaine's User Seed so when he resets the db he does not have to reenter it each time! PLEASE DONT DELETE ME!
-    User.create({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email:Faker::Name.first_name + '@gmail.com', phone_number:'9485949383', password:'password', password_confirmation:'password', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Companion', description: 'I will be willing to travel to take care of individuals, take them on a walk and also for shopping', address: Faker::Address.street_address, city:'Oakland', state:'California', fee:'20', dob: '08/12/1986',availability: true})
-    end
-    150.times do
-      User.create({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email:Faker::Name.first_name + '@gmail.com', phone_number:'9485949383', password:'password', password_confirmation:'password', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Senior', description: 'I will be willing to travel to take care of individuals, take them on a walk and also for shopping', address: Faker::Address.street_address, city:'Oakland', state:'California', dob: '08/12/1966',availability: true})
-    end
+    # User.create({ first_name: "Kelli", last_name: "Potter", email: 'Kellipotter@gmail.com', phone_number:'4802583851', password:'kelli', password_confirmation:'kelli', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Companion', description: 'I am more than happy to spend large amounts of time with my senior friends!', address: Faker::Address.street_address, city:'Oakland', state:'California', fee:'20', dob: '08/12/1986',availability: true })
+    #
+    # User.create({ first_name: "Blaine", last_name: "Anderson", email: 'BlaineA97@gmail.com', phone_number:'4803053307', password:'blaine', password_confirmation:'blaine', terms_of_service:'yes' ,privacy_policy:'yes', identification:'Senior', description: 'I cant wait to spend all of my time with my companion friend!', address: Faker::Address.street_address, city:'Oakland', state:'California', fee:'20', dob: '08/12/1986',availability: true })
