@@ -87,29 +87,29 @@
   }
 }
 .circle {
-    border-radius: 50%;
-    width: 420px;
-    height: 420px;
-    background: orange;
-    float: left;
-    opacity: .6;
+  border-radius: 50%;
+  width: 420px;
+  height: 420px;
+  background: orange;
+  float: left;
+  opacity: .6;
   }
 
-  #circle2 {
-    left: -40px;
-    top: 100px;
-    position: relative;
-    text-align: center;
-    z-index: 10;
-  }
+#circle2 {
+  left: -40px;
+  top: 100px;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+}
 
-  #circle3 {
-    left: -70px;
-    top: 200px;
-    position: relative;
-    text-align: center;
-    z-index: 10;
-  }
+#circle3 {
+  left: -70px;
+  top: 200px;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+}
 
 .image_div p {
   font-size: 30px;
