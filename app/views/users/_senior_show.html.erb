@@ -45,10 +45,10 @@
         <!-- If @user has NO tasks selected -->
           <!-- Task Selection Page -->
         <!-- If @user has LESS than 10 tasks selected -->
-        <% Service.all.each do |service|%>
-
-          <p><%= service.name %></p>
-          <% service.tasks.each do |s_task| %>
+        <% Service.all.each do |service|%><!-- List all Service Categories -->
+          <h3><%= service.name %></h3>
+          <% service.tasks.each do |s_task| %><!-- Display all tasks -->
+          <p><%= s_task.name %></p>
             <% @user.tasks.each do |u_task| %>
 
               <% if s_task.user_id == @user.id %>
