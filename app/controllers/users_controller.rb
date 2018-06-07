@@ -104,11 +104,8 @@ class UsersController < ApplicationController
 
   def unselect_task
     task_id = params[:task_id]
-    user_id = params[:user_id]
-    User.find(user_id).tasks.destroy(task_id.to_i)
-
+    User.find(params[:user_id]).tasks.destroy(task_id.to_i)
     @user = User.find(params[:user_id])
-    flash[:info] = "Task: #{task_id}, User: #{user_id}"
     redirect_to user_path(@user)
   end
 
