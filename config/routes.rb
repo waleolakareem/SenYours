@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/select_task' => 'users#select_task'
+  get '/unselect_task' => 'users#unselect_task'
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :blog
   get '/password_input' => 'blog#password_input'

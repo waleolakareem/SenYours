@@ -96,6 +96,23 @@ class UsersController < ApplicationController
     @accept_this_app = @appointment[0]
   end
 
+  def select_task
+    # @cow = Cow.find(params[:idz])
+    #  @group.cows << @cow
+    #  redirect_to :back
+  end
+
+  def unselect_task
+    task_id = params[:task_id]
+    user_id = params[:user_id]
+    User.find(user_id).tasks.destroy(task_id.to_i)
+
+    @user = User.find(params[:user_id])
+    flash[:info] = "Task: #{task_id}, User: #{user_id}"
+    redirect_to user_path(@user)
+  end
+
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob, :terms_of_service, :privacy_policy)
