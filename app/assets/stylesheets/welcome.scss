@@ -110,11 +110,13 @@
 }
 
 .circle-text{
-  left: 90px;
-  right: 50px;
-  top: 70px;
-  position: relative;
-  z-index: 8;
+  float:left;
+  width:80%;
+  padding-top:15%;
+  padding-left: 25%;
+  line-height:1em;
+  margin-top:-0.5em;
+  color:white;
 }
 
 .image_div p {
