@@ -41,18 +41,15 @@
       </div>
 
       <div class='sen_services container'>
-        <h3>Services I provide:</h3>
-        <!-- If @user has NO tasks selected -->
-          <!-- Task Selection Page -->
-        <!-- If @user has LESS than 10 tasks selected -->
+        <h3>Services I Want:</h3>
         <% Service.all.each do |service|%><!-- List all Service Categories -->
           <h3><%= service.name %></h3>
 
           <% service.tasks.each do |s_task| %><!-- Display all Tasks by Service category -->
             <% if s_task.user_ids.include? @user.id %>
-              <p style='color: green;'><%= s_task.name %></p>
+              <p style='color: green;'><%= s_task.name %></p><!-- User has task selected -->
             <% else %>
-              <p style='color: blue;'><%= s_task.name %></p>
+              <p style='color: blue;'><%= s_task.name %></p><!-- User does NOT have task selected -->
             <% end %>
           <% end %>
         <% end %>
