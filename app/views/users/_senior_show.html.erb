@@ -48,10 +48,9 @@
             <div class='sen_service_tasks container'>
               <% service.tasks.each do |s_task| %><!-- Display all Tasks by Service category -->
               <% if s_task.user_ids.include? @user.id %>
-              <%= link_to "#{s_task.name}", unselect_task_path(task_id: s_task.id, user_id: @user.id), class: 'index_link_to_button' %>
-                <p class='selected_tasks'></p><!-- User has task selected -->
+                <%= link_to "#{s_task.name}", unselect_task_path(task_id: s_task.id, user_id: @user.id), class: 'selected_tasks' %>
               <% else %>
-                <p class='unselected_tasks'><%= s_task.name %></p><!-- User does NOT have task selected -->
+                <%= link_to "#{s_task.name}", select_task_path(task_id: s_task.id, user_id: @user.id), class: 'unselected_tasks' %>
               <% end %>
             <% end %>
             </div>

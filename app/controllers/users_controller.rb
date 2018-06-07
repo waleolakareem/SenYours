@@ -97,9 +97,10 @@ class UsersController < ApplicationController
   end
 
   def select_task
-    # @cow = Cow.find(params[:idz])
-    #  @group.cows << @cow
-    #  redirect_to :back
+    task_id = params[:task_id]
+    User.find(params[:user_id]).tasks << Task.all[task_id.to_i - 1]
+    @user = User.find(params[:user_id])
+    redirect_to user_path(@user)
   end
 
   def unselect_task
