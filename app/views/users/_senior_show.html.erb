@@ -47,20 +47,22 @@
         <!-- If @user has LESS than 10 tasks selected -->
         <% Service.all.each do |service|%><!-- List all Service Categories -->
           <h3><%= service.name %></h3>
-          <% service.tasks.each do |s_task| %><!-- Display all tasks -->
-          <p><%= s_task.name %></p>
-            <% @user.tasks.each do |u_task| %>
 
-              <% if s_task.user_id == @user.id %>
-                <p style='background-color: red;'>MINE: <%= u_task.name %></p>
-              <% else %>
-                <p>NOT: <%= s_task.name %></p>
-              <% end %>
+          <% service.tasks.each do |s_task| %><!-- Display all Tasks by Service category -->
+            <% if s_task.user_ids.include? @user.id %>
+              <p style='color: green;'><%= s_task.name %></p>
+            <% else %>
+              <p style='color: blue;'><%= s_task.name %></p>
             <% end %>
-
           <% end %>
-
         <% end %>
+
+<!-- -->
+
+
+
+
+
         <!-- If @user has 10 or MORE tasks selected -->
           <!-- Show all Tasks box expansion -->
       </div>
