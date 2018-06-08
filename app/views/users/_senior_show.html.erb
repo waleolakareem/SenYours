@@ -41,16 +41,16 @@
       </div>
 
       <div class='sen_services container'>
-        <h3>Services I Want:</h3>
+        <h3 id='ajax-test' onclick=''>Services I Want:</h3>
         <% Service.all.each do |service|%><!-- List all Service Categories -->
           <div class='sen_service_section container'>
             <h3><%= service.name %></h3>
             <div class='sen_service_tasks container'>
               <% service.tasks.each do |s_task| %><!-- Display all Tasks by Service category -->
               <% if s_task.user_ids.include? @user.id %>
-                <%= link_to "#{s_task.name}", unselect_task_path(task_id: s_task.id, user_id: @user.id), class: 'selected_tasks' %>
+                <%= link_to "#{s_task.name}", unselect_task_path(task_id: s_task.id, user_id: @user.id), class: 'selected_tasks', remote: true  %>
               <% else %>
-                <%= link_to "#{s_task.name}", select_task_path(task_id: s_task.id, user_id: @user.id), class: 'unselected_tasks' %>
+                <%= link_to "#{s_task.name}", select_task_path(task_id: s_task.id, user_id: @user.id), class: 'unselected_tasks', remote: true  %>
               <% end %>
             <% end %>
             </div>
