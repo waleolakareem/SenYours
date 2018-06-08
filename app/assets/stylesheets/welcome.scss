@@ -89,11 +89,17 @@
 .arrow-pic {
   height: 80px;
   width: 145px;
-  left: -30px;
-  top: 110px;
+  left: -25px;
+  top: 100px;
   position: absolute;
-  transform: rotate(40deg);
-  z-index: 100;
+  transform: rotate(20deg);
+  @media screen and (max-width: 1250px){
+    width: 100px;
+    height: 40px;
+  }
+  @media screen and (max-width: 770px){
+    opacity: 0;
+  }
 }
 .circle {
   border-radius: 50%;
@@ -102,20 +108,54 @@
   background: orange;
   float: left;
   opacity: .6;
+  @media screen and (max-width: 770px){
+    width: 270px;
+    height: 270px;
+    };
+  @media screen and (max-width: 970px){
+    width: 150px;
+    height: 150px;
+    };
+  @media screen and (max-width: 1250px){
+    width: 330px;
+    height: 330px;
+    };
   }
 
+#circle1 {
+  position: relative;
+  @media screen and (max-width: 770px){
+    left: 20%;
+    right: 10%;
+    top: 10%;
+    bottom: 20%;
+  };
+}
 #circle2 {
-  left: -40px;
-  top: 125px;
+  left: -10%;
+  top: 30%;
   position: relative;
   z-index: 9;
+  @media screen and (max-width: 770px){
+    left: 20%;
+    right: 10%;
+    top: -1%;
+    bottom: 20%;
+  };
 }
 
 #circle3 {
-  left: -70px;
-  top: 250px;
+  left: -20%;
+  top: 60%;
+  right: 10%;
   position: relative;
   z-index: 10;
+  @media screen and (max-width: 768px){
+    left: 20%;
+    right: 10%;
+    top: -10%;
+    bottom: 20%;
+  };
 }
 
 .circle-text{
@@ -127,6 +167,12 @@
   margin-top:-0.5em;
   color:white;
   font-family: 'Muli', sans-serif;
+  @media screen and (max-width: 770px){
+    font-size: 0.75em;
+  };
+  @media screen and (max-width: 1250px){
+    font-size: 0.85em;
+  };
 }
 
 .image_div p {
@@ -478,7 +524,7 @@
   letter-spacing: 3px;
   padding-top:20px;
 }
-// Drawing a line through our services
+/*Drawing a line through our services*/
 .servises_text_header{
   color: orange;
   font-size:20px;
