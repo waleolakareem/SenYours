@@ -86,6 +86,15 @@
     background-attachment: scroll;
   }
 }
+.arrow-pic {
+  height: 80px;
+  width: 130px;
+  left: -30px;
+  top: 110px;
+  position: absolute;
+  transform: rotate(40deg);
+  z-index: 100;
+}
 .circle {
   border-radius: 50%;
   width: 420px;
