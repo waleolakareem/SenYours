@@ -96,24 +96,6 @@ class UsersController < ApplicationController
     @accept_this_app = @appointment[0]
   end
 
-  def select_task
-    task_id = params[:task_id]
-    User.find(params[:user_id]).tasks << Task.all[task_id.to_i - 1]
-    @user = User.find(params[:user_id])
-    redirect_to user_path(@user)
-    respond_to do |format|
-      format.js { render 'select_task.js.erb' }
-    end
-  end
-
-  def unselect_task
-    task_id = params[:task_id]
-    User.find(params[:user_id]).tasks.destroy(task_id.to_i)
-    @user = User.find(params[:user_id])
-    redirect_to user_path(@user)
-  end
-
-
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :address, :city, :zipcode, :state, :ssn, :phone_number, :avatar, :verification_image, :fee, :description, :email, :password, :password_confirmation, :age, :age_range, :identification, :availability,:dob, :terms_of_service, :privacy_policy)
