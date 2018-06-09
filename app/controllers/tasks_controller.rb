@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-
+    def index
+    end
 
     def select_task
       task_id = params[:task_id]
@@ -17,5 +18,5 @@ class TasksController < ApplicationController
       @user = User.find(params[:user_id])
       redirect_to user_path(@user)
     end
-    
+
 end
