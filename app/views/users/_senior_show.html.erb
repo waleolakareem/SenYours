@@ -40,7 +40,9 @@
         </div>
       </div>
 
-      <%= render "tasks/index", locals: {user: @user} %>
+      <div id='sen_services_tasks_container' class='container'>
+        <%= render "tasks/index", locals: {user: @user} %>
+      </div>
 
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">

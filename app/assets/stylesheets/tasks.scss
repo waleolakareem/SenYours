@@ -1,9 +1,11 @@
 // Services Box
-.sen_services {
+#sen_services_tasks_container {
+  background: green;
   margin: 0px 15px;
   width: 96%;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   background-color: white;
+  min-width: 100%;
   margin-bottom: 10px;
     @media screen and (max-width: 414px) {
     margin: 0px 5px;
@@ -16,7 +18,11 @@
     width: 89%;
   }
 }
+#sen_services_ajax{
+  background: red;
+}
 .sen_service_section{
+  background: blue;
   padding-top: 5px;
   border-bottom: 1px black solid;
 }
@@ -27,18 +33,16 @@
   flex-wrap: nowrap;
 }
 .selected_tasks{
-  color: blue;
-  border: 1px blue solid;
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 5px;
   margin-right: 5px;
 }
-.unselected_tasks{
-  color: green;
+#remove_task_button{
+  border: 1px red solid;
+  color: red;
+}
+#add_task_button{
   border: 1px green solid;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+  color: green;
 }

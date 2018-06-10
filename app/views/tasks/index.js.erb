@@ -1,1 +1,2 @@
-$(".sen_services").html("<%=j render :partial => 'index' %>")
+$("#sen_services_ajax").remove()
+$("<%=j render :partial => 'index' %>").appendTo('#sen_services_tasks_container')

@@ -1,34 +1,20 @@
 
-<div class='sen_services container'>
-  <h3>Services I Want:</h3>
-  <% Service.all.each do |service|%><!-- List all Service Categories -->
-    <div class='sen_service_section container'>
-      <h3><%= service.name %></h3>
-      <div class='sen_service_tasks container'>
-        <% service.tasks.each do |task| %><!-- Display all Tasks by Service category -->
-          <% if task.user_ids.include? @user.id %>
-              <%= link_to "#{task.name}",
-              task_remove_selected_path(
-                user_id: @user.id,
-                task_id: task.id),
-              class: 'selected_tasks',
-              method: 'GET',
-              remote: true,
-              style: 'border: 1px red solid; color: red;'  %>
-          <% else %>
-            <%= link_to "#{task.name}",
-            task_add_selected_path(
-              user_id: @user.id,
-              task_id: task.id),
-            class: 'selected_tasks',
-            method: 'GET',
-            remote: true,
-            style: 'border: 1px green solid; color: green;'  %>
-          <% end %>
+    <div id='sen_services_ajax' class='container'>
+        <h3>Services I Want:</h3>
+        <% Service.all.each do |service|%><!-- List all Service Categories -->
+          <div class='sen_service_section container'>
+            <h3><%= service.name %></h3>
+            <div class='sen_service_tasks container'>
+              <% service.tasks.each do |task| %><!-- Display all Tasks by Service category -->
+                <% if task.user_ids.include? @user.id %>
+                  <%= link_to "#{task.name}", task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'selected_tasks', method: 'GET', remote: true %>
+                <% else %>
+                  <%= link_to "#{task.name}", task_add_selected_path( user_id: @user.id, task_id: task.id ), id: 'add_task_button', class: 'selected_tasks', method: 'GET', remote: true %>
+                <% end %>
+              <% end %>
+             </div>
+          </div>
         <% end %>
-       </div>
+        <!-- If @user has 10 or MORE tasks selected -->
+          <!-- Show all Tasks box expansion -->
     </div>
-  <% end %>
-  <!-- If @user has 10 or MORE tasks selected -->
-    <!-- Show all Tasks box expansion -->
-</div>
