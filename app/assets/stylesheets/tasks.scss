@@ -1,28 +1,18 @@
 // Services Box
-#sen_services_tasks_container {
-  background: green;
-  margin: 0px 15px;
-  width: 96%;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+#sen_services_ajax {
   background-color: white;
   min-width: 100%;
   margin-bottom: 10px;
     @media screen and (max-width: 414px) {
-    margin: 0px 5px;
-    margin: 18px;
-    width: 91%;
+    width: 90%;
   }
   @media screen and (max-width: 320px) {
-    margin: 0px 5px;
-    margin: 18px;
     width: 89%;
   }
 }
 #sen_services_ajax{
-  background: red;
 }
 .sen_service_section{
-  background: blue;
   padding-top: 5px;
   border-bottom: 1px black solid;
 }

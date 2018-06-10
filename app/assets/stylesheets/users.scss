@@ -556,3 +556,21 @@ body {
     margin-top: 10px
   }
 }
+
+#sen_services_tasks_container{
+  margin: 0px 15px;
+  width: 96%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  background-color: white;
+  margin-bottom: 10px;
+    @media screen and (max-width: 414px) {
+    margin: 0px 5px;
+    margin: 18px;
+    width: 91%;
+  }
+  @media screen and (max-width: 320px) {
+    margin: 0px 5px;
+    margin: 18px;
+    width: 89%;
+  }
+}
