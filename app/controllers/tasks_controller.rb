@@ -9,7 +9,7 @@ class TasksController < ApplicationController
         user = User.find(params[:user_id])
         respond_to do |format|
             format.html { redirect_to user_path(@user) }
-            format.js { render :index }
+            format.js { render :index, :locals => {:user_id => params[:user_id], :task_id => params[:task_id]} }
         end
         # redirect_to user_path(@user)
     end
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
 
         respond_to do |format|
             format.html { redirect_to user_path(@user) }
-            format.js { render :index }
+            format.js { render :index, :locals => {:user_id => params[:user_id], :task_id => params[:task_id]} }
         end
         # redirect_to user_path(@user)
     end
