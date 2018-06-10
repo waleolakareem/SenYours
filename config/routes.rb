@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get '/select_task' => 'users#select_task'
-  get '/unselect_task' => 'users#unselect_task'
+  resources :tasks do
+    get 'add_selected' => 'tasks#add_selected'
+    get 'remove_selected' => 'tasks#remove_selected'
+  end
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :blog

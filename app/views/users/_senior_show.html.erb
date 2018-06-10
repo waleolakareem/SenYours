@@ -40,16 +40,7 @@
         </div>
       </div>
 
-      <%= render template: "tasks/index", :locals => {user: @user} %>
-
-      <script>
-        $("#select-task").click(function() {
-          $("#select-task").replaceWith('Bob');
-          alert('Task: <%= params[:task_id] %>, User: <%= params[:user_id] %>');
-        });
-      </script>
-
-
+      <%= render "tasks/index", locals: {user: @user} %>
 
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">

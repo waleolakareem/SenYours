@@ -14,7 +14,6 @@
 //= require js.cookie
 //= require jstz
 //= require rails_emoji_picker
-//= require jquery_ujs
 //= require rails-ujs
 //= require jquery-ui
 //= require select2
