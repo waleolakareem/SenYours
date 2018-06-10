@@ -40,7 +40,7 @@
 }
 
 .nav-item {
-  padding-left:20px !important;
+  padding-left:10px !important;
   @media screen and (max-width:1074px){
     padding-left: 0px !important;
   }
@@ -55,25 +55,25 @@
 }
 .navbar-nav{
     @media screen and (max-width:2560px){
-    margin-left:38%;
+    margin-left:34%;
   }
     @media screen and (max-width:1677px){
-    margin-left:32%;
+    margin-left:28%;
   }
    @media screen and (max-width:1571px){
-    margin-left:27%;
+    margin-left:23%;
   }
   @media screen and (max-width:1440px){
-    margin-left:26%;
+    margin-left:22%;
   }
   @media screen and (max-width:1412px){
-    margin-left:14%;
+    margin-left:10%;
   }
   @media screen and (max-width:1215px){
-    margin-left:5%;
+    margin-left:0;
   }
   @media screen and (max-width:1024px){
-    margin-left:2%;
+    margin-left:0;
   }
   @media screen and (max-width:465px){
     margin-left:0;
