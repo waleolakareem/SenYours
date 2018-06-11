@@ -10,6 +10,11 @@ class BlogImageUploader < CarrierWave::Uploader::Base
     resize_to_fill: [1200, 400]
   end
 
+  version :blog_index do
+    process :auto_orient,
+    resize_to_fill: [400, 200]
+  end
+
   version :social_media do
     process :auto_orient,
     resize_to_fill: [600, 800]
