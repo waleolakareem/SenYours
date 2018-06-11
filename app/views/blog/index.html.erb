@@ -46,25 +46,33 @@
     <% @blogs.each do |blog|%>
 <!-- USER TEST -->
   <div class="container">
-    <div id='blog_image_container'>
-      <div id="blog_image_left">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-12">
         <% if blog.image? %>
           <a href="/blog/<%= blog.id %>">
-            <div class='blog_image_index' style='background-image: url(<%= blog.image.blog_index %>);background-size: cover;background-position: center;'></div>
+            <div style='background-image: url(<%= blog.image.blog_index %>);background-size: cover;background-position: center; height: 275px;width: 100%;'></div>
           </a>
         <% else %>
          <a href="/blog/<%= blog.id %>">
-          <div class='blog_image_index' style='background-image: url( /assets/findyou.jpg);background-size: cover;background-position: center;'></div>
+          <div style='background-image: url( /assets/findyou.jpg);background-size: cover;background-position: center;height: 275px;width: 100%;'></div>
           </a>
         <% end %>
       </div>
-      <div id="blog_text_preview">
-        <h2 id='blog_index_title_preview'><%= link_to sanitize(blog.title), blog_path(blog.id) %></h2>
-          <p class='index_blog_date'>
+      <div class="col-lg-8 col-md-8 col-12">
+        <h2><%= link_to sanitize(blog.title), blog_path(blog.id), class: "edit_tag blog_index_title_preview" %></h2>
+          <p class="index_blog_date" ">
             <%=blog.created_at.strftime("%B")%> <%=blog.created_at.strftime("%-d")%>, <%=blog.created_at.strftime("%Y")%>
           </p>
+          <p style="font-family: 'Muli',sans-serif">
+          <span style="color: #64615F">
           <%= (sanitize "\"#{strip_tags(blog.body)}\"").truncate(600, :escape => false) %>
-          <%= link_to "Continue", blog_path(blog.id), class: "blog_index_read_more" %>
+          </span>
+          <span class="blog_index_read_more">
+          <%= link_to "Continue", blog_path(blog.id), class: "blog_index_read_more"%>
+          </span>
+          </p>
+
+
       </div>
     </div>
       </br>
@@ -75,6 +83,6 @@
   <% end %>
 <!-- END USER TEST -->
   <div id='blog_log_in_link_container'>
-    <%= link_to "Log In", password_input_path, id: 'blog_log_in_link' %>
+    <%= link_to "Author Log In", password_input_path %>
   </div>
 </body>
