@@ -12,18 +12,14 @@
   <div class='container'><%= will_paginate @blogs %></div>
   <% @blogs.each do |blog|%>
   <div id="blog_index_contents">
-    <% if blog.image? %>
-      <!-- <div class='blog_image_index' style='background-image: url(<%= blog.image.large %>);'></div>
-    <% else %>
-      <div class='blog_image_index' style='background-image: url(http://via.placeholder.com/1000x500);'></div> -->
-    <% end %>
-
   <!-- ADMIN TEST -->
   <div class="container">
     <div id='blog_image_container'>
       <div id="blog_image_left">
         <% if blog.image? %>
           <div class='blog_image_index' style='background-image: url(<%= blog.image.blog_index %>); background-size: cover;background-position: center;'></div>
+        <% else %>
+          <div class='blog_image_index' style='background-image: url(/assets/findyou.jpg); background-size: cover;background-position: center;'></div>
         <% end %>
       </div>
       <div id="blog_text_preview">
@@ -48,8 +44,6 @@
   <div class='container' style="padding-top: 40px;">
     <%= will_paginate @blogs %>
     <% @blogs.each do |blog|%>
-    <div id="blog_index_contents">
-
 <!-- USER TEST -->
   <div class="container">
     <div id='blog_image_container'>
@@ -57,6 +51,10 @@
         <% if blog.image? %>
           <a href="/blog/<%= blog.id %>">
             <div class='blog_image_index' style='background-image: url(<%= blog.image.blog_index %>);background-size: cover;background-position: center;'></div>
+          </a>
+        <% else %>
+         <a href="/blog/<%= blog.id %>">
+          <div class='blog_image_index' style='background-image: url( /assets/findyou.jpg);background-size: cover;background-position: center;'></div>
           </a>
         <% end %>
       </div>
@@ -72,12 +70,6 @@
       </br>
         </br>
           </br>
-    <!-- PICTURE ERROR -->
-    <% if blog.image? %>
-          <!-- <div class='blog_image_index' style='background-image: url(<%= blog.image.large %>);'></div>
-        <% else %>
-          <div class='blog_image_index' style='background-image: url(http://via.placeholder.com/1000x500);'></div> -->
-    <% end %>
   </div>
     <% end %>
   <% end %>
