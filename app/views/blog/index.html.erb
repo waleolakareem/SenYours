@@ -1,64 +1,88 @@
 <body style="background-color: #f6f6f6;">
+  <div id="index_header_background">
+    <h1 id="index_title">B L O G</h1>
+  <div>
 <% if session[:admin] == true %>
 <div class='container'>
   <div id="blog_index_admin_options">
       <%= link_to "Create Blog Post", new_blog_path, class: 'index_link_to_button' %>
       <%= link_to "Log Out", end_session_path, class: 'index_link_to_button' %>
   </div>
+  <!-- ADMIN -->
   <div class='container'><%= will_paginate @blogs %></div>
   <% @blogs.each do |blog|%>
   <div id="blog_index_contents">
-    <div id='datebox'>
-      <p class='index_blog_date'>
-        <%=blog.created_at.strftime("%b")%>
-      </p>
-      <p class='index_blog_date' >
-        <%=blog.created_at.strftime("%d")%>
-      </p>
+  <!-- ADMIN TEST -->
+  <div class="container">
+    <div id='blog_image_container'>
+      <div id="blog_image_left">
+        <% if blog.image? %>
+          <div class='blog_image_index' style='background-image: url(<%= blog.image.blog_index %>); background-size: cover;background-position: center;'></div>
+        <% else %>
+          <div class='blog_image_index' style='background-image: url(/assets/findyou.jpg); background-size: cover;background-position: center;'></div>
+        <% end %>
+      </div>
+      <div id="blog_text_preview">
+       <h2 id='blog_index_title_preview'><%= link_to sanitize(blog.title), blog_path(blog.id) %></h2>
+         <p class='index_blog_date'>
+           <%=blog.created_at.strftime("%B %-d, %Y")%>
+         </p>
+           <%= (sanitize "\"#{strip_tags(blog.body)}\"").truncate(500, :escape => false) %>
+           <%= link_to "Continue", blog_path(blog.id), class: "blog_index_read_more" %>
+      </div>
     </div>
-  <% if blog.image? %>
-    <div class='blog_image_index' style='background-image: url(<%= blog.image.large %>);'></div>
-  <% else %>
-    <div class='blog_image_index' style='background-image: url(http://via.placeholder.com/1000x500);'></div>
-  <% end %>
+    <!-- END ADMIN TEST -->
+        <div id='blog_edit_options'>
+            <%= link_to "Edit", edit_blog_path(blog.id), class: 'index_link_to_button' %>
+            <%= link_to "Delete", blog_path(blog.id), method: :delete, class: 'index_link_to_button' %>
+        </div>
+    <% end %>
   </div>
-  <div id='blog_index_admin_options'>
-      <%= link_to "Edit Post", edit_blog_path(blog.id), class: 'index_link_to_button' %>
-      <%= link_to "Delete Post", blog_path(blog.id), method: :delete, class: 'index_link_to_button' %>
-  </div>
-  <h1 class='blog_index_title'>
-    <%= link_to sanitize(blog.title), blog_path(blog.id) %>
-  </h1>
-  <% end %>
-</div>
-<%= will_paginate @blogs %>
+
+<!-- USER -->
 <% else %>
   <div class='container' style="padding-top: 40px;">
     <%= will_paginate @blogs %>
     <% @blogs.each do |blog|%>
-    <div id="blog_index_contents">
-      <div id='datebox'>
-        <p class='index_blog_date'>
-          <%=blog.created_at.strftime("%b")%>
-        </p>
-        <p class='index_blog_date' >
-          <%=blog.created_at.strftime("%d")%>
-        </p>
+<!-- USER TEST -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-12">
+        <% if blog.image? %>
+          <a href="/blog/<%= blog.id %>">
+            <div style='background-image: url(<%= blog.image.blog_index %>);background-size: cover;background-position: center; height: 275px;width: 100%;'></div>
+          </a>
+        <% else %>
+         <a href="/blog/<%= blog.id %>">
+          <div style='background-image: url( /assets/findyou.jpg);background-size: cover;background-position: center;height: 275px;width: 100%;'></div>
+          </a>
+        <% end %>
       </div>
-      <% if blog.image? %>
-        <div class='blog_image_index' style='background-image: url(<%= blog.image.large %>);'></div>
-      <% else %>
-        <div class='blog_image_index' style='background-image: url(http://via.placeholder.com/1000x500);'></div>
-      <% end %>
+      <div class="col-lg-8 col-md-8 col-12">
+        <h2><%= link_to sanitize(blog.title), blog_path(blog.id), class: "edit_tag blog_index_title_preview" %></h2>
+          <p class="index_blog_date" ">
+            <%=blog.created_at.strftime("%B")%> <%=blog.created_at.strftime("%-d")%>, <%=blog.created_at.strftime("%Y")%>
+          </p>
+          <p style="font-family: 'Muli',sans-serif">
+          <span style="color: #64615F">
+          <%= (sanitize "\"#{strip_tags(blog.body)}\"").truncate(600, :escape => false) %>
+          </span>
+          <span class="blog_index_read_more">
+          <%= link_to "Continue", blog_path(blog.id), class: "blog_index_read_more"%>
+          </span>
+          </p>
+
+
+      </div>
     </div>
-    <h1 class='blog_index_title'>
-      <%= link_to sanitize(blog.title), blog_path(blog.id) %>
-    </h1>
+      </br>
+        </br>
+          </br>
+  </div>
     <% end %>
-  </div>
-  <%= will_paginate @blogs %>
+  <% end %>
+<!-- END USER TEST -->
   <div id='blog_log_in_link_container'>
-    <%= link_to "Log In", password_input_path, id: 'blog_log_in_link' %>
+    <%= link_to "Author Log In", password_input_path %>
   </div>
-<% end %>
 </body>

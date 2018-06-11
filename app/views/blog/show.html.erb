@@ -1,13 +1,14 @@
 <body style="background-color: #f6f6f6">
 <div class='blog_show'>
   <% if @blog.image? %>
-    <div class='blog_image_show' style='background-image: url(<%= @blog.image.large %>);'>
+    <div class='blog_image_show' style='background-image: url(<%= @blog.image.large %>);background-size: cover;background-position: center;'>
   <% else %>
+    <div class='blog_image_show' style='background-image: url(/assets/findyou.jpg);background-size: cover;background-position: center;'>
   <% end %>
     <h1 class='text-center blog_title_show'><%= sanitize @blog.title %></h1>
     </div>
   <div class='container' style="background-color: white; position: relative;top:-40px;">
-    <h4 class='text-center' style='padding-top: 30px;'> <%= @blog.created_at.strftime("%d %b %y") %> </h4>
+    <h4 class='text-center' style='padding-top: 30px;'> <%=@blog.created_at.strftime("%B")%> <%=@blog.created_at.strftime("%-d")%>, <%=@blog.created_at.strftime("%Y")%> </h4>
     <div class='container'>
       <%= sanitize @blog.body %>
     </div>
