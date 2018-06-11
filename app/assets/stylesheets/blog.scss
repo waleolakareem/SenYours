@@ -1,4 +1,21 @@
 /* BEGIN Blog Index Page */
+
+#index_header_background {
+  width: 100%;
+  height: 150px;
+  background-color: #F0ECE9;
+}
+
+#index_title {
+  font-family: 'Muli',sans-serif;
+  color: #89807B;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 2.5%;
+
+}
+
+
 #blog_index_container{
   display: flex;
   vertical-align: middle;
@@ -22,16 +39,20 @@
     flex-wrap: wrap;
     min-width: 100%;
   }
-  #blog_index_admin_options{
+  #blog_edit_options{
+    padding-top: 35px;
+    padding-bottom: 105px;
     flex: 1;
     display: flex;
-    vertical-align: middle;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-left: 80%;
+
   }
-    #blog_index_admin_options a{
+    #blog_index_admin_options {
+      padding-top: 25px;
+      padding-bottom: 45px;
+      flex: 1;
+      display: flex;
+      margin-left: 70%
     }
 
     #blog_index_image_container{
@@ -62,19 +83,15 @@
       padding: 10px;
       width: 100%;
     }
-      #index_blog_date{
-        margin: 10px;
-        padding: 10px;
-        background: white;
-        color: black;
-        border: 5px black solid;
-      }
+
     .index_link_to_button{
       margin: 10px;
       padding: 10px;
-      background: white;
-      color: black;
-      border: 3px black solid;
+      background: #F0A53F;
+      font-family: 'Muli',sans-serif;
+      color: white;
+      border: 1px orange solid;
+      border-radius: 15%;
       text-decoration: none;
       transition:
         border 0.3s ease-out,
@@ -89,15 +106,9 @@
       box-shadow: inset 0 0 50px white;
       text-decoration: none;
     }
-  #blog_index_title_container{
-    flex: 2;
-    flex-basis: 1 2 70%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
+
     #blog_index_title{
-      margin-top: 20px;
+      margin-top: 10px;
       text-decoration: none;
       color: black;
       font-size: xx-large;
@@ -116,9 +127,9 @@
       margin: 10px;
       padding-left: 20px;
       padding-right: 20px;
-      background: white;
-      color: black;
-      border: 3px black solid;
+      background-color: #F29A28;
+      color: white;
+      border-radius: 15%;
       text-decoration: none;
       transition:
         border 0.3s ease-out,
@@ -133,6 +144,74 @@
       box-shadow: inset 0 0 50px white;
       text-decoration: none;
     }
+
+// AN TEST
+    #blog_image_container {
+      padding-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .index_blog_date {
+      font-size: 12px;
+      color: #89807B;
+    }
+
+    #blog_index_title_preview a {
+      margin-top: 0;
+      max-width: 20ch;
+      font-family: 'Muli',sans-serif;
+      text-decoration: none;
+      color: #F09249;
+    }
+
+    #blog_index_title_preview a:hover {
+      color: #AABFC1;
+}
+
+    .blog_image_index{
+      background-size: cover;
+      height: 275px;
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: realitive;
+
+      @media screen and (max-width: 1024px){
+        width: 80%;
+      }
+      @media screen and (max-width: 768px){
+        width: 90%;
+      }
+      @media screen and (max-width: 435px){
+        width: 80%;
+        height: 200px;
+    }
+  }
+
+    #blog_text_preview {
+      flex: 2;
+      height: 300px;
+      width: 500px;
+      margin-left: 3%;
+      font-family: 'Muli',sans-serif;
+      color: #64615F;
+      white-space: wrap;
+      overflow: hidden;
+    }
+
+    .blog_index_read_more {
+      text-decoration: none;
+      font-family: 'Muli',sans-serif;
+      color: #D16C1D;
+      text-decoration: none;
+
+    }
+
+
 /* END Blog Index Page */
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-= */
 /* BEGIN Blog Show Page */
@@ -162,26 +241,7 @@
     font-size: 35px;
   }
 }
-.blog_image_index{
-  background-size: cover;
-  height: 300px;
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: realitive;
 
-  @media screen and (max-width: 1024px){
-    width: 80%;
-  }
-  @media screen and (max-width: 768px){
-    width: 90%;
-  }
-  @media screen and (max-width: 435px){
-    width: 80%;
-    height: 200px;
-  }
-}
 #datebox{
   background: transparent;
   display: flex;
@@ -201,10 +261,10 @@
     width: 15%;
   }
 }
-.index_blog_date{
-  font-size: 20px;
-  color: black;
-}
+// .index_blog_date{
+//   font-size: 20px;
+//   color: black;
+// }
 .blog_index_title{
   display: flex;
   justify-content: center;
