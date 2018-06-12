@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_div {
-  padding-top:0px;
-  @media screen and (max-width: 1024px){
-    margin-top: -20px;
-  }
+  // padding-top:0px;
+  // @media screen and (max-width: 1024px){
+  //   margin-top: -20px;
+  // }
 }
 .flash {
   height: 40px;
@@ -26,6 +26,27 @@
   }
 }
 
+.carousel {
+  margin-top: -10px;
+}
+
+.promo_text {
+  color: white;
+  background-color: orange;
+  width: 100%;
+  padding: 10px;
+  letter-spacing:3px;
+  font-family: 'Muli';
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  @media screen and (max-width: 478px){
+    padding: 10px;
+   font-size: 16px;
+  }
+  @media screen and (max-width: 768px){
+    padding: 10px;
+   font-size: 16px;
+  }
+}
 .scrollh1{
   padding-top: 440px;
   color:white;
