@@ -687,7 +687,7 @@ align-items: center;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  height: 250px;
 }
 .slide-name{
   color: orange;
@@ -698,6 +698,7 @@ align-items: center;
   color: orange;
   font-size: 18px;
   font-style: italic;
+  font-family: 'Muli';
 }
 .name-city{
   padding-left: 60%;
@@ -705,4 +706,10 @@ align-items: center;
 }
 .review{
   font-size: 30px;
+  font-family: 'Muli';
+}
+.slide-title{
+  font-size:25px;
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 3px;
 }
