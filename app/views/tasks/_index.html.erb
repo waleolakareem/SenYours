@@ -1,6 +1,5 @@
-
     <div id='sen_services_ajax' class='container'>
-        <h3 id='service_header'>Services I'm Looking For:</h3>
+        <h3 id='service_header'>Services:</h3>
         <% Service.all.each do |service|%><!-- List all Service Categories -->
           <div class='sen_service_section container'>
             <h3 id='service_name'><%= service.name %></h3>
@@ -8,10 +7,10 @@
               <% service.tasks.each do |task| %><!-- Display all Tasks by Service category -->
               <!-- DEVELOPERS: There is a whitespace character between the symbol and the name of the task. Leave it alone :) -->
                 <% if task.user_ids.include? @user.id %>
-                  <%= link_to task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
+                    <%= link_to task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
                       <p id='task_name'><%= task.name %></p>
                       <%= image_tag 'services_minus.png', class: 'selection_image' %>
-                  <% end %>
+                    <% end %>
                 <% else %>
                   <%= link_to task_add_selected_path( user_id: @user.id, task_id: task.id ), id: 'add_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
                       <p id='task_name'><%= task.name %></p>
@@ -22,6 +21,4 @@
              </div>
           </div>
         <% end %>
-        <!-- If @user has 10 or MORE tasks selected -->
-          <!-- Show all Tasks box expansion -->
     </div>
