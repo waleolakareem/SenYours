@@ -3,7 +3,7 @@
   <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
   <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
   <%# @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
-  <% @social_media_url = "https://senyoursdevtest.herokuapp.com/blog/#{@blog.id}" %>
+  <% @social_media_url = "https://senyours.io/blog/#{@blog.id}" %>
   <% @social_media_domain = "senyours.io" %>
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
   <% if @blog.image? %>
