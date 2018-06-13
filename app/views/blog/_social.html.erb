@@ -2,11 +2,15 @@
   <!-- Amazing resource: https://github.com/bradvin/social-share-urls -->
   <% @social_media_title = @blog.title.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
   <% @social_media_summary = @blog.body.gsub!(/(<[^>]*>)|\n|\t/s) {" "} %>
-  <% @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
-  <% @social_media_url = "https://senyours.io/blog/#{@blog.id}" %>
+  <%# @social_media_url = "http://localhost:3000/blog/#{@blog.id}" %>
+  <% @social_media_url = "https://senyoursdevtest.herokuapp.com/blog/#{@blog.id}" %>
   <% @social_media_domain = "senyours.io" %>
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+  <% if @blog.image? %>
   <img class='hidden_pinterest_image' src="<%=@blog.image.large%>" alt="Pinterest_Image" data-pin-description="<%= @social_media_title %>" >
+  <% else %>
+  <img class='hidden_pinterest_image' src="/assets/findyou.jpg" alt="Pinterest_Image" data-pin-description="<%= @social_media_title %>" >
+  <% end %>
 
   <!-- LinkedIn -->
   <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=#{@social_media_url}&title=#{@social_media_title}&summary=#{@social_media_summary}&source=#{@social_media_domain}", target: :_blank, :class => 'blog_social_media_link' do %>

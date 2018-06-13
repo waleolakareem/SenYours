@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home_div {
-  padding-top:0px;
-  @media screen and (max-width: 1024px){
-    margin-top: -20px;
-  }
+  // padding-top:0px;
+  // @media screen and (max-width: 1024px){
+  //   margin-top: -20px;
+  // }
 }
 .flash {
   height: 40px;
@@ -26,6 +26,27 @@
   }
 }
 
+.carousel {
+  margin-top: -10px;
+}
+
+.promo_text {
+  color: white;
+  background-color: orange;
+  width: 100%;
+  padding: 10px;
+  letter-spacing:3px;
+  font-family: 'Muli';
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+  @media screen and (max-width: 478px){
+    padding: 10px;
+   font-size: 16px;
+  }
+  @media screen and (max-width: 768px){
+    padding: 10px;
+   font-size: 16px;
+  }
+}
 .scrollh1{
   padding-top: 440px;
   color:white;
@@ -86,6 +107,33 @@
     background-attachment: scroll;
   }
 }
+
+.circle {
+  border-radius: 3px;
+  background: orange;
+  opacity: .7;
+}
+.circle-text{
+  padding: 10px;
+  color:black;
+  font-family: 'Muli', sans-serif;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  margin-bottom: 5px;
+
+
+  @media screen and (max-width: 770px){
+    font-size: 0.75em;
+  };
+  @media screen and (max-width: 1250px){
+    font-size: 0.85em;
+  };
+}
+
+.circle_col {
+  padding-right:5px;
+  padding-left:5px;
+}
+
 .image_div p {
   font-size: 30px;
   padding-top:460px;
@@ -214,6 +262,11 @@
   letter-spacing: 2px;
   font-size: 15px;
   color: orange;
+}
+.work_font_p_1 {
+  letter-spacing: 2px;
+  font-size: 15px;
+  color: black;
 }
 .image2_div {
   background-repeat: no-repeat;
@@ -435,7 +488,7 @@
   letter-spacing: 3px;
   padding-top:20px;
 }
-// Drawing a line through our services
+/*Drawing a line through our services*/
 .servises_text_header{
   color: orange;
   font-size:20px;

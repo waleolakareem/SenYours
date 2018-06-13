@@ -42,6 +42,18 @@
   <% else %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" itemtype="http://www.schema.org/SiteNavigationElement">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Locations
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">San Francisco</a>
+          <a class="dropdown-item" href="#">Oakland</a>
+          <a class="dropdown-item" href="#">San Leandro</a>
+          <a class="dropdown-item" href="#">Hayward</a>
+          <a class="dropdown-item" href="#">Vallejo</a>
+        </div>
+      </li>
       <li class="nav-item" itemprop="name">
           <a class="nav-link" itemprop="url" href="/need_a_comp">
             Senior Adults</a>
@@ -49,7 +61,7 @@
         </li>
         <li class="nav-item" itemprop="name">
           <a class="nav-link" itemprop="url" href="/be_a_comp">
-            Care Companions</a>
+           Companions</a>
           </a>
         </li>
         <li class="nav-item" itemprop="name">
@@ -84,7 +96,7 @@
           </a>
         </li>
         <!-- Sign In when everything is ready to go -->
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link" href="/users/new">
             Sign Up
           </a>
@@ -93,7 +105,7 @@
           <a class="nav-link" itemprop="url" href="/login">
             Sign In
           </a>
-        </li>
+        </li> -->
     </ul>
   </div>
       <% end %>
