@@ -69,13 +69,8 @@
           </div>
         <% end %>
 
-        <div class='sen_services container'>
-          <h3>Services I provide:</h3>
-          <p>Service 1</p>
-          <p>Service 2</p>
-          <p>Service 3</p>
-          <p>Service 4</p>
-          <p>Service 5</p>
+        <div id='sen_services_tasks_container' class='container'>
+          <%= render "tasks/index", locals: {user: @user} %>
         </div>
 
         <% if @user.reviews.count >=  0 %>
