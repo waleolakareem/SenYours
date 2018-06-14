@@ -692,22 +692,25 @@ align-items: center;
 .slide-name{
   color: orange;
   font-size: 20px;
+  margin: 0;
   font-style: bold;
   font-family: 'Georgia';
+  text-align: right;
 }
 .slide-city{
   color: orange;
-  padding-top: 10px;
+  margin: 0;
   font-size: 18px;
   font-style: italic;
   font-family: 'Muli';
+  text-align: right;
 }
 .name-city{
-  padding-left: 60%;
+  padding-left: 70%;
 }
 .review{
-  font-size: 30px;
-  font-family: 'Verdana';
+  font-size: 24px;
+  font-family: 'Muli', sans-serif;
 }
 .slide-title{
   font-size:25px;
