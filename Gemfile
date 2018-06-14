@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-ui-rails'
+gem 'jquery-rails'
 gem 'select2-rails'
 gem 'rails_emoji_picker'
 

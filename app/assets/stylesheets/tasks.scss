@@ -1,0 +1,98 @@
+// Services Box
+#sen_services_ajax {
+  background-color: white;
+  min-width: 100%;
+  margin-bottom: 10px;
+    @media screen and (max-width: 414px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 320px) {
+    width: 89%;
+  }
+}
+#sen_services_ajax{
+}
+#service_header{
+  text-align: center;
+  text-shadow: 1px 1px gray;
+  padding-bottom: 5px;
+  border-bottom: 2px black solid;
+  font-size: 2.5em;
+}
+#service_name{
+  text-shadow: 1px 1px gray;
+  padding-top: 5px;
+}
+.sen_service_section{
+  padding-top: 5px;
+  border-bottom: 1px black solid;
+}
+.sen_service_tasks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 100%;
+  padding-bottom: 7px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.all_tasks{
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  border: 1px black solid;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  transition:
+    box-shadow 0.5s,
+    background-color 0.5s,
+    border 0.5s,
+    color 0.5s;
+}
+#remove_task_button{
+  text-decoration: none;
+  border: 1px rgb(242, 139, 17) solid;
+  color: rgb(242, 139, 17);
+  font-weight: 400;
+  box-shadow: 1px 1px 1px black;
+}
+#remove_task_button:hover{
+  color: rgb(199, 131, 0);
+  box-shadow: inset 0 0 0 1px rgb(199, 131, 0);
+  border: 1px rgb(199, 131, 0) solid;
+  background-color: rgba(199, 131, 0, 0.1);
+}
+.selected_tasks:hover{
+}
+#add_task_button{
+  text-decoration: none;
+  border: 1px darkgray solid;
+  color: darkgray;
+}
+#add_task_button:hover{
+  color: gray;
+  border: 1px gray solid;
+  background-color: rgba(68, 68, 68, 0.1);
+  box-shadow: 1px 1px 1px gray;
+}
+#task_name{
+  vertical-align: middle;
+  text-align: center;
+  margin: 0 auto;
+  padding-right: 5px;
+}
+.selection_image{
+  max-width: 20px;
+  max-height: 20px;
+}
