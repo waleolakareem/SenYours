@@ -696,6 +696,10 @@ align-items: center;
   font-style: bold;
   font-family: 'Arial';
   text-align: right;
+  @media screen and (max-width: 425px){
+    font-size: 14px;
+    padding-right: 10px;
+  }
 }
 .slide-city{
   color: orange;
@@ -704,6 +708,10 @@ align-items: center;
   font-style: italic;
   font-family: 'Muli';
   text-align: right;
+  @media screen and (max-width: 425px){
+    font-size: 14px;
+    padding-right: 10px;
+  }
 }
 .name-city{
   padding-left: 75%;
@@ -711,6 +719,9 @@ align-items: center;
 .review{
   font-size: 24px;
   font-family: 'Muli', sans-serif;
+  @media screen and (max-width: 425px){
+    font-size: 16px;
+  }
 }
 .slide-title{
   font-size:25px;

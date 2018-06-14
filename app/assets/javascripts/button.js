@@ -55,7 +55,9 @@ $(document).on('turbolinks:load', function(){
     autoplay: true,
     dots: true,
     arrows: true,
-    autoplaySpeed: 4000
+    autoplaySpeed: 4000,
+    adaptiveHeight: true,
+    mobileFirst: true
   });
   $('.cal_but').tooltip()
 
