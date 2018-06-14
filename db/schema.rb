@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(version: 20180606202119) do
     t.text "description"
     t.string "avatar"
     t.string "verification_image"
-    t.string "services_selected"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "availability"
