@@ -666,21 +666,33 @@
 
 section.section {
   background: transparent;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .slideshow {
   box-shadow: 0px 0px 40px rgba(0,0,0,.3);
-/*justify-content: center;
-flex-direction: column;
-align-items: center;*/
 
   .slick-prev:before, .slick-next:before {
     color: orange;
-    width: 40px;
-    height: 40px;
+    font-size: 50px;
+     @media screen and (max-width: 768px){
+    font-size:20px;
   }
 
+   @media screen and (max-width: 468px){
+    display:none;
+  }
+  }
 }
+
+.slick-prev{
+      left: -55px;
+     @media screen and (max-width: 768px){
+    left:-25px;
+  }
+}
+
 
 .slideshows{
   display: flex;
@@ -691,23 +703,25 @@ align-items: center;*/
 }
 .slide-name{
   color: orange;
+  letter-spacing: 1px;
   font-size: 22px;
   margin: 0;
   font-style: bold;
   font-family: 'Arial';
   text-align: right;
-  @media screen and (max-width: 425px){
+  @media screen and (max-width: 768px){
     font-size: 14px;
   }
 }
 .slide-city{
   color: orange;
+  letter-spacing: 1px;
   margin: 0;
   font-size: 18px;
   font-style: italic;
   font-family: 'Muli';
   text-align: right;
-  @media screen and (max-width: 425px){
+  @media screen and (max-width: 768px){
     font-size: 12px;
   }
 }
@@ -720,14 +734,9 @@ align-items: center;*/
 .review{
   font-size: 24px;
   font-family: 'Muli', sans-serif;
-  @media screen and (max-width: 425px){
+  letter-spacing: 2px;
+  @media screen and (max-width: 768px){
     font-size: 16px;
   }
 }
-.slide-title{
-  font-size:25px;
-  font-family: 'Muli', sans-serif;
-  letter-spacing: 3px;
-  color: orange;
-  padding: 20px;
-}
+
