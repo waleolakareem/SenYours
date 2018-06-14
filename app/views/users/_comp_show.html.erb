@@ -68,6 +68,11 @@
             <p> You need to <%= link_to "Take Assessment", comp_test_path  %> before you continue</p>
           </div>
         <% end %>
+
+        <div id='sen_services_tasks_container' class='container'>
+          <%= render "tasks/index", locals: {user: @user} %>
+        </div>
+
         <% if @user.reviews.count >=  0 %>
           <div class="sen_rating container">
             <h3>Reviews</h3>
@@ -171,5 +176,3 @@
     </div>
   </div>
 </body>
-
-

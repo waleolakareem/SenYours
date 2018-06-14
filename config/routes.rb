@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :tasks do
+    get 'add_selected' => 'tasks#add_selected'
+    get 'remove_selected' => 'tasks#remove_selected'
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
   mount ActionCable.server => '/cable'
   get '/verify' => 'charges#verify'

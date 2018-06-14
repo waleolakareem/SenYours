@@ -50,7 +50,15 @@ $(document).on('turbolinks:load', function(){
       model: survey,
       onComplete: sendDataToServer
   });
-
+  $('.slideshow').slick({
+    infinite: true,
+    autoplay: true,
+    dots: true,
+    arrows: true,
+    autoplaySpeed: 4000,
+    adaptiveHeight: true,
+    mobileFirst: true
+  });
   $('.cal_but').tooltip()
 
   var _pfy = _pfy || [];(function(){function pfy_load(){var pfys=document.createElement('script');pfys.type='text/javascript';pfys.async=true;pfys.src='https://widget.prefinery.com/widget/v2/bjcljd0s.js';var pfy=document.getElementsByTagName('script')[0];pfy.parentNode.insertBefore(pfys,pfy);}if (window.attachEvent){window.attachEvent('onload',pfy_load);}else{window.addEventListener('load',pfy_load,false);}})();
