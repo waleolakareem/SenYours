@@ -670,9 +670,9 @@ section.section {
 
 .slideshow {
   box-shadow: 0px 0px 40px rgba(0,0,0,.3);
-justify-content: center;
+/*justify-content: center;
 flex-direction: column;
-align-items: center;
+align-items: center;*/
 
   .slick-prev:before, .slick-next:before {
     color: orange;
@@ -687,5 +687,47 @@ align-items: center;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  height: 260px;
+}
+.slide-name{
+  color: orange;
+  font-size: 22px;
+  margin: 0;
+  font-style: bold;
+  font-family: 'Arial';
+  text-align: right;
+  @media screen and (max-width: 425px){
+    font-size: 14px;
+  }
+}
+.slide-city{
+  color: orange;
+  margin: 0;
+  font-size: 18px;
+  font-style: italic;
+  font-family: 'Muli';
+  text-align: right;
+  @media screen and (max-width: 425px){
+    font-size: 12px;
+  }
+}
+.name-city{
+  padding-left: 75%;
+  @media screen and (max-width: 425px){
+    padding-left: 60%;
+  }
+}
+.review{
+  font-size: 24px;
+  font-family: 'Muli', sans-serif;
+  @media screen and (max-width: 425px){
+    font-size: 16px;
+  }
+}
+.slide-title{
+  font-size:25px;
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 3px;
+  color: orange;
+  padding: 20px;
 }
