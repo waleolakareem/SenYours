@@ -2,10 +2,6 @@
 
 one:
   name: MyString
-  user_id: MyString
-  service_id: MyString
 
 two:
   name: MyString
-  user_id: MyString
-  service_id: MyString

@@ -6,7 +6,7 @@
         <div class="col-lg-6 col-md-6 sen_image">
           <div class="sen_img_upper"
             <% if !@user.avatar.url %>
-              style="background-image:url(/assets/avatar_image.png);"
+              style="background-image:url(/assets/avatar_image.png);">
             <% else %>
               style="background-image: url(<%=@user.avatar.large.url if @user.avatar? %>);">
             <% end %>
@@ -39,6 +39,11 @@
           </div>
         </div>
       </div>
+
+      <div id='sen_services_tasks_container' class='container'>
+        <%= render "tasks/index", locals: {user: @user} %>
+      </div>
+
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">
           <h3>Reviews</h3>
@@ -153,5 +158,3 @@
   </div>
 </div>
 </body>
-
-
