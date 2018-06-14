@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
+  mount ActionCable.server => '/cable'
+  get '/verify' => 'charges#verify'
   resources :blog
   get '/password_input' => 'blog#password_input'
   post '/password_authenticate' => 'blog#password_authenticate'
   get '/end_session' => 'blog#end_session'
-
   get 'password_resets/new'
-
   get 'password_resets/edit'
-
   get 'welcome/index'
-  mount ActionCable.server => '/cable'
   resources :charges
   resources :sessions
   resources :account_activations, only: [:edit]
