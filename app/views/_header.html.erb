@@ -95,35 +95,16 @@
             415-906-6440
           </a>
         </li>
+        <!-- Sign In when everything is ready to go -->
         <li class="nav-item active">
           <a class="nav-link" href="/users/new">
             Sign Up
         </li>
-           <!-- Sign In when everything is ready to go -->
         <li class="nav-item active" itemprop="name">
           <a class="nav-link" itemprop="url" href="/login">
             Sign In
           </a>
         </li>
-        <!-- https://stripe.com/docs/connect/oauth-reference#express-account-differences -->
-
-        <%= ENV['clientId'] %>
-        <li class="nav-item active">
-          <%= link_to "Stripe Test",
-          "https://connect.stripe.com/express/oauth/authorize?redirect_uri=https://stripe.com/connect/default/oauth/test&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&state={bob}",
-          class: 'nav-link',
-          target: :_blank %>
-          <%= link_to "Stripe REAL",
-          "https://connect.stripe.com/express/oauth/authorize?redirect_uri=http://localhost:3000/verify&client_id=#{ENV['clientId']}&response_type=code&scope=read_write",
-          class: 'nav-link',
-          target: :_blank  %>
-          <%= link_to "Stripe MESS",
-          "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=#{ENV['clientId']}&scope=read_write&redirect_uri=http://localhost:3000/verify",
-          class: 'nav-link',
-          target: :_blank  %>
-        </li>
-
-
     </ul>
   </div>
       <% end %>

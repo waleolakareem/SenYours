@@ -1,3 +1,6 @@
+require "uri"
+require "net/http"
+
 class ChargesController < ApplicationController
 
   Stripe.api_key=ENV['SECRET_KEY']
@@ -30,7 +33,18 @@ class ChargesController < ApplicationController
   end
 
   def verify
-    alert('BOB!')
+    # State helps prevent CSRF attacks.
+    if params[:state] == 'senyours_verification'
+      user_auth_code = params[:code]
+      params = {'box1' => 'Nothing is less important than which fork you use. Etiquette is the science of living. It embraces everything. It is ethics. It is honor. -Emily Post',
+      'button1' => 'Submit'
+      }
+      x = Net::HTTP.post_form(URI.parse('http://www.interlacken.com/webdbdev/ch05/formpost.asp'), params)
+      puts x.body
+
+    else
+      # FAIL REQUEST, ITS BEEN TAMPERED WITH
+    end
   end
 
 end
