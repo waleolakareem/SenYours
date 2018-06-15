@@ -33,15 +33,15 @@ class ChargesController < ApplicationController
   end
 
   def verify
+    puts 'MADE IT TO VERIFY'
+    returned_auth_code = params[:code]
+    returned_state = params[:state]
+    puts "Auth: #{returned_auth_code}"
+    puts "State: #{returned_state}"
     # State helps prevent CSRF attacks.
     if params[:state] == 'senyours_verification'
-      user_auth_code = params[:code]
-      params = {'box1' => 'Nothing is less important than which fork you use. Etiquette is the science of living. It embraces everything. It is ethics. It is honor. -Emily Post',
-      'button1' => 'Submit'
-      }
-      x = Net::HTTP.post_form(URI.parse('http://www.interlacken.com/webdbdev/ch05/formpost.asp'), params)
-      puts x.body
-
+      puts "~~~~~ Sucessful State Check ~~~~~"
+      redirect_to root_path
     else
       # FAIL REQUEST, ITS BEEN TAMPERED WITH
     end
