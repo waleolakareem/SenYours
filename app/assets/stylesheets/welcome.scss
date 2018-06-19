@@ -518,7 +518,6 @@
     font-size: 0.65rem !important;
   }
 }
-
 .choose{
   padding-top: 320px;
   height: 600px;
@@ -529,14 +528,12 @@
   height: 400px;
   width: 100%;
   }
-
    @media screen and (max-width: 320px) {
   padding-top: 160px;
   height: 400px;
   width: 100%;
   }
 }
-
 .quiz_cont {
   margin-top: 40px;
   height: 400px;
@@ -547,7 +544,6 @@
   padding:15px
   }
 }
-
 .prefinery-form-cta:hover {
   background-color: white !important;
   color: #ffa500 !important;
@@ -559,7 +555,6 @@
     height: 450px;
   }
 }
-
 .comp_ind_pics{
   height: 100%;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%),url(/assets/facebookprofile.jpg);
@@ -570,7 +565,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .comp_ind_pics p {
   color: white;
   font-family: 'Muli', sans-serif;
@@ -579,7 +573,6 @@
     font-size: 18px;
   }
 }
-
 .comp_ind_pics_button{
   height: 50px;
   width:30%;
@@ -591,7 +584,6 @@
     width: 70%;
   }
 }
-
 .pow .col-lg-4{
   padding-right: 5px;
   padding-left: 5px;
@@ -612,11 +604,9 @@
     height: 250px;
   }
 }
-
 .comp_form_div{
   padding-bottom: 10px;
 }
-
 .comp_pow_h1 {
   transition: display 0.9s;
   letter-spacing: 3px;
@@ -627,56 +617,45 @@
     font-size: 35px;
   }
 }
-
 .comp_pow_p {
   display: none;
   transition: display 0.9s;
   letter-spacing: 3px;
   color : white;
 }
-
 .comp_pow:hover .comp_pow_p {
   display: block;
 }
 .comp_pow:hover {
   opacity: 0.8;
 }
-
-
-// .comp_pow_h1:hover {
-//   display: inline;
-// }
-
+.comp_pow_h1:hover {
+   display: inline;
+ }
 section.section {
   background: transparent;
   padding-top: 30px;
   padding-bottom: 30px;
 }
-
 .slideshow {
   box-shadow: 0px 0px 40px rgba(0,0,0,.3);
-
   .slick-prev:before, .slick-next:before {
     color: orange;
     font-size: 50px;
      @media screen and (max-width: 768px){
     font-size:20px;
   }
-
    @media screen and (max-width: 468px){
     display:none;
   }
   }
 }
-
 .slick-prev{
       left: -55px;
      @media screen and (max-width: 768px){
     left:-25px;
   }
 }
-
-
 .slideshows{
   display: flex;
   justify-content: center;
