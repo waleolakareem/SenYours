@@ -42,7 +42,6 @@
     margin-left:-8px;
   }
 }
-
 .mess_sub {
   padding: 5px 5px;
   margin-left:-25px;
@@ -52,7 +51,6 @@
   background-color:orange;
   @media screen and (max-width:468px) {
   }
-
 }
 .mess_descrip{
   background-color: #fff !important;
@@ -62,7 +60,6 @@
 .message_time_div{
   font-size: 10px;
   color: #BDBDBE;
-
 }
 .last_message_div{
   margin-left: auto;
@@ -73,7 +70,6 @@
 }
 .typing-indicator {
   padding: 10px;
-
   span {
     height: 10px;
     width: 10px;
@@ -90,13 +86,11 @@
     }
   }
 }
-
 @keyframes blink {
   50% {
     opacity: 1;
   }
 }
-
 @keyframes bulge {
   50% {
     transform: scale(1.05);
