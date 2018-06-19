@@ -40,18 +40,29 @@ class ChargesController < ApplicationController
     # State helps prevent CSRF attacks.
     if params[:state] == 'senyours_verification'
       puts "~~~~~ Sucessful State Check ~~~~~"
-
-
       uri = URI.parse("https://connect.stripe.com/oauth/token")
-
-      # Shortcut
       response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
 
-      puts "+!+!+!+!+!+!+ Response: #{response} +!+!+!+!+!+!+"
-      puts "+!+!+ Response Code: #{response.code} +!+!+"
-      # puts "+!+!+ Response Cookies: #{response.cookies} +!+!+"
-      puts "+!+!+ Response Header: #{response.header} +!+!+"
-      puts "+!+!+ Response body: #{response.body} +!+!+"
+
+      case response.code
+        when 200 # Sucessful
+          response_body = JSON.parse(response.body)
+          response_access_token = response_body['access_token']
+          response_livemode = response_body['livemode']
+          response_refresh_token = response_body['refresh_token']
+          response_token_type = response_body['token_type']
+          response_stripe_publishable_key = response_body['stripe_publishable_key']
+          response_stripe_user_id = response_body['stripe_user_id']
+          response_scope = response_body['scope']
+          flash[:success] = 'Code is 200+'
+          render user_path(@user.id)
+        when String
+          flash[:success] = 'How?'
+          render user_path(@user.id)
+        else
+          flash[:success] = 'Failure!'
+          render user_path(@user.id)
+      end
 
     else
       puts "///// FAILURE //////"
