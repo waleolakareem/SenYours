@@ -1,5 +1,4 @@
-require "uri"
-require "net/http"
+require 'net/http'
 
 class ChargesController < ApplicationController
 
@@ -33,16 +32,29 @@ class ChargesController < ApplicationController
   end
 
   def verify
-    puts 'MADE IT TO VERIFY'
+    puts "~!~!~ MADE IT TO VERIFY ~!~!~"
     returned_auth_code = params[:code]
     returned_state = params[:state]
-    puts "Auth: #{returned_auth_code}"
-    puts "State: #{returned_state}"
+    puts "~~~~~ Auth: #{returned_auth_code} ~~~~~"
+    puts "~~~~~ State: #{returned_state} ~~~~~"
     # State helps prevent CSRF attacks.
     if params[:state] == 'senyours_verification'
       puts "~~~~~ Sucessful State Check ~~~~~"
-      redirect_to root_path
+
+
+      uri = URI.parse("https://connect.stripe.com/oauth/token")
+
+      # Shortcut
+      response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
+
+      puts "+!+!+!+!+!+!+ Response: #{response} +!+!+!+!+!+!+"
+      puts "+!+!+ Response Code: #{response.code} +!+!+"
+      # puts "+!+!+ Response Cookies: #{response.cookies} +!+!+"
+      puts "+!+!+ Response Header: #{response.header} +!+!+"
+      puts "+!+!+ Response body: #{response.body} +!+!+"
+
     else
+      puts "///// FAILURE //////"
       # FAIL REQUEST, ITS BEEN TAMPERED WITH
     end
   end

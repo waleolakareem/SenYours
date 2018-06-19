@@ -41,9 +41,10 @@
       </div>
 
       <%= link_to "Stripe REAL",
-      "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=#{ENV['stripe_client_id']}&redirect_uri=http://localhost:3000/verify&stripe_user[business_type]=individual&stripe_user[phone_number]=#{@user.phone_number}&stripe_user[email]=#{@user.email}&stripe_user[first_name]=#{@user.first_name}&stripe_user[last_name]=#{@user.last_name}&state={senyours_verification}",
+      "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=#{ENV['stripe_client_id']}&redirect_uri=http://localhost:3000/verify&stripe_user[business_type]=individual&stripe_user[phone_number]=#{@user.phone_number}&stripe_user[email]=#{@user.email}&stripe_user[first_name]=#{@user.first_name}&stripe_user[last_name]=#{@user.last_name}&state=senyours_verification",
       class: 'nav-link',
       target: :_blank  %>
+
       <%= link_to "Stripe TEST",
       "https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=#{ENV['stripe_client_id']}&redirect_uri=http://localhost:3000/verify&stripe_user[business_type]=individual&stripe_user[phone_number]=0000000000&stripe_user[email]=123abc@gmail.com&stripe_user[first_name]=Random&stripe_user[last_name]=Person&state=senyours_verification",
       class: 'nav-link',
