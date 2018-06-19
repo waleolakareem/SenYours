@@ -1,8 +1,5 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 html {
-// Footer stick to bottom with help of this
+/*Footer stick to bottom with help of this*/
     position: relative;
     min-height: 100%;
     height: 100%;
@@ -117,7 +114,7 @@ body {
   color: orange;
   border-style: solid;
   @media screen and (max-width: 2560px) {
-    // Small input box
+    /*Small input box*/
     height: 45px;
     width: 100%;
     padding: 5px 10px;
@@ -127,7 +124,7 @@ body {
   }
 }
 .add_responsive-input {
-  // Large input box
+  /*Large input box*/
   height: 45px;
   width: 400px;
   padding: 10px 16px;
@@ -139,7 +136,7 @@ body {
   color: orange;
   border-style: solid;
   @media screen and (max-width: 1440px) {
-    // Small input box
+    /*Small input box*/
     height: 45px;
     width: 315px;
     padding: 5px 10px;
@@ -237,29 +234,28 @@ body {
   border-width:thin;
   border-style: solid;
   border-color: orange;
-
-  //doesnt require as we are using form control
-  //@media screen and (max-width: 1440px) {
-  //  // Small input box
-  //  height: 30px;
-  //  width: 500px;
-  //  padding: 5px 10px;
-  //  font-size: 12px;
-  //}
-  //@media screen and (max-width: 768px) {
-  //  // Small input box
-  //  height: 30px;
-  //  width:  450px;
-  //}
-  // @media screen and (max-width: 414px) {
-  //  // Small input box
-  //  height: 30px;
-  //  width:  280px;
-  //}
-  //@media screen and (max-width: 320px) {
-  //  width: 240px;
-  //  padding-left: 0px;
-  //}
+/*  doesnt require as we are using form control
+  @media screen and (max-width: 1440px) {
+    Small input box
+    height: 30px;
+    width: 500px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  @media screen and (max-width: 768px) {
+    Small input box
+    height: 30px;
+    width:  450px;
+  }
+  @media screen and (max-width: 414px) {
+    Small input box
+    height: 30px;
+    width:  280px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 240px;
+    padding-left: 0px;
+  }*/
 }
 .fee_div {
   padding-left: 40px;
@@ -299,7 +295,6 @@ body {
   background-repeat: none;
   background-size:cover;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-
 }
 .comp_descrp {
   height: 25%;
@@ -416,7 +411,7 @@ body {
 }
 .sen_img_lower {
   height: 20%;
-  // Understand Flex box
+  /*Understand Flex box*/
   display:flex;
   align-items:center;
   justify-content: space-around;
@@ -447,7 +442,6 @@ body {
     width: 89%;
   }
 }
-
 .accept{
   width:100%;
   margin-left: 15px;
@@ -541,7 +535,6 @@ body {
 .date_time{
   display: none;
 }
-
 .edit_tab1{
   margin-top: 60px;
   @media screen and (max-width: 480px) {
@@ -557,7 +550,6 @@ body {
     margin-top: 10px
   }
 }
-
 #sen_services_tasks_container{
   margin: 0px 15px;
   width: 96%;
