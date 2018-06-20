@@ -13,7 +13,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 # assets precompile
-Rails.application.config.assets.precompile += %w( images/* slick/* stylesheets/* javascripts/* config/*)
-
+Rails.application.config.assets.precompile += %w( images/* )
+Rails.application.config.assets.precompile += %w( slick/* )
+Rails.application.config.assets.precompile += %w( stylesheets/* )
+Rails.application.config.assets.precompile += %w( javascripts/* )
+Rails.application.config.assets.precompile += %w( config/* )
 Rails.application.config.assets.precompile += %w( ckeditor/* )
 Rails.application.config.assets.precompile += %w(ckeditor/config.js)
