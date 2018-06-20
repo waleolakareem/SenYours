@@ -75,8 +75,8 @@
 }
 #car2{
   background-size: cover;
-  background-image: image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('coffietimecomp.jpg' );
+  //background-image: image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('coffietimecomp.jpg' );
   // background-attachment: fixed;
   height: 830px;
   @media screen and (max-width: 1024px){
@@ -88,8 +88,8 @@
 #car3{
   background-size: cover;
   height: 830px;
-  background-image: image_url('smilyblaccomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('smilyblaccomp.jpg' );
+  //background-image: image_url('smilyblaccomp.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('smilyblaccomp.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -255,14 +255,15 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image: image_url('facebookprofile.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('facebookprofile.jpg' );
+  //background-image: image_url('facebookprofile.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('facebookprofile.jpg' );
   background-attachment: fixed;
   width: 100%;
   height: 650px;
   // opacity: 0.6;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   @media screen and (max-width: 1024px){
@@ -274,7 +275,7 @@
     height: 400px;
   }
 }
-.image2_div p {
+.image2_div h1 {
    font-size: 30px;
    color: white;
    opacity: 1;
@@ -557,7 +558,7 @@
 }
 .comp_ind_pics{
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%), image_url('facebookprofile.jpg' );
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%), image_url('facebookprofile.jpg' );
   background-size: cover;
   background-position: top center;
   display: flex;
