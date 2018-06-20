@@ -7,8 +7,8 @@
 #car1{
   background-size: cover;
   height: 830px;
-  background-image: image_url('newcompanioneditor.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('newcompanioneditor.jpg' );
+  //background-image: asset-url('newcompanioneditor.jpg'); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('newcompanioneditor.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
