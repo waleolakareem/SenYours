@@ -42,7 +42,7 @@ class ChargesController < ApplicationController
       # This authentication is required to get the user a stripe_user_id
       uri = URI.parse("https://connect.stripe.com/oauth/token")
       response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
-
+          # All paramters passed back in the response are captured here.
           response_body = JSON.parse(response.body)
           response_access_token = response_body['access_token']
           response_livemode = response_body['livemode']
@@ -51,9 +51,12 @@ class ChargesController < ApplicationController
           response_stripe_publishable_key = response_body['stripe_publishable_key']
           response_stripe_user_id = response_body['stripe_user_id']
           response_scope = response_body['scope']
-
+          # If there is an error, it will be recorded and displayed.
+          response_error = response_body['error']
+          response_error_description = response_body['error_description']
+          # User instance is updated as soon as the stripe_user_id is received. This allows to the user to re-login later without keeping sensitive information in our database.
           User.where( id: "#{returned_user_id}".to_i ).update_all( stripe_user_id: response_stripe_user_id )
-
+          # During development console Display of parameters.
           puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
           puts "response_access_token: #{response_access_token}"
           puts "response_livemode: #{response_livemode}"
@@ -64,10 +67,7 @@ class ChargesController < ApplicationController
           puts "response_scope: #{response_scope}"
           puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
 
-          flash[:notice] = "Code is #{response.code}"
           redirect_to user_path(returned_user_id)
-
-
     else
       # If this 'else' is activated, then it's likely the user tampered with the URI.
       render root_path
