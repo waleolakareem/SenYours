@@ -7,8 +7,8 @@
 #car1{
   background-size: cover;
   height: 830px;
-  background-image:image_url('newcompanioneditor.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), image_url('newcompanioneditor.jpg' );
+  background-image: image_url('newcompanioneditor.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('newcompanioneditor.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -75,8 +75,8 @@
 }
 #car2{
   background-size: cover;
-  background-image:image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), image_url('coffietimecomp.jpg' );
+  background-image: image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('coffietimecomp.jpg' );
   // background-attachment: fixed;
   height: 830px;
   @media screen and (max-width: 1024px){
@@ -88,8 +88,8 @@
 #car3{
   background-size: cover;
   height: 830px;
-  background-image:image_url('smilyblaccomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), image_url('smilyblaccomp.jpg' );
+  background-image: image_url('smilyblaccomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('smilyblaccomp.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
@@ -255,8 +255,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:image_url('facebookprofile.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), image_url('facebookprofile.jpg' );
+  background-image: image_url('facebookprofile.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('facebookprofile.jpg' );
   background-attachment: fixed;
   width: 100%;
   height: 650px;
@@ -336,8 +336,8 @@
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:image_url('backcheckcomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), image_url('backcheckcomp.jpg' );
+  background-image: image_url('backcheckcomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('backcheckcomp.jpg' );
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   // opacity:0.8;
   width: 100%;
@@ -384,8 +384,8 @@
   background-postion: left center;
   // opacity:0.8;
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-  background-image:image_url('youngmancomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), image_url('youngmancomp.jpg' );
+  background-image: image_url('youngmancomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('youngmancomp.jpg' );
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -396,8 +396,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
-  background-image:image_url('cocktailcomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), image_url('cocktailcomp.jpg' );
+  background-image: image_url('cocktailcomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('cocktailcomp.jpg' );
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -440,8 +440,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:image_url('needacomppic.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), image_url('needacomppic.jpg' );
+  background-image: image_url('needacomppic.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('needacomppic.jpg' );
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
@@ -557,7 +557,7 @@
 }
 .comp_ind_pics{
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%),image_url('facebookprofile.jpg' );
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%), image_url('facebookprofile.jpg' );
   background-size: cover;
   background-position: top center;
   display: flex;
@@ -590,7 +590,7 @@
 }
 .comp_pow{
   height:500px;
-  // background-image:image_url('newcompanioneditor.jpg' );
+  // background-image: image_url('newcompanioneditor.jpg' );
   background-size: cover;
   background-position: top center;
   padding: 10px;
