@@ -43,8 +43,6 @@ class ChargesController < ApplicationController
       uri = URI.parse("https://connect.stripe.com/oauth/token")
       response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
 
-      case response.code
-        when 200..299 # Sucessful
           response_body = JSON.parse(response.body)
           response_access_token = response_body['access_token']
           response_livemode = response_body['livemode']
@@ -53,14 +51,22 @@ class ChargesController < ApplicationController
           response_stripe_publishable_key = response_body['stripe_publishable_key']
           response_stripe_user_id = response_body['stripe_user_id']
           response_scope = response_body['scope']
+
+          User.where( id: "#{returned_user_id}".to_i ).update_all( stripe_user_id: response_stripe_user_id )
+
+          puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
+          puts "response_access_token: #{response_access_token}"
+          puts "response_livemode: #{response_livemode}"
+          puts "response_refresh_token: #{response_refresh_token}"
+          puts "response_token_type: #{response_token_type}"
+          puts "response_stripe_publishable_key: #{response_stripe_publishable_key}"
+          puts "response_stripe_user_id: #{response_stripe_user_id}"
+          puts "response_scope: #{response_scope}"
+          puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
+
           flash[:notice] = "Code is #{response.code}"
           redirect_to user_path(returned_user_id)
-        else
-          response_error = response_body['error']
-          response_error_description = response_body['error_description']
-          flash[:alert] = "Code is #{response.code} | Error: #{response_error} | Error Desc: #{response_error_description}"
-          redirect_to user_path(returned_user_id)
-      end
+
 
     else
       # If this 'else' is activated, then it's likely the user tampered with the URI.
