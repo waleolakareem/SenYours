@@ -1,3 +1,28 @@
 <div class="container" style="margin-top: 60px">
-<h1>HELLO</h1>
+ <section itemprop="about" itemscope itemtype="http://schema.org/ProgramMembership" class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="text_header">OUR TEAM<h1>
+        </div>
+          <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-6" style=" height: 650px;">
+            <div class="img_div" style="background-image: url(<%= asset_path 'head_shot_copy.jpg' %>)"></div>
+            <div class="comp_img_text">
+              <p class="notification"> <strong itemprop="name">Merty Mcgraw</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
+            </div>
+            <div class="comp_img_descrp">
+              <p>"I have learned so much from the seniors I have worked with. Senyours is a great way for me to build meaningful relationships while serving my community."</p>
+            </div>
+          </div>
+          <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-6" style=" height: 650px;">
+            <div class="img_div" style="background-image: url(<%= asset_path 'wale-compress-image.jpg' %>);"></div>
+            <div class="comp_img_text">
+              <p class="notification"> <strong itemprop="name">Wale Kareem</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
+              <meta itemprop="jobTitle" content="Companion"/>
+            </div>
+            <div class="comp_img_descrp">
+              <p>"I am a Companion after work and on the weekends. For me being a Companion is a way to give back to the wonderful world I live in.  Everyone deserves a smile."</p>
+            </div>
+          </div>
+      </div>
+    </section>
 </div>
