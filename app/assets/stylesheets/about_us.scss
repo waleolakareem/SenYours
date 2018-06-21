@@ -1,16 +1,18 @@
 .about_img_manage {
-  object-fit: cover;
-  height: 450px;
-  width: 85%;
   border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+    background-size:cover;
   border-style: solid;
 }
 
 .about_img_team {
-  object-fit: cover;
-  height: 33%;
-  width: 85%;
   border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+    background-size:cover;
   border-style: solid;
 }
 
