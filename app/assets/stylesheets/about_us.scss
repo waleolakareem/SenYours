@@ -100,9 +100,11 @@
 }
 .timeline-article .content-date{
     position: absolute;
-    top: 35%;
-    left: -30px;
-    font-size:18px;
+    top: 27%;
+    left: -60px;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+    text-align: left;
 }
 .timeline-article .meta-date{
     position: absolute;
@@ -117,7 +119,10 @@
 }
 
 .timeline-article-bottom .content-date{
-  top: 59%;
+  top: 60%;
+}
+.timeline-article-top.content-date{
+  bottom: 0px;
 }
 
 
