@@ -16,7 +16,7 @@
 
 .about_text_header{
   color: orange;
-  font-size:45px;
+  font-size:35px;
   letter-spacing: 3px;
   padding-top:20px;
   padding-bottom: 10px;
@@ -40,22 +40,23 @@
 }
 
 .jumbotron {
-    position: relative;
-    padding: 4.3rem 0;
-    margin: 0;
-    border-radius: 0;
-    background-color: DarkOrange;
-    text-align: center;
-
+  position: relative;
+  padding: 4.3rem 0;
+  margin: 0;
+  border-radius: 0;
+  background-color: DarkOrange;
+  text-align: center;
+  height: 400px;
+}
+.jumbotron h1 {
+  margin-top: 0;
+  color: white;
+  font-size: 6.4rem;
 }
 
-.jumbotron_text {
-  display: block;
-  -webkit-margin-before: 0.67em;
-  -webkit-margin-after: 0.67em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  background-color: #0077b3;
-  color: #FFF;
+.jumbotron p {
+  font-family: 'Muli', sans-serif;
+  color: white;
+  font-size: 1.5em;
   text-shadow: none;
 }
