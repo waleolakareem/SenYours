@@ -3,7 +3,7 @@
   width: 100%;
   padding-bottom: 100%;
   background-postion: center;
-    background-size:cover;
+  background-size: cover;
 }
 
 .about_img_team {
@@ -11,7 +11,7 @@
   width: 100%;
   padding-bottom: 100%;
   background-postion: center;
-    background-size:cover;
+  background-size: cover;
 }
 
 .about_text_header{
@@ -31,7 +31,7 @@
 
 .about_text_p {
   font-family: 'Muli', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -46,6 +46,14 @@
 .advisory_descrp {
   padding-top: 60px;
 
+}
+.stars-section {
+  text-align: center;
+}
+.font_p_12 {
+  letter-spacing: 2px;
+  font-size: 15px;
+  color: black;
 }
 
 .our_story {
@@ -68,6 +76,9 @@
   color: white;
   letter-spacing: 9px;
   font-size: 6.4rem;
+}
+.checked {
+    color: orange;
 }
 
 .jumbotron p {
