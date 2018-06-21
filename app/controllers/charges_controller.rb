@@ -32,6 +32,7 @@ class ChargesController < ApplicationController
   end
 
   def verify
+    # For documentation see: https://stripe.com/docs/connect/oauth-reference#post-token
     if params[:state].include?('senyours_verification')
       # Auth code required for Stripe Authentication
       returned_auth_code = params[:code]
@@ -72,6 +73,21 @@ class ChargesController < ApplicationController
       # If this 'else' is activated, then it's likely the user tampered with the URI.
       render root_path
     end
+  end
+
+# SET UP WEBHOOK SO I CAN SEE INFORMATION ON WHATS HAPPENING!
+
+  def stripe_charge
+    @user = User.find(params[:id])
+    # Set your secret key: remember to change this to your live secret key in production
+    Stripe.api_key = "#{ENV['SECRET_KEY']}"
+
+    charge = Stripe::Charge.create({
+      :amount => 1000,
+      :currency => "usd",
+      :source => "tok_visa",
+    }, :stripe_account => "acct_1CdNBdIM1No79syh")
+    redirect_to user_path(@user)
   end
 
 end
