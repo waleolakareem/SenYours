@@ -9,3 +9,23 @@
   height: 30%;
   width: 100%;
 }
+
+.about_text_header{
+  color: orange;
+  font-size:40px;
+  letter-spacing: 3px;
+  padding-top:20px;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+.about_text_header span {
+    background:#fff;
+    padding:0 10px;
+}
+
+.about_text_p {
+  font-family: 'Muli', sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
