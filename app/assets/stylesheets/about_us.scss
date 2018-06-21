@@ -113,41 +113,11 @@
     background:#fff;
     border:1px solid orange;
 }
-.timeline-article .content-box{
-  box-shadow: 2px 2px 4px 0px #c1c1c1;
-  border:1px solid orange;
-  border-radius: 5px;
-  background-color: #fff;
-  width: 180px;
-  position: absolute;
-  top: 60%;
-  left: -80px;
-  padding:10px;
-}
-.timeline-article-top .content-box:before{
-  content: " ";
-  position:absolute;
-  left:50%;
-  transform: translateX(-50%);
-  top:-20px;
-  border:10px solid transparent;
-  border-bottom-color: orange;
-}
+
 .timeline-article-bottom .content-date{
   top: 59%;
 }
-.timeline-article-bottom .content-box{
-  top: 0%;
-}
-.timeline-article-bottom .content-box:before{
-  content: " ";
-  position:absolute;
-  left:50%;
-  transform: translateX(-50%);
-  bottom:-20px;
-  border:10px solid transparent;
-  border-top-color:orange;
-}
+
 
 
 @media (max-width:460px){
