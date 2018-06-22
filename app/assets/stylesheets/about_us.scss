@@ -1,0 +1,151 @@
+.about_img_manage {
+  width: 100%;
+  height: 400px;
+  border-radius: 4px;
+  background-postion: center;
+  background-size: cover;
+}
+
+.about_img_team {
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+  background-size: cover;
+}
+
+.about_text_header{
+  color: orange;
+  font-size:25px;
+  letter-spacing: 3px;
+  padding-top:20px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+.about_text_header span {
+    background:#fff;
+    padding:0 10px;
+}
+
+.about_text_p {
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+  @media screen and (max-width: 425px){
+    font-size: 16px;
+  }
+}
+
+.advisory-section {
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+  background-size:cover;
+  float: right;
+  clear: both;
+}
+.advisory_descrp {
+  margin-bottom:3em;
+  letter-spacing: 1px;
+}
+.comp_img_descrp{
+  margin-bottom: 3rem !important;
+  letter-spacing:1px;
+}
+.comp_text{
+  text-align: center !important;
+  font-family: 'Muli', sans-serif;
+  color:orange;
+  padding: 5px 0px;
+  letter-spacing: 3px;
+}
+.comp_text_ad{
+  font-family: 'Muli', sans-serif;
+  color:orange;
+  letter-spacing: 3px;
+}
+.stars-section {
+  text-align: center;
+}
+.font_p_12 {
+  letter-spacing: 2px;
+  font-size: 15px;
+  color: black;
+}
+
+.our_story {
+  padding-bottom: 20px;
+}
+
+.main-timeline-section{
+  position: relative;
+  width: 100%;
+  margin:auto;
+  height:300px;
+}
+.main-timeline-section .timeline-start,
+.main-timeline-section .timeline-end{
+  position: absolute;
+  background:orange;
+  border-radius:100px;
+  top:50%;
+  transform: translateY(-50%);
+  width:30px;
+  height:30px;
+}
+.main-timeline-section .timeline-end{
+  right:0px;
+}
+.main-timeline-section .conference-center-line{
+  position: absolute;
+  width:100%;
+  height:5px;
+  top:50%;
+  transform: translateY(-50%);
+  background:orange;
+}
+.timeline-article{
+    width: 15%;
+    position: relative;
+    min-height: 300px;
+    float:right;
+}
+.timeline-article .content-date{
+    position: absolute;
+    top: 27%;
+    left: -60px;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+    text-align: left;
+    @media screen and (max-width: 425px){
+    font-size: 10px;
+    }
+}
+.timeline-article .meta-date{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width:20px;
+    height:20px;
+    border-radius: 100%;
+    background:#fff;
+    border:1px solid orange;
+}
+
+.time_line{
+  display: show;
+  @media screen and (max-width: 425px){
+    display: none;
+    }
+}
+.timeline-article-bottom .content-date{
+  top: 60%;
+}
+.timeline-article-top.content-date{
+  bottom: 0px;
+   
+}
