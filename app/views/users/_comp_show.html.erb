@@ -69,6 +69,10 @@
           </div>
         <% end %>
 
+        <div id='sen_account_balance_container' class='container'>
+          <%= render "charges/show", locals: {user: @user, balance: @balance} %>
+        </div>
+
         <div id='sen_services_tasks_container' class='container'>
           <%= render "tasks/index", locals: {user: @user} %>
         </div>
