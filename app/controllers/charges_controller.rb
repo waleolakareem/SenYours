@@ -75,18 +75,15 @@ class ChargesController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def stripe_charge
     @user = User.find(params[:id])
     Stripe.api_key = "#{ENV['SECRET_KEY']}"
 
     charge = Stripe::Charge.create({
-      :amount => 1000,
+      :amount => 1000, # GET RATE FROM COMP HOURLY RATE
       :currency => "usd",
       :source => "tok_visa",
-    }, :stripe_account => "acct_1CdNBdIM1No79syh")
+    }, :stripe_account => @user.stripe_user_id)
     redirect_to user_path(@user)
   end
 
