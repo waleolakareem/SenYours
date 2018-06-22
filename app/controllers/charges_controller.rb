@@ -75,11 +75,11 @@ class ChargesController < ApplicationController
     end
   end
 
-# SET UP WEBHOOK SO I CAN SEE INFORMATION ON WHATS HAPPENING!
+  def show
+  end
 
   def stripe_charge
     @user = User.find(params[:id])
-    # Set your secret key: remember to change this to your live secret key in production
     Stripe.api_key = "#{ENV['SECRET_KEY']}"
 
     charge = Stripe::Charge.create({
