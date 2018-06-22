@@ -1,0 +1,154 @@
+.about_img_manage {
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+  background-size: cover;
+}
+.container {
+  padding-bottom: 40px;
+}
+.col-md-6 {
+  padding-top: 30px;
+}
+
+.about_img_team {
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+  background-size: cover;
+}
+
+.about_text_header{
+  color: orange;
+  font-size:25px;
+  letter-spacing: 3px;
+  padding-top:20px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+.about_text_header span {
+    background:#fff;
+    padding:0 10px;
+}
+
+.about_text_p {
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.advisory-section {
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-postion: center;
+  background-size:cover;
+  float: right;
+}
+.advisory_descrp {
+  padding-top: 60px;
+
+}
+.stars-section {
+  text-align: center;
+}
+.font_p_12 {
+  letter-spacing: 2px;
+  font-size: 15px;
+  color: black;
+}
+
+.our_story {
+  padding-bottom: 20px;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 4.7rem ;
+  padding-bottom: 2em;
+  margin: 0;
+  border-radius: 0;
+  background-color: orange;
+  text-align: center;
+  height: 350px;
+}
+.jumbotron h1 {
+  margin-top: 0;
+  padding-top: 0.8em;
+  color: white;
+  letter-spacing: 9px;
+  font-size: 7vw;
+}
+.checked {
+    color: orange;
+}
+
+.jumbotron p {
+  font-family: 'Muli', sans-serif;
+  color: white;
+  font-size: 1.5vw;
+  text-shadow: none;
+}
+.main-timeline-section{
+  position: relative;
+  width: 100%;
+  margin:auto;
+  height:300px;
+}
+.main-timeline-section .timeline-start,
+.main-timeline-section .timeline-end{
+  position: absolute;
+  background:orange;
+  border-radius:100px;
+  top:50%;
+  transform: translateY(-50%);
+  width:30px;
+  height:30px;
+}
+.main-timeline-section .timeline-end{
+  right:0px;
+}
+.main-timeline-section .conference-center-line{
+  position: absolute;
+  width:100%;
+  height:5px;
+  top:50%;
+  transform: translateY(-50%);
+  background:orange;
+}
+.timeline-article{
+    width: 15%;
+    position: relative;
+    min-height: 300px;
+    float:right;
+}
+.timeline-article .content-date{
+    position: absolute;
+    top: 27%;
+    left: -60px;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+    text-align: left;
+}
+.timeline-article .meta-date{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width:20px;
+    height:20px;
+    border-radius: 100%;
+    background:#fff;
+    border:1px solid orange;
+}
+
+.timeline-article-bottom .content-date{
+  top: 60%;
+}
+.timeline-article-top.content-date{
+  bottom: 0px;
+}
