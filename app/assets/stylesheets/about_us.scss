@@ -5,6 +5,9 @@
   background-postion: center;
   background-size: cover;
 }
+.container {
+  padding-bottom: 40px;
+}
 
 .about_img_team {
   border-radius: 50%;
@@ -75,7 +78,7 @@
   padding-top: 0.8em;
   color: white;
   letter-spacing: 9px;
-  font-size: 6.4rem;
+  font-size: 7vw;
 }
 .checked {
     color: orange;
@@ -84,7 +87,7 @@
 .jumbotron p {
   font-family: 'Muli', sans-serif;
   color: white;
-  font-size: 1.3em;
+  font-size: 1.5vw;
   text-shadow: none;
 }
 .main-timeline-section{
@@ -145,12 +148,4 @@
 }
 .timeline-article-top.content-date{
   bottom: 0px;
-}
-
-
-
-@media (max-width:460px){
-  body{
-    display: none;
-  }
 }
