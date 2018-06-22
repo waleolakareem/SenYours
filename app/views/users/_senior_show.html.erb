@@ -44,7 +44,6 @@
         <%= render "charges/show", locals: {user: @user, balance: @balance} %>
       </div>
 
-
       <%= link_to "Stripe Charge", stripe_charge_path(id: @user.id), class: 'nav-link', target: :_blank  %>
 
       <div id='sen_services_tasks_container' class='container'>
