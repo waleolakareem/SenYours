@@ -63,7 +63,7 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
-  get '/about_us' => 'welcome#team'
+  get '/about' => 'welcome#team'
 
   root 'welcome#index'
 

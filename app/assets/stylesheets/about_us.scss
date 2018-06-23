@@ -24,6 +24,7 @@
   text-align: center;
   margin: 10px 0 20px;
 }
+
 .about_text_header span {
     background:#fff;
     padding:0 10px;
@@ -48,14 +49,17 @@
   float: right;
   clear: both;
 }
+
 .advisory_descrp {
   margin-bottom:3em;
   letter-spacing: 1px;
 }
+
 .comp_img_descrp{
   margin-bottom: 3rem !important;
   letter-spacing:1px;
 }
+
 .comp_text{
   text-align: center !important;
   font-family: 'Muli', sans-serif;
@@ -63,14 +67,17 @@
   padding: 5px 0px;
   letter-spacing: 1px;
 }
+
 .comp_text_ad{
   font-family: 'Muli', sans-serif;
   color:orange;
   letter-spacing: 3px;
 }
+
 .stars-section {
   text-align: center;
 }
+
 .font_p_12 {
   letter-spacing: 2px;
   font-size: 15px;
@@ -97,9 +104,11 @@
   width:30px;
   height:30px;
 }
+
 .main-timeline-section .timeline-end{
   right:0px;
 }
+
 .main-timeline-section .conference-center-line{
   position: absolute;
   width:100%;
@@ -108,12 +117,14 @@
   transform: translateY(-50%);
   background:orange;
 }
+
 .timeline-article{
     width: 15%;
     position: relative;
     min-height: 300px;
     float:right;
 }
+
 .timeline-article .content-date{
     position: absolute;
     top: 27%;
@@ -125,6 +136,7 @@
     font-size: 10px;
     }
 }
+
 .timeline-article .meta-date{
     position: absolute;
     top: 50%;
@@ -143,10 +155,11 @@
     display: none;
     }
 }
+
 .timeline-article-bottom .content-date{
   top: 60%;
 }
+
 .timeline-article-top.content-date{
-  bottom: 0px;
-   
+  bottom: 0px; 
 }
