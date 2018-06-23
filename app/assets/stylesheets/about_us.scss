@@ -32,8 +32,9 @@
 .about_text_p {
   font-family: 'Muli', sans-serif;
   font-size: 20px;
+  justify-content: space-even;
+  letter-spacing: 3px;
   text-align: center;
-  letter-spacing: 2px;
   @media screen and (max-width: 425px){
     font-size: 16px;
   }
