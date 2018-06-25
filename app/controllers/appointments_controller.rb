@@ -51,16 +51,37 @@ class AppointmentsController < ApplicationController
         format.js { render 'accept_req'}
       end
     elsif @appointment.update_attributes(appointment_params)
+      # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
       time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
       @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
       @accept_appoint = ".asspt1"
-      @amount = (@appointment.companion.fee * time) * 100
-      charge = Stripe::Charge.create(
-        :customer    => @appointment.senior.stripe_customer_id,
-        :amount      => @amount,
-        :description => 'Rails Stripe customer',
-        :currency    => 'usd'
-        )
+
+      # Original now unused code:
+        # @amount = (@appointment.companion.fee * time) * 100
+
+    # Prepared Variables containing total costs for Senior and Companion as well as SenYours & Stripe Fees:
+      # total_fees = (Companion's Hourly Fee * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
+      total_fees = ((@appointment.companion.fee * time) * 0.2025).round(3)
+      total_senior_cost = (@appointment.companion.fee * time)
+      total_companion_payout = total_senior_cost - total_fees
+
+
+      puts "total_fees: #{total_fees}"
+      puts "total_senior_cost: #{total_senior_cost}"
+      puts "total_companion_payout: #{total_companion_payout}"
+      puts "time variable in APPOINTMENTS#UPDATE: #{time}"
+
+      charge = Stripe::Charge.create({
+        :amount => @amount,
+        :currency => "usd",
+        :source => "tok_visa",
+        :destination => {
+          :amount => 877,
+          :account => @appointment.senior.stripe_customer_id,
+        }
+      })
+
+      # HOLD FUNDS FOR 24 HOURS BEFORE PAYING TO COMP.
       @appointment.payment_status = "Paid"
       @appointment.save
       @appointment = @user.companions.where({accept: false})
@@ -93,4 +114,3 @@ class AppointmentsController < ApplicationController
     params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
   end
 end
-
