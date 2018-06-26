@@ -56,12 +56,8 @@ class AppointmentsController < ApplicationController
       @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
       @accept_appoint = ".asspt1"
 
-      # Original now unused code:
-        # @amount = (@appointment.companion.fee * time) * 100
-
-    # Prepared Variables containing total costs for Senior and Companion as well as SenYours & Stripe Fees:
       # total_fees = (Companion's Hourly Fee * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
-      total_fees = ((@appointment.companion.fee * time) * 0.2025).round(3)
+      total_fees = ((@appointment.companion.fee * time) * 0.2025).round(2)
       total_senior_cost = (@appointment.companion.fee * time)
       total_companion_payout = total_senior_cost - total_fees
 
@@ -71,15 +67,19 @@ class AppointmentsController < ApplicationController
       puts "total_companion_payout: #{total_companion_payout}"
       puts "time variable in APPOINTMENTS#UPDATE: #{time}"
 
+      puts "~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~"
+      # Stripe.api_version
+      # Stripe::Balance
+      #
       charge = Stripe::Charge.create({
-        :amount => @amount,
+        :amount => total_senior_cost,
         :currency => "usd",
         :source => "tok_visa",
         :destination => {
-          :amount => 877,
-          :account => @appointment.senior.stripe_customer_id,
+          :account => @appointment.companion.stripe_user_id
         }
       })
+      puts "Charge: #{charge}"
 
       # HOLD FUNDS FOR 24 HOURS BEFORE PAYING TO COMP.
       @appointment.payment_status = "Paid"
