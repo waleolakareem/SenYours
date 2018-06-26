@@ -57,21 +57,16 @@ class AppointmentsController < ApplicationController
       @accept_appoint = ".asspt1"
 
       # For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
-      # total_fees = (Companion's Hourly Fee * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
+      # total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
       total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
       total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
-
-
       puts "total_fees: #{total_fees}"
       puts "total_senior_cost: #{total_senior_cost}"
       puts "total_companion_payout: #{total_companion_payout}"
       puts "time variable in APPOINTMENTS#UPDATE: #{time}"
-
       puts "~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~"
-      # Stripe.api_version
-      # Stripe::Balance
-      #
+
       charge = Stripe::Charge.create({
         :amount => total_senior_cost,
         :currency => "usd",
