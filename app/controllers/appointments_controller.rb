@@ -56,9 +56,10 @@ class AppointmentsController < ApplicationController
       @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
       @accept_appoint = ".asspt1"
 
+      # For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
       # total_fees = (Companion's Hourly Fee * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
-      total_fees = ((@appointment.companion.fee * time) * 0.2025).round(2)
-      total_senior_cost = (@appointment.companion.fee * time)
+      total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
+      total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
 
 
@@ -76,7 +77,7 @@ class AppointmentsController < ApplicationController
         :currency => "usd",
         :source => "tok_visa",
         :destination => {
-          :amount => 10,
+          :amount => total_companion_payout,
           :account => @appointment.companion.stripe_user_id,
         }
       })
