@@ -76,7 +76,7 @@ class AppointmentsController < ApplicationController
         :currency => "usd",
         :source => "tok_visa",
         :destination => {
-          :amount => 1050,
+          :amount => 10,
           :account => @appointment.companion.stripe_user_id,
         }
       })
