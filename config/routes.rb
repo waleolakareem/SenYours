@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  resources :transactions do
+    # Additional routes to be added
+  end
+
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'
     get 'remove_selected' => 'tasks#remove_selected'
@@ -8,7 +13,6 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount ActionCable.server => '/cable'
   get '/verify' => 'charges#verify'
-  get '/stripe_charge' => 'charges#stripe_charge'
   resources :blog
   get '/password_input' => 'blog#password_input'
   post '/password_authenticate' => 'blog#password_authenticate'
