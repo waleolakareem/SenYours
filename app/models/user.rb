@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :join_users_tasks, dependent: :destroy
   has_many :tasks, through: :join_users_tasks, dependent: :destroy
+  has_many :transaction_senior, :class_name => 'Transaction', :foreign_key => 'transaction_senior_id'
+  has_many :transaction_companion, :class_name => 'Transaction', :foreign_key => 'transaction_companion_id'
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
