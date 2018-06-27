@@ -7,5 +7,2215 @@
  * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://jquery.org/license
  */
-!function(e){function t(t,n,i,o){var a={data:o||0===o||!1===o?o:n?n.data:{},_wrap:n?n._wrap:null,tmpl:null,parent:n||null,nodes:[],calls:u,nest:p,wrap:d,html:c,update:h};return t&&e.extend(a,t,{nodes:[],parent:n}),i&&(a.tmpl=i,a._ctnt=a._ctnt||a.tmpl(e,a),a.key=++b,(x.length?g:v)[b]=a),a}function n(t,o,a){var s,r=a?e.map(a,function(e){return"string"==typeof e?t.key?e.replace(/(<\w+)(?=[\s>])(?![^>]*_tmplitem)([^>]*)/g,"$1 "+_+'="'+t.key+'" $2'):e:n(e,t,e._ctnt)}):t;return o?r:((r=r.join("")).replace(/^\s*([^<\s][^<]*)?(<[\w\W]+>)([^>]*[^>\s])?\s*$/,function(t,n,o,a){l(s=e(o).get()),n&&(s=i(n).concat(s)),a&&(s=s.concat(i(a)))}),s||i(r))}function i(t){var n=document.createElement("div");return n.innerHTML=t,e.makeArray(n.childNodes)}function o(t){return new Function("jQuery","$item","var $=jQuery,call,__=[],$data=$item.data;with($data){__.push('"+e.trim(t).replace(/([\\'])/g,"\\$1").replace(/[\r\t\n]/g," ").replace(/\$\{([^\}]*)\}/g,"{{= $1}}").replace(/\{\{(\/?)(\w+|.)(?:\(((?:[^\}]|\}(?!\}))*?)?\))?(?:\s+(.*?)?)?(\(((?:[^\}]|\}(?!\}))*?)\))?\s*\}\}/g,function(t,n,i,o,a,r,l){var u,p,d,c=e.tmpl.tag[i];if(!c)throw"Unknown template tag: "+i;return u=c._default||[],r&&!/\w$/.test(a)&&(a+=r,r=""),a?(a=s(a),l=l?","+s(l)+")":r?")":"",p=r?a.indexOf(".")>-1?a+s(r):"("+a+").call($item"+l:a,d=r?p:"(typeof("+a+")==='function'?("+a+").call($item):("+a+"))"):d=p=u.$1||"null",o=s(o),"');"+c[n?"close":"open"].split("$notnull_1").join(a?"typeof("+a+")!=='undefined' && ("+a+")!=null":"true").split("$1a").join(d).split("$1").join(p).split("$2").join(o||u.$2||"")+"__.push('"})+"');}return __;")}function a(t,i){t._wrap=n(t,!0,e.isArray(i)?i:[q.test(i)?i:e(i).html()]).join("")}function s(e){return e?e.replace(/\\'/g,"'").replace(/\\\\/g,"\\"):null}function r(e){var t=document.createElement("div");return t.appendChild(e.cloneNode(!0)),t.innerHTML}function l(n){function i(n){function i(e){s=p[e+=u]=p[e]||t(s,v[s.parent.key+u]||s.parent)}var o,a,s,r,l=n;if(r=n.getAttribute(_)){for(;l.parentNode&&1===(l=l.parentNode).nodeType&&!(o=l.getAttribute(_)););o!==r&&(l=l.parentNode?11===l.nodeType?0:l.getAttribute(_)||0:0,(s=v[r])||((s=t(s=g[r],v[l]||g[l])).key=++b,v[b]=s),C&&i(r)),n.removeAttribute(_)}else C&&(s=e.data(n,"tmplItem"))&&(i(s.key),v[s.key]=s,l=(l=e.data(n.parentNode,"tmplItem"))?l.key:0);if(s){for(a=s;a&&a.key!=l;)a.nodes.push(n),a=a.parent;delete s._ctnt,delete s._wrap,e.data(n,"tmplItem",s)}}var o,a,s,r,l,u="_"+C,p={};for(s=0,r=n.length;s<r;s++)if(1===(o=n[s]).nodeType){for(l=(a=o.getElementsByTagName("*")).length-1;l>=0;l--)i(a[l]);i(o)}}function u(e,t,n,i){if(!e)return x.pop();x.push({_:e,tmpl:t,item:this,data:n,options:i})}function p(t,n,i){return e.tmpl(e.template(t),n,i,this)}function d(t,n){var i=t.options||{};return i.wrapped=n,e.tmpl(e.template(t.tmpl),t.data,i,t.item)}function c(t,n){var i=this._wrap;return e.map(e(e.isArray(i)?i.join(""):i).filter(t||"*"),function(e){return n?e.innerText||e.textContent:e.outerHTML||r(e)})}function h(){var t=this.nodes;e.tmpl(null,null,null,this).insertBefore(t[0]),e(t).remove()}var f,m=e.fn.domManip,_="_tmplitem",q=/^[^<]*(<[\w\W]+>)[^>]*$|\{\{\! /,v={},g={},y={key:0,data:{}},b=0,C=0,x=[];e.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(t,n){e.fn[t]=function(i){var o,a,s,r,l=[],u=e(i),p=1===this.length&&this[0].parentNode;if(f=v||{},p&&11===p.nodeType&&1===p.childNodes.length&&1===u.length)u[n](this[0]),l=this;else{for(a=0,s=u.length;a<s;a++)C=a,o=(a>0?this.clone(!0):this).get(),e(u[a])[n](o),l=l.concat(o);C=0,l=this.pushStack(l,t,u.selector)}return r=f,f=null,e.tmpl.complete(r),l}}),e.fn.extend({tmpl:function(t,n,i){return e.tmpl(this[0],t,n,i)},tmplItem:function(){return e.tmplItem(this[0])},template:function(t){return e.template(t,this[0])},domManip:function(t,n,i){if(t[0]&&e.isArray(t[0])){for(var o,a=e.makeArray(arguments),s=t[0],r=s.length,l=0;l<r&&!(o=e.data(s[l++],"tmplItem")););o&&C&&(a[2]=function(t){e.tmpl.afterManip(this,t,i)}),m.apply(this,a)}else m.apply(this,arguments);return C=0,!f&&e.tmpl.complete(v),this}}),e.extend({tmpl:function(i,o,s,r){var l,u=!r;if(u)r=y,i=e.template[i]||e.template(null,i),g={};else if(!i)return i=r.tmpl,v[r.key]=r,r.nodes=[],r.wrapped&&a(r,r.wrapped),e(n(r,null,r.tmpl(e,r)));return i?("function"==typeof o&&(o=o.call(r||{})),s&&s.wrapped&&a(s,s.wrapped),l=e.isArray(o)?e.map(o,function(e){return e?t(s,r,i,e):null}):[t(s,r,i,o)],u?e(n(r,null,l)):l):[]},tmplItem:function(t){var n;for(t instanceof e&&(t=t[0]);t&&1===t.nodeType&&!(n=e.data(t,"tmplItem"))&&(t=t.parentNode););return n||y},template:function(t,n){return n?("string"==typeof n?n=o(n):n instanceof e&&(n=n[0]||{}),n.nodeType&&(n=e.data(n,"tmpl")||e.data(n,"tmpl",o(n.innerHTML))),"string"==typeof t?e.template[t]=n:n):t?"string"!=typeof t?e.template(null,t):e.template[t]||e.template(null,q.test(t)?t:e(t)):null},encode:function(e){return(""+e).split("<").join("&lt;").split(">").join("&gt;").split('"').join("&#34;").split("'").join("&#39;")}}),e.extend(e.tmpl,{tag:{tmpl:{_default:{$2:"null"},open:"if($notnull_1){__=__.concat($item.nest($1,$2));}"},wrap:{_default:{$2:"null"},open:"$item.calls(__,$1,$2);__=[];",close:"call=$item.calls();__=call._.concat($item.wrap(call,__));"},each:{_default:{$2:"$index, $value"},open:"if($notnull_1){$.each($1a,function($2){with(this){",close:"}});}"},"if":{open:"if(($notnull_1) && $1a){",close:"}"},"else":{_default:{$1:"true"},open:"}else if(($notnull_1) && $1a){"},html:{open:"if($notnull_1){__.push($1a);}"},"=":{_default:{$1:"$data"},open:"if($notnull_1){__.push($.encode($1a));}"},"!":{open:""}},complete:function(){v={}},afterManip:function(t,n,i){var o=11===n.nodeType?e.makeArray(n.childNodes):1===n.nodeType?[n]:[];i.call(t,n),l(o),C++}})}(jQuery);var qq=qq||{};qq.extend=function(e,t){for(var n in t)e[n]=t[n]},qq.indexOf=function(e,t,n){if(e.indexOf)return e.indexOf(t,n);n=n||0;var i=e.length;for(n<0&&(n+=i);n<i;n++)if(n in e&&e[n]===t)return n;return-1},qq.getUniqueId=function(){var e=0;return function(){return e++}}(),qq.attach=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)},qq.detach=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.attachEvent&&e.detachEvent("on"+t,n)},qq.preventDefault=function(e){e.preventDefault?e.preventDefault():e.returnValue=!1},qq.insertBefore=function(e,t){t.parentNode.insertBefore(e,t)},qq.remove=function(e){e.parentNode.removeChild(e)},qq.contains=function(e,t){return e==t||(e.contains?e.contains(t):!!(8&t.compareDocumentPosition(e)))},qq.toElement=function(){var e=document.createElement("div");return function(t){e.innerHTML=t;var n=e.firstChild;return e.removeChild(n),n}}(),qq.css=function(e,t){null!=t.opacity&&"string"!=typeof e.style.opacity&&"undefined"!=typeof e.filters&&(t.filter="alpha(opacity="+Math.round(100*t.opacity)+")"),qq.extend(e.style,t)},qq.hasClass=function(e,t){return new RegExp("(^| )"+t+"( |$)").test(e.className)},qq.addClass=function(e,t){qq.hasClass(e,t)||(e.className+=" "+t)},qq.removeClass=function(e,t){var n=new RegExp("(^| )"+t+"( |$)");e.className=e.className.replace(n," ").replace(/^\s+|\s+$/g,"")},qq.setText=function(e,t){e.innerText=t,e.textContent=t},qq.children=function(e){for(var t=[],n=e.firstChild;n;)1==n.nodeType&&t.push(n),n=n.nextSibling;return t},qq.getByClass=function(e,t){if(e.querySelectorAll)return e.querySelectorAll("."+t);for(var n=[],i=e.getElementsByTagName("*"),o=i.length,a=0;a<o;a++)qq.hasClass(i[a],t)&&n.push(i[a]);return n},qq.obj2url=function(e,t,n){var i=[],o="&",a=function(e,n){var o=t?/\[\]$/.test(t)?t:t+"["+n+"]":n;"undefined"!=o&&"undefined"!=n&&i.push("object"==typeof e?qq.obj2url(e,o,!0):"[object Function]"===Object.prototype.toString.call(e)?encodeURIComponent(o)+"="+encodeURIComponent(e()):encodeURIComponent(o)+"="+encodeURIComponent(e))};if(!n&&t)o=/\?/.test(t)?/\?$/.test(t)?"":"&":"?",i.push(t),i.push(qq.obj2url(e));else if("[object Array]"===Object.prototype.toString.call(e)&&void 0!==e)for(var s=0,r=e.length;s<r;++s)a(e[s],s);else if(void 0!==e&&null!==e&&"object"==typeof e)for(var s in e)a(e[s],s);else i.push(encodeURIComponent(t)+"="+encodeURIComponent(e));return i.join(o).replace(/^&/,"").replace(/%20/g,"+")};var qq=qq||{};qq.FileUploaderBasic=function(e){this._options={debug:!1,action:"/server/upload",params:{},button:null,multiple:!0,maxConnections:3,method:"POST",fieldName:"qqfile",allowedExtensions:[],sizeLimit:0,minSizeLimit:0,maxFilesCount:0,minFilesCount:0,onSubmit:function(){},onProgress:function(){},onComplete:function(){},onCancel:function(){},messages:{typeError:"{file} has invalid extension. Only {extensions} are allowed.",sizeError:"{file} is too large, maximum file size is {sizeLimit}.",minSizeError:"{file} is too small, minimum file size is {minSizeLimit}.",emptyError:"{file} is empty, please select files again without it.",onLeave:"The files are being uploaded, if you leave now the upload will be cancelled.",maxFilesError:"You must select less then {maxFilesCount} files.",minFilesError:"You must select more then {minFilesCount} files."},showMessage:function(e){alert(e)}},qq.extend(this._options,e),this._filesInProgress=0,this._filesUploaded=0,this._handler=this._createUploadHandler(),this._options.button&&(this._button=this._createUploadButton(this._options.button)),this._preventLeaveInProgress()},qq.FileUploaderBasic.prototype={setParams:function(e){this._options.params=e},getInProgress:function(){return this._filesInProgress},_createUploadButton:function(e){var t=this;return new qq.UploadButton({element:e,multiple:this._options.multiple&&qq.UploadHandlerXhr.isSupported(),onChange:function(e){t._onInputChange(e)}})},_createUploadHandler:function(){var e,t=this;e=qq.UploadHandlerXhr.isSupported()?"UploadHandlerXhr":"UploadHandlerForm";return new qq[e]({debug:this._options.debug,action:this._options.action,maxConnections:this._options.maxConnections,fieldName:this._options.fieldName,method:this._options.method,onProgress:function(e,n,i,o){t._onProgress(e,n,i,o),t._options.onProgress(e,n,i,o)},onComplete:function(e,n,i){t._onComplete(e,n,i),t._options.onComplete(e,n,i)},onCancel:function(e,n){t._onCancel(e,n),t._options.onCancel(e,n)}})},_preventLeaveInProgress:function(){var e=this;qq.attach(window,"beforeunload",function(t){if(e._filesInProgress){return(t=t||window.event).returnValue=e._options.messages.onLeave,e._options.messages.onLeave}})},_onSubmit:function(){this._filesInProgress++},_onProgress:function(){},_onComplete:function(e,t,n){this._filesInProgress--,n.error?this._options.showMessage(n.error):this._filesUploaded++},_onCancel:function(){this._filesInProgress--},_onInputChange:function(e){this._handler instanceof qq.UploadHandlerXhr?this._uploadFileList(e.files):this._validateFile(e)&&this._uploadFile(e),this._button.reset()},_uploadFileList:function(e){if(this._validateFiles(e))for(var t=0;t<e.length;t++)this._uploadFile(e[t])},_uploadFile:function(e){var t=this._handler.add(e),n=this._handler.getName(t);!1!==this._options.onSubmit(t,n)&&(this._onSubmit(t,n),this._handler.upload(t,this._options.params))},_validateFiles:function(e){var t=this._filesUploaded+e.length;if(this._options.maxFilesCount>0&&t>this._options.maxFilesCount)return this._error("maxFilesError","name"),!1;if(this._options.minFilesCount>0&&t<this._options.minFilesCount)return this._error("minFilesError","name"),!1;for(var n=0;n<e.length;n++)if(!this._validateFile(e[n]))return!1;return!0},_validateFile:function(e){var t,n;return e.value?t=e.value.replace(/.*(\/|\\)/,""):(t=null!=e.fileName?e.fileName:e.name,n=null!=e.fileSize?e.fileSize:e.size),this._isAllowedExtension(t)?0===n?(this._error("emptyError",t),!1):n&&this._options.sizeLimit&&n>this._options.sizeLimit?(this._error("sizeError",t),!1):!(n&&n<this._options.minSizeLimit)||(this._error("minSizeError",t),!1):(this._error("typeError",t),!1)},_error:function(e,t){function n(e,t){i=i.replace(e,t)}var i=this._options.messages[e];n("{file}",this._formatFileName(t)),n("{extensions}",this._options.allowedExtensions.join(", ")),n("{sizeLimit}",this._formatSize(this._options.sizeLimit)),n("{minSizeLimit}",this._formatSize(this._options.minSizeLimit)),n("{maxFilesCount}",this._options.maxFilesCount),n("{minFilesCount}",this._options.minFilesCount),this._options.showMessage(i)},_formatFileName:function(e){return e.length>33&&(e=e.slice(0,19)+"..."+e.slice(-13)),e},_isAllowedExtension:function(e){var t=-1!==e.indexOf(".")?e.replace(/.*[.]/,"").toLowerCase():"",n=this._options.allowedExtensions;if(!n.length)return!0;for(var i=0;i<n.length;i++)if(n[i].toLowerCase()==t)return!0;return!1},_formatSize:function(e){var t=-1;do{e/=1024,t++}while(e>99);return Math.max(e,.1).toFixed(1)+["kB","MB","GB","TB","PB","EB"][t]}},qq.FileUploader=function(e){qq.FileUploaderBasic.apply(this,arguments),qq.extend(this._options,{element:null,listElement:null,template:'<div class="qq-uploader"><div class="qq-upload-drop-area"><span>Drop files here to upload</span></div><div class="qq-upload-button">Upload a file</div><ul class="qq-upload-list"></ul></div>',fileTemplate:'<li><span class="qq-upload-file"></span><span class="qq-upload-spinner"></span><span class="qq-upload-size"></span><a class="qq-upload-cancel" href="#">Cancel</a><span class="qq-upload-failed-text">Failed</span></li>',classes:{button:"qq-upload-button",drop:"qq-upload-drop-area",dropActive:"qq-upload-drop-area-active",list:"qq-upload-list",file:"qq-upload-file",spinner:"qq-upload-spinner",size:"qq-upload-size",cancel:"qq-upload-cancel",success:"qq-upload-success",fail:"qq-upload-fail"}}),qq.extend(this._options,e),this._element=this._options.element,this._element.innerHTML=this._options.template,this._listElement=this._options.listElement||this._find(this._element,"list"),this._classes=this._options.classes,this._button=this._createUploadButton(this._find(this._element,"button")),this._bindCancelEvent(),this._setupDragDrop()},qq.extend(qq.FileUploader.prototype,qq.FileUploaderBasic.prototype),qq.extend(qq.FileUploader.prototype,{_find:function(e,t){var n=qq.getByClass(e,this._options.classes[t])[0];if(!n)throw new Error("element not found "+t);return n},_setupDragDrop:function(){var e=this,t=this._find(this._element,"drop"),n=new qq.UploadDropZone({element:t,onEnter:function(n){qq.addClass(t,e._classes.dropActive),n.stopPropagation()},onLeave:function(e){e.stopPropagation()},onLeaveNotDescendants:function(){qq.removeClass(t,e._classes.dropActive)},onDrop:function(n){t.style.display="none",qq.removeClass(t,e._classes.dropActive),e._uploadFileList(n.dataTransfer.files)}});t.style.display="none",qq.attach(document,"dragenter",function(e){n._isValidFileDrag(e)&&(t.style.display="block")}),qq.attach(document,"dragleave",function(e){if(n._isValidFileDrag(e)){var i=document.elementFromPoint(e.clientX,e.clientY);i&&"HTML"!=i.nodeName||(t.style.display="none")}})},_onSubmit:function(e,t){qq.FileUploaderBasic.prototype._onSubmit.apply(this,arguments),this._addToList(e,t)},_onProgress:function(e,t,n,i){qq.FileUploaderBasic.prototype._onProgress.apply(this,arguments);var o=this._getItemByFileId(e),a=this._find(o,"size");a.style.display="inline";var s;s=n!=i?Math.round(n/i*100)+"% from "+this._formatSize(i):this._formatSize(i),qq.setText(a,s)},_onComplete:function(e,t,n){qq.FileUploaderBasic.prototype._onComplete.apply(this,arguments);var i=this._getItemByFileId(e);qq.remove(this._find(i,"cancel")),qq.remove(this._find(i,"spinner")),n.success?qq.addClass(i,this._classes.success):qq.addClass(i,this._classes.fail)},_addToList:function(e,t){var n=qq.toElement(this._options.fileTemplate);n.qqFileId=e;var i=this._find(n,"file");qq.setText(i,this._formatFileName(t)),this._find(n,"size").style.display="none",this._listElement.appendChild(n)},_getItemByFileId:function(e){for(var t=this._listElement.firstChild;t;){if(t.qqFileId==e)return t;t=t.nextSibling}},_bindCancelEvent:function(){var e=this,t=this._listElement;qq.attach(t,"click",function(t){var n=(t=t||window.event).target||t.srcElement;if(qq.hasClass(n,e._classes.cancel)){qq.preventDefault(t);var i=n.parentNode;e._handler.cancel(i.qqFileId),qq.remove(i)}})}}),qq.UploadDropZone=function(e){this._options={element:null,onEnter:function(){},onLeave:function(){},onLeaveNotDescendants:function(){},onDrop:function(){}},qq.extend(this._options,e),this._element=this._options.element,this._disableDropOutside(),this._attachEvents()},qq.UploadDropZone.prototype={_disableDropOutside:function(){qq.UploadDropZone.dropOutsideDisabled||(qq.attach(document,"dragover",function(e){e.dataTransfer&&(e.dataTransfer.dropEffect="none",e.preventDefault())}),qq.UploadDropZone.dropOutsideDisabled=!0)},_attachEvents:function(){var e=this;qq.attach(e._element,"dragover",function(t){if(e._isValidFileDrag(t)){var n=t.dataTransfer.effectAllowed;t.dataTransfer.dropEffect="move"==n||"linkMove"==n?"move":"copy",t.stopPropagation(),t.preventDefault()}}),qq.attach(e._element,"dragenter",function(t){e._isValidFileDrag(t)&&e._options.onEnter(t)}),qq.attach(e._element,"dragleave",function(t){if(e._isValidFileDrag(t)){e._options.onLeave(t);var n=document.elementFromPoint(t.clientX,t.clientY);qq.contains(this,n)||e._options.onLeaveNotDescendants(t)}}),qq.attach(e._element,"drop",function(t){e._isValidFileDrag(t)&&(t.preventDefault(),e._options.onDrop(t))})},_isValidFileDrag:function(e){var t=e.dataTransfer,n=navigator.userAgent.indexOf("AppleWebKit")>-1;return t&&"none"!=t.effectAllowed&&(t.files||!n&&t.types.contains&&t.types.contains("Files"))}},qq.UploadButton=function(e){this._options={element:null,multiple:!1,name:"file",onChange:function(){},hoverClass:"qq-upload-button-hover",focusClass:"qq-upload-button-focus"},qq.extend(this._options,e),this._element=this._options.element,qq.css(this._element,{position:"relative",overflow:"hidden",direction:"ltr"}),this._input=this._createInput()},qq.UploadButton.prototype={getInput:function(){return this._input},reset:function(){this._input.parentNode&&qq.remove(this._input),qq.removeClass(this._element,this._options.focusClass),this._input=this._createInput()},_createInput:function(){var e=document.createElement("input");this._options.multiple&&e.setAttribute("multiple","multiple"),e.setAttribute("type","file"),e.setAttribute("name",this._options.name),qq.css(e,{position:"absolute",right:0,top:0,fontFamily:"Arial",fontSize:"118px",margin:0,padding:0,cursor:"pointer",opacity:0}),this._element.appendChild(e);var t=this;return qq.attach(e,"change",function(){t._options.onChange(e)}),qq.attach(e,"mouseover",function(){qq.addClass(t._element,t._options.hoverClass)}),qq.attach(e,"mouseout",function(){qq.removeClass(t._element,t._options.hoverClass)}),qq.attach(e,"focus",function(){qq.addClass(t._element,t._options.focusClass)}),qq.attach(e,"blur",function(){qq.removeClass(t._element,t._options.focusClass)}),window.attachEvent&&e.setAttribute("tabIndex","-1"),e}},qq.UploadHandlerAbstract=function(e){this._options={debug:!1,action:"/upload.php",method:"POST",fieldName:"qqfile",maxConnections:999,onProgress:function(){},onComplete:function(){},onCancel:function(){}},qq.extend(this._options,e),this._queue=[],this._params=[]},qq.UploadHandlerAbstract.prototype={log:function(e){this._options.debug&&window.console&&console.log("[uploader] "+e)},add:function(){},upload:function(e,t){var n=this._queue.push(e),i={};qq.extend(i,t),this._params[e]=i,n<=this._options.maxConnections&&this._upload(e,this._params[e])},cancel:function(e){this._cancel(e),this._dequeue(e)},cancelAll:function(){for(var e=0;e<this._queue.length;e++)this._cancel(this._queue[e]);this._queue=[]},getName:function(){},getSize:function(){},getQueue:function(){return this._queue},_upload:function(){},_cancel:function(){},_dequeue:function(e){var t=qq.indexOf(this._queue,e);this._queue.splice(t,1);var n=this._options.maxConnections;if(this._queue.length>=n&&t<n){var i=this._queue[n-1];this._upload(i,this._params[i])}}},qq.UploadHandlerForm=function(){qq.UploadHandlerAbstract.apply(this,arguments),this._inputs={}},qq.extend(qq.UploadHandlerForm.prototype,qq.UploadHandlerAbstract.prototype),qq.extend(qq.UploadHandlerForm.prototype,{add:function(e){e.setAttribute("name",this._options.fieldName);var t="qq-upload-handler-iframe"+qq.getUniqueId();return this._inputs[t]=e,e.parentNode&&qq.remove(e),t},getName:function(e){return this._inputs[e].value.replace(/.*(\/|\\)/,"")},_cancel:function(e){this._options.onCancel(e,this.getName(e)),delete this._inputs[e];var t=document.getElementById(e);t&&(t.setAttribute("src","javascript:false;"),qq.remove(t))},_upload:function(e,t){var n=this._inputs[e];if(!n)throw new Error("file with passed id was not added, or already uploaded or cancelled");var i=this.getName(e),o=this._createIframe(e),a=this._createForm(o,t);a.appendChild(n);var s=this;return this._attachLoadEvent(o,function(){s.log("iframe loaded");var t=s._getIframeContentJSON(o);s._options.onComplete(e,i,t),s._dequeue(e),delete s._inputs[e],setTimeout(function(){qq.remove(o)},1)}),a.submit(),qq.remove(a),e},_attachLoadEvent:function(e,t){qq.attach(e,"load",function(){e.parentNode&&(e.contentDocument&&e.contentDocument.body&&"false"==e.contentDocument.body.innerHTML||t())})},_getIframeContentJSON:function(iframe){var doc=iframe.contentDocument?iframe.contentDocument:iframe.contentWindow.document,response;this.log("converting iframe's innerHTML to JSON"),this.log("innerHTML = "+doc.body.innerHTML);try{response=eval("("+doc.body.innerHTML+")")}catch(err){response={}}return response},_createIframe:function(e){var t=qq.toElement('<iframe src="javascript:false;" name="'+e+'" />');return t.setAttribute("id",e),t.style.display="none",document.body.appendChild(t),t},_createForm:function(e,t){var n=qq.toElement('<form enctype="multipart/form-data"></form>'),i=qq.obj2url(t,this._options.action);n.setAttribute("method",this._options.method),n.setAttribute("action",i),n.setAttribute("target",e.name),n.style.display="none";var o=$('meta[name="csrf-token"]').attr("content"),a=$('meta[name="csrf-param"]').attr("content"),s=qq.toElement('<input type="hidden" />');return s.setAttribute("name",a),s.setAttribute("value",o),n.appendChild(s),document.body.appendChild(n),n}}),qq.UploadHandlerXhr=function(){qq.UploadHandlerAbstract.apply(this,arguments),this._files=[],this._xhrs=[],this._loaded=[]},qq.UploadHandlerXhr.isSupported=function(){var e=document.createElement("input");return e.type="file","multiple"in e&&"undefined"!=typeof File&&"undefined"!=typeof(new XMLHttpRequest).upload},qq.extend(qq.UploadHandlerXhr.prototype,qq.UploadHandlerAbstract.prototype),qq.extend(qq.UploadHandlerXhr.prototype,{add:function(e){if(!(e instanceof File))throw new Error("Passed obj in not a File (in qq.UploadHandlerXhr)");return this._files.push(e)-1},getName:function(e){var t=this._files[e];return null!=t.fileName?t.fileName:t.name},getSize:function(e){var t=this._files[e];return null!=t.fileSize?t.fileSize:t.size},getLoaded:function(e){return this._loaded[e]||0},_upload:function(e,t){var n=this._files[e],i=this.getName(e),o=this.getSize(e);this._loaded[e]=0;var a=this._xhrs[e]=new XMLHttpRequest,s=this;a.upload.onprogress=function(t){t.lengthComputable&&(s._loaded[e]=t.loaded,s._options.onProgress(e,i,t.loaded,t.total))},a.onreadystatechange=function(){4==a.readyState&&s._onComplete(e,a)},(t=t||{})[this._options.fieldName]=i;var r=qq.obj2url(t,this._options.action);a.open(this._options.method,r,!0),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.setRequestHeader("X-File-Name",encodeURIComponent(i)),a.setRequestHeader("X-File-Size",o),a.setRequestHeader("X-File-Type",n.type),a.setRequestHeader("Content-Type","application/octet-stream"),$.rails&&$.rails.CSRFProtection(a),a.send(n)},_onComplete:function(id,xhr){if(this._files[id]){var name=this.getName(id),size=this.getSize(id);if(this._options.onProgress(id,name,size,size),[200,201].indexOf(xhr.status)>-1){this.log("xhr - server response received"),this.log("responseText = "+xhr.responseText);var response;try{response=eval("("+xhr.responseText+")")}catch(err){response={}}this._options.onComplete(id,name,response)}else this._options.onComplete(id,name,{});this._files[id]=null,this._xhrs[id]=null,this._dequeue(id)}},_cancel:function(e){this._options.onCancel(e,this.getName(e)),this._files[e]=null,this._xhrs[e]&&(this._xhrs[e].abort(),this._xhrs[e]=null)}}),function(e){"use strict";e.support.pushState=window.history&&window.history.pushState&&window.history.replaceState&&!navigator.userAgent.match(/((iPod|iPhone|iPad).+\bOS\s+[1-4]|WebApps\/.+CFNetwork)/);var t={init:function(t,n){n.options=e.extend({scrollContainer:window,scrollPadding:100,scrollEventDelay:300},t),this.options=n.options,this.container=n.container,n.scrollModule=this,this._toplock=!0,this._bottomlock=!0,this.scrollContainer=e(this.options.scrollContainer),this.updateEntities(),this.sortMarkers(),this.currentPage=null,this.container.on("jes:afterPageLoad",e.proxy(function(e,t,n){if(this.updateEntities(),this.sortMarkers(),this.checkMarker(),"top"==n){var i=this.markers[1].top,o=this.scrollContainer.scrollTop();this.scrollContainer.scrollTop(o+i)}},this)),this.bind()},updateEntities:function(){this.entities=e(this.options.entity,this.container)},sortMarkers:function(){var t=[];e(".jes-marker",this.container).each(function(){t.push({top:e(this).position().top,url:e(this).data("jesUrl")})}),this.markers=t},checkMarker:function(){for(var t=this.markers[0],n=this.scrollContainer.scrollTop(),i=1;i<this.markers.length&&n>this.markers[i].top;i++)t=this.markers[i];t.url!=this.currentPage&&(this.currentPage=t.url,e(this.container).trigger("jes:scrollToPage",t.url))},bind:function(){this.scrollContainer.on("scroll.jes",e.proxy(function(t){this._tId||(this.scrollHandler(t),this._tId=setTimeout(e.proxy(function(){this._tId=null},this),this.options.scrollEventDelay))},this))},unbind:function(){e(this.options.scrollContainer).off("scroll.jes")},scrollHandler:function(){var t=this.scrollContainer,n=this.entities,i=n.first(),o=n.last(),a=t.scrollTop(),s=a+t.height(),r=i.position().top+this.options.scrollPadding,l=o.outerHeight()+o.position().top-this.options.scrollPadding;a<r?this._toplock||(e(this.container).trigger("jes:topThreshold"),this._toplock=!0):this._toplock=!1,s>l?this._bottomlock||(e(this.container).trigger("jes:bottomThreshold"),this._bottomlock=!0):this._bottomlock=!1,this.checkMarker()}},n={init:function(t,n){n.options=e.extend({},t),this.options=n.options,this.container=n.container,this.setMarker(e(this.options.entity,this.container).first(),location.href),n.ajaxModule=this},loadPage:function(t,n,i){var o={top:{find:"first",inject:"insertBefore"},bottom:{find:"last",inject:"insertAfter"}}[n];this.container.trigger("jes:beforePageLoad",[t,n]),e.get(t,null,e.proxy(function(a){var s=e("<div>").html(a),r=this.options.container,l=e(r,s).first();if(l.length){var u=l.find(this.options.entity);"bottom"==n&&u.each(function(){var t=e(this).attr("id");t&&e("#"+t,this.container).remove()});var p=e(this.options.entity,r)[o.find]();u[o.inject](p),this.setMarker(u.first(),t)}e.isFunction(i)&&i(s),this.container.trigger("jes:afterPageLoad",[t,n,s,u])},this),"html")},setMarker:function(e,t){e.addClass("jes-marker").data("jesUrl",t)}},i={init:function(t,n){n.options=e.extend({nextPage:".pagination a[rel=next]",previousPage:".pagination a[rel=previous]"},t),this.options=n.options,this.container=n.container,e.each([{selector:this.options.nextPage,event:"jes:bottomThreshold.navigation",placement:"bottom"},{selector:this.options.previousPage,event:"jes:topThreshold.navigation",placement:"top"}],e.proxy(function(t,i){if(i.element=e(i.selector),i.element.length){var o=i.element.prop("href"),a=!1,s=function(){!a&&o&&(a=!0,n.ajaxModule.loadPage(o,i.placement,e.proxy(function(t){var n=e(i.selector,e(t));n.length?(a=!1,o=n.prop("href"),i.element.attr("href",o)):(e(this).off(i.event),i.element.remove())},this)))};e(this.container).on(i.event,s),e(i.element).on("click",e.proxy(function(e){e.preventDefault(),s.apply(this.container)},this))}},this))}},o={init:function(t,n){e.support.pushState&&n.container.on("jes:scrollToPage",function(e,t){history.replaceState({},null,t)})}};e.endlessScroll=function(a){if(this.options=e.extend(!0,{container:"#container",entity:".entity",_modules:[n,t,i,o],modules:[]},a),this.container=e(this.options.container),!this.container.length)throw"Container for endless scroll isn't available on the page";return e.merge(this.options.modules,this.options._modules),this.options.modules.forEach(e.proxy(function(e){e.init(this.options,this)},this)),this}}(jQuery),function(e,t){var n;e.rails=n={linkClickSelector:"a[data-confirm], a[data-method], a[data-remote], a[data-disable-with]",inputChangeSelector:"select[data-remote], input[data-remote], textarea[data-remote]",formSubmitSelector:"form",formInputClickSelector:"form input[type=submit], form input[type=image], form button[type=submit], form button:not(button[type])",disableSelector:"input[data-disable-with], button[data-disable-with], textarea[data-disable-with]",enableSelector:"input[data-disable-with]:disabled, button[data-disable-with]:disabled, textarea[data-disable-with]:disabled",requiredInputSelector:"input[name][required]:not([disabled]),textarea[name][required]:not([disabled])",fileInputSelector:"input:file",linkDisableSelector:"a[data-disable-with]",CSRFProtection:function(t){var n=e('meta[name="csrf-token"]').attr("content");n&&t.setRequestHeader("X-CSRF-Token",n)},fire:function(t,n,i){var o=e.Event(n);return t.trigger(o,i),!1!==o.result},confirm:function(e){return confirm(e)},ajax:function(t){return e.ajax(t)},handleRemote:function(i){var o,a,s,r,l=i.data("cross-domain")||null,u=i.data("type")||e.ajaxSettings&&e.ajaxSettings.dataType;if(n.fire(i,"ajax:before")){if(i.is("form")){o=i.attr("method"),a=i.attr("action"),s=i.serializeArray();var p=i.data("ujs:submit-button");p&&(s.push(p),i.data("ujs:submit-button",null))}else i.is(n.inputChangeSelector)?(o=i.data("method"),a=i.data("url"),s=i.serialize(),i.data("params")&&(s=s+"&"+i.data("params"))):(o=i.data("method"),a=i.attr("href"),s=i.data("params")||null);return r={type:o||"GET",data:s,dataType:u,crossDomain:l,beforeSend:function(e,o){return o.dataType===t&&e.setRequestHeader("accept","*/*;q=0.5, "+o.accepts.script),n.fire(i,"ajax:beforeSend",[e,o])},success:function(e,t,n){i.trigger("ajax:success",[e,t,n])},complete:function(e,t){i.trigger("ajax:complete",[e,t])},error:function(e,t,n){i.trigger("ajax:error",[e,t,n])}},a&&(r.url=a),n.ajax(r)}return!1},handleMethod:function(n){var i=n.attr("href"),o=n.data("method"),a=n.attr("target"),s=e("meta[name=csrf-token]").attr("content"),r=e("meta[name=csrf-param]").attr("content"),l=e('<form method="post" action="'+i+'"></form>'),u='<input name="_method" value="'+o+'" type="hidden" />';r!==t&&s!==t&&(u+='<input name="'+r+'" value="'+s+'" type="hidden" />'),a&&l.attr("target",a),l.hide().append(u).appendTo("body"),l.submit()},disableFormElements:function(t){t.find(n.disableSelector).each(function(){var t=e(this),n=t.is("button")?"html":"val";t.data("ujs:enable-with",t[n]()),t[n](t.data("disable-with")),t.prop("disabled",!0)})},enableFormElements:function(t){t.find(n.enableSelector).each(function(){var t=e(this),n=t.is("button")?"html":"val";t.data("ujs:enable-with")&&t[n](t.data("ujs:enable-with")),t.prop("disabled",!1)})},allowAction:function(e){var t,i=e.data("confirm"),o=!1;return!i||(n.fire(e,"confirm")&&(o=n.confirm(i),t=n.fire(e,"confirm:complete",[o])),o&&t)},blankInputs:function(t,n,i){var o,a=e(),s=n||"input,textarea";return t.find(s).each(function(){o=e(this),(i?o.val():!o.val())&&(a=a.add(o))}),!!a.length&&a},nonBlankInputs:function(e,t){return n.blankInputs(e,t,!0)},stopEverything:function(t){return e(t.target).trigger("ujs:everythingStopped"),t.stopImmediatePropagation(),!1},callFormSubmitBindings:function(n,i){var o=n.data("events"),a=!0;return o!==t&&o.submit!==t&&e.each(o.submit,function(e,t){if("function"==typeof t.handler)return a=t.handler(i)}),a},disableElement:function(e){e.data("ujs:enable-with",e.html()),e.html(e.data("disable-with")),e.bind("click.railsDisable",function(e){return n.stopEverything(e)})},enableElement:function(e){e.data("ujs:enable-with")!==t&&(e.html(e.data("ujs:enable-with")),e.data("ujs:enable-with",!1)),e.unbind("click.railsDisable")}},e.ajaxPrefilter(function(e,t,i){e.crossDomain||n.CSRFProtection(i)}),e(document).delegate(n.linkDisableSelector,"ajax:complete",function(){n.enableElement(e(this))}),e(document).delegate(n.linkClickSelector,"click.rails",function(i){var o=e(this),a=o.data("method"),s=o.data("params");return n.allowAction(o)?(o.is(n.linkDisableSelector)&&n.disableElement(o),
-o.data("remote")!==t?!(!i.metaKey&&!i.ctrlKey||a&&"GET"!==a||s)||(!1===n.handleRemote(o)&&n.enableElement(o),!1):o.data("method")?(n.handleMethod(o),!1):void 0):n.stopEverything(i)}),e(document).delegate(n.inputChangeSelector,"change.rails",function(t){var i=e(this);return n.allowAction(i)?(n.handleRemote(i),!1):n.stopEverything(t)}),e(document).delegate(n.formSubmitSelector,"submit.rails",function(i){var o=e(this),a=o.data("remote")!==t,s=n.blankInputs(o,n.requiredInputSelector),r=n.nonBlankInputs(o,n.fileInputSelector);return n.allowAction(o)?s&&o.attr("novalidate")==t&&n.fire(o,"ajax:aborted:required",[s])?n.stopEverything(i):a?r?n.fire(o,"ajax:aborted:file",[r]):!e.support.submitBubbles&&e().jquery<"1.7"&&!1===n.callFormSubmitBindings(o,i)?n.stopEverything(i):(n.handleRemote(o),!1):void setTimeout(function(){n.disableFormElements(o)},13):n.stopEverything(i)}),e(document).delegate(n.formInputClickSelector,"click.rails",function(t){var i=e(this);if(!n.allowAction(i))return n.stopEverything(t);var o=i.attr("name"),a=o?{name:o,value:i.val()}:null;i.closest("form").data("ujs:submit-button",a)}),e(document).delegate(n.formSubmitSelector,"ajax:beforeSend.rails",function(t){this==t.target&&n.disableFormElements(e(this))}),e(document).delegate(n.formSubmitSelector,"ajax:complete.rails",function(t){this==t.target&&n.enableFormElements(e(this))})}(jQuery),$.QueryString=function(e){if(""==e)return{};for(var t={},n=0;n<e.length;++n){var i=e[n].split("=");2==i.length&&(t[i[0]]=decodeURIComponent(i[1].replace(/\+/g," ")))}return t}(window.location.search.substr(1).split("&")),$(document).ready(function(){var e="div.gal-item div.gal-inner-holder";$(document).on("mouseover",e,function(){$(this).addClass("hover")}).on("mouseout",e,function(){$(this).removeClass("hover")}).on("click",e,function(){var e=$(this).parents("div.gal-item").data("url");CKEDITOR.tools.callFunction(CKEditorFuncNum,e),window.close()}),$(document).on("ajax:complete","div.gal-item a.gal-del",function(){$(this).parents("div.gal-item").remove()});var t=$.endlessScroll({container:".fileupload-list",entity:".gal-item",scrollPadding:100});t.scrollModule.unbind(),window.setTimeout(function(){t.scrollModule.bind()},1e3)}),qq.FileUploader.instances=new Object,qq.FileUploaderInput=function(e){qq.FileUploaderBasic.apply(this,arguments),qq.extend(this._options,{element:null,listElement:null,template_id:"#fileupload_tmpl",classes:{button:"fileupload-button",drop:"fileupload-drop-area",dropActive:"fileupload-drop-area-active",list:"fileupload-list",preview:"fileupload-preview",file:"fileupload-file",spinner:"fileupload-spinner",size:"fileupload-size",cancel:"fileupload-cancel",success:"fileupload-success",fail:"fileupload-fail"}}),qq.extend(this._options,e),this._element=document.getElementById(this._options.element),this._listElement=this._options.listElement||this._find(this._element,"list"),this._classes=this._options.classes,this._button=this._createUploadButton(this._find(this._element,"button")),qq.FileUploader.instances[this._element.id]=this},qq.extend(qq.FileUploaderInput.prototype,qq.FileUploaderBasic.prototype),qq.extend(qq.FileUploaderInput.prototype,{_find:function(e,t){var n=qq.getByClass(e,this._options.classes[t])[0];if(!n)throw alert(t),new Error("element not found "+t);return n},_setupDragDrop:function(){var e=this,t=this._find(this._element,"drop"),n=new qq.UploadDropZone({element:t,onEnter:function(n){qq.addClass(t,e._classes.dropActive),n.stopPropagation()},onLeave:function(e){e.stopPropagation()},onLeaveNotDescendants:function(){qq.removeClass(t,e._classes.dropActive)},onDrop:function(n){t.style.display="none",qq.removeClass(t,e._classes.dropActive),e._uploadFileList(n.dataTransfer.files)}});t.style.display="none",qq.attach(document,"dragenter",function(e){n._isValidFileDrag(e)&&(t.style.display="block")}),qq.attach(document,"dragleave",function(e){if(n._isValidFileDrag(e)){var i=document.elementFromPoint(e.clientX,e.clientY);i&&"HTML"!=i.nodeName||(t.style.display="none")}})},_onSubmit:function(e,t){qq.FileUploaderBasic.prototype._onSubmit.apply(this,arguments),this._addToList(e,t)},_onProgress:function(e,t,n,i){qq.FileUploaderBasic.prototype._onProgress.apply(this,arguments);var o,a=this._getItemByFileId(e),s=this._find(a,"size");o=n!=i?Math.round(n/i*100)+"% from "+this._formatSize(i):this._formatSize(i),qq.setText(s,o)},_onComplete:function(e,t,n){qq.FileUploaderBasic.prototype._onComplete.apply(this,arguments);var i=this._getItemByFileId(e),o=n.asset?n.asset:n;o&&o.id?(qq.addClass(i,this._classes.success),o.size=this._formatSize(o.size),o.controller=o.type!==undefined&&"ckeditor::picture"==o.type.toLowerCase()?"pictures":"attachment_files",$(i).replaceWith($(this._options.template_id).tmpl(o))):qq.addClass(i,this._classes.fail)},_addToList:function(e,t){if(this._listElement){!1===this._options.multiple&&$(this._listElement).empty();var n={id:0,filename:this._formatFileName(t),size:0,format_created_at:"",url_content:"#",controller:"assets",url_thumb:""},i=$(this._options.template_id).tmpl(n).attr("qqfileid",e);i.find("div.img").html("").addClass("preloader"),i.prependTo(this._listElement),this._bindCancelEvent(i)}},_getItemByFileId:function(e){return $(this._listElement).find("div[qqfileid="+e+"]").get(0)},_bindCancelEvent:function(e){var t=this,n=$(e);n.find("a."+this._classes.cancel).bind("click",function(e){return t._handler.cancel(n.attr("qqfileid")),n.remove(),qq.preventDefault(e),!1})}});
+
+(function(a){var r=a.fn.domManip,d="_tmplitem",q=/^[^<]*(<[\w\W]+>)[^>]*$|\{\{\! /,b={},f={},e,p={key:0,data:{}},i=0,c=0,l=[];function g(g,d,h,e){var c={data:e||(e===0||e===false)?e:d?d.data:{},_wrap:d?d._wrap:null,tmpl:null,parent:d||null,nodes:[],calls:u,nest:w,wrap:x,html:v,update:t};g&&a.extend(c,g,{nodes:[],parent:d});if(h){c.tmpl=h;c._ctnt=c._ctnt||c.tmpl(a,c);c.key=++i;(l.length?f:b)[i]=c}return c}a.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(f,d){a.fn[f]=function(n){var g=[],i=a(n),k,h,m,l,j=this.length===1&&this[0].parentNode;e=b||{};if(j&&j.nodeType===11&&j.childNodes.length===1&&i.length===1){i[d](this[0]);g=this}else{for(h=0,m=i.length;h<m;h++){c=h;k=(h>0?this.clone(true):this).get();a(i[h])[d](k);g=g.concat(k)}c=0;g=this.pushStack(g,f,i.selector)}l=e;e=null;a.tmpl.complete(l);return g}});a.fn.extend({tmpl:function(d,c,b){return a.tmpl(this[0],d,c,b)},tmplItem:function(){return a.tmplItem(this[0])},template:function(b){return a.template(b,this[0])},domManip:function(d,m,k){if(d[0]&&a.isArray(d[0])){var g=a.makeArray(arguments),h=d[0],j=h.length,i=0,f;while(i<j&&!(f=a.data(h[i++],"tmplItem")));if(f&&c)g[2]=function(b){a.tmpl.afterManip(this,b,k)};r.apply(this,g)}else r.apply(this,arguments);c=0;!e&&a.tmpl.complete(b);return this}});a.extend({tmpl:function(d,h,e,c){var i,k=!c;if(k){c=p;d=a.template[d]||a.template(null,d);f={}}else if(!d){d=c.tmpl;b[c.key]=c;c.nodes=[];c.wrapped&&n(c,c.wrapped);return a(j(c,null,c.tmpl(a,c)))}if(!d)return[];if(typeof h==="function")h=h.call(c||{});e&&e.wrapped&&n(e,e.wrapped);i=a.isArray(h)?a.map(h,function(a){return a?g(e,c,d,a):null}):[g(e,c,d,h)];return k?a(j(c,null,i)):i},tmplItem:function(b){var c;if(b instanceof a)b=b[0];while(b&&b.nodeType===1&&!(c=a.data(b,"tmplItem"))&&(b=b.parentNode));return c||p},template:function(c,b){if(b){if(typeof b==="string")b=o(b);else if(b instanceof a)b=b[0]||{};if(b.nodeType)b=a.data(b,"tmpl")||a.data(b,"tmpl",o(b.innerHTML));return typeof c==="string"?(a.template[c]=b):b}return c?typeof c!=="string"?a.template(null,c):a.template[c]||a.template(null,q.test(c)?c:a(c)):null},encode:function(a){return(""+a).split("<").join("&lt;").split(">").join("&gt;").split('"').join("&#34;").split("'").join("&#39;")}});a.extend(a.tmpl,{tag:{tmpl:{_default:{$2:"null"},open:"if($notnull_1){__=__.concat($item.nest($1,$2));}"},wrap:{_default:{$2:"null"},open:"$item.calls(__,$1,$2);__=[];",close:"call=$item.calls();__=call._.concat($item.wrap(call,__));"},each:{_default:{$2:"$index, $value"},open:"if($notnull_1){$.each($1a,function($2){with(this){",close:"}});}"},"if":{open:"if(($notnull_1) && $1a){",close:"}"},"else":{_default:{$1:"true"},open:"}else if(($notnull_1) && $1a){"},html:{open:"if($notnull_1){__.push($1a);}"},"=":{_default:{$1:"$data"},open:"if($notnull_1){__.push($.encode($1a));}"},"!":{open:""}},complete:function(){b={}},afterManip:function(f,b,d){var e=b.nodeType===11?a.makeArray(b.childNodes):b.nodeType===1?[b]:[];d.call(f,b);m(e);c++}});function j(e,g,f){var b,c=f?a.map(f,function(a){return typeof a==="string"?e.key?a.replace(/(<\w+)(?=[\s>])(?![^>]*_tmplitem)([^>]*)/g,"$1 "+d+'="'+e.key+'" $2'):a:j(a,e,a._ctnt)}):e;if(g)return c;c=c.join("");c.replace(/^\s*([^<\s][^<]*)?(<[\w\W]+>)([^>]*[^>\s])?\s*$/,function(f,c,e,d){b=a(e).get();m(b);if(c)b=k(c).concat(b);if(d)b=b.concat(k(d))});return b?b:k(c)}function k(c){var b=document.createElement("div");b.innerHTML=c;return a.makeArray(b.childNodes)}function o(b){return new Function("jQuery","$item","var $=jQuery,call,__=[],$data=$item.data;with($data){__.push('"+a.trim(b).replace(/([\\'])/g,"\\$1").replace(/[\r\t\n]/g," ").replace(/\$\{([^\}]*)\}/g,"{{= $1}}").replace(/\{\{(\/?)(\w+|.)(?:\(((?:[^\}]|\}(?!\}))*?)?\))?(?:\s+(.*?)?)?(\(((?:[^\}]|\}(?!\}))*?)\))?\s*\}\}/g,function(m,l,k,g,b,c,d){var j=a.tmpl.tag[k],i,e,f;if(!j)throw"Unknown template tag: "+k;i=j._default||[];if(c&&!/\w$/.test(b)){b+=c;c=""}if(b){b=h(b);d=d?","+h(d)+")":c?")":"";e=c?b.indexOf(".")>-1?b+h(c):"("+b+").call($item"+d:b;f=c?e:"(typeof("+b+")==='function'?("+b+").call($item):("+b+"))"}else f=e=i.$1||"null";g=h(g);return"');"+j[l?"close":"open"].split("$notnull_1").join(b?"typeof("+b+")!=='undefined' && ("+b+")!=null":"true").split("$1a").join(f).split("$1").join(e).split("$2").join(g||i.$2||"")+"__.push('"})+"');}return __;")}function n(c,b){c._wrap=j(c,true,a.isArray(b)?b:[q.test(b)?b:a(b).html()]).join("")}function h(a){return a?a.replace(/\\'/g,"'").replace(/\\\\/g,"\\"):null}function s(b){var a=document.createElement("div");a.appendChild(b.cloneNode(true));return a.innerHTML}function m(o){var n="_"+c,k,j,l={},e,p,h;for(e=0,p=o.length;e<p;e++){if((k=o[e]).nodeType!==1)continue;j=k.getElementsByTagName("*");for(h=j.length-1;h>=0;h--)m(j[h]);m(k)}function m(j){var p,h=j,k,e,m;if(m=j.getAttribute(d)){while(h.parentNode&&(h=h.parentNode).nodeType===1&&!(p=h.getAttribute(d)));if(p!==m){h=h.parentNode?h.nodeType===11?0:h.getAttribute(d)||0:0;if(!(e=b[m])){e=f[m];e=g(e,b[h]||f[h]);e.key=++i;b[i]=e}c&&o(m)}j.removeAttribute(d)}else if(c&&(e=a.data(j,"tmplItem"))){o(e.key);b[e.key]=e;h=a.data(j.parentNode,"tmplItem");h=h?h.key:0}if(e){k=e;while(k&&k.key!=h){k.nodes.push(j);k=k.parent}delete e._ctnt;delete e._wrap;a.data(j,"tmplItem",e)}function o(a){a=a+n;e=l[a]=l[a]||g(e,b[e.parent.key+n]||e.parent)}}}function u(a,d,c,b){if(!a)return l.pop();l.push({_:a,tmpl:d,item:this,data:c,options:b})}function w(d,c,b){return a.tmpl(a.template(d),c,b,this)}function x(b,d){var c=b.options||{};c.wrapped=d;return a.tmpl(a.template(b.tmpl),b.data,c,b.item)}function v(d,c){var b=this._wrap;return a.map(a(a.isArray(b)?b.join(""):b).filter(d||"*"),function(a){return c?a.innerText||a.textContent:a.outerHTML||s(a)})}function t(){var b=this.nodes;a.tmpl(null,null,null,this).insertBefore(b[0]);a(b).remove()}})(jQuery);
+/**
+ * http://github.com/valums/file-uploader
+ * 
+ * Multiple file upload component with progress-bar, drag-and-drop. 
+ * © 2010 Andrew Valums ( andrew(at)valums.com ) 
+ * 
+ * Licensed under GNU GPL 2 or later, see license.txt.
+ */    
+
+//
+// Helper functions
+//
+
+var qq = qq || {};
+
+/**
+ * Adds all missing properties from second obj to first obj
+ */ 
+qq.extend = function(first, second){
+    for (var prop in second){
+        first[prop] = second[prop];
+    }
+};  
+
+/**
+ * Searches for a given element in the array, returns -1 if it is not present.
+ * @param {Number} [from] The index at which to begin the search
+ */
+qq.indexOf = function(arr, elt, from){
+    if (arr.indexOf) return arr.indexOf(elt, from);
+    
+    from = from || 0;
+    var len = arr.length;    
+    
+    if (from < 0) from += len;  
+
+    for (; from < len; from++){  
+        if (from in arr && arr[from] === elt){  
+            return from;
+        }
+    }  
+    return -1;  
+}; 
+    
+qq.getUniqueId = (function(){
+    var id = 0;
+    return function(){ return id++; };
+})();
+
+//
+// Events
+
+qq.attach = function(element, type, fn){
+    if (element.addEventListener){
+        element.addEventListener(type, fn, false);
+    } else if (element.attachEvent){
+        element.attachEvent('on' + type, fn);
+    }
+};
+qq.detach = function(element, type, fn){
+    if (element.removeEventListener){
+        element.removeEventListener(type, fn, false);
+    } else if (element.attachEvent){
+        element.detachEvent('on' + type, fn);
+    }
+};
+
+qq.preventDefault = function(e){
+    if (e.preventDefault){
+        e.preventDefault();
+    } else{
+        e.returnValue = false;
+    }
+};
+
+//
+// Node manipulations
+
+/**
+ * Insert node a before node b.
+ */
+qq.insertBefore = function(a, b){
+    b.parentNode.insertBefore(a, b);
+};
+qq.remove = function(element){
+    element.parentNode.removeChild(element);
+};
+
+qq.contains = function(parent, descendant){       
+    // compareposition returns false in this case
+    if (parent == descendant) return true;
+    
+    if (parent.contains){
+        return parent.contains(descendant);
+    } else {
+        return !!(descendant.compareDocumentPosition(parent) & 8);
+    }
+};
+
+/**
+ * Creates and returns element from html string
+ * Uses innerHTML to create an element
+ */
+qq.toElement = (function(){
+    var div = document.createElement('div');
+    return function(html){
+        div.innerHTML = html;
+        var element = div.firstChild;
+        div.removeChild(element);
+        return element;
+    };
+})();
+
+//
+// Node properties and attributes
+
+/**
+ * Sets styles for an element.
+ * Fixes opacity in IE6-8.
+ */
+qq.css = function(element, styles){
+    if (styles.opacity != null){
+        if (typeof element.style.opacity != 'string' && typeof(element.filters) != 'undefined'){
+            styles.filter = 'alpha(opacity=' + Math.round(100 * styles.opacity) + ')';
+        }
+    }
+    qq.extend(element.style, styles);
+};
+qq.hasClass = function(element, name){
+    var re = new RegExp('(^| )' + name + '( |$)');
+    return re.test(element.className);
+};
+qq.addClass = function(element, name){
+    if (!qq.hasClass(element, name)){
+        element.className += ' ' + name;
+    }
+};
+qq.removeClass = function(element, name){
+    var re = new RegExp('(^| )' + name + '( |$)');
+    element.className = element.className.replace(re, ' ').replace(/^\s+|\s+$/g, "");
+};
+qq.setText = function(element, text){
+    element.innerText = text;
+    element.textContent = text;
+};
+
+//
+// Selecting elements
+
+qq.children = function(element){
+    var children = [],
+    child = element.firstChild;
+
+    while (child){
+        if (child.nodeType == 1){
+            children.push(child);
+        }
+        child = child.nextSibling;
+    }
+
+    return children;
+};
+
+qq.getByClass = function(element, className){
+    if (element.querySelectorAll){
+        return element.querySelectorAll('.' + className);
+    }
+
+    var result = [];
+    var candidates = element.getElementsByTagName("*");
+    var len = candidates.length;
+
+    for (var i = 0; i < len; i++){
+        if (qq.hasClass(candidates[i], className)){
+            result.push(candidates[i]);
+        }
+    }
+    return result;
+};
+
+/**
+ * obj2url() takes a json-object as argument and generates
+ * a querystring. pretty much like jQuery.param()
+ * 
+ * how to use:
+ *
+ *    `qq.obj2url({a:'b',c:'d'},'http://any.url/upload?otherParam=value');`
+ *
+ * will result in:
+ *
+ *    `http://any.url/upload?otherParam=value&a=b&c=d`
+ *
+ * @param  Object JSON-Object
+ * @param  String current querystring-part
+ * @return String encoded querystring
+ */
+qq.obj2url = function(obj, temp, prefixDone){
+    var uristrings = [],
+        prefix = '&',
+        add = function(nextObj, i){
+            var nextTemp = temp 
+                ? (/\[\]$/.test(temp)) // prevent double-encoding
+                   ? temp
+                   : temp+'['+i+']'
+                : i;
+            if ((nextTemp != 'undefined') && (i != 'undefined')) {  
+                uristrings.push(
+                    (typeof nextObj === 'object') 
+                        ? qq.obj2url(nextObj, nextTemp, true)
+                        : (Object.prototype.toString.call(nextObj) === '[object Function]')
+                            ? encodeURIComponent(nextTemp) + '=' + encodeURIComponent(nextObj())
+                            : encodeURIComponent(nextTemp) + '=' + encodeURIComponent(nextObj)                                                          
+                );
+            }
+        }; 
+
+    if (!prefixDone && temp) {
+      prefix = (/\?/.test(temp)) ? (/\?$/.test(temp)) ? '' : '&' : '?';
+      uristrings.push(temp);
+      uristrings.push(qq.obj2url(obj));
+    } else if ((Object.prototype.toString.call(obj) === '[object Array]') && (typeof obj != 'undefined') ) {
+        // we wont use a for-in-loop on an array (performance)
+        for (var i = 0, len = obj.length; i < len; ++i){
+            add(obj[i], i);
+        }
+    } else if ((typeof obj != 'undefined') && (obj !== null) && (typeof obj === "object")){
+        // for anything else but a scalar, we will use for-in-loop
+        for (var i in obj){
+            add(obj[i], i);
+        }
+    } else {
+        uristrings.push(encodeURIComponent(temp) + '=' + encodeURIComponent(obj));
+    }
+
+    return uristrings.join(prefix)
+                     .replace(/^&/, '')
+                     .replace(/%20/g, '+'); 
+};
+
+//
+//
+// Uploader Classes
+//
+//
+
+var qq = qq || {};
+    
+/**
+ * Creates upload button, validates upload, but doesn't create file list or dd. 
+ */
+qq.FileUploaderBasic = function(o){
+    this._options = {
+        // set to true to see the server response
+        debug: false,
+        action: '/server/upload',
+        params: {},
+        button: null,
+        multiple: true,
+        maxConnections: 3,
+        method: 'POST',
+        fieldName: 'qqfile',
+        // validation        
+        allowedExtensions: [],               
+        sizeLimit: 0,   
+        minSizeLimit: 0,
+        maxFilesCount: 0, // 0 - no limit, works only in multiple mode
+        minFilesCount: 0, // 0 - no limit, works only in multiple mode
+        // events
+        // return false to cancel submit
+        onSubmit: function(id, fileName){},
+        onProgress: function(id, fileName, loaded, total){},
+        onComplete: function(id, fileName, responseJSON){},
+        onCancel: function(id, fileName){},
+        // messages                
+        messages: {
+            typeError: "{file} has invalid extension. Only {extensions} are allowed.",
+            sizeError: "{file} is too large, maximum file size is {sizeLimit}.",
+            minSizeError: "{file} is too small, minimum file size is {minSizeLimit}.",
+            emptyError: "{file} is empty, please select files again without it.",
+            onLeave: "The files are being uploaded, if you leave now the upload will be cancelled.",
+            maxFilesError: "You must select less then {maxFilesCount} files.",
+            minFilesError: "You must select more then {minFilesCount} files."
+        },
+        showMessage: function(message){
+            alert(message);
+        }               
+    };
+    qq.extend(this._options, o);
+        
+    // number of files being uploaded
+    this._filesInProgress = 0;
+    // number of files was processed
+    this._filesUploaded = 0;
+    this._handler = this._createUploadHandler(); 
+    
+    if (this._options.button){ 
+        this._button = this._createUploadButton(this._options.button);
+    }
+                        
+    this._preventLeaveInProgress();         
+};
+   
+qq.FileUploaderBasic.prototype = {
+    setParams: function(params){
+        this._options.params = params;
+    },
+    getInProgress: function(){
+        return this._filesInProgress;         
+    },
+    _createUploadButton: function(element){
+        var self = this;
+        
+        return new qq.UploadButton({
+            element: element,
+            multiple: this._options.multiple && qq.UploadHandlerXhr.isSupported(),
+            onChange: function(input){
+                self._onInputChange(input);
+            }        
+        });           
+    },    
+    _createUploadHandler: function(){
+        var self = this,
+            handlerClass;        
+        
+        if(qq.UploadHandlerXhr.isSupported()){           
+            handlerClass = 'UploadHandlerXhr';                        
+        } else {
+            handlerClass = 'UploadHandlerForm';
+        }
+
+        var handler = new qq[handlerClass]({
+            debug: this._options.debug,
+            action: this._options.action,         
+            maxConnections: this._options.maxConnections,
+            fieldName: this._options.fieldName,
+            method: this._options.method,   
+            onProgress: function(id, fileName, loaded, total){                
+                self._onProgress(id, fileName, loaded, total);
+                self._options.onProgress(id, fileName, loaded, total);                    
+            },            
+            onComplete: function(id, fileName, result){
+                self._onComplete(id, fileName, result);
+                self._options.onComplete(id, fileName, result);
+            },
+            onCancel: function(id, fileName){
+                self._onCancel(id, fileName);
+                self._options.onCancel(id, fileName);
+            }
+        });
+
+        return handler;
+    },    
+    _preventLeaveInProgress: function(){
+        var self = this;
+        
+        qq.attach(window, 'beforeunload', function(e){
+            if (!self._filesInProgress){return;}
+            
+            var e = e || window.event;
+            // for ie, ff
+            e.returnValue = self._options.messages.onLeave;
+            // for webkit
+            return self._options.messages.onLeave;             
+        });        
+    },    
+    _onSubmit: function(id, fileName){
+        this._filesInProgress++;  
+    },
+    _onProgress: function(id, fileName, loaded, total){        
+    },
+    _onComplete: function(id, fileName, result){
+        this._filesInProgress--;                 
+        if (result.error){
+            this._options.showMessage(result.error);
+        } else {
+          this._filesUploaded++;
+        }             
+    },
+    _onCancel: function(id, fileName){
+        this._filesInProgress--;        
+    },
+    _onInputChange: function(input){
+        if (this._handler instanceof qq.UploadHandlerXhr){                
+            this._uploadFileList(input.files);                   
+        } else {             
+            if (this._validateFile(input)){                
+                this._uploadFile(input);                                    
+            }                      
+        }               
+        this._button.reset();   
+    },  
+    _uploadFileList: function(files){
+        if ( this._validateFiles(files) ) {
+          for (var i=0; i<files.length; i++){
+              this._uploadFile(files[i]);        
+          }
+        }
+    },       
+    _uploadFile: function(fileContainer){      
+        var id = this._handler.add(fileContainer);
+        var fileName = this._handler.getName(id);
+        
+        if (this._options.onSubmit(id, fileName) !== false){
+            this._onSubmit(id, fileName);
+            this._handler.upload(id, this._options.params);
+        }
+    },
+    _validateFiles: function(files){
+        var uploadedCount = this._filesUploaded + files.length;
+        
+        if (this._options.maxFilesCount > 0) {
+          if ( uploadedCount > this._options.maxFilesCount) { 
+            this._error('maxFilesError', 'name');
+            return false;
+          }
+        }
+        
+        if (this._options.minFilesCount > 0) {
+          if ( uploadedCount < this._options.minFilesCount) {
+            this._error('minFilesError', 'name');
+            return false;
+          }
+        }
+        
+        for (var i=0; i<files.length; i++){
+            if ( !this._validateFile(files[i])){
+                return false;
+            }            
+        }
+        
+        return true;
+    },      
+    _validateFile: function(file){
+        var name, size;
+        
+        if (file.value){
+            // it is a file input            
+            // get input value and remove path to normalize
+            name = file.value.replace(/.*(\/|\\)/, "");
+        } else {
+            // fix missing properties in Safari
+            name = file.fileName != null ? file.fileName : file.name;
+            size = file.fileSize != null ? file.fileSize : file.size;
+        }
+                    
+        if (! this._isAllowedExtension(name)){            
+            this._error('typeError', name);
+            return false;
+            
+        } else if (size === 0){            
+            this._error('emptyError', name);
+            return false;
+                                                     
+        } else if (size && this._options.sizeLimit && size > this._options.sizeLimit){            
+            this._error('sizeError', name);
+            return false;
+                        
+        } else if (size && size < this._options.minSizeLimit){
+            this._error('minSizeError', name);
+            return false;            
+        }
+        
+        return true;                
+    },
+    _error: function(code, fileName){
+        var message = this._options.messages[code];        
+        function r(name, replacement){ message = message.replace(name, replacement); }
+        
+        r('{file}', this._formatFileName(fileName));        
+        r('{extensions}', this._options.allowedExtensions.join(', '));
+        r('{sizeLimit}', this._formatSize(this._options.sizeLimit));
+        r('{minSizeLimit}', this._formatSize(this._options.minSizeLimit));
+        r('{maxFilesCount}', this._options.maxFilesCount);
+        r('{minFilesCount}', this._options.minFilesCount);
+        
+        this._options.showMessage(message);                
+    },
+    _formatFileName: function(name){
+        if (name.length > 33){
+            name = name.slice(0, 19) + '...' + name.slice(-13);    
+        }
+        return name;
+    },
+    _isAllowedExtension: function(fileName){
+        var ext = (-1 !== fileName.indexOf('.')) ? fileName.replace(/.*[.]/, '').toLowerCase() : '';
+        var allowed = this._options.allowedExtensions;
+        
+        if (!allowed.length){return true;}        
+        
+        for (var i=0; i<allowed.length; i++){
+            if (allowed[i].toLowerCase() == ext){ return true;}    
+        }
+        
+        return false;
+    },    
+    _formatSize: function(bytes){
+        var i = -1;                                    
+        do {
+            bytes = bytes / 1024;
+            i++;  
+        } while (bytes > 99);
+        
+        return Math.max(bytes, 0.1).toFixed(1) + ['kB', 'MB', 'GB', 'TB', 'PB', 'EB'][i];          
+    }
+};
+    
+       
+/**
+ * Class that creates upload widget with drag-and-drop and file list
+ * @inherits qq.FileUploaderBasic
+ */
+qq.FileUploader = function(o){
+    // call parent constructor
+    qq.FileUploaderBasic.apply(this, arguments);
+    
+    // additional options    
+    qq.extend(this._options, {
+        element: null,
+        // if set, will be used instead of qq-upload-list in template
+        listElement: null,
+                
+        template: '<div class="qq-uploader">' + 
+                '<div class="qq-upload-drop-area"><span>Drop files here to upload</span></div>' +
+                '<div class="qq-upload-button">Upload a file</div>' +
+                '<ul class="qq-upload-list"></ul>' + 
+             '</div>',
+
+        // template for one item in file list
+        fileTemplate: '<li>' +
+                '<span class="qq-upload-file"></span>' +
+                '<span class="qq-upload-spinner"></span>' +
+                '<span class="qq-upload-size"></span>' +
+                '<a class="qq-upload-cancel" href="#">Cancel</a>' +
+                '<span class="qq-upload-failed-text">Failed</span>' +
+            '</li>',        
+        
+        classes: {
+            // used to get elements from templates
+            button: 'qq-upload-button',
+            drop: 'qq-upload-drop-area',
+            dropActive: 'qq-upload-drop-area-active',
+            list: 'qq-upload-list',
+                        
+            file: 'qq-upload-file',
+            spinner: 'qq-upload-spinner',
+            size: 'qq-upload-size',
+            cancel: 'qq-upload-cancel',
+
+            // added to list item when upload completes
+            // used in css to hide progress spinner
+            success: 'qq-upload-success',
+            fail: 'qq-upload-fail'
+        }
+    });
+    // overwrite options with user supplied    
+    qq.extend(this._options, o);       
+
+    this._element = this._options.element;
+    this._element.innerHTML = this._options.template;        
+    this._listElement = this._options.listElement || this._find(this._element, 'list');
+    
+    this._classes = this._options.classes;
+        
+    this._button = this._createUploadButton(this._find(this._element, 'button'));        
+    
+    this._bindCancelEvent();
+    this._setupDragDrop();
+};
+
+// inherit from Basic Uploader
+qq.extend(qq.FileUploader.prototype, qq.FileUploaderBasic.prototype);
+
+qq.extend(qq.FileUploader.prototype, {
+    /**
+     * Gets one of the elements listed in this._options.classes
+     **/
+    _find: function(parent, type){                                
+        var element = qq.getByClass(parent, this._options.classes[type])[0];        
+        if (!element){
+            throw new Error('element not found ' + type);
+        }
+        
+        return element;
+    },
+    _setupDragDrop: function(){
+        var self = this,
+            dropArea = this._find(this._element, 'drop');                        
+
+        var dz = new qq.UploadDropZone({
+            element: dropArea,
+            onEnter: function(e){
+                qq.addClass(dropArea, self._classes.dropActive);
+                e.stopPropagation();
+            },
+            onLeave: function(e){
+                e.stopPropagation();
+            },
+            onLeaveNotDescendants: function(e){
+                qq.removeClass(dropArea, self._classes.dropActive);  
+            },
+            onDrop: function(e){
+                dropArea.style.display = 'none';
+                qq.removeClass(dropArea, self._classes.dropActive);
+                self._uploadFileList(e.dataTransfer.files);    
+            }
+        });
+                
+        dropArea.style.display = 'none';
+
+        qq.attach(document, 'dragenter', function(e){     
+            if (!dz._isValidFileDrag(e)) return; 
+            
+            dropArea.style.display = 'block';            
+        });                 
+        qq.attach(document, 'dragleave', function(e){
+            if (!dz._isValidFileDrag(e)) return;            
+            
+            var relatedTarget = document.elementFromPoint(e.clientX, e.clientY);
+            // only fire when leaving document out
+            if ( ! relatedTarget || relatedTarget.nodeName == "HTML"){               
+                dropArea.style.display = 'none';                                            
+            }
+        });                
+    },
+    _onSubmit: function(id, fileName){
+        qq.FileUploaderBasic.prototype._onSubmit.apply(this, arguments);
+        this._addToList(id, fileName);  
+    },
+    _onProgress: function(id, fileName, loaded, total){
+        qq.FileUploaderBasic.prototype._onProgress.apply(this, arguments);
+
+        var item = this._getItemByFileId(id);
+        var size = this._find(item, 'size');
+        size.style.display = 'inline';
+        
+        var text; 
+        if (loaded != total){
+            text = Math.round(loaded / total * 100) + '% from ' + this._formatSize(total);
+        } else {                                   
+            text = this._formatSize(total);
+        }          
+        
+        qq.setText(size, text);         
+    },
+    _onComplete: function(id, fileName, result){
+        qq.FileUploaderBasic.prototype._onComplete.apply(this, arguments);
+
+        // mark completed
+        var item = this._getItemByFileId(id);                
+        qq.remove(this._find(item, 'cancel'));
+        qq.remove(this._find(item, 'spinner'));
+        
+        if (result.success){
+            qq.addClass(item, this._classes.success);    
+        } else {
+            qq.addClass(item, this._classes.fail);
+        }         
+    },
+    _addToList: function(id, fileName){
+        var item = qq.toElement(this._options.fileTemplate);                
+        item.qqFileId = id;
+
+        var fileElement = this._find(item, 'file');        
+        qq.setText(fileElement, this._formatFileName(fileName));
+        this._find(item, 'size').style.display = 'none';        
+
+        this._listElement.appendChild(item);
+    },
+    _getItemByFileId: function(id){
+        var item = this._listElement.firstChild;        
+        
+        // there can't be txt nodes in dynamically created list
+        // and we can  use nextSibling
+        while (item){            
+            if (item.qqFileId == id) return item;            
+            item = item.nextSibling;
+        }          
+    },
+    /**
+     * delegate click event for cancel link 
+     **/
+    _bindCancelEvent: function(){
+        var self = this,
+            list = this._listElement;            
+        
+        qq.attach(list, 'click', function(e){            
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            
+            if (qq.hasClass(target, self._classes.cancel)){                
+                qq.preventDefault(e);
+               
+                var item = target.parentNode;
+                self._handler.cancel(item.qqFileId);
+                qq.remove(item);
+            }
+        });
+    }    
+});
+    
+qq.UploadDropZone = function(o){
+    this._options = {
+        element: null,  
+        onEnter: function(e){},
+        onLeave: function(e){},  
+        // is not fired when leaving element by hovering descendants   
+        onLeaveNotDescendants: function(e){},   
+        onDrop: function(e){}                       
+    };
+    qq.extend(this._options, o); 
+    
+    this._element = this._options.element;
+    
+    this._disableDropOutside();
+    this._attachEvents();   
+};
+
+qq.UploadDropZone.prototype = {
+    _disableDropOutside: function(e){
+        // run only once for all instances
+        if (!qq.UploadDropZone.dropOutsideDisabled ){
+
+            qq.attach(document, 'dragover', function(e){
+                if (e.dataTransfer){
+                    e.dataTransfer.dropEffect = 'none';
+                    e.preventDefault(); 
+                }           
+            });
+            
+            qq.UploadDropZone.dropOutsideDisabled = true; 
+        }        
+    },
+    _attachEvents: function(){
+        var self = this;              
+                  
+        qq.attach(self._element, 'dragover', function(e){
+            if (!self._isValidFileDrag(e)) return;
+            
+            var effect = e.dataTransfer.effectAllowed;
+            if (effect == 'move' || effect == 'linkMove'){
+                e.dataTransfer.dropEffect = 'move'; // for FF (only move allowed)    
+            } else {                    
+                e.dataTransfer.dropEffect = 'copy'; // for Chrome
+            }
+                                                     
+            e.stopPropagation();
+            e.preventDefault();                                                                    
+        });
+        
+        qq.attach(self._element, 'dragenter', function(e){
+            if (!self._isValidFileDrag(e)) return;
+                        
+            self._options.onEnter(e);
+        });
+        
+        qq.attach(self._element, 'dragleave', function(e){
+            if (!self._isValidFileDrag(e)) return;
+            
+            self._options.onLeave(e);
+            
+            var relatedTarget = document.elementFromPoint(e.clientX, e.clientY);                      
+            // do not fire when moving a mouse over a descendant
+            if (qq.contains(this, relatedTarget)) return;
+                        
+            self._options.onLeaveNotDescendants(e); 
+        });
+                
+        qq.attach(self._element, 'drop', function(e){
+            if (!self._isValidFileDrag(e)) return;
+            
+            e.preventDefault();
+            self._options.onDrop(e);
+        });          
+    },
+    _isValidFileDrag: function(e){
+        var dt = e.dataTransfer,
+            // do not check dt.types.contains in webkit, because it crashes safari 4            
+            isWebkit = navigator.userAgent.indexOf("AppleWebKit") > -1;                        
+
+        // dt.effectAllowed is none in Safari 5
+        // dt.types.contains check is for firefox            
+        return dt && dt.effectAllowed != 'none' && 
+            (dt.files || (!isWebkit && dt.types.contains && dt.types.contains('Files')));
+        
+    }        
+}; 
+
+qq.UploadButton = function(o){
+    this._options = {
+        element: null,  
+        // if set to true adds multiple attribute to file input      
+        multiple: false,
+        // name attribute of file input
+        name: 'file',
+        onChange: function(input){},
+        hoverClass: 'qq-upload-button-hover',
+        focusClass: 'qq-upload-button-focus'                       
+    };
+    
+    qq.extend(this._options, o);
+        
+    this._element = this._options.element;
+    
+    // make button suitable container for input
+    qq.css(this._element, {
+        position: 'relative',
+        overflow: 'hidden',
+        // Make sure browse button is in the right side
+        // in Internet Explorer
+        direction: 'ltr'
+    });   
+    
+    this._input = this._createInput();
+};
+
+qq.UploadButton.prototype = {
+    /* returns file input element */    
+    getInput: function(){
+        return this._input;
+    },
+    /* cleans/recreates the file input */
+    reset: function(){
+        if (this._input.parentNode){
+            qq.remove(this._input);    
+        }                
+        
+        qq.removeClass(this._element, this._options.focusClass);
+        this._input = this._createInput();
+    },    
+    _createInput: function(){                
+        var input = document.createElement("input");
+        
+        if (this._options.multiple){
+            input.setAttribute("multiple", "multiple");
+        }
+                
+        input.setAttribute("type", "file");
+        input.setAttribute("name", this._options.name);
+        
+        qq.css(input, {
+            position: 'absolute',
+            // in Opera only 'browse' button
+            // is clickable and it is located at
+            // the right side of the input
+            right: 0,
+            top: 0,
+            fontFamily: 'Arial',
+            // 4 persons reported this, the max values that worked for them were 243, 236, 236, 118
+            fontSize: '118px',
+            margin: 0,
+            padding: 0,
+            cursor: 'pointer',
+            opacity: 0
+        });
+        
+        this._element.appendChild(input);
+
+        var self = this;
+        qq.attach(input, 'change', function(){
+            self._options.onChange(input);
+        });
+                
+        qq.attach(input, 'mouseover', function(){
+            qq.addClass(self._element, self._options.hoverClass);
+        });
+        qq.attach(input, 'mouseout', function(){
+            qq.removeClass(self._element, self._options.hoverClass);
+        });
+        qq.attach(input, 'focus', function(){
+            qq.addClass(self._element, self._options.focusClass);
+        });
+        qq.attach(input, 'blur', function(){
+            qq.removeClass(self._element, self._options.focusClass);
+        });
+
+        // IE and Opera, unfortunately have 2 tab stops on file input
+        // which is unacceptable in our case, disable keyboard access
+        if (window.attachEvent){
+            // it is IE or Opera
+            input.setAttribute('tabIndex', "-1");
+        }
+
+        return input;            
+    }        
+};
+
+/**
+ * Class for uploading files, uploading itself is handled by child classes
+ */
+qq.UploadHandlerAbstract = function(o){
+    this._options = {
+        debug: false,
+        action: '/upload.php',
+        method: 'POST',
+        fieldName: 'qqfile',
+        // maximum number of concurrent uploads        
+        maxConnections: 999,
+        onProgress: function(id, fileName, loaded, total){},
+        onComplete: function(id, fileName, response){},
+        onCancel: function(id, fileName){}
+    };
+    qq.extend(this._options, o);    
+    
+    this._queue = [];
+    // params for files in queue
+    this._params = [];
+};
+qq.UploadHandlerAbstract.prototype = {
+    log: function(str){
+        if (this._options.debug && window.console) console.log('[uploader] ' + str);        
+    },
+    /**
+     * Adds file or file input to the queue
+     * @returns id
+     **/    
+    add: function(file){},
+    /**
+     * Sends the file identified by id and additional query params to the server
+     */
+    upload: function(id, params){
+        var len = this._queue.push(id);
+
+        var copy = {};        
+        qq.extend(copy, params);
+        this._params[id] = copy;        
+                
+        // if too many active uploads, wait...
+        if (len <= this._options.maxConnections){               
+            this._upload(id, this._params[id]);
+        }
+    },
+    /**
+     * Cancels file upload by id
+     */
+    cancel: function(id){
+        this._cancel(id);
+        this._dequeue(id);
+    },
+    /**
+     * Cancells all uploads
+     */
+    cancelAll: function(){
+        for (var i=0; i<this._queue.length; i++){
+            this._cancel(this._queue[i]);
+        }
+        this._queue = [];
+    },
+    /**
+     * Returns name of the file identified by id
+     */
+    getName: function(id){},
+    /**
+     * Returns size of the file identified by id
+     */          
+    getSize: function(id){},
+    /**
+     * Returns id of files being uploaded or
+     * waiting for their turn
+     */
+    getQueue: function(){
+        return this._queue;
+    },
+    /**
+     * Actual upload method
+     */
+    _upload: function(id){},
+    /**
+     * Actual cancel method
+     */
+    _cancel: function(id){},     
+    /**
+     * Removes element from queue, starts upload of next
+     */
+    _dequeue: function(id){
+        var i = qq.indexOf(this._queue, id);
+        this._queue.splice(i, 1);
+                
+        var max = this._options.maxConnections;
+        
+        if (this._queue.length >= max && i < max){
+            var nextId = this._queue[max-1];
+            this._upload(nextId, this._params[nextId]);
+        }
+    }        
+};
+
+/**
+ * Class for uploading files using form and iframe
+ * @inherits qq.UploadHandlerAbstract
+ */
+qq.UploadHandlerForm = function(o){
+    qq.UploadHandlerAbstract.apply(this, arguments);
+       
+    this._inputs = {};
+};
+// @inherits qq.UploadHandlerAbstract
+qq.extend(qq.UploadHandlerForm.prototype, qq.UploadHandlerAbstract.prototype);
+
+qq.extend(qq.UploadHandlerForm.prototype, {
+    add: function(fileInput){
+        fileInput.setAttribute('name', this._options.fieldName);
+        var id = 'qq-upload-handler-iframe' + qq.getUniqueId();       
+        
+        this._inputs[id] = fileInput;
+        
+        // remove file input from DOM
+        if (fileInput.parentNode){
+            qq.remove(fileInput);
+        }
+                
+        return id;
+    },
+    getName: function(id){
+        // get input value and remove path to normalize
+        return this._inputs[id].value.replace(/.*(\/|\\)/, "");
+    },    
+    _cancel: function(id){
+        this._options.onCancel(id, this.getName(id));
+        
+        delete this._inputs[id];        
+
+        var iframe = document.getElementById(id);
+        if (iframe){
+            // to cancel request set src to something else
+            // we use src="javascript:false;" because it doesn't
+            // trigger ie6 prompt on https
+            iframe.setAttribute('src', 'javascript:false;');
+
+            qq.remove(iframe);
+        }
+    },     
+    _upload: function(id, params){                        
+        var input = this._inputs[id];
+        
+        if (!input){
+            throw new Error('file with passed id was not added, or already uploaded or cancelled');
+        }                
+
+        var fileName = this.getName(id);
+                
+        var iframe = this._createIframe(id);
+        var form = this._createForm(iframe, params);
+        form.appendChild(input);
+
+        var self = this;
+        this._attachLoadEvent(iframe, function(){                                 
+            self.log('iframe loaded');
+            
+            var response = self._getIframeContentJSON(iframe);
+
+            self._options.onComplete(id, fileName, response);
+            self._dequeue(id);
+            
+            delete self._inputs[id];
+            // timeout added to fix busy state in FF3.6
+            setTimeout(function(){
+                qq.remove(iframe);
+            }, 1);
+        });
+
+        form.submit();        
+        qq.remove(form);        
+        
+        return id;
+    }, 
+    _attachLoadEvent: function(iframe, callback){
+        qq.attach(iframe, 'load', function(){
+            // when we remove iframe from dom
+            // the request stops, but in IE load
+            // event fires
+            if (!iframe.parentNode){
+                return;
+            }
+
+            // fixing Opera 10.53
+            if (iframe.contentDocument &&
+                iframe.contentDocument.body &&
+                iframe.contentDocument.body.innerHTML == "false"){
+                // In Opera event is fired second time
+                // when body.innerHTML changed from false
+                // to server response approx. after 1 sec
+                // when we upload file with iframe
+                return;
+            }
+
+            callback();
+        });
+    },
+    /**
+     * Returns json object received by iframe from server.
+     */
+    _getIframeContentJSON: function(iframe){
+        // iframe.contentWindow.document - for IE<7
+        var doc = iframe.contentDocument ? iframe.contentDocument: iframe.contentWindow.document,
+            response;
+        
+        this.log("converting iframe's innerHTML to JSON");
+        this.log("innerHTML = " + doc.body.innerHTML);
+                        
+        try {
+            response = eval("(" + doc.body.innerHTML + ")");
+        } catch(err){
+            response = {};
+        }        
+
+        return response;
+    },
+    /**
+     * Creates iframe with unique name
+     */
+    _createIframe: function(id){
+        // We can't use following code as the name attribute
+        // won't be properly registered in IE6, and new window
+        // on form submit will open
+        // var iframe = document.createElement('iframe');
+        // iframe.setAttribute('name', id);
+
+        var iframe = qq.toElement('<iframe src="javascript:false;" name="' + id + '" />');
+        // src="javascript:false;" removes ie6 prompt on https
+
+        iframe.setAttribute('id', id);
+
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        return iframe;
+    },
+    /**
+     * Creates form, that will be submitted to iframe
+     */
+    _createForm: function(iframe, params){
+        // We can't use the following code in IE6
+        // var form = document.createElement('form');
+        // form.setAttribute('method', 'post');
+        // form.setAttribute('enctype', 'multipart/form-data');
+        // Because in this case file won't be attached to request
+        var form = qq.toElement('<form enctype="multipart/form-data"></form>');
+
+        var queryString = qq.obj2url(params, this._options.action);
+        
+        form.setAttribute('method', this._options.method);
+        form.setAttribute('action', queryString);
+        form.setAttribute('target', iframe.name);
+        form.style.display = 'none';
+
+        // Rails CSRFProtection
+        var token = $('meta[name="csrf-token"]').attr('content');
+        var param = $('meta[name="csrf-param"]').attr('content');
+        var input = qq.toElement('<input type="hidden" />');
+        
+        input.setAttribute('name', param);
+        input.setAttribute('value', token);
+        
+        form.appendChild(input);
+        document.body.appendChild(form);
+
+        return form;
+    }
+});
+
+/**
+ * Class for uploading files using xhr
+ * @inherits qq.UploadHandlerAbstract
+ */
+qq.UploadHandlerXhr = function(o){
+    qq.UploadHandlerAbstract.apply(this, arguments);
+
+    this._files = [];
+    this._xhrs = [];
+    
+    // current loaded size in bytes for each file 
+    this._loaded = [];
+};
+
+// static method
+qq.UploadHandlerXhr.isSupported = function(){
+    var input = document.createElement('input');
+    input.type = 'file';        
+    
+    return (
+        'multiple' in input &&
+        typeof File != "undefined" &&
+        typeof (new XMLHttpRequest()).upload != "undefined" );       
+};
+
+// @inherits qq.UploadHandlerAbstract
+qq.extend(qq.UploadHandlerXhr.prototype, qq.UploadHandlerAbstract.prototype)
+
+qq.extend(qq.UploadHandlerXhr.prototype, {
+    /**
+     * Adds file to the queue
+     * Returns id to use with upload, cancel
+     **/    
+    add: function(file){
+        if (!(file instanceof File)){
+            throw new Error('Passed obj in not a File (in qq.UploadHandlerXhr)');
+        }
+                
+        return this._files.push(file) - 1;        
+    },
+    getName: function(id){        
+        var file = this._files[id];
+        // fix missing name in Safari 4
+        return file.fileName != null ? file.fileName : file.name;       
+    },
+    getSize: function(id){
+        var file = this._files[id];
+        return file.fileSize != null ? file.fileSize : file.size;
+    },    
+    /**
+     * Returns uploaded bytes for file identified by id 
+     */    
+    getLoaded: function(id){
+        return this._loaded[id] || 0; 
+    },
+    /**
+     * Sends the file identified by id and additional query params to the server
+     * @param {Object} params name-value string pairs
+     */    
+    _upload: function(id, params){
+        var file = this._files[id],
+            name = this.getName(id),
+            size = this.getSize(id);
+                
+        this._loaded[id] = 0;
+                                
+        var xhr = this._xhrs[id] = new XMLHttpRequest();
+        var self = this;
+                                        
+        xhr.upload.onprogress = function(e){
+            if (e.lengthComputable){
+                self._loaded[id] = e.loaded;
+                self._options.onProgress(id, name, e.loaded, e.total);
+            }
+        };
+
+        xhr.onreadystatechange = function(){            
+            if (xhr.readyState == 4){
+                self._onComplete(id, xhr);                    
+            }
+        };
+
+        // build query string
+        params = params || {};
+        params[this._options.fieldName] = name;
+        var queryString = qq.obj2url(params, this._options.action);
+
+        xhr.open(this._options.method, queryString, true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xhr.setRequestHeader("X-File-Name", encodeURIComponent(name));
+        xhr.setRequestHeader('X-File-Size', size);
+        xhr.setRequestHeader('X-File-Type', file.type);
+        xhr.setRequestHeader("Content-Type", "application/octet-stream");
+
+        // Rails CSRFProtection
+        if ($.rails) $.rails.CSRFProtection(xhr);        
+
+        xhr.send(file);
+    },
+    _onComplete: function(id, xhr){
+        // the request was aborted/cancelled
+        if (!this._files[id]) return;
+        
+        var name = this.getName(id);
+        var size = this.getSize(id);
+        
+        this._options.onProgress(id, name, size, size);
+                
+        if ([200, 201].indexOf( xhr.status ) > -1){
+            this.log("xhr - server response received");
+            this.log("responseText = " + xhr.responseText);
+                        
+            var response;
+                    
+            try {
+                response = eval("(" + xhr.responseText + ")");
+            } catch(err){
+                response = {};
+            }
+            
+            this._options.onComplete(id, name, response);
+                        
+        } else {                   
+            this._options.onComplete(id, name, {});
+        }
+                
+        this._files[id] = null;
+        this._xhrs[id] = null;    
+        this._dequeue(id);                    
+    },
+    _cancel: function(id){
+        this._options.onCancel(id, this.getName(id));
+        
+        this._files[id] = null;
+        
+        if (this._xhrs[id]){
+            this._xhrs[id].abort();
+            this._xhrs[id] = null;                                   
+        }
+    }
+});
+/**
+ * Author: Sergey Kukunin
+ * See: https://github.com/Kukunin/jquery-endless-scroll
+ */
+
+(function($) {
+	'use strict';
+
+	// Is pushState supported by this browser?
+	$.support.pushState =
+		window.history && window.history.pushState && window.history.replaceState &&
+		// pushState isn't reliable on iOS until 5.
+		!navigator.userAgent.match(/((iPod|iPhone|iPad).+\bOS\s+[1-4]|WebApps\/.+CFNetwork)/)
+
+	//Declaration of modules
+	var scrollModule = {
+		init: function(options, obj) {
+			obj.options = $.extend({
+				scrollContainer: window,
+				scrollPadding: 100,
+				scrollEventDelay: 300
+			}, options);
+			this.options = obj.options;
+			this.container = obj.container;
+			obj.scrollModule = this;
+
+			this._toplock = true;
+			this._bottomlock = true;
+
+			this.scrollContainer = $(this.options.scrollContainer);
+
+			this.updateEntities();
+			this.sortMarkers();
+
+			this.currentPage = null;
+
+			this.container.on("jes:afterPageLoad", $.proxy(function(event, url, placement) {
+				this.updateEntities();
+				this.sortMarkers();
+				this.checkMarker();
+
+				if ( placement == "top" ) {
+					//Get offset between first and second pages
+					var offset = this.markers[1].top,
+						scrollTop = this.scrollContainer.scrollTop();
+
+					this.scrollContainer.scrollTop(scrollTop + offset);
+				}
+			}, this));
+
+			this.bind();
+		},
+		updateEntities: function() {
+			this.entities = $(this.options.entity, this.container);
+		},
+		sortMarkers: function() {
+			var markers = [];
+			$(".jes-marker", this.container).each(function() {
+				markers.push({ top: $(this).position().top, url: $(this).data("jesUrl") });
+			});
+			this.markers = markers;
+		},
+		//Check, whether user scrolled to another page
+		checkMarker: function() {
+			var newPage = this.markers[0],
+				scrollTop = this.scrollContainer.scrollTop();
+
+			//Determine, what is current page
+			for ( var i = 1; i < this.markers.length; i++ ) {
+				if ( scrollTop > this.markers[i].top ) {
+					newPage = this.markers[i];
+				} else {
+					break;
+				}
+			}
+			if ( newPage.url != this.currentPage ) {
+				this.currentPage = newPage.url;
+				$(this.container).trigger("jes:scrollToPage", newPage.url);
+			}
+		},
+		bind: function() {
+			this.scrollContainer.on("scroll.jes", $.proxy(function(event) {
+				if ( this._tId ) { return; }
+
+				this.scrollHandler(event);
+				//Clean up mark
+				this._tId= setTimeout($.proxy(function(){
+					this._tId = null;
+				},this), this.options.scrollEventDelay);
+
+			}, this));
+		},
+		unbind: function() {
+			$(this.options.scrollContainer).off("scroll.jes");
+		},
+		scrollHandler: function(ev) {
+			var $scrollable = this.scrollContainer,
+				$entities = this.entities,
+				$firstEntity = $entities.first(),
+				$lastEntity = $entities.last();
+
+			var scrollTop = $scrollable.scrollTop(),
+				height = $scrollable.height(),
+				scrollBottom = scrollTop + height;
+
+			var topEntityPosition = $firstEntity.position().top,
+				topTarget = topEntityPosition + this.options.scrollPadding,
+				bottomEntityPosition = $lastEntity.outerHeight() + $lastEntity.position().top,
+				bottomTarget = bottomEntityPosition - this.options.scrollPadding;
+
+			//Don't trigger event again, if already fired
+			//Visitor have to leave the area and get back to fire event again
+			//Process top threshold
+			if ( scrollTop < topTarget ) {
+				if ( !this._toplock ) {
+					$(this.container).trigger("jes:topThreshold");
+					this._toplock = true;
+				}
+			} else {
+				this._toplock = false;
+			}
+
+			//Process bottom threshold
+			if ( scrollBottom > bottomTarget ) {
+				if ( !this._bottomlock ) {
+					$(this.container).trigger("jes:bottomThreshold");
+					this._bottomlock = true;
+				}
+			} else {
+				this._bottomlock = false;
+			}
+
+			this.checkMarker();
+		}
+	}
+
+	var ajaxModule = {
+		init: function(options, obj) {
+			obj.options = $.extend({
+			}, options);
+
+			this.options = obj.options;
+			this.container = obj.container;
+
+			//markers
+			this.setMarker($(this.options.entity, this.container).first(), location.href);
+
+			obj.ajaxModule = this;
+		},
+		loadPage: function(url, placement, callback) {
+			//The hash with methods list
+			//depends from placement
+			var actions = {
+					top: {
+						find: 'first',
+						inject: 'insertBefore'
+					},
+					bottom: {
+						find: 'last',
+						inject: 'insertAfter'
+					}
+				},
+				action = actions[placement];
+
+			this.container.trigger("jes:beforePageLoad", [url, placement]);
+
+			//Make AJAX query
+			$.get(url, null, $.proxy(function (_data) {
+				var data = $("<div>").html(_data),
+				containerSelector = this.options.container,
+				container = $(containerSelector, data).first();
+
+				if ( container.length ) {
+					//Find entities
+					var entities = container.find(this.options.entity);
+
+					if ( placement == "bottom" ) {
+						//Remove duplicated (staled) entities from page
+						entities.each(function(i) {
+							var id = $(this).attr("id");
+							if ( id ) {
+								$('#' + id, this.container).remove();
+							}
+						});
+					}
+
+					//Find the cursor
+					var cursor = $(this.options.entity, containerSelector)[action.find]();
+
+					//Find and insert entities
+					entities[action.inject](cursor);
+					this.setMarker(entities.first(), url);
+				}
+
+				if ( $.isFunction(callback) ) {
+					callback(data);
+				}
+				this.container.trigger("jes:afterPageLoad", [url, placement, data, entities]);
+			}, this), 'html');
+		},
+		setMarker: function(entity, url) {
+			entity.addClass("jes-marker").data("jesUrl", url);
+		}
+	}
+
+	var navigationModule = {
+		init: function(options, obj) {
+			obj.options = $.extend({
+				nextPage: ".pagination a[rel=next]",
+				previousPage: ".pagination a[rel=previous]"
+			}, options);
+
+			this.options = obj.options;
+			this.container = obj.container;
+
+			$.each([{
+				selector: this.options.nextPage,
+				event: "jes:bottomThreshold.navigation",
+				placement: 'bottom'
+			}, {
+				selector: this.options.previousPage,
+				event: "jes:topThreshold.navigation",
+				placement: 'top'
+			}], $.proxy(function(i, v) {
+				v.element = $(v.selector);
+				if ( v.element.length ) {
+					var url = v.element.prop("href"),
+					lock = false;
+
+					var handler = function() {
+						//this object is container
+						if ( lock || !url ) return;
+
+						lock = true;
+						obj.ajaxModule.loadPage(url, v.placement, $.proxy(function( data ) {
+							//Search new next link
+							var newElement = $(v.selector, $(data));
+							if ( newElement.length ) {
+								//Update URL and remove lock
+								lock = false;
+								url = newElement.prop("href");
+								v.element.attr("href", url);
+							} else {
+								//Remove event at all
+								$(this).off(v.event);
+								v.element.remove();
+							}
+						}, this));
+					};
+
+					$(this.container).on(v.event, handler);
+					$(v.element).on("click", $.proxy(function(ev) {
+						ev.preventDefault();
+						handler.apply(this.container)
+					}, this));
+				}
+			},this));
+		}
+	}
+
+	var pushStateHistory = {
+		init: function(options, obj) {
+			if ( !$.support.pushState ) {
+				return;
+			}
+
+			obj.container.on("jes:scrollToPage", function(event, url) {
+				history.replaceState({}, null, url);
+			});
+		}
+	}
+
+	$.endlessScroll = function(options) {
+
+		//Initialize modules
+		this.options = $.extend(true, {
+			container: "#container",
+			entity: ".entity",
+			_modules: [ ajaxModule, scrollModule, navigationModule, pushStateHistory ],
+			modules: []
+		}, options);
+
+		this.container = $(this.options.container);
+		if ( !this.container.length ) {
+			throw "Container for endless scroll isn't available on the page";
+			return;
+		}
+
+
+		//Merge custom options with default
+		$.merge(this.options.modules, this.options._modules);
+		//Init modules
+		this.options.modules.forEach($.proxy(function(module) {
+			module.init(this.options, this);
+		},this));
+
+
+		return this;
+	}
+
+})(jQuery);
+(function($, undefined) {
+
+/**
+ * Unobtrusive scripting adapter for jQuery
+ *
+ * Requires jQuery 1.6.0 or later.
+ * https://github.com/rails/jquery-ujs
+
+ * Uploading file using rails.js
+ * =============================
+ *
+ * By default, browsers do not allow files to be uploaded via AJAX. As a result, if there are any non-blank file fields
+ * in the remote form, this adapter aborts the AJAX submission and allows the form to submit through standard means.
+ *
+ * The `ajax:aborted:file` event allows you to bind your own handler to process the form submission however you wish.
+ *
+ * Ex:
+ *     $('form').live('ajax:aborted:file', function(event, elements){
+ *       // Implement own remote file-transfer handler here for non-blank file inputs passed in `elements`.
+ *       // Returning false in this handler tells rails.js to disallow standard form submission
+ *       return false;
+ *     });
+ *
+ * The `ajax:aborted:file` event is fired when a file-type input is detected with a non-blank value.
+ *
+ * Third-party tools can use this hook to detect when an AJAX file upload is attempted, and then use
+ * techniques like the iframe method to upload the file instead.
+ *
+ * Required fields in rails.js
+ * ===========================
+ *
+ * If any blank required inputs (required="required") are detected in the remote form, the whole form submission
+ * is canceled. Note that this is unlike file inputs, which still allow standard (non-AJAX) form submission.
+ *
+ * The `ajax:aborted:required` event allows you to bind your own handler to inform the user of blank required inputs.
+ *
+ * !! Note that Opera does not fire the form's submit event if there are blank required inputs, so this event may never
+ *    get fired in Opera. This event is what causes other browsers to exhibit the same submit-aborting behavior.
+ *
+ * Ex:
+ *     $('form').live('ajax:aborted:required', function(event, elements){
+ *       // Returning false in this handler tells rails.js to submit the form anyway.
+ *       // The blank required inputs are passed to this function in `elements`.
+ *       return ! confirm("Would you like to submit the form with missing info?");
+ *     });
+ */
+
+  // Shorthand to make it a little easier to call public rails functions from within rails.js
+  var rails;
+
+  $.rails = rails = {
+    // Link elements bound by jquery-ujs
+    linkClickSelector: 'a[data-confirm], a[data-method], a[data-remote], a[data-disable-with]',
+
+    // Select elements bound by jquery-ujs
+    inputChangeSelector: 'select[data-remote], input[data-remote], textarea[data-remote]',
+
+    // Form elements bound by jquery-ujs
+    formSubmitSelector: 'form',
+
+    // Form input elements bound by jquery-ujs
+    formInputClickSelector: 'form input[type=submit], form input[type=image], form button[type=submit], form button:not(button[type])',
+
+    // Form input elements disabled during form submission
+    disableSelector: 'input[data-disable-with], button[data-disable-with], textarea[data-disable-with]',
+
+    // Form input elements re-enabled after form submission
+    enableSelector: 'input[data-disable-with]:disabled, button[data-disable-with]:disabled, textarea[data-disable-with]:disabled',
+
+    // Form required input elements
+    requiredInputSelector: 'input[name][required]:not([disabled]),textarea[name][required]:not([disabled])',
+
+    // Form file input elements
+    fileInputSelector: 'input:file',
+
+    // Link onClick disable selector with possible reenable after remote submission
+    linkDisableSelector: 'a[data-disable-with]',
+
+    // Make sure that every Ajax request sends the CSRF token
+    CSRFProtection: function(xhr) {
+      var token = $('meta[name="csrf-token"]').attr('content');
+      if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+    },
+
+    // Triggers an event on an element and returns false if the event result is false
+    fire: function(obj, name, data) {
+      var event = $.Event(name);
+      obj.trigger(event, data);
+      return event.result !== false;
+    },
+
+    // Default confirm dialog, may be overridden with custom confirm dialog in $.rails.confirm
+    confirm: function(message) {
+      return confirm(message);
+    },
+
+    // Default ajax function, may be overridden with custom function in $.rails.ajax
+    ajax: function(options) {
+      return $.ajax(options);
+    },
+
+    // Submits "remote" forms and links with ajax
+    handleRemote: function(element) {
+      var method, url, data,
+        crossDomain = element.data('cross-domain') || null,
+        dataType = element.data('type') || ($.ajaxSettings && $.ajaxSettings.dataType),
+        options;
+
+      if (rails.fire(element, 'ajax:before')) {
+
+        if (element.is('form')) {
+          method = element.attr('method');
+          url = element.attr('action');
+          data = element.serializeArray();
+          // memoized value from clicked submit button
+          var button = element.data('ujs:submit-button');
+          if (button) {
+            data.push(button);
+            element.data('ujs:submit-button', null);
+          }
+        } else if (element.is(rails.inputChangeSelector)) {
+          method = element.data('method');
+          url = element.data('url');
+          data = element.serialize();
+          if (element.data('params')) data = data + "&" + element.data('params');
+        } else {
+          method = element.data('method');
+          url = element.attr('href');
+          data = element.data('params') || null;
+        }
+
+        options = {
+          type: method || 'GET', data: data, dataType: dataType, crossDomain: crossDomain,
+          // stopping the "ajax:beforeSend" event will cancel the ajax request
+          beforeSend: function(xhr, settings) {
+            if (settings.dataType === undefined) {
+              xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
+            }
+            return rails.fire(element, 'ajax:beforeSend', [xhr, settings]);
+          },
+          success: function(data, status, xhr) {
+            element.trigger('ajax:success', [data, status, xhr]);
+          },
+          complete: function(xhr, status) {
+            element.trigger('ajax:complete', [xhr, status]);
+          },
+          error: function(xhr, status, error) {
+            element.trigger('ajax:error', [xhr, status, error]);
+          }
+        };
+        // Only pass url to `ajax` options if not blank
+        if (url) { options.url = url; }
+
+        return rails.ajax(options);
+      } else {
+        return false;
+      }
+    },
+
+    // Handles "data-method" on links such as:
+    // <a href="/users/5" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>
+    handleMethod: function(link) {
+      var href = link.attr('href'),
+        method = link.data('method'),
+        target = link.attr('target'),
+        csrf_token = $('meta[name=csrf-token]').attr('content'),
+        csrf_param = $('meta[name=csrf-param]').attr('content'),
+        form = $('<form method="post" action="' + href + '"></form>'),
+        metadata_input = '<input name="_method" value="' + method + '" type="hidden" />';
+
+      if (csrf_param !== undefined && csrf_token !== undefined) {
+        metadata_input += '<input name="' + csrf_param + '" value="' + csrf_token + '" type="hidden" />';
+      }
+
+      if (target) { form.attr('target', target); }
+
+      form.hide().append(metadata_input).appendTo('body');
+      form.submit();
+    },
+
+    /* Disables form elements:
+      - Caches element value in 'ujs:enable-with' data store
+      - Replaces element text with value of 'data-disable-with' attribute
+      - Sets disabled property to true
+    */
+    disableFormElements: function(form) {
+      form.find(rails.disableSelector).each(function() {
+        var element = $(this), method = element.is('button') ? 'html' : 'val';
+        element.data('ujs:enable-with', element[method]());
+        element[method](element.data('disable-with'));
+        element.prop('disabled', true);
+      });
+    },
+
+    /* Re-enables disabled form elements:
+      - Replaces element text with cached value from 'ujs:enable-with' data store (created in `disableFormElements`)
+      - Sets disabled property to false
+    */
+    enableFormElements: function(form) {
+      form.find(rails.enableSelector).each(function() {
+        var element = $(this), method = element.is('button') ? 'html' : 'val';
+        if (element.data('ujs:enable-with')) element[method](element.data('ujs:enable-with'));
+        element.prop('disabled', false);
+      });
+    },
+
+   /* For 'data-confirm' attribute:
+      - Fires `confirm` event
+      - Shows the confirmation dialog
+      - Fires the `confirm:complete` event
+
+      Returns `true` if no function stops the chain and user chose yes; `false` otherwise.
+      Attaching a handler to the element's `confirm` event that returns a `falsy` value cancels the confirmation dialog.
+      Attaching a handler to the element's `confirm:complete` event that returns a `falsy` value makes this function
+      return false. The `confirm:complete` event is fired whether or not the user answered true or false to the dialog.
+   */
+    allowAction: function(element) {
+      var message = element.data('confirm'),
+          answer = false, callback;
+      if (!message) { return true; }
+
+      if (rails.fire(element, 'confirm')) {
+        answer = rails.confirm(message);
+        callback = rails.fire(element, 'confirm:complete', [answer]);
+      }
+      return answer && callback;
+    },
+
+    // Helper function which checks for blank inputs in a form that match the specified CSS selector
+    blankInputs: function(form, specifiedSelector, nonBlank) {
+      var inputs = $(), input,
+        selector = specifiedSelector || 'input,textarea';
+      form.find(selector).each(function() {
+        input = $(this);
+        // Collect non-blank inputs if nonBlank option is true, otherwise, collect blank inputs
+        if (nonBlank ? input.val() : !input.val()) {
+          inputs = inputs.add(input);
+        }
+      });
+      return inputs.length ? inputs : false;
+    },
+
+    // Helper function which checks for non-blank inputs in a form that match the specified CSS selector
+    nonBlankInputs: function(form, specifiedSelector) {
+      return rails.blankInputs(form, specifiedSelector, true); // true specifies nonBlank
+    },
+
+    // Helper function, needed to provide consistent behavior in IE
+    stopEverything: function(e) {
+      $(e.target).trigger('ujs:everythingStopped');
+      e.stopImmediatePropagation();
+      return false;
+    },
+
+    // find all the submit events directly bound to the form and
+    // manually invoke them. If anyone returns false then stop the loop
+    callFormSubmitBindings: function(form, event) {
+      var events = form.data('events'), continuePropagation = true;
+      if (events !== undefined && events['submit'] !== undefined) {
+        $.each(events['submit'], function(i, obj){
+          if (typeof obj.handler === 'function') return continuePropagation = obj.handler(event);
+        });
+      }
+      return continuePropagation;
+    },
+
+    //  replace element's html with the 'data-disable-with' after storing original html
+    //  and prevent clicking on it
+    disableElement: function(element) {
+      element.data('ujs:enable-with', element.html()); // store enabled state
+      element.html(element.data('disable-with')); // set to disabled state
+      element.bind('click.railsDisable', function(e) { // prevent further clicking
+        return rails.stopEverything(e)
+      });
+    },
+
+    // restore element to its original state which was disabled by 'disableElement' above
+    enableElement: function(element) {
+      if (element.data('ujs:enable-with') !== undefined) {
+        element.html(element.data('ujs:enable-with')); // set to old enabled state
+        // this should be element.removeData('ujs:enable-with')
+        // but, there is currently a bug in jquery which makes hyphenated data attributes not get removed
+        element.data('ujs:enable-with', false); // clean up cache
+      }
+      element.unbind('click.railsDisable'); // enable element
+    }
+
+  };
+
+  $.ajaxPrefilter(function(options, originalOptions, xhr){ if ( !options.crossDomain ) { rails.CSRFProtection(xhr); }});
+
+  $(document).delegate(rails.linkDisableSelector, 'ajax:complete', function() {
+      rails.enableElement($(this));
+  });
+
+  $(document).delegate(rails.linkClickSelector, 'click.rails', function(e) {
+    var link = $(this), method = link.data('method'), data = link.data('params');
+    if (!rails.allowAction(link)) return rails.stopEverything(e);
+
+    if (link.is(rails.linkDisableSelector)) rails.disableElement(link);
+
+    if (link.data('remote') !== undefined) {
+      if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
+
+      if (rails.handleRemote(link) === false) { rails.enableElement(link); }
+      return false;
+
+    } else if (link.data('method')) {
+      rails.handleMethod(link);
+      return false;
+    }
+  });
+
+  $(document).delegate(rails.inputChangeSelector, 'change.rails', function(e) {
+    var link = $(this);
+    if (!rails.allowAction(link)) return rails.stopEverything(e);
+
+    rails.handleRemote(link);
+    return false;
+  });
+
+  $(document).delegate(rails.formSubmitSelector, 'submit.rails', function(e) {
+    var form = $(this),
+      remote = form.data('remote') !== undefined,
+      blankRequiredInputs = rails.blankInputs(form, rails.requiredInputSelector),
+      nonBlankFileInputs = rails.nonBlankInputs(form, rails.fileInputSelector);
+
+    if (!rails.allowAction(form)) return rails.stopEverything(e);
+
+    // skip other logic when required values are missing or file upload is present
+    if (blankRequiredInputs && form.attr("novalidate") == undefined && rails.fire(form, 'ajax:aborted:required', [blankRequiredInputs])) {
+      return rails.stopEverything(e);
+    }
+
+    if (remote) {
+      if (nonBlankFileInputs) {
+        return rails.fire(form, 'ajax:aborted:file', [nonBlankFileInputs]);
+      }
+
+      // If browser does not support submit bubbling, then this live-binding will be called before direct
+      // bindings. Therefore, we should directly call any direct bindings before remotely submitting form.
+      if (!$.support.submitBubbles && $().jquery < '1.7' && rails.callFormSubmitBindings(form, e) === false) return rails.stopEverything(e);
+
+      rails.handleRemote(form);
+      return false;
+
+    } else {
+      // slight timeout so that the submit button gets properly serialized
+      setTimeout(function(){ rails.disableFormElements(form); }, 13);
+    }
+  });
+
+  $(document).delegate(rails.formInputClickSelector, 'click.rails', function(event) {
+    var button = $(this);
+
+    if (!rails.allowAction(button)) return rails.stopEverything(event);
+
+    // register the pressed submit button
+    var name = button.attr('name'),
+      data = name ? {name:name, value:button.val()} : null;
+
+    button.closest('form').data('ujs:submit-button', data);
+  });
+
+  $(document).delegate(rails.formSubmitSelector, 'ajax:beforeSend.rails', function(event) {
+    if (this == event.target) rails.disableFormElements($(this));
+  });
+
+  $(document).delegate(rails.formSubmitSelector, 'ajax:complete.rails', function(event) {
+    if (this == event.target) rails.enableFormElements($(this));
+  });
+
+})( jQuery );
+$.QueryString = (function(a) {
+  if (a == "") return {};
+  var b = {};
+  for (var i = 0; i < a.length; ++i)
+  {
+    var p=a[i].split('=');
+    if (p.length != 2) continue;
+    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+  }
+  return b;
+})(window.location.search.substr(1).split('&'))
+
+$(document).ready(function(){
+  var selector = "div.gal-item div.gal-inner-holder";
+
+  $(document)
+    .on('mouseover', selector, function(e){
+      $(this).addClass('hover');
+    })
+    .on('mouseout', selector, function(e){
+      $(this).removeClass('hover');
+    })
+    .on('click', selector, function(e){
+      var url = $(this).parents('div.gal-item').data('url');
+      CKEDITOR.tools.callFunction(CKEditorFuncNum, url);
+      window.close();
+    });
+
+  $(document).on('ajax:complete', "div.gal-item a.gal-del", function(xhr, status){
+    $(this).parents('div.gal-item').remove();
+  });
+
+  var endlessScroll = $.endlessScroll({
+    container: ".fileupload-list",
+    entity: ".gal-item",
+    scrollPadding: 100
+  });
+
+  // Don't listen events first second
+  endlessScroll.scrollModule.unbind();
+  window.setTimeout(function() { endlessScroll.scrollModule.bind();}, 1000);
+});
+
+// Collection of all instances on page
+qq.FileUploader.instances = new Object();
+
+/**
+ * Class that creates upload widget with drag-and-drop and file list
+ * @inherits qq.FileUploaderBasic
+ */
+qq.FileUploaderInput = function(o){
+    // call parent constructor
+    qq.FileUploaderBasic.apply(this, arguments);
+
+    // additional options
+    qq.extend(this._options, {
+        element: null,
+        // if set, will be used instead of qq-upload-list in template
+        listElement: null,
+
+        template_id: '#fileupload_tmpl',
+
+        classes: {
+            // used to get elements from templates
+            button: 'fileupload-button',
+            drop: 'fileupload-drop-area',
+            dropActive: 'fileupload-drop-area-active',
+            list: 'fileupload-list',
+            preview: 'fileupload-preview',
+
+            file: 'fileupload-file',
+            spinner: 'fileupload-spinner',
+            size: 'fileupload-size',
+            cancel: 'fileupload-cancel',
+
+            // added to list item when upload completes
+            // used in css to hide progress spinner
+            success: 'fileupload-success',
+            fail: 'fileupload-fail'
+        }
+    });
+    // overwrite options with user supplied
+    qq.extend(this._options, o);
+
+    this._element = document.getElementById(this._options.element);
+    this._listElement = this._options.listElement || this._find(this._element, 'list');
+
+    this._classes = this._options.classes;
+
+    this._button = this._createUploadButton(this._find(this._element, 'button'));
+
+    //this._setupDragDrop();
+
+    qq.FileUploader.instances[this._element.id] = this;
+};
+
+// inherit from Basic Uploader
+qq.extend(qq.FileUploaderInput.prototype, qq.FileUploaderBasic.prototype);
+
+qq.extend(qq.FileUploaderInput.prototype, {
+    /**
+     * Gets one of the elements listed in this._options.classes
+     **/
+    _find: function(parent, type){
+        var element = qq.getByClass(parent, this._options.classes[type])[0];
+        if (!element){
+          alert(type);
+            throw new Error('element not found ' + type);
+        }
+
+        return element;
+    },
+    _setupDragDrop: function(){
+        var self = this,
+            dropArea = this._find(this._element, 'drop');
+
+        var dz = new qq.UploadDropZone({
+            element: dropArea,
+            onEnter: function(e){
+                qq.addClass(dropArea, self._classes.dropActive);
+                e.stopPropagation();
+            },
+            onLeave: function(e){
+                e.stopPropagation();
+            },
+            onLeaveNotDescendants: function(e){
+                qq.removeClass(dropArea, self._classes.dropActive);
+            },
+            onDrop: function(e){
+                dropArea.style.display = 'none';
+                qq.removeClass(dropArea, self._classes.dropActive);
+                self._uploadFileList(e.dataTransfer.files);
+            }
+        });
+
+        dropArea.style.display = 'none';
+
+        qq.attach(document, 'dragenter', function(e){
+            if (!dz._isValidFileDrag(e)) return;
+
+            dropArea.style.display = 'block';
+        });
+        qq.attach(document, 'dragleave', function(e){
+            if (!dz._isValidFileDrag(e)) return;
+
+            var relatedTarget = document.elementFromPoint(e.clientX, e.clientY);
+            // only fire when leaving document out
+            if ( ! relatedTarget || relatedTarget.nodeName == "HTML"){
+                dropArea.style.display = 'none';
+            }
+        });
+    },
+    _onSubmit: function(id, fileName){
+        qq.FileUploaderBasic.prototype._onSubmit.apply(this, arguments);
+        this._addToList(id, fileName);
+    },
+    _onProgress: function(id, fileName, loaded, total){
+        qq.FileUploaderBasic.prototype._onProgress.apply(this, arguments);
+
+        var item = this._getItemByFileId(id);
+        var size = this._find(item, 'size');
+
+        var text;
+        if (loaded != total){
+            text = Math.round(loaded / total * 100) + '% from ' + this._formatSize(total);
+        } else {
+            text = this._formatSize(total);
+        }
+
+        qq.setText(size, text);
+    },
+    _onComplete: function(id, fileName, result){
+        qq.FileUploaderBasic.prototype._onComplete.apply(this, arguments);
+
+        var item = this._getItemByFileId(id);
+        var asset = result.asset ? result.asset : result;
+
+        if (asset && asset.id){
+            qq.addClass(item, this._classes.success);
+
+            asset.size = this._formatSize(asset.size);
+            asset.controller = (asset.type !== undefined && asset.type.toLowerCase() == "ckeditor::picture" ? "pictures" : "attachment_files");
+
+            $(item).replaceWith($(this._options.template_id).tmpl(asset));
+        } else {
+            qq.addClass(item, this._classes.fail);
+        }
+    },
+    _addToList: function(id, fileName){
+        if (this._listElement) {
+          if (this._options.multiple === false) {
+            $(this._listElement).empty();
+          }
+
+          var asset = {
+            id: 0,
+            filename: this._formatFileName(fileName),
+            size: 0,
+            format_created_at: '',
+            url_content: "#",
+            controller: "assets",
+            url_thumb: ""
+          };
+
+          var item = $(this._options.template_id).tmpl(asset).attr('qqfileid', id)
+
+          item.find('div.img').html('').addClass('preloader');
+          item.prependTo( this._listElement );
+
+          this._bindCancelEvent(item);
+        }
+    },
+    _getItemByFileId: function(id){
+        return $(this._listElement).find('div[qqfileid=' + id  +']').get(0);
+    },
+    /**
+     * delegate click event for cancel link
+     **/
+    _bindCancelEvent: function(element){
+        var self = this,
+            item = $(element);
+
+        item.find('a.' + this._classes.cancel).bind('click', function(e){
+          self._handler.cancel( item.attr('qqfileid') );
+          item.remove();
+          qq.preventDefault(e);
+          return false;
+        });
+    }
+});
+
+
+
+
+
