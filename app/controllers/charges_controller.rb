@@ -57,34 +57,23 @@ class ChargesController < ApplicationController
           response_error_description = response_body['error_description']
           # User instance is updated as soon as the stripe_user_id is received. This allows to the user to re-login later without keeping sensitive information in our database.
           User.where( id: "#{returned_user_id}".to_i ).update_all( stripe_user_id: response_stripe_user_id )
+          
           # During development console Display of parameters.
-          puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
-          puts "response_access_token: #{response_access_token}"
-          puts "response_livemode: #{response_livemode}"
-          puts "response_refresh_token: #{response_refresh_token}"
-          puts "response_token_type: #{response_token_type}"
-          puts "response_stripe_publishable_key: #{response_stripe_publishable_key}"
-          puts "response_stripe_user_id: #{response_stripe_user_id}"
-          puts "response_scope: #{response_scope}"
-          puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
+          # puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
+          # puts "response_access_token: #{response_access_token}"
+          # puts "response_livemode: #{response_livemode}"
+          # puts "response_refresh_token: #{response_refresh_token}"
+          # puts "response_token_type: #{response_token_type}"
+          # puts "response_stripe_publishable_key: #{response_stripe_publishable_key}"
+          # puts "response_stripe_user_id: #{response_stripe_user_id}"
+          # puts "response_scope: #{response_scope}"
+          # puts " =-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-=-!-="
 
           redirect_to user_path(returned_user_id)
     else
       # If this 'else' is activated, then it's likely the user tampered with the URI.
       render root_path
     end
-  end
-
-  def stripe_charge
-    @user = User.find(params[:id])
-    Stripe.api_key = "#{ENV['SECRET_KEY']}"
-
-    charge = Stripe::Charge.create({
-      :amount => 1000, # GET RATE FROM COMP HOURLY RATE
-      :currency => "usd",
-      :source => "tok_visa",
-    }, :stripe_account => @user.stripe_user_id)
-    redirect_to user_path(@user)
   end
 
 end
