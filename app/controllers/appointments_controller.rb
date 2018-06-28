@@ -13,7 +13,6 @@ class AppointmentsController < ApplicationController
     @user = User.find(params[:user_id])
     @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
       appointment_params[:companion_id])
-
     if @appointment.length >= 1
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
