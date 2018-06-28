@@ -6,17 +6,17 @@
     <section class="home_div">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active" id="car1">
+            <div class="carousel-item active" id="car1" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'newcompanioneditor.jpg' %>);">
               <div class="container">
                 <h1 class="text-center scrollh1">ERRANDS | HOME SUPPORT | COMPANIONSHIP  INDEPENDENT LIFESTYLE</h1>
               </div>
             </div>
-            <div class="carousel-item" id="car2">
+            <div class="carousel-item" id="car2" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'coffietimecomp.jpg' %>);">
               <div class="container">
                 <h1 class="text-center scrollh1">LAUGH, ENGAGE IN YOUR COMMUNITY, AND BUILD MEANINGFUL RELATIONSHIPS</h1>
               </div>
             </div>
-            <div class="carousel-item" id="car3">
+            <div class="carousel-item" id="car3" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'smilyblaccomp.jpg' %>);">
               <div class="container">
                 <h1 class="text-center scrollh1">ITS YOUR LIFE LIVE IT THE WAY YOU WANT</h1>
               </div>
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
           <div class="text-center">
-            <img src="/assets/verified.png" class="font">
+            <%= image_tag "verified.png", class: "font" %>
           </div>
           <h2 class="text-center font_p_1">VERIFICATION</h2>
           <p class="font_p">
@@ -41,7 +41,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
           <div class="text-center">
-            <img src="/assets/time.png" class="font">
+            <%= image_tag"time.png", class: "font" %>
           </div>
           <h2 class="text-center font_p_1">SHORT NOTICE</h2>
           <p class="font_p">
@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
           <div class="text-center">
-            <img src="/assets/yellow_10520.png" class="font">
+            <%= image_tag"yellow_10520.png", class: "font" %>
           </div>
           <h2 class="text-center font_p_1">PROTECTION</h2>
           <p class="font_p">
@@ -104,7 +104,7 @@
           <div class="col-lg-6 col-md-6">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_cell-2-0_234509.png" class="services_font">
+              <%= image_tag "if_cell-2-0_234509.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">SHOPPING</h2>
@@ -115,7 +115,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_broom_household_housekeeping_clean_wash_887146.png" class="services_font">
+              <%= image_tag "if_broom_household_housekeeping_clean_wash_887146.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">LIGHT HOUSEKEEPING</h2>
@@ -126,7 +126,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_080_392196.png" class="services_font">
+              <%= image_tag "if_080_392196.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">TRANSPORTATION</h2>
@@ -137,7 +137,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_071_392191.png" class="services_font">
+              <%= image_tag "if_071_392191.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">MEAL PREPARATION</h2>
@@ -148,7 +148,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_054_392182.png" class="services_font">
+              <%= image_tag "if_054_392182.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">COMPANIONSHIP</h2>
@@ -159,7 +159,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="row">
             <div class="col-lg-3 col-md-4 col-4">
-              <img src="/assets/if_074_392193.png" class="services_font">
+              <%= image_tag "if_074_392193.png", class: "services_font"%>
             </div>
             <div class="col-lg-9 col-md-8 col-8">
               <h2 class="font_p_1">ERRANDS</h2>
@@ -175,7 +175,7 @@
           <h1 class="text_header">HEAR FROM OUR COMPANIONS<h1>
         </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(/assets/head_shot_copy.jpg);"></div>
+            <div class="comp_img_div" style="background-image: url(<%= asset_path 'head_shot_copy.jpg' %>)"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Merty Mcgraw</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -185,7 +185,7 @@
             </div>
           </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(/assets/wale-compress-image.jpg);"></div>
+            <div class="comp_img_div" style="background-image: url(<%= asset_path 'wale-compress-image.jpg' %>);"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Wale Kareem</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -195,7 +195,7 @@
             </div>
           </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(/assets/jamez.png);"></div>
+            <div class="comp_img_div" style="background-image: url(<%= asset_path 'jamez.png' %>);"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Mez Manning</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -301,8 +301,8 @@
         </div>
       </div>
     </section>
-    <div class="image2_div">
-        <h1 class="scrollh1">YOUR HAPPINESS IS OUR PRIORITY.</h1>
+    <div class="image2_div" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'facebookprofile.jpg' %>);">
+        <h1>YOUR HAPPINESS IS OUR PRIORITY.</h1>
     </div>
     <div class="faq container">
       <div>

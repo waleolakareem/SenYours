@@ -5,7 +5,7 @@
   <main itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement">
     <section itemprop="about" itemscope itemtype="http://schema.org/OrganizationRole" class="comp_sec">
       <meta itemprop="name" content="Companion">
-      <div class="comp_ind_pics">
+      <div class="comp_ind_pics" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'facebookprofile.jpg' %>);">
         <p class="text-center notification">Run <span style="color: orange;">Errands</span> |support|<span style="color: orange;">socialize</span> with senior adults in your community</p>
         <p class="text-center">Earn up to <span style="color: orange;">$25</span> every hour</p>
         <button type="button" class="prefinery-form-cta btn comp_ind_pics_button">Get Early Access</button>
@@ -38,19 +38,19 @@
       <meta itemprop="roleName" content="Companion">
       <div class="row pow">
         <div class="col-lg-4 comp_form_div">
-          <div class="comp_pow" style="background-image:url(/assets/surf.jpg);">
+          <div class="comp_pow" style="background-image: url(<%= asset_path 'surf.jpg' %>)">
             <h1 class="comp_pow_h1">Travel</h1>
             <p class="comp_pow_p">Flexibility at your fingertips</p>
           </div>
         </div>
         <div class="col-lg-4 comp_form_div">
-          <div class="comp_pow" style="background-image:url(/assets/findyou.jpg);">
+          <div class="comp_pow" style="background-image: url(<%= asset_path 'findyou.jpg' %>)">
             <h1 class="comp_pow_h1">Meet new people</h1>
             <p class="comp_pow_p"> Seniors are awesome and share knowledge</p>
           </div>
         </div>
         <div class="col-lg-4 comp_form_div">
-          <div class="comp_pow" style="background-image:url(/assets/meditate.jpg);">
+          <div class="comp_pow" style="background-image: url(<%= asset_path 'meditate.jpg' %>)">
             <h1 class="comp_pow_h1">Discover you</h1>
             <p class="comp_pow_p"> Take time to understand you</p>
           </div>
@@ -95,7 +95,7 @@
         <div class="col-lg-4 form_div">
           <h3 class="text-center">Step 1 </h3>
           <div class="text-center">
-            <img src="/assets/backgroundcheck.png" class="font">
+            <%= image_tag "backgroundcheck.png", class: "font"%>
           </div>
           <div class="text-center">
           <p class="notification">Sign Up</p>
@@ -106,7 +106,7 @@
         <div class="col-lg-4 form_div">
           <h3 class="text-center">Step 2 </h3>
           <div class="text-center">
-            <img src="/assets/calender (1).png" class="font">
+            <%= image_tag "calender (1).png", class: "font"%>
           </div>
           <div class="text-center">
           <p class="notification">Hustle smartly</p>
@@ -116,7 +116,7 @@
         <div class="col-lg-4 form_div">
           <h3 class="text-center">Step 3 </h3>
           <div class="text-center">
-            <img src="/assets/bank.png" class="font">
+            <%= image_tag "bank.png", class: "font"%>
           </div>
           <div class="text-center">
           <p class="notification">Get matched with senior adults</p>

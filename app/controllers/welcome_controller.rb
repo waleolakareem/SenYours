@@ -16,4 +16,7 @@ class WelcomeController < ApplicationController
 
   def cookie_policy
   end
+
+  def about_us
+  end
 end

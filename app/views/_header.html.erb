@@ -2,7 +2,7 @@
 <script type="text/javascript">var _pfy = _pfy || [];(function(){function pfy_load(){var pfys=document.createElement('script');pfys.type='text/javascript';pfys.async=true;pfys.src='https://widget.prefinery.com/widget/v2/bjcljd0s.js';var pfy=document.getElementsByTagName('script')[0];pfy.parentNode.insertBefore(pfys,pfy);}if (window.attachEvent){window.attachEvent('onload',pfy_load);}else{window.addEventListener('load',pfy_load,false);}})();</script>
 <!-- End of Async Prefinery Code -->
 <nav itemscope role=navigation class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="/"><img src="/assets/S_2edit.jpg" class="nav_img"></a>
+  <a class="navbar-brand" href="/"><%= image_tag "S_2edit.jpg", class: "nav_img"%></a>
   <a href="/" style="text-decoration: none;"><h3 style="color: orange;">senyours</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
     <ul class="navbar-nav mr-auto" itemtype="http://www.schema.org/SiteNavigationElement">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Locations
+          Cities
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">San Francisco</a>
@@ -70,11 +70,11 @@
           </a>
         </li>
         <!-- href should be with anchor tag but with li tag for property -->
-        <li class="nav-item press" itemprop="name" href="#what_we">
+        <!--<li class="nav-item press" itemprop="name" href="#what_we">
           <a class="nav-link" itemprop="url">
             What we do
           </a>
-        </li>
+        </li>-->
          <li class="nav-item press2">
           <a class="nav-link " href="http://senyours.appointy.com/" target="_blank">
             Set appointment
@@ -85,13 +85,18 @@
             Blog
           </a>
         </li>
+        <li class="nav-item press4">
+          <a class="nav-link " href="/about">
+            About Us
+          </a>
+        </li>
         <li class="nav-item press3">
           <a class="nav-link  prefinery-form-cta">
             Get early access
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">
+          <a href="tel:+1-415-906-6440" class="nav-link">
             415-906-6440
           </a>
         </li>

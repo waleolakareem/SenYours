@@ -1,13 +1,3 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.home_div {
-  // padding-top:0px;
-  // @media screen and (max-width: 1024px){
-  //   margin-top: -20px;
-  // }
-}
 .flash {
   height: 40px;
   width: 80%;
@@ -17,19 +7,17 @@
 #car1{
   background-size: cover;
   height: 830px;
-  background-image:url(/assets/newcompanioneditor.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/newcompanioneditor.jpg);
+  //background-image: asset-url('newcompanioneditor.jpg'); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('newcompanioneditor.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
     background-position: top center;
   }
 }
-
 .carousel {
   margin-top: -10px;
 }
-
 .promo_text {
   color: white;
   background-color: orange;
@@ -87,8 +75,8 @@
 }
 #car2{
   background-size: cover;
-  background-image:url(/assets/coffietimecomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/coffietimecomp.jpg);
+  //background-image: image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('coffietimecomp.jpg' );
   // background-attachment: fixed;
   height: 830px;
   @media screen and (max-width: 1024px){
@@ -100,14 +88,13 @@
 #car3{
   background-size: cover;
   height: 830px;
-  background-image:url(/assets/smilyblaccomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/smilyblaccomp.jpg);
+  //background-image: image_url('smilyblaccomp.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('smilyblaccomp.jpg' );
   @media screen and (max-width: 1024px){
     height: 350px;
     background-attachment: scroll;
   }
 }
-
 .circle {
   border-radius: 3px;
   background: orange;
@@ -119,8 +106,6 @@
   font-family: 'Muli', sans-serif;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   margin-bottom: 5px;
-
-
   @media screen and (max-width: 770px){
     font-size: 0.75em;
   };
@@ -128,12 +113,10 @@
     font-size: 0.85em;
   };
 }
-
 .circle_col {
   padding-right:5px;
   padding-left:5px;
 }
-
 .image_div p {
   font-size: 30px;
   padding-top:460px;
@@ -227,19 +210,19 @@
     padding: 0px;
   }
 }
-// .font_back:hover{
-//    -webkit-transform: scale(1.1);
-//     -ms-transform: scale(1.1);
-//     transform: scale(1.1);
-//   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-//   box-shadow-color: orange;
-//   @media screen and (max-width: 1024px){
-//     -webkit-transform: none;
-//     -ms-transform: none;
-//     transform: none;
-//     box-shadow: none;
-//   }
-// }
+.font_back:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow-color: orange;
+  @media screen and (max-width: 1024px){
+   -webkit-transform: none;
+   -ms-transform: none;
+   transform: none;
+   box-shadow: none;
+  }
+ }
 .font_back .text-center {
   color: orange
 }
@@ -272,14 +255,15 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/facebookprofile.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/facebookprofile.jpg);
+  //background-image: image_url('facebookprofile.jpg' ); /* fallback for older browsers */
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('facebookprofile.jpg' );
   background-attachment: fixed;
   width: 100%;
   height: 650px;
   // opacity: 0.6;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   @media screen and (max-width: 1024px){
@@ -291,17 +275,17 @@
     height: 400px;
   }
 }
-// .image2_div p {
-//   // font-size: 30px;
-//   color: white;
-//   opacity: 1;
-//   text-shadow: 1px 1px 5px rgba(0,0,0,1);
-//   font-family: 'Muli', sans-serif;
-//   @media screen and (max-width: 425px){
-//     font-size: 12px;
-//     font-weight: 700;
-//   }
-// }
+.image2_div h1 {
+   font-size: 30px;
+   color: white;
+   opacity: 1;
+   text-shadow: 1px 1px 5px rgba(0,0,0,1);
+   font-family: 'Muli', sans-serif;
+   @media screen and (max-width: 425px){
+     font-size: 12px;
+     font-weight: 700;
+   }
+ }
 .stepp {
   margin: 20px 0px;
   padding: 50px 0px;
@@ -353,8 +337,8 @@
    background-repeat: no-repeat;
   background-size:cover;
   background-postion: center;
-  background-image:url(/assets/backcheckcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/backcheckcomp.jpg);
+  background-image: image_url('backcheckcomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('backcheckcomp.jpg' );
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   // opacity:0.8;
   width: 100%;
@@ -401,8 +385,8 @@
   background-postion: left center;
   // opacity:0.8;
   box-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-  background-image:url(/assets/youngmancomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(/assets/youngmancomp.jpg);
+  background-image: image_url('youngmancomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  image_url('youngmancomp.jpg' );
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -413,8 +397,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
-  background-image:url(/assets/cocktailcomp.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%), url(/assets/cocktailcomp.jpg);
+  background-image: image_url('cocktailcomp.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('cocktailcomp.jpg' );
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -457,8 +441,8 @@
   background-repeat: no-repeat;
   background-size:cover;
   background-postion: top center;
-  background-image:url(/assets/needacomppic.jpg); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(/assets/needacomppic.jpg);
+  background-image: image_url('needacomppic.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('needacomppic.jpg' );
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
@@ -535,7 +519,6 @@
     font-size: 0.65rem !important;
   }
 }
-
 .choose{
   padding-top: 320px;
   height: 600px;
@@ -546,14 +529,12 @@
   height: 400px;
   width: 100%;
   }
-
    @media screen and (max-width: 320px) {
   padding-top: 160px;
   height: 400px;
   width: 100%;
   }
 }
-
 .quiz_cont {
   margin-top: 40px;
   height: 400px;
@@ -564,7 +545,6 @@
   padding:15px
   }
 }
-
 .prefinery-form-cta:hover {
   background-color: white !important;
   color: #ffa500 !important;
@@ -576,10 +556,9 @@
     height: 450px;
   }
 }
-
 .comp_ind_pics{
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%),url(/assets/facebookprofile.jpg);
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.7) 100%), image_url('facebookprofile.jpg' );
   background-size: cover;
   background-position: top center;
   display: flex;
@@ -587,7 +566,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 .comp_ind_pics p {
   color: white;
   font-family: 'Muli', sans-serif;
@@ -596,7 +574,6 @@
     font-size: 18px;
   }
 }
-
 .comp_ind_pics_button{
   height: 50px;
   width:30%;
@@ -608,14 +585,13 @@
     width: 70%;
   }
 }
-
 .pow .col-lg-4{
   padding-right: 5px;
   padding-left: 5px;
 }
 .comp_pow{
   height:500px;
-  // background-image:url(/assets/newcompanioneditor.jpg);
+  // background-image: image_url('newcompanioneditor.jpg' );
   background-size: cover;
   background-position: top center;
   padding: 10px;
@@ -629,11 +605,9 @@
     height: 250px;
   }
 }
-
 .comp_form_div{
   padding-bottom: 10px;
 }
-
 .comp_pow_h1 {
   transition: display 0.9s;
   letter-spacing: 3px;
@@ -644,56 +618,45 @@
     font-size: 35px;
   }
 }
-
 .comp_pow_p {
   display: none;
   transition: display 0.9s;
   letter-spacing: 3px;
   color : white;
 }
-
 .comp_pow:hover .comp_pow_p {
   display: block;
 }
 .comp_pow:hover {
   opacity: 0.8;
 }
-
-
-// .comp_pow_h1:hover {
-//   display: inline;
-// }
-
+.comp_pow_h1:hover {
+   display: inline;
+ }
 section.section {
   background: transparent;
   padding-top: 30px;
   padding-bottom: 30px;
 }
-
 .slideshow {
   box-shadow: 0px 0px 40px rgba(0,0,0,.3);
-
   .slick-prev:before, .slick-next:before {
     color: orange;
     font-size: 50px;
      @media screen and (max-width: 768px){
     font-size:20px;
   }
-
    @media screen and (max-width: 468px){
     display:none;
   }
   }
 }
-
 .slick-prev{
       left: -55px;
      @media screen and (max-width: 768px){
     left:-25px;
   }
 }
-
-
 .slideshows{
   display: flex;
   justify-content: center;
