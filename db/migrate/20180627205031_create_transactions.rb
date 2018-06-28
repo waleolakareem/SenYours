@@ -7,7 +7,8 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
       t.integer :fee
       t.integer :payout
       t.string :transaction_type
-      t.string :style # CHANGE THIS TO "status" on next drop
+      t.string :status
+      t.string :refund_id
       t.references :senior
       t.references :companion
 

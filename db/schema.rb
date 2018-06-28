@@ -124,7 +124,8 @@ ActiveRecord::Schema.define(version: 20180627205031) do
     t.integer "fee"
     t.integer "payout"
     t.string "transaction_type"
-    t.string "style"
+    t.string "status"
+    t.string "refund_id"
     t.bigint "senior_id"
     t.bigint "companion_id"
     t.datetime "created_at", null: false
