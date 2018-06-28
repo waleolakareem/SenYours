@@ -60,6 +60,7 @@ class AppointmentsController < ApplicationController
       total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
       total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
+
       stripe_charge_response = Stripe::Charge.create({
         :amount => total_senior_cost,
         :currency => "usd",
@@ -75,7 +76,8 @@ class AppointmentsController < ApplicationController
         fee: total_fees,
         payout: total_companion_payout,
         senior_id: @appointment.senior_id,
-        companion_id: @appointment.companion_id
+        companion_id: @appointment.companion_id,
+        appointment_id: @appointment.id
       )
         @accept_appoint = ".asspt1"
         @appointment.payment_status = "Paid"
@@ -101,6 +103,11 @@ class AppointmentsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @appointment = Appointment.where({senior_id: current_user,start_date: params[:id],companion_id: params[:user_id]})
+    @transaction = Transaction.find_by_appointment_id(@appointment.id)
+    # ADD refund and mark transaction as cancelled
+
+
+
     @appointment[0].destroy
     redirect_to user_path(@user)
   end
