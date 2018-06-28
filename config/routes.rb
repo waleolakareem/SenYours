@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :transactions do
-    # Additional routes to be added
-  end
+  resources :transactions
 
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'

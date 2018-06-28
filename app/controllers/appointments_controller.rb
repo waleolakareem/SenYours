@@ -41,7 +41,7 @@ class AppointmentsController < ApplicationController
   def update
     @user = current_user
     @appointment = Appointment.find(params[:id])
-    if appointment_params[:accept] === "false"
+    if appointment_params[:accept] === "false" # If the companion declined the appointment request.
       @appointment.destroy
       @appointment = @user.companions.where({accept: false})
       @accept_appoint = ".asspt2"
@@ -50,24 +50,17 @@ class AppointmentsController < ApplicationController
         format.html {redirect_to '/comp_request'}
         format.js { render 'accept_req'}
       end
-    elsif @appointment.update_attributes(appointment_params)
+    elsif @appointment.update_attributes(appointment_params) # If the companion accepted the appointment request.
       # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
       time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
       @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
-      @accept_appoint = ".asspt1"
 
       # For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
       # total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
       total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
       total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
-      puts "total_fees: #{total_fees}"
-      puts "total_senior_cost: #{total_senior_cost}"
-      puts "total_companion_payout: #{total_companion_payout}"
-      puts "time variable in APPOINTMENTS#UPDATE: #{time}"
-      puts "~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~!~"
-
-      charge = Stripe::Charge.create({
+      stripe_charge_response = Stripe::Charge.create({
         :amount => total_senior_cost,
         :currency => "usd",
         :source => "tok_visa",
@@ -76,16 +69,22 @@ class AppointmentsController < ApplicationController
           :account => @appointment.companion.stripe_user_id,
         }
       })
-      puts "Charge: #{charge}"
-
-      # HOLD FUNDS FOR 24 HOURS BEFORE PAYING TO COMP.
-      @appointment.payment_status = "Paid"
-      @appointment.save
-      @appointment = @user.companions.where({accept: false})
-      respond_to do |format|
-        format.html {redirect_to '/comp_request'}
-        format.js { render 'accept_req'}
-      end
+      Transaction.create(
+        stripe_transaction_id: stripe_charge_response.id,
+        amount: total_senior_cost,
+        fee: total_fees,
+        payout: total_companion_payout,
+        senior_id: @appointment.senior_id,
+        companion_id: @appointment.companion_id
+      )
+        @accept_appoint = ".asspt1"
+        @appointment.payment_status = "Paid"
+        @appointment.save
+        @appointment = @user.companions.where({accept: false})
+        respond_to do |format|
+          format.html {redirect_to '/comp_request'}
+          format.js { render 'accept_req'}
+        end
     else
       render 'edit'
     end
