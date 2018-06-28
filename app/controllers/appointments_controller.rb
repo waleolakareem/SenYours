@@ -10,11 +10,30 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    puts "!@!@!@!@!@! CREATE ROUTE !@!@!@!@!@!"
     @user = User.find(params[:user_id])
     @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
       appointment_params[:companion_id])
 
     if @appointment.length >= 1
+      puts "!@!@!@!@!@! DESTROY??? !@!@!@!@!@!"
+      selected_user = User.find(params[:user_id])
+      selected_appointment = Appointment.find(@appointment[0].id)
+      selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
+
+      puts "Selceted-User: #{selected_user}"
+      puts "Selceted-Appointment: #{selected_appointment}"
+      puts "Selceted-Transaction: #{selected_transaction}"
+
+      stripe_refund_response = Stripe::Refund.create(
+        charge: selected_transaction.stripe_transaction_id
+      )
+      puts "Refund_response: #{stripe_refund_response}"
+      selected_transaction = Transaction.find(selected_transaction.id).update(
+        transaction_type: "refund",
+        style: "refunded"
+      )
+
       @del_appt = @appointment[0]
       @appointment[0].destroy
       respond_to do |format|
@@ -22,6 +41,7 @@ class AppointmentsController < ApplicationController
         format.js {render 'new_del'}
       end
     elsif @appointment.length <= 1
+      puts "!@!@!@!@!@! NEW??? !@!@!@!@!@!"
       @appointment = Appointment.create(appointment_params)
       respond_to do |format|
         format.html {redirect_to user_path(@user)}
@@ -77,7 +97,9 @@ class AppointmentsController < ApplicationController
         payout: total_companion_payout,
         senior_id: @appointment.senior_id,
         companion_id: @appointment.companion_id,
-        appointment_id: @appointment.id
+        appointment_id: @appointment.id,
+        transaction_type: "charge",
+        style: "pending" # CHANGE THIS TO "status" on next drop
       )
         @accept_appoint = ".asspt1"
         @appointment.payment_status = "Paid"
@@ -103,11 +125,6 @@ class AppointmentsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @appointment = Appointment.where({senior_id: current_user,start_date: params[:id],companion_id: params[:user_id]})
-    @transaction = Transaction.find_by_appointment_id(@appointment.id)
-    # ADD refund and mark transaction as cancelled
-
-
-
     @appointment[0].destroy
     redirect_to user_path(@user)
   end
