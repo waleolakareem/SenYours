@@ -43,6 +43,7 @@
         <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
           <div class="row">
             <div class="typing_message " style="display: none">
+              <p class="typing_user"><%= current_user.first_name %> is typing </p>
               <div class="typing-indicator">
                 <span></span>
                 <span></span>
