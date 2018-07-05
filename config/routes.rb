@@ -37,9 +37,9 @@ Rails.application.routes.draw do
 
   get '/assesment' => 'users#assesment'
 
-  get '/be_a_comp' => 'welcome#be_a_comp'
+  get '/companion' => 'welcome#be_a_comp'
 
-  get '/need_a_comp' => 'welcome#need_a_comp'
+  get '/super_adult' => 'welcome#need_a_comp'
 
   get '/sen_new' => 'users#sen_new'
 
