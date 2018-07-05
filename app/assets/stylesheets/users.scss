@@ -14,6 +14,11 @@ body {
     margin-top:0px;
   }
 }
+.field_with_error .control-group .error{
+  padding: 2px;
+  background-color: red;
+  display: initial;
+}
 .notification {
   margin-bottom: 0em;
 }
@@ -104,7 +109,7 @@ body {
 .info_responsive-input {
   // Large input box
   height: 45px;
-  width: 85%;
+  width: 100%;
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 3px;

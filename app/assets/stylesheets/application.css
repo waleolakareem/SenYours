@@ -21,3 +21,8 @@
     right: 30px !important;
     top: 5px !important;
 }
+.field_with_error {
+	padding: 2px;
+    background-color: red;
+    display: initial !important;
+}
