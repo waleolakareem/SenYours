@@ -51,10 +51,14 @@ class UsersController < ApplicationController
       redirect_to root_url
       # session[:user_id] = @user.id
       # redirect_to user_path(@user)
-    elsif @claim === "Senior"
-        render 'sen_new'
-    elsif @claim === "Companion"
-        render 'comp_new'
+      if @claim === "Senior"
+          render 'sen_new'
+      elsif @claim === "Companion"
+          render 'comp_new'
+      end
+    else 
+      @errors = @user.errors.full_messages
+      render 'comp_new'
     end
 
     respond_to do |format|
