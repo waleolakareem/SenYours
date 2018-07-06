@@ -24,6 +24,7 @@ body {
 }
 .sign_up_form_top {
   padding-top: 20px;
+  padding-bottom: 20px;
   margin-top: 100px;
   margin-bottom: 0px;
   background-color: white;
@@ -77,6 +78,12 @@ body {
   font-family: 'Muli', sans-serif;
   font-size: 22px;
 }
+
+.birth-disclaimer {
+  font-size: 13px;
+  margin-top: 0rem;
+}
+
 .option{
   display: flex;
   justify-content: center;
