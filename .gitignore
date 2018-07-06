@@ -21,3 +21,5 @@
 /config/env_variables.yml
 /public/uploads/user/avatar/*
 .idea/
+/public/uploads/tmp/*
+/public/assets/*
