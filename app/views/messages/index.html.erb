@@ -43,6 +43,12 @@
         <%= form_for [@conversation, @message], method: :post, remote: true do |f| %>
           <div class="row">
             <div class="typing_message " style="display: none">
+              <% if @conversation.sender_id == current_user.id %>
+                <% sender = User.find(@conversation.recipient_id) %>
+              <% else %>
+                <% sender = User.find(@conversation.sender_id) %>
+              <% end %>
+              <p class="typing_user"><%= sender.first_name %> is typing </p>
               <div class="typing-indicator">
                 <span></span>
                 <span></span>
@@ -52,7 +58,7 @@
             </div>
             <div class="last_message_div "  style="text-align: right">
               <% if( @messages.length>0) %>
-                <span style="color: #BDBDBE">Last Time</span> <%= @messages.last.try(:message_time) %>
+                <span style="color: #BDBDBE">Last message received on </span> <%= @messages.last.try(:message_time) %>
               <% end %>
             </div>
           </div>

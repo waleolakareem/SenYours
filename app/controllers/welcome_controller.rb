@@ -5,10 +5,10 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def be_a_comp
+  def companion
   end
 
-  def need_a_comp
+  def super_adult
   end
 
   def privacy_policy

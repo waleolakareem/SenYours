@@ -75,6 +75,7 @@
 }
 #car2{
   background-size: cover;
+  background-repeat: no-repeat;
   //background-image: image_url('coffietimecomp.jpg' ); /* fallback for older browsers */
   //background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),  image_url('coffietimecomp.jpg' );
   // background-attachment: fixed;
@@ -446,6 +447,10 @@
   width: 100%;
   height: 650px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   @media screen and (max-width: 645px) {
     height: 350px;
     background-position: center center;

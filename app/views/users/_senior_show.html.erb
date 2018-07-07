@@ -133,11 +133,11 @@
     </div>
         <div class="text-center">
           <% if !current_user.stripe_customer_id %>
-              <p class="notification">You must register your card to find companions</p>
+              <p class="notification">You must register your Credit Card to find Companions</p>
               <%= form_tag charges_path do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                        data-description="Card Registration"
+                        data-description="Credit Card Registration"
                         data-image="/assets/senyours1.png"
                         data-name="senyours"
                         data-amount="100"
