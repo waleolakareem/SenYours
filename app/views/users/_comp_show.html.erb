@@ -69,6 +69,13 @@
           </div>
         <% end %>
 
+        <div>
+          <%= link_to 'Stripe WebHook', stripe_webhook_path %>
+        </div>
+        <div>
+          <%= link_to 'Slack WebHook', slack_webhook_path %>
+        </div>
+
         <div id='sen_account_balance_container' class='container'>
           <%= render "charges/show", locals: {user: @user, balance: @balance} %>
         </div>

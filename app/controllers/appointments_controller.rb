@@ -118,4 +118,5 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
   end
+  
 end

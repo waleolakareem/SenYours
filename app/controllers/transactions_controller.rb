@@ -18,7 +18,21 @@ class TransactionsController < ApplicationController
   def show
   end
 
-  def blank
+  def slack_webhook
+    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
+    puts "Hello! Slack_Webhook Route Here!"
+    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
+    uri = "https://hooks.slack.com/services/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"
+    RestClient.post uri, {'text' => "bob"}.to_json, {content_type: :json, accept: :json}
+    redirect_to root_path
+  end
+
+  def stripe_webhook
+    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
+    puts "Hello! Stripe_Webhook Route Here!"
+    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
+    puts "#{response}"
+    redirect_to root_path
   end
 
 end
