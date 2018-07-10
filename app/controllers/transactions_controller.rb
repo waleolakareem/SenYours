@@ -20,9 +20,6 @@ class TransactionsController < ApplicationController
   end
 
   def slack_webhook
-    puts "~!~&?~&?~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
-    puts "Hello! Slack_Webhook Route Here!"
-    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
     uri = "https://hooks.slack.com/services/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"
     RestClient.post uri, {'text' => "bob"}.to_json, {content_type: :json, accept: :json}
     redirect_to root_path
@@ -30,16 +27,43 @@ class TransactionsController < ApplicationController
 
   def stripe_webhook
     event_json = JSON.parse(request.body.read)
-
-    # puts "~!~&?~&?~&?~&?~&?~&?~&?&?!&?~&?~&?~&?~&?~&?~&?~&?!&?&?!&?!&?&?!&?&?!&?~&?!&?&?!&?~&?!&?!&?&?!&?!&?!~!&?~&?"
-    # puts "Hello! Stripe_Webhook Route Here!"
-    # puts "~!~&?~&?~&?~&?~&?~&?~&?&?!&?~&?~&?~&?~&?~&?~&?~&?!&?&?!&?!&?&?!&?&?!&?~&?!&?&?!&?~&?!&?!&?&?!&?!&?!~!&?~&?"
     uri = "https://hooks.slack.com/services/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"
-    RestClient.post uri, {'text' => "#{event_json}"}.to_json, {content_type: :json, accept: :json}
-    # RestClient.post uri, {'text' => "#{response}"}.to_json, {content_type: :json, accept: :json}
-    # puts "#{response}"
+    RestClient.post uri, {
+      "attachments": [
+          {
+              "fallback": "#{event_json}",
+              "color": '#439FE0', # '#439FE0'=>blue / 'good'=>green / 'warning'=>orange / 'danger'=>red
+              "pretext": "Stripe Action Taken On SenYours", # Line above message and "color" sidebar.
+              "title": "Action Type: BLANK",
+              "title_link": "Information: ",
+              "text": "",
+              "fields": [
+                  {
+                      "title": "Priority",
+                      "value": "High",
+                      "short": true
+                  },
+                  {
+                      "title": "Priority",
+                      "value": "High",
+                      "short": true
+                  },
+                  {
+                      "title": "Priority",
+                      "value": "High",
+                      "short": true
+                  },
+                  {
+                      "title": "Priority",
+                      "value": "High",
+                      "short": true
+                  }
+              ],
+              "footer": "transactions_stripe_webhook_path",
+          }
+      ]
+    }.to_json, {content_type: :json, accept: :json}
     render status: 200
-    # redirect_to root_path
   end
 
 end
