@@ -1,9 +1,26 @@
 <body itemscope itemtype="http://schema.org/ItemPage">
-  <div class="need_com_img" style="background-image: url(<%= asset_path 'needacomppic.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'needacomppic.jpg' %>);">
-    <button type="button" class="btn comp_ind_pics_button">CALL NOW!!! <a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+  <div class="need_com_img" style="background-image: url(<%= asset_path 'seatcompanion.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'seatcompanion.jpg' %>);">
+    <div class="scrollh1">
+    <button type="button" class="btn comp_ind_pics_sen work_call">CALL<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+    </div>
   </div>
   <main itemprop="about" itemscope itemtype="http://schema.org/Service">
     <meta itemprop="category" content="Senior Care Services">
+    <section itemprop="audience" itemscope itemtype="http://schema.org/Audience" class="container">
+      <div class="row why_this_comp">
+        <div class="col-lg-8 sen_why_this_img"></div>
+        <div class="col-lg-4 why_this_div">
+          <h2 style="padding-bottom: 15px;">Why most <span itemprop="audienceType">seniors</span> choose us</h2>
+          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Independence </strong>
+          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Safety</strong>
+          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Community support</strong>
+          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Fast</strong>
+          <strong class="why_this_par_last"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Short Notice</strong>
+             <!-- <a href="/sen_new"><button class="btn become_submit">Sign up</button></a> -->
+          <button class="btn" style="background-color: #ffa500;color: white; height: 50px; font-family: 'Muli', sans-serif; letter-spacing: 1px;">CALL NOW!!!<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+        </div>
+      </div>
+    </section>
     <section itemprop="hasOfferCatalog" itemscope itemtype="http://schema.org/OfferCatalog" class="container">
       <div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="row">
         <div itemprop="item" class="col-lg-4 form_div">
@@ -59,21 +76,6 @@
           <h2 itemprop="name" class="text-center font_p_1">ELDERLY CARE AT YOUR OWN PACE</h2>
           <p class="font_p"><!-- Companions are available at your convenience. -->
           Companions are available at your convenience. We are here when seniors need. Our support is about your schedule, not ours. </p>
-        </div>
-      </div>
-    </section>
-    <section itemprop="audience" itemscope itemtype="http://schema.org/Audience" class="container">
-      <div class="row why_this_comp">
-        <div class="col-lg-8 sen_why_this_img"></div>
-        <div class="col-lg-4 why_this_div">
-          <h2 style="padding-bottom: 15px;">Why most <span itemprop="audienceType">seniors</span> choose us</h2>
-          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Freedom and flexibility</strong>
-          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Every Companion is verified</strong>
-          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Book a Companion whenever you need one</strong>
-          <strong itemprop="disambiguatingDescription"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> Get matched with individuals in your area</strong>
-          <strong class="why_this_par_last"><%= image_tag "mark.png" , class: "be_a_comp_icons"%> First step towards a happy home care</strong>
-             <!-- <a href="/sen_new"><button class="btn become_submit">Sign up</button></a> -->
-          <button class="btn" style="background-color: #ffa500;color: white; height: 50px; font-family: 'Muli', sans-serif; letter-spacing: 1px;">CALL NOW!!!<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
         </div>
       </div>
     </section>
