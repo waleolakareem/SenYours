@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'stripe_webhook' => 'transactions#stripe_webhook'
+  post 'stripe_webhook' => 'transactions#stripe_webhook'
   get 'slack_webhook' => 'transactions#slack_webhook'
   resources :transactions do
   end

@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  protect_from_forgery :except => :stripe_webhook
 
   def index
   end
@@ -19,7 +20,7 @@ class TransactionsController < ApplicationController
   end
 
   def slack_webhook
-    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
+    puts "~!~&?~&?~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
     puts "Hello! Slack_Webhook Route Here!"
     puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
     uri = "https://hooks.slack.com/services/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"
@@ -28,11 +29,17 @@ class TransactionsController < ApplicationController
   end
 
   def stripe_webhook
-    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
-    puts "Hello! Stripe_Webhook Route Here!"
-    puts "~!~!@~!@~!@~!@~!@~!@~!@~@!~@~!@~!@~!@~!@~!@~!@~!@!~@~@!~@!~@~@!~@~@!~@~!@!~@~@!~@~!@!~@!~@!@!~@!~@!~!~@~!@"
-    puts "#{response}"
-    redirect_to root_path
+    event_json = JSON.parse(request.body.read)
+
+    # puts "~!~&?~&?~&?~&?~&?~&?~&?&?!&?~&?~&?~&?~&?~&?~&?~&?!&?&?!&?!&?&?!&?&?!&?~&?!&?&?!&?~&?!&?!&?&?!&?!&?!~!&?~&?"
+    # puts "Hello! Stripe_Webhook Route Here!"
+    # puts "~!~&?~&?~&?~&?~&?~&?~&?&?!&?~&?~&?~&?~&?~&?~&?~&?!&?&?!&?!&?&?!&?&?!&?~&?!&?&?!&?~&?!&?!&?&?!&?!&?!~!&?~&?"
+    uri = "https://hooks.slack.com/services/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"
+    RestClient.post uri, {'text' => "#{event_json}"}.to_json, {content_type: :json, accept: :json}
+    RestClient.post uri, {'text' => "#{response}"}.to_json, {content_type: :json, accept: :json}
+    # puts "#{response}"
+    status 200
+    # redirect_to root_path
   end
 
 end
