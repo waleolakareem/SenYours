@@ -102,6 +102,12 @@ class AppointmentsController < ApplicationController
   def show
   end
 
+  def test
+    puts "%^&%^&%^&%^&%^& BEFORE Redirect %^&%^&%^&%^&%^&"
+    redirect_to slack_webhook_path and return
+    puts "%^&%^&%^&%^&%^& AFTER Redirect %^&%^&%^&%^&%^&"
+  end
+
   def comp_request
     @user = current_user
     @appointment = @user.companions.where({accept: false})
@@ -118,5 +124,5 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
   end
-  
+
 end

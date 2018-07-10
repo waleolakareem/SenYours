@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
+    puts "BOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBO"
   end
 
   def create
