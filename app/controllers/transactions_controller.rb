@@ -36,9 +36,9 @@ class TransactionsController < ApplicationController
     # puts "~!~&?~&?~&?~&?~&?~&?~&?&?!&?~&?~&?~&?~&?~&?~&?~&?!&?&?!&?!&?&?!&?&?!&?~&?!&?&?!&?~&?!&?!&?&?!&?!&?!~!&?~&?"
     uri = "https://hooks.slack.com/services/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"
     RestClient.post uri, {'text' => "#{event_json}"}.to_json, {content_type: :json, accept: :json}
-    RestClient.post uri, {'text' => "#{response}"}.to_json, {content_type: :json, accept: :json}
+    # RestClient.post uri, {'text' => "#{response}"}.to_json, {content_type: :json, accept: :json}
     # puts "#{response}"
-    status 200
+    render status: 200
     # redirect_to root_path
   end
 
