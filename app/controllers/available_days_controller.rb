@@ -37,7 +37,7 @@ class AvailableDaysController < ApplicationController
     @availableDay = AvailableDay.find(params[:id])
     @time = @availableDay.available_times.where('time = ? ', params[:time])
     if @time.length >= 1
-      @show_del = @time[0].time.strftime('%I')
+      @show_del = @time[0].time.strftime('%I%p')
       @real_show_del = @time[0].time.strftime('%I:%M%p')
       @time[0].destroy
       respond_to do |format|
@@ -48,7 +48,7 @@ class AvailableDaysController < ApplicationController
       @time = @availableDay.available_times.new(time: params[:time])
       if @time.save
         @real_time = @time.time.strftime('%I:%M%p')
-        @time = @time.time.strftime('%I')
+        @time = @time.time.strftime('%I%p')
         respond_to do |format|
           format.html {redirect_to available_day_path(available_day:{date: @availableDay.date,user_id: current_user.id,comment: 'I am ready'},id: @availableDay.id)}
           format.js {render 'show'}

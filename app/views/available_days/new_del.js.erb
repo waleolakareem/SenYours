@@ -1,1 +1,1 @@
-$("#<%=@deldate.date.strftime('%d')%>").html("<%=escape_javascript(render 'new_del')%>")
+$("#<%=@deldate.date.strftime('%d')%><%=@deldate.date.strftime('%b')%>").html("<%=escape_javascript(render 'new_del')%>")
