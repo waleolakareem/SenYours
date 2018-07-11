@@ -324,8 +324,6 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.1)
-    momentjs-rails (2.20.1)
-      railties (>= 3.1)
     multi_json (1.12.2)
     multipart-post (2.0.0)
     netrc (0.11.0)
@@ -473,7 +471,6 @@ DEPENDENCIES
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
-  momentjs-rails
   pg (~> 0.18)
   phony_rails
   puma (~> 3.7)
