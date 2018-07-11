@@ -35,12 +35,12 @@ class TransactionsController < ApplicationController
               "fallback": "#{event_json}",
               "color": '#439FE0', # '#439FE0'=>blue / 'good'=>green / 'warning'=>orange / 'danger'=>red
               "pretext": "Stripe Action Taken On SenYours", # Line above message and "color" sidebar.
-              "title": "Action Type: BLANK",
+              "title": "Action Type: #{params[:type]}",
               "title_link": "Information: ",
               "text": "",
               "fields": [
                   {
-                      "title": "Priority",
+                      "title": "#{params[:data]}",
                       "value": "High",
                       "short": true
                   },
@@ -64,6 +64,7 @@ class TransactionsController < ApplicationController
           }
       ]
     }.to_json, {content_type: :json, accept: :json}
+    puts "#{event_json}"
     render status: 200
   end
 
