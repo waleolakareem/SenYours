@@ -15,7 +15,6 @@
  *= require select2
  *= require select2-bootstrap
  *= require_tree .
- *= require fullcalendar
  *= require_self
  */
 .emoji-picker-icon {
