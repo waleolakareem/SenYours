@@ -27,6 +27,7 @@ class TransactionsController < ApplicationController
   end
 
   def stripe_webhook
+    # To properly test this using the test functionality provided by Stripe, you must use 'ngrok' and add the Webhook endpoint through the tunnel generated.
     event_json = JSON.parse(request.body.read)
     uri = "https://hooks.slack.com/services/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"
     RestClient.post uri, {
@@ -40,23 +41,13 @@ class TransactionsController < ApplicationController
               "text": "",
               "fields": [
                   {
-                      "title": "#{event_json['data']['object']['amount']}",
-                      "value": "High",
+                      "title": "Amount Total:",
+                      "value": "$#{event_json['data']['object']['amount']}",
                       "short": true
                   },
                   {
-                      "title": "Priority",
-                      "value": "High",
-                      "short": true
-                  },
-                  {
-                      "title": "Priority",
-                      "value": "High",
-                      "short": true
-                  },
-                  {
-                      "title": "Priority",
-                      "value": "High",
+                      "title": "Amount Refunded:",
+                      "value": "$#{event_json['data']['object']['amount_refunded']}",
                       "short": true
                   }
               ],
