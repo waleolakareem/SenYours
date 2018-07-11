@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
               "text": "",
               "fields": [
                   {
-                      "title": "#{params[:data]}",
+                      "title": "#{event_json['data']['object']['amount']}",
                       "value": "High",
                       "short": true
                   },
