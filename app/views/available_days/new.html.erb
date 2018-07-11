@@ -1,46 +1,82 @@
 <body style="background-color: #4c4c4c;">
-<div class="container text-center avail_form_top">
-  <div class="form_div text-center notification">
-    <% if current_user.identification === "Senior" %>
+  <div class="container text-center avail_form_top">
+    <div class="form_div text-center notification">
+      <% if current_user.identification === "Senior" %>
       <p class="notification edit_tag">Which dates do you need companions</p>
-    <% else %>
-      <p class="notification">We encourage you to schedule your time wisely</p>
-    <% end %>
-  </div>
-  <div class="row">
-    <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
-    <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
-      <% if Date.today > date%>
-        <div class="form_div cal_pad">
-          <button class="btn cal_but" style="background-color: white;" disabled="true">
-            <p class="notification"><%= date.strftime('%b') %></p>
-            <p class="notification"><%= date.strftime('%d') %></p>
-            <p class="notification"><%= date.strftime('%a') %></p>
-          </button>
-        </div>
       <% else %>
-        <%=link_to user_available_days_path(current_user, available_day: {date: date,comment: "I am ready", user_id: current_user.id}), method: :post, remote: true do %>
-          <div class="col-lg-1 col-md-1 col-1 form_div cal_pad" id="<%= date.strftime('%d') %>">
-              <% if date_exit(current_user).include?(date) %>
-              <button class="btn cal_but" id="<%=date.strftime('%d')%>"  style="background-color: orange;">
-                <p class="notification"><%= date.strftime('%b') %></p>
-                <p class="notification"><%= date.strftime('%d') %></p>
-                <p class="notification"><%= date.strftime('%a') %></p>
-              </button>
-            <% else  %>
-              <button class="btn cal_but" id="<%=date.strftime('%d')%>"  style="background-color: gray;">
-                <p class="notification"><%= date.strftime('%b') %></p>
-                <p class="notification"><%= date.strftime('%d') %></p>
-                <p class="notification"><%= date.strftime('%a') %></p>
-              </button>
-            <% end %>
-          </div>
-        <% end %>
+      <p class="notification">We encourage you to schedule your time wisely</p>
       <% end %>
-    <% end %>
-  </div>
-  <div>
-      <%= link_to 'Confirm Dates', user_path(current_user),style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
-  </div>
-</div>
+    </div>
+
+    <div class="row">       
+     <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |date| %>    
+     <% if Date.today > date%>   
+     <div class="form_div cal_pad">    
+       <button class="btn cal_but" style="background-color: white;" disabled="true">   
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+     </div>    
+     <% else %>    
+     <%=link_to user_available_days_path(current_user, available_day: {date: date,comment: "I am ready", user_id: current_user.id}), method: :post, remote: true do %>   
+     <div class="col-lg-1 col-md-1 col-1 form_div cal_pad" id="<%= date.strftime('%d') %><%= date.strftime('%b') %>">    
+       <% if date_exit(current_user).include?(date) %>   
+       <button class="btn cal_but" id="<%=date.strftime('%d')%><%= date.strftime('%b') %>" style="background-color: orange;">
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+       <% else %>    
+       <button class="btn cal_but" id="<%=date.strftime('%d')%><%= date.strftime('%b') %>" style="background-color: gray;"> 
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+       <% end %>   
+     </div>    
+     <% end %>   
+     <% end %>   
+     <% end %>   
+   </div>         
+    
+    <div class="col-lg-12 text-center">
+        <h1 class="servises_text_header"><span ><%= Date.today.beginning_of_month.next_month.strftime('%b') %></span><h1>
+      </div>
+
+   <div class="row">       
+     <% (Date.today.beginning_of_month.next_month..Date.today.at_end_of_month.next_month).each do |date| %>    
+     <% if Date.today > date%>   
+     <div class="form_div cal_pad">    
+       <button class="btn cal_but" style="background-color: white;" disabled="true">   
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+     </div>    
+     <% else %>    
+     <%=link_to user_available_days_path(current_user, available_day: {date: date,comment: "I am ready", user_id: current_user.id}), method: :post, remote: true do %>   
+     <div class="col-lg-1 col-md-1 col-1 form_div cal_pad" id="<%= date.strftime('%d') %><%= date.strftime('%b') %>">    
+       <% if date_exit(current_user).include?(date) %>   
+       <button class="btn cal_but" id="<%=date.strftime('%d')%><%= date.strftime('%b') %>" style="background-color: orange;">
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+       <% else %>    
+       <button class="btn cal_but" id="<%=date.strftime('%d')%><%= date.strftime('%b') %>" style="background-color: gray;"> 
+         <p class="notification"><%= date.strftime('%b') %></p>    
+         <p class="notification"><%= date.strftime('%d') %></p>    
+         <p class="notification"><%= date.strftime('%a') %></p>    
+       </button>   
+       <% end %>   
+     </div>    
+     <% end %>   
+     <% end %>   
+     <% end %>   
+   </div>         
+   <div>
+     <%= link_to 'Confirm Dates', user_path(current_user),style:'text-decoration:none; color:black' , class: 'btn comp_submit' %>    
+   </div>
+ </div>
 </body>
