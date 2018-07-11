@@ -129,8 +129,8 @@
         <% end %>
         </div>
         <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
-        <h1 class="servises_text_header"><span ><%= Date.today.beginning_of_month.next_month.strftime('%B')%>, <%= Date.today.beginning_of_month.next_month.strftime('%Y') %></span><h1>
-      </div>
+          <h1 class="servises_text_header"><span ><%= Date.today.beginning_of_month.next_month.strftime('%B')%>, <%= Date.today.beginning_of_month.next_month.strftime('%Y') %></span><h1>
+        </div>
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
         <% (Date.today.beginning_of_month.next_month..Date.today.at_end_of_month.next_month).each do |date| %>
