@@ -34,7 +34,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'select2-rails'
 gem 'rails_emoji_picker'
-gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 #twilo
