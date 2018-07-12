@@ -36,17 +36,17 @@
   }
 }
 .scrollh1{
-  padding-top: 340px;
+  padding-top: 440px;
   color:white;
   font-family: 'Muli', sans-serif;
   letter-spacing:3px;
   font-weight:bold;
   @media screen and (max-width: 1024px){
-    padding-top: 100px;
+    padding-top: 160px;
     font-size:25px;
   }
   @media screen and (max-width: 468px){
-    padding-top: 110px;
+    padding-top: 150px;
     font-size:15px;
   }
 }
@@ -492,6 +492,9 @@
     background:#fff;
     padding:0 10px;
 }
+.servises_text_header_col {
+  background:#F5F5F5 !important;
+}
 .btn-link{
   color: orange;
   letter-spacing: 2px;
@@ -738,24 +741,35 @@ section.section {
   font-size:25px;
 }
 
+.price_sec{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @media screen and (max-width: 414px){
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
 .price{
+  margin-top:5px;
   box-shadow: 0px 0px 40px rgba(0,0,0,.3);
   background-color:orange;
   height:250px;
   width:250px;
   border-radius:50%;
-  margin-left:80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
    @media screen and (max-width: 1024px){
-    margin-left: 75%;
     height:100px;
     width:100px;
   }
 }
 
-.price p {
+.price_p {
   color: white; 
   font-size: 50px; 
   font-weight: 700; 
@@ -763,5 +777,14 @@ section.section {
    @media screen and (max-width: 1024px){
     font-size:20px;
   }
-
 }
+
+.price_up {
+  letter-spacing: 1px;
+    font-weight: 500;
+    color: white;
+    font-size: 20px; 
+   @media screen and (max-width: 1024px){
+    font-size:15px;
+  }
+  }
