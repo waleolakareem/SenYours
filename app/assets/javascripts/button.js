@@ -8,16 +8,19 @@ $(document).on('turbolinks:load', function(){
     $('.press2').css("display","none");
     $('.press3').css("display","none");
     $('.press4').css("display","show");
+    $('.press5').css("display","none");
   } else if(nameName) {
    $('.press').css("display","none");
     $('.press2').css("display","none");
     $('.press3').css("display","show");
     $('.press4').css("display","none");
+    $('.press5').css("display","show");
   } else if(blogName) {
    $('.press').css("display","none");
     $('.press2').css("display","none");
     $('.press3').css("display","none");
     $('.press4').css("display","show");
+    $('.press5').css("display","show");
   } else {
     $('.press').css("display","none");
     $('.press2').css("display","show");
