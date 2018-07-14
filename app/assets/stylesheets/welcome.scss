@@ -642,8 +642,8 @@
   transition: display 0.9s;
   letter-spacing: 3px;
   margin-bottom: 20px;
-  color : black;
-  font-family: sans-serif;
+  color : white;
+  font-family: 'Muli', sans-serif;
   @media screen and (max-width: 425px){
     font-size: 35px;
   }
@@ -770,9 +770,9 @@ section.section {
 }
 
 .price_p {
-  color: white; 
-  font-size: 50px; 
-  font-weight: 700; 
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
    @media screen and (max-width: 1024px){
     font-size:20px;
@@ -783,7 +783,7 @@ section.section {
   letter-spacing: 1px;
     font-weight: 500;
     color: white;
-    font-size: 20px; 
+    font-size: 20px;
    @media screen and (max-width: 1024px){
     font-size:15px;
   }
