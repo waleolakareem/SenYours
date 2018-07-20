@@ -1,33 +1,149 @@
 <body style="background-color: #ffffff;" itemscope itemtype="http://schema.org/WebPage">
-  <div class="text-center" style="width: 100%; box-shadow: 1px 1px 5px rgba(0,0,0,0.5);">
+  <!--<div class="text-center" style="width: 100%; box-shadow: 1px 1px 5px rgba(0,0,0,0.5);">
     <h3 class="promo_text">Where companionship care is worry free, prompt and fun.</h3>
-  </div>
+  </div>-->
   <main itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/WebPageElement">
     <section class="home_div">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active" id="car1" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'newcompanioneditor.jpg' %>);">
-              <div class="container">
-                <h1 class="text-center scrollh1">ERRANDS | HOME SUPPORT | COMPANIONSHIP  INDEPENDENT LIFESTYLE</h1>
+            <div class="carousel-item active" id="car1" style="background-image: url(<%= asset_path 'walkingcomp1.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'walkingcomp1.jpg' %>);">
+              <div class="container" style="padding-top: 20px;">
+                <h1 class="text-center scrollh1">SHOPPING | TRANSPORTATION | COMPANIONSHIP  ENHANCE YOUR INDEPENDENT LIFESTYLE</h1>
+                <div class="text-center">
+                  <button type="button" class="btn comp_ind_pics_button_work work_call">CALL<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+                </div>
               </div>
             </div>
-            <div class="carousel-item" id="car2" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'compexer1.jpg' %>);">
-              <div class="container">
+            <div class="carousel-item" id="car2" style="background-image: url(<%= asset_path 'presscomp.jpeg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'presscomp.jpg' %>);">
+              <div class="container" style="padding-top: 20px;">
                 <h1 class="text-center scrollh1">LAUGH, ENGAGE IN YOUR COMMUNITY, AND BUILD MEANINGFUL RELATIONSHIPS</h1>
+              <div class="text-center">
+                <button type="button" class="btn comp_ind_pics_button_work work_call">CALL<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+              </div>
               </div>
             </div>
-            <div class="carousel-item" id="car3" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'smilyblaccomp.jpg' %>);">
-              <div class="container">
+            <div class="carousel-item" id="car3" style="background-image: url(<%= asset_path 'shoppingcompanion.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'shoppingcompanion.jpg' %>);">
+              <div class="container" style="padding-top: 20px;">
                 <h1 class="text-center scrollh1">ITS YOUR LIFE LIVE IT THE WAY YOU WANT</h1>
+                <div class="text-center">
+                  <button type="button" class="btn comp_ind_pics_button_work work_call">CALL<a href="tel:+1-415-906-6440" style="text-decoration: none; color: white;"> 415-906-6440</a></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
     </section>
+        <section class="container" style="padding-top: 20px; padding: 20px;">
+      <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+        <h1 class="servises_text_header"><span >OUR SERVICES</span><h1>
+      </div>
+      <div class="row">
+          <div class="col-lg-6 col-md-6">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%= image_tag "if_cell-2-0_234509.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">SHOPPING</h2>
+              <p class="services_font_p">We deliver groceries, or go shopping with you. Let us take care of your grocery shopping while you enjoy time doing what you love.</p>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%#= image_tag "if_broom_household_housekeeping_clean_wash_887146.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">HOUSE CLEANING</h2>
+              <p class="services_font_p">Do you want a routine cleaning, deep cleaning? How many rooms do you want to be cleaned? We have verified house cleaners waiting to clean your house.</p>
+            </div>
+          </div>
+        </div>-->
+        <div class="col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%= image_tag "if_080_392196.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">TRANSPORTATION</h2>
+              <p class="services_font_p">Need a ride to your doctor? Are you going to an event? Want to go sightseeing? We connect you with a rideshare company, or if you would prefer a ride from one of our care companions, we offer that.</p>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%#= image_tag "if_071_392191.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">MEAL PREPARATION</h2>
+              <p class="services_font_p">Cooking, Vegetable mixing.</p>
+            </div>
+          </div>
+        </div>-->
+        <div class="col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%= image_tag "if_054_392182.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">COMPANIONSHIP</h2>
+              <p class="services_font_p">Need home support? Someone to run errands with you and also keep you company? A caring person to look out for you? Our care companions are available for that.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-4">
+              <%= image_tag "if_074_392193.png", class: "services_font"%>
+            </div>
+            <div class="col-lg-9 col-md-8 col-8">
+              <h2 class="font_p_1">TRAVEL</h2>
+              <p class="services_font_p">Want to discover new things, visit family members across the states or just want to find what more life has to offer? Our care companions will travel with you. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- how it works section -->
+    <section class="container">
+      <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+        <h1 class="servises_text_header"><span >HOW IT WORKS</span></h1>
+      </div>
+      </div>
+      <div class="row text-center" style="padding-top: 20px;">
+        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
+          <div class="circle">
+            <div class="circle-text">
+              <h2 class="work_font_p_1">STEP 1</h2>
+              <p class="notification work_p"> Call <a href="tel:+1-415-906-6440">415-906-6440</a> <br>to request service.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
+          <div class="circle">
+            <div class="circle-text">
+              <h2 class="work_font_p_1">STEP 2</h2>
+              <p class="notification work_p"> Verify your address and tell us what you are looking for from Senyours.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
+          <div class="circle">
+            <div class="circle-text">
+              <h2 class="work_font_p_1">STEP 3</h2>
+              <p class="notification work_p">We will get back to you quickly with timely updates.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
     <section itemprop="about" itemscope itemtype="http://schema.org/Service" class="container">
         <meta itemprop="serviceType" content="Senior Health Care"/>
         <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
-          <h1 class="text_header">WHAT YOU GET FROM <span itemprop="name">SENYOURS</span> PLATFORM<h1>
+          <h1 class="text_header">BENEFITS OF <span itemprop="name">SENYOURS</span> PLATFORM<h1>
         </div>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
@@ -36,7 +152,7 @@
           </div>
           <h2 class="text-center font_p_1">VERIFICATION</h2>
           <p class="font_p">
-            Our senior care Companions must pass a rigorous criminal background check. No compromise, safety comes first at Senyours.
+            Our senior care companions must pass a rigorous criminal background check. <br> No compromises, safety comes first at Senyours.
           </p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
@@ -45,7 +161,7 @@
           </div>
           <h2 class="text-center font_p_1">SHORT NOTICE</h2>
           <p class="font_p">
-            Senior care Companions are available from 7 am to 9 pm every day. Need elderly care companionship on short notice? No problem.
+            Senior care companions are available from 7am to 9pm every day. Need elderly care companionship on short notice? No problem.
           </p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 font_back">
@@ -60,122 +176,13 @@
       </div>
     </section>
 
-<!-- how it works section -->
-    <section class="container">
-      <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
-        <h1 class="servises_text_header"><span >HOW IT WORKS</span></h1>
-      </div>
-      </div>
-      <div class="row text-center" style="padding-top: 20px;">
-        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
-          <div class="circle">
-            <div class="circle-text">
-              <h2 class="work_font_p_1"">SIGN UP</h2>
-              <p class="notification">Senior adult can set appointments by giving us a call on <a href="tel:+1-415-906-6440">415-906-6440</a>.</p>
-              <p> Care companions can only sign up though our <a href="/comp_new"> Companion</a> sign up page</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
-          <div class="circle">
-            <div class="circle-text">
-              <h2 class="work_font_p_1"">VERIFY YOURSELF</h2>
-              <p class="notification"> Senior are verified by address and emergency contacts.</p>
-              <p> Care companions gets a vigorous background check and undergo orientation.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 circle_col">
-          <div class="circle">
-            <div class="circle-text">
-              <h2 class="work_font_p_1"">GET MATCHED</h2>
-              <p class="notification"> Seniors get connected with most available care companions in their area.</p>
-              <p> Care companions sets dates and get matched with senior adults needing support.</p>
-            </div>
-          </div>
-        </div>
-    </section>
-
-    <section class="container" style="padding-top: 20px; padding: 20px;">
-      <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
-        <h1 class="servises_text_header"><span >OUR SERVICES</span><h1>
-      </div>
-      <div class="row">
-          <div class="col-lg-6 col-md-6">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_cell-2-0_234509.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">SHOPPING</h2>
-              <p class="services_font_p">Malls, Local stores, Antique shops.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_broom_household_housekeeping_clean_wash_887146.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">LIGHT HOUSEKEEPING</h2>
-              <p class="services_font_p">Laundry, Light cleaning.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_080_392196.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">TRANSPORTATION</h2>
-              <p class="services_font_p">Drive your ride, Share ride services.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_071_392191.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">MEAL PREPARATION</h2>
-              <p class="services_font_p">Cooking, Vegetable mixing.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_054_392182.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">COMPANIONSHIP</h2>
-              <p class="services_font_p">Socialization, Events, Movies.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-4">
-              <%= image_tag "if_074_392193.png", class: "services_font"%>
-            </div>
-            <div class="col-lg-9 col-md-8 col-8">
-              <h2 class="font_p_1">ERRANDS</h2>
-              <p class="services_font_p">Gardening, Pick up items. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section itemprop="about" itemscope itemtype="http://schema.org/ProgramMembership" class="container">
+    <!--<section itemprop="about" itemscope itemtype="http://schema.org/ProgramMembership" class="container">
       <div class="row comp_div">
         <div class="col-lg-12 text-center">
           <h1 class="text_header">HEAR FROM OUR COMPANIONS<h1>
         </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(<%= asset_path 'head_shot_copy.jpg' %>)"></div>
+            <div class="comp_img_div" style="background-image: url(<%#= asset_path 'head_shot_copy.jpg' %>)"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Merty Mcgraw</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -185,7 +192,7 @@
             </div>
           </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(<%= asset_path 'wale-compress-image.jpg' %>);"></div>
+            <div class="comp_img_div" style="background-image: url(<%#= asset_path 'wale-compress-image.jpg' %>);"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Wale Kareem</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -195,7 +202,7 @@
             </div>
           </div>
           <div itemprop="member" itemscope itemtype="http://schema.org/Person" class="col-lg-4 col-md-4" style=" height: 550px;">
-            <div class="comp_img_div" style="background-image: url(<%= asset_path 'jamez.png' %>);"></div>
+            <div class="comp_img_div" style="background-image: url(<%#= asset_path 'jamez.png' %>);"></div>
             <div class="comp_img_text">
               <p class="notification"> <strong itemprop="name">Mez Manning</strong>,  <span itemprop="homeLocation" itemscope itemtype="http://schema.org/Place"><span itemprop="name">San francisco</span></span></p>
               <meta itemprop="jobTitle" content="Companion"/>
@@ -205,14 +212,14 @@
             </div>
           </div>
       </div>
-    </section>
+    </section>-->
     <section class=" row who_we" >
       <div class="col-lg-6">
         <h1 class="text-center notification">WHO WE ARE</h1>
       </div>
       <div class="col-lg-6">
         <p>
-        We connect senior adults with veriﬁed, background checked local citizens in their community. For an affordable rate, our Companions help seniors with their daily activities shopping, laundry, and medical appointments. Companions are also happy to join you on walks, meals, and outings. We are the first step towards home care. We understand that sometimes seniors need a little support to maintain their independent lifestyle. Our team of talented senior care Companions are excited to provide the support you need. We are an outstanding group that loves sharing our culture of inclusiveness.
+        We connect senior adults with veriﬁed, background checked local citizens in their community. For an affordable rate, our companions help seniors with their daily activities shopping, laundry, and medical appointments. Companions are also happy to join you on walks, sharing meals, and going on outings. We are the first step towards home care. We understand that sometimes seniors need a little support to maintain their independent lifestyle. Our team of talented senior care companions are excited to provide the support you need. We are an outstanding group that loves sharing our culture of inclusiveness.
         </p>
       </div>
     </section>
@@ -223,7 +230,7 @@
           <div class="slideshow container">
             <div class="slide">
               <div class="slideshows">
-                <p class="review">"Hi JZ, Have you heard of this service?  Seems like an Uber model to connect seniors with helpers for a price."</p>
+                <p class="review">"Hi JZ, Have you heard of this service? Seems like an Uber model to connect seniors with helpers for a price."</p>
                 <div class="name-city">
                   <p class="slide-name">-Lance</p>
                   <p class='slide-city'>-San Francisco</p>
@@ -232,7 +239,7 @@
             </div>
             <div class="slide">
               <div class="slideshows">
-                <p class="review">"Thank you for this great resource!  Great to know us oldees don't have to be  all alone!"</p>
+                <p class="review">"Thank you for this great resource! Great to know us oldees don't have to be all alone!"</p>
                 <div class="name-city">
                   <p class="slide-name">-Linda</p>
                   <p class='slide-city'>-Oakland</p>
@@ -263,6 +270,29 @@
         </div>
       </div>
     </section>
+    <section class="container ">
+        <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+          <h1 class="servises_text_header"><span > SERVICE FEE </span><h1>
+        </div>
+        <div class="price_sec">
+         <div class="price text-center">
+           <p class="notification price_up">Shopping</p>
+           <p class="price_p">$18/Hour</p>
+         </div>
+         <div class="price text-center">
+           <p class="notification price_up">Transport</p>
+           <p class="price_p" >$23/Hour</p>
+         </div>
+         <div class="price text-center">
+           <p class="notification price_up">Companion</p>
+           <p class="price_p" >$30/Hour</p>
+         </div>
+         <div class="price text-center">
+           <p class="notification price_up">Travel</p>
+           <p class="price_p" >$35/Hour</p>
+         </div>
+       </div>
+    </section>
     <section class="values">
       <div class="container">
         <h1 class="text-center edit_tag">OUR VALUES</h1>
@@ -270,13 +300,13 @@
           <div class="col-lg-4 col-md-4 col-sm-12 font_back_val">
             <h2 class="text-center font_p_1">EVERYONE IS WELCOME</h2>
             <p class="font_p">
-            We believe that everyone is unique in their own way. We don’t discriminate. A senior care Companion’s verified background check allows them to use the Senyours platform.
+            We believe that everyone is unique in their own way. We don’t discriminate. A senior care companion’s verified background check allows them to use the Senyours platform.
             </p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12 font_back_val">
             <h2 class="text-center font_p_1">PEOPLE BEFORE PROFIT</h2>
             <p class="font_p">
-            Senyours believes happy senior adults create company value. Reinvesting 20% our profits into the seniors and senior care Companions that use our platform is just one way we make this happen.
+            Senyours believes happy senior adults create company value. Reinvesting 20% of our profits into the seniors and senior care companions that use our platform is just one way we make this happen.
             </p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12 font_back_val">
@@ -296,15 +326,15 @@
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12 font_back_val">
             <h2 class="text-center font_p_1">FUN</h2>
-            <p class="font_p">We have fun where we work. Our senior care Companions want the same fun for our seniors. Our elderly care providers are always thrilled to join the activities seniors love.!</p>
+            <p class="font_p">We have fun where we work. Our senior care companions want the same fun for our seniors. Our elderly care providers are always thrilled to join the activities seniors love!</p>
           </div>
         </div>
       </div>
     </section>
-    <div class="image2_div" style="background-image: url(<%= asset_path 'newcompanioneditor.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'facebookprofile.jpg' %>);">
+    <div class="image2_div" style="background-image: url(<%= asset_path 'facebookprofile.jpg' %>);background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  url(<%= asset_path 'facebookprofile.jpg' %>);">
         <h1>YOUR HAPPINESS IS OUR PRIORITY.</h1>
     </div>
-    <div class="faq container">
+    <div class="faq container" id="faq">
       <div>
         <p class="text-center edit_tag">Frequently Asked Questions</p>
       </div>
@@ -312,56 +342,84 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link work_p" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 WHAT DOES SENYOURS DO ?
               </button>
             </h5>
           </div>
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              Senyours is a platform that connects, verified companions with senior adults that need companionship, either to run errands, shop, socialize or just talk.
+            <div class="card-body work_p">
+              Senyours is a platform that connects verified companions with senior adults that need companionship care, help shopping, transportation and even travel assistance. Senyours is a one-stop shop for senior adults.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h5 class="mb-0">
+              <button class="btn btn-link work_p" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                WHAT IF I CAN'T OPERATE A COMPUTER ?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body work_p">
+              You can always give Senyours a call at 415-906-6440. A member of our support staff in your area will work with you and provide you with all services needed.
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link collapsed work_p" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 WHO ARE YOUR COMPANIONS ?
               </button>
             </h5>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              Senyours Companions are individuals that come from all walks of life that have gone through a background check and verified. They review training materials and always happy with what they do.
+            <div class="card-body work_p">
+              Senyours companions are individuals that come from all walks of life that have gone through a background check and have been verified. They review training materials and are always happy with what they do.
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link collapsed work_p" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 HOW DOES SENYOURS MAKE MONEY ?
               </button>
             </h5>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              We make money from hourly rate Companion Seekers pay their companion. We don't put any other burden of payment on our users, no hidden fees or any surcharges, we only make money when our users decide to use our service.
+            <div class="card-body work_p">
+              Senyours makes money from the hourly-rate seniors pay. We don't put any other burden of payment on our users, no hidden fees or any surcharges, we only make money when seniors decide to use our service.
             </div>
           </div>
         </div>
         <div class="card">
           <div class="card-header" id="headingFour">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link collapsed work_p" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 WHAT HAPPENS IF I CANCEL MY APPOINTMENT ?
               </button>
             </h5>
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-            <div class="card-body">
-              As long as you cancel your appointment 24 hours before your scheduled apponintment you will get a 100% refund. If you cancel after 24 hours you'll receive a 50% return.
+            <div class="card-body work_p">
+              As long as you cancel your appointment 24-hours before your scheduled appointment you will get a 100% refund. If you cancel within 24 hours you'll receive a 50% return.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingSix">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed work_p" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                WHAT DO I NEED TO BECOME A COMPANION ?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+            <div class="card-body work_p">
+              You must be over eighteen and be willing to pass a background check. Experience in caring is great, but even if you don't have past experience, as long as you are excited to help others, you are welcome.
             </div>
           </div>
         </div>

@@ -95,14 +95,15 @@
           <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
       <% else %>
       <div>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">here</a> to add days you need companions</p>
-          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day. Click on each day to set specific times you need companion</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to add days.</p>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
       </div>
       <% end %>
-      <h3><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></h3>
-        <div class="row" style="padding-left: 15px; padding-right: 15px;">
-      <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
+      <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+        <h1 class="servises_text_header"><span ><%= Date.today.beginning_of_month.strftime('%B')%>, <%= Date.today.beginning_of_month.strftime('%Y') %></span><h1>
+      </div>
+      <div class="row" style="padding-left: 15px; padding-right: 15px;">
         <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
             <div class="col-lg-2 col-md-2 col-2 form_div cal_pad" id="<%= date.strftime('%d') %>">
               <% if sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
@@ -112,20 +113,53 @@
                 </button>
               <% elsif Date.today > date %>
                 <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
-                  <p class="notification"><%= date.strftime('%a') %></p>
-                  <p class="notification"><%= date.strftime('%d') %></p>
+                  <p class="notification work_p"><%= date.strftime('%a') %></p>
+                  <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
               <%  elsif date_exit(current_user).include?(date) %>
                   <%= link_to available_day_path(@user,available_day: {date: date, user_id: current_user}) do %>
                       <button class="btn days_cal_but" style="background-color: orange;">
-                        <p class="notification"><%= date.strftime('%a') %></p>
-                        <p class="notification"><%= date.strftime('%d') %></p>
+                        <p class="notification work_p"><%= date.strftime('%a') %></p>
+                        <p class="notification work_p"><%= date.strftime('%d') %></p>
                       </button>
                   <% end %>
               <% else %>
                 <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:#f6f6f6;" disabled="true">
-                  <p class="notification"><%= date.strftime('%a') %></p>
-                  <p class="notification"><%= date.strftime('%d') %></p>
+                  <p class="notification work_p"><%= date.strftime('%a') %></p>
+                  <p class="notification work_p"><%= date.strftime('%d') %></p>
+                </button>
+              <% end %>
+            </div>
+        <% end %>
+        </div>
+        <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
+          <h1 class="servises_text_header"><span ><%= Date.today.beginning_of_month.next_month.strftime('%B')%>, <%= Date.today.beginning_of_month.next_month.strftime('%Y') %></span><h1>
+        </div>
+        <div class="row" style="padding-left: 15px; padding-right: 15px;">
+      <!-- (Date.today.beginning_of_month..Date.new(2018, 02, 15)) -->
+        <% (Date.today.beginning_of_month.next_month..Date.today.at_end_of_month.next_month).each do |date| %>
+            <div class="col-lg-2 col-md-2 col-2 form_div cal_pad" id="<%= date.strftime('%d') %>">
+              <% if sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
+                <button class="btn days_cal_but" style="background-color: green;" disabled="true">
+                  <p class="notification work_p"><%= date.strftime('%a') %></p>
+                  <p class="notification work_p"><%= date.strftime('%d') %></p>
+                </button>
+              <% elsif Date.today > date %>
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
+                  <p class="notification work_p"><%= date.strftime('%a') %></p>
+                  <p class="notification work_p"><%= date.strftime('%d') %></p>
+                </button>
+              <%  elsif date_exit(current_user).include?(date) %>
+                  <%= link_to available_day_path(@user,available_day: {date: date, user_id: current_user}) do %>
+                      <button class="btn days_cal_but" style="background-color: orange;">
+                        <p class="notification work_p"><%= date.strftime('%a') %></p>
+                        <p class="notification work_p"><%= date.strftime('%d') %></p>
+                      </button>
+                  <% end %>
+              <% else %>
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:#f6f6f6;" disabled="true">
+                  <p class="notification work_p"><%= date.strftime('%a') %></p>
+                  <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
               <% end %>
             </div>

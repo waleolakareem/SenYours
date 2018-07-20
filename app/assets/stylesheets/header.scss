@@ -33,16 +33,16 @@
 /*#4c4c4c*/
 .nav-link{
   color:orange !important;
-  font-size:16px !important;
+  font-size:20px !important;
   letter-spacing:2px;
   @media screen and (max-width:375px){
     font-size:13px;
   }
 }
 .nav-item {
-  padding-left:10px !important;
+  padding-left:40px !important;
   @media screen and (max-width:1074px){
-    padding-left: 0px !important;
+    padding-left: 10px !important;
   }
 }
 .nav-item a:hover {
@@ -55,19 +55,19 @@
 }
 .navbar-nav{
     @media screen and (max-width:2560px){
-    margin-left:34%;
+    margin-left:30%;
   }
     @media screen and (max-width:1677px){
-    margin-left:28%;
+    margin-left:24%;
   }
    @media screen and (max-width:1571px){
-    margin-left:23%;
+    margin-left:19%;
   }
   @media screen and (max-width:1440px){
-    margin-left:22%;
+    margin-left:18%;
   }
   @media screen and (max-width:1412px){
-    margin-left:10%;
+    margin-left:6%;
   }
   @media screen and (max-width:1215px){
     margin-left:0;
@@ -80,18 +80,18 @@
   }
 }
 .in_navbar-nav{
-  margin-left:80%;
+  margin-left:60%;
    @media screen and (max-width:2560px){
-    margin-left:76%;
+    margin-left:60%;
   }
    @media screen and (max-width:1440px){
-    margin-left:70%;
+    margin-left:55%;
   }
   @media screen and (max-width:1343px){
-    margin-left:66%;
+    margin-left:53%;
   }
   @media screen and (max-width:1211px){
-    margin-left:62%;
+    margin-left:52%;
   }
 
   @media screen and (max-width:1106px){

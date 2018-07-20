@@ -129,7 +129,7 @@
   }
 }
 .comp_div {
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 20px 0px;
 }
 .comp_div .col-lg-4 {
   @media screen and (max-width: 425px){
@@ -165,7 +165,7 @@
   font-family: 'Muli', sans-serif;
 }
 .comp_img_descrp p {
-  font-size: 15px;
+  font-size: 20px;
   font-family: 'Muli', sans-serif;
 }
 .comp_img_descrp {
@@ -191,7 +191,7 @@
   }
 }
 .who_we p {
-  font-size: 18px;
+  font-size: 20px;
 }
 .font {
   margin-bottom: 30px;
@@ -211,19 +211,19 @@
     padding: 0px;
   }
 }
-.font_back:hover{
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-  box-shadow-color: orange;
-  @media screen and (max-width: 1024px){
-   -webkit-transform: none;
-   -ms-transform: none;
-   transform: none;
-   box-shadow: none;
-  }
- }
+//.font_back:hover{
+ // -webkit-transform: scale(1.1);
+ // -ms-transform: scale(1.1);
+ // transform: scale(1.1);
+ // box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+ // box-shadow-color: orange;
+ // @media screen and (max-width: 1024px){
+ //  -webkit-transform: none;
+ //  -ms-transform: none;
+ //  transform: none;
+ //  box-shadow: none;
+ // }
+ //}
 .font_back .text-center {
   color: orange
 }
@@ -236,20 +236,20 @@
 .font_p {
   padding: 0 20px;
   font-family: 'Muli', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
 }
 .services_font_p {
   font-family: 'Muli', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
 }
 .font_p_1 {
   letter-spacing: 2px;
-  font-size: 15px;
+  font-size: 20px;
   color: orange;
 }
 .work_font_p_1 {
   letter-spacing: 2px;
-  font-size: 15px;
+  font-size: 20px;
   color: black;
 }
 .image2_div {
@@ -395,11 +395,10 @@
   }
 }
 .sen_why_this_img {
-  background-repeat: no-repeat;
   background-size:cover;
   background-postion: left;
-  background-image: image_url('cocktailcomp.jpg' ); /* fallback for older browsers */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('cocktailcomp.jpg' );
+  background-image: image_url('chesscomp1.jpg' ); /* fallback for older browsers */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.6) 100%),  image_url('chesscomp1.jpg' );
   width: 100%;
   height: 600px;
   @media screen and (max-width: 425px){
@@ -492,6 +491,9 @@
 .servises_text_header span {
     background:#fff;
     padding:0 10px;
+}
+.servises_text_header_col {
+  background:#F5F5F5 !important;
 }
 .btn-link{
   color: orange;
@@ -590,6 +592,29 @@
     width: 70%;
   }
 }
+
+.comp_ind_pics_button_work{
+  height: 50px;
+  width:40%;
+  color:white;
+  background-color:orange;
+  letter-spacing: 1px;
+  @media screen and (max-width: 425px){
+    height: 50px;
+    width: 100%;
+  }
+}
+.comp_ind_pics_sen{
+  height: 50px;
+  width:100%;
+  color:white;
+  background-color:orange;
+  letter-spacing: 1px;
+  @media screen and (max-width: 425px){
+    height: 50px;
+    width: 100%;
+  }
+}
 .pow .col-lg-4{
   padding-right: 5px;
   padding-left: 5px;
@@ -617,8 +642,8 @@
   transition: display 0.9s;
   letter-spacing: 3px;
   margin-bottom: 20px;
-  color : black;
-  font-family: sans-serif;
+  color : white;
+  font-family: 'Muli', sans-serif;
   @media screen and (max-width: 425px){
     font-size: 35px;
   }
@@ -708,3 +733,58 @@ section.section {
   }
 }
 
+.work_p{
+  font-size:20px;
+}
+
+.work_call{
+  font-size:25px;
+}
+
+.price_sec{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @media screen and (max-width: 414px){
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+.price{
+  margin-top:5px;
+  box-shadow: 0px 0px 40px rgba(0,0,0,.3);
+  background-color:orange;
+  height:250px;
+  width:250px;
+  border-radius:50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+   @media screen and (max-width: 1024px){
+    height:100px;
+    width:100px;
+  }
+}
+
+.price_p {
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+   @media screen and (max-width: 1024px){
+    font-size:20px;
+  }
+}
+
+.price_up {
+  letter-spacing: 1px;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+   @media screen and (max-width: 1024px){
+    font-size:15px;
+  }
+  }
