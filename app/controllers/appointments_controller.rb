@@ -14,12 +14,14 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
       appointment_params[:companion_id])
     if @appointment.length >= 1
+
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
       selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
       stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_transaction_id )
       # If the appointment is cancelled prior to the appointment, the transaction will refund the senior.
       Transaction.find(selected_transaction.id).update(transaction_type: "refund", status: "refunded", refund_id: stripe_refund_response.id)
+
       @del_appt = @appointment[0]
       @appointment[0].destroy
       respond_to do |format|

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   post 'stripe_webhook' => 'transactions#stripe_webhook'
   get 'slack_webhook' => 'transactions#slack_webhook'
+  get 'verify' => 'transactions#verify'
   get 'test' => 'appointments#test'
   resources :transactions do
   end
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   mount ActionCable.server => '/cable'
-  get '/verify' => 'charges#verify'
   resources :blog
   get '/password_input' => 'blog#password_input'
   post '/password_authenticate' => 'blog#password_authenticate'
@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'welcome/index'
-  resources :charges
   resources :sessions
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
