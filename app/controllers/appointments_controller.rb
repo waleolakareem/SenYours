@@ -18,9 +18,19 @@ class AppointmentsController < ApplicationController
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
       selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
+
       # If the appointment is cancelled prior to the appointment, the transaction will refund the senior.
       stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_transaction_id)
-      Transaction.find(selected_transaction.id).update(transaction_type: "refund", status: "refunded", refund_id: stripe_refund_response.id)
+
+      # Transfer Reversals retrieve funds in the "Pending" balance of the associated account
+      puts "Transfer Reversal ~ID~: #{selected_transaction.stripe_transaction_id}"
+      puts "Transfer Reversal ~Amount~: #{selected_transaction.payout}"
+      transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transaction_id}")
+      transfer.reversals.create({
+        :amount => "#{selected_transaction.payout}",
+      })
+
+      Transaction.find(selected_transaction.id).update(refund_id: stripe_refund_response.id)
 
       @del_appt = @appointment[0]
       @appointment[0].destroy
@@ -67,27 +77,37 @@ class AppointmentsController < ApplicationController
       total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
       total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
+      transfer_group = "Senior#{@appointment.senior_id}_Companion#{@appointment.companion_id}_Appointment#{@appointment.id}"
 
+      # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
+
+      # ~STRIPE~ Create a Charge to the Senior, sending the funds to the SenYours Platform Account Balance.
       stripe_charge_response = Stripe::Charge.create({
         :amount => total_senior_cost,
         :currency => "usd",
-        :source => "tok_visa",
-        :destination => {
-          :amount => total_companion_payout,
-          :account => @appointment.companion.stripe_user_id,
-        }
+        :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
+        :transfer_group => transfer_group, # A required internal identifier.
       })
+
+      # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance.
+      stripe_transfer_response = Stripe::Transfer.create({
+        :amount => total_companion_payout,
+        :currency => "usd",
+        :destination => "#{@appointment.companion.stripe_user_id}",
+        :transfer_group => transfer_group, # A required internal identifier.
+      })
+
       Transaction.create(
-        stripe_transaction_id: stripe_charge_response.id,
+        stripe_charge_id: stripe_charge_response.id,
+        stripe_transfer_id: stripe_transfer_response.id,
+        appointment_id: @appointment.id,
         amount: total_senior_cost,
         fee: total_fees,
         payout: total_companion_payout,
         senior_id: @appointment.senior_id,
         companion_id: @appointment.companion_id,
-        appointment_id: @appointment.id,
-        transaction_type: "charge",
-        status: "pending"
       )
+
         @accept_appoint = ".asspt1"
         @appointment.payment_status = "Paid"
         @appointment.save

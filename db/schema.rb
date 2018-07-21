@@ -117,13 +117,12 @@ ActiveRecord::Schema.define(version: 20180627205031) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "stripe_transaction_id"
+    t.string "stripe_charge_id"
+    t.string "stripe_transfer_id"
     t.integer "appointment_id"
     t.integer "amount"
     t.integer "fee"
     t.integer "payout"
-    t.string "transaction_type"
-    t.string "status"
     t.string "refund_id"
     t.bigint "senior_id"
     t.bigint "companion_id"
