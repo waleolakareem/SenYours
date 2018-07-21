@@ -86,15 +86,14 @@ class AppointmentsController < ApplicationController
         :amount => total_senior_cost,
         :currency => "usd",
         :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
-        :transfer_group => transfer_group, # A required internal identifier.
       })
 
-      # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance.
+      # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance AFTER they become available via 'source_transaction'.
       stripe_transfer_response = Stripe::Transfer.create({
         :amount => total_companion_payout,
         :currency => "usd",
         :destination => "#{@appointment.companion.stripe_user_id}",
-        :transfer_group => transfer_group, # A required internal identifier.
+        :source_transaction => "#{stripe_charge_response.id}"
       })
 
       Transaction.create(
