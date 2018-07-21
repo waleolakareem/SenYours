@@ -18,14 +18,15 @@ class AppointmentsController < ApplicationController
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
       selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
+      puts "Transfer Reversal ~Charge ID~: #{selected_transaction.stripe_charge_id}"
+      puts "Transfer Reversal ~Transfer ID~: #{selected_transaction.stripe_transfer_id}"
+      puts "Transfer Reversal ~Amount~: #{selected_transaction.payout}"
 
       # If the appointment is cancelled prior to the appointment, the transaction will refund the senior.
-      stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_transaction_id)
+      stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_charge_id)
 
       # Transfer Reversals retrieve funds in the "Pending" balance of the associated account
-      puts "Transfer Reversal ~ID~: #{selected_transaction.stripe_transaction_id}"
-      puts "Transfer Reversal ~Amount~: #{selected_transaction.payout}"
-      transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transaction_id}")
+      transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
       transfer.reversals.create({
         :amount => "#{selected_transaction.payout}",
       })
