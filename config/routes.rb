@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   post 'stripe_webhook' => 'transactions#stripe_webhook'
   get 'slack_webhook' => 'transactions#slack_webhook'
   get 'verify' => 'transactions#verify'
-  resources :transactions do
-  end
+  resources :transactions
 
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'
