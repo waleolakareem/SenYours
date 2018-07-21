@@ -45,7 +45,7 @@ class TransactionsController < ApplicationController
   def show
   end
 
-  def verify
+  def verify # OnBoarding for Stripe Users. Allows Senior/Companion to use Stripe through SenYours Platform.
     # For documentation see: https://stripe.com/docs/connect/oauth-reference#post-token
     if params[:state].include?('senyours_verification')
       # Auth code required for Stripe Authentication
@@ -85,12 +85,18 @@ class TransactionsController < ApplicationController
   end
 
   def stripe_webhook #POST ONLY
+    # Webhooks to setup
+    # payout.created
+    # payout.updated
+    # payout.paid
+    # payout.failed
+
     # To properly test this using the test functionality provided by Stripe, you must use 'ngrok' and add the Webhook endpoint through the tunnel generated. I.E. `../../ngrok http 3000`
-    event_json = JSON.parse(request.body.read)
+    transaction_json = JSON.parse(request.body.read)
     RestClient.post "https://hooks.slack.com/services/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", {
       "attachments": [
           {
-              "fallback": "#{event_json}",
+              "fallback": "#{transaction_json}",
               "color": '#439FE0', # '#439FE0'=>blue / 'good'=>green / 'warning'=>orange / 'danger'=>red
               "pretext": "Stripe Action Taken On SenYours", # Line above message and "color" sidebar.
               "title": "Action Type: #{params[:type]}",
@@ -99,12 +105,12 @@ class TransactionsController < ApplicationController
               "fields": [
                   {
                       "title": "Amount Total:",
-                      "value": "$#{event_json['data']['object']['amount']}",
+                      "value": "$#{transaction_json['data']['object']['amount']}",
                       "short": true
                   },
                   {
                       "title": "Amount Refunded:",
-                      "value": "$#{event_json['data']['object']['amount_refunded']}",
+                      "value": "$#{transaction_json['data']['object']['amount_refunded']}",
                       "short": true
                   }
               ],

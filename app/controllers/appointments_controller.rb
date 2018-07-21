@@ -18,8 +18,8 @@ class AppointmentsController < ApplicationController
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
       selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
-      stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_transaction_id )
       # If the appointment is cancelled prior to the appointment, the transaction will refund the senior.
+      stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_transaction_id)
       Transaction.find(selected_transaction.id).update(transaction_type: "refund", status: "refunded", refund_id: stripe_refund_response.id)
 
       @del_appt = @appointment[0]
