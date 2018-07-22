@@ -19,7 +19,9 @@ class AppointmentsController < ApplicationController
       selected_appointment = Appointment.find(@appointment[0].id)
       selected_transaction = Transaction.find_by_appointment_id(@appointment[0].id)
       # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
-      stripe_refund_response = Stripe::Refund.create( charge: selected_transaction.stripe_charge_id)
+      stripe_refund_response = Stripe::Refund.create(
+        :charge => selected_transaction.stripe_charge_id,
+      )
       # ~STRIPE~ Transfer Reversals remove the associated amount from the companions pending balance immidiately.
       transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
       transfer.reversals.create({
@@ -82,6 +84,7 @@ class AppointmentsController < ApplicationController
         :amount => total_senior_cost,
         :currency => "usd",
         :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
+        :description => 'Senior Appointment Charge',
       })
 
       # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance AFTER they become available via 'source_transaction'.
@@ -89,7 +92,8 @@ class AppointmentsController < ApplicationController
         :amount => total_companion_payout,
         :currency => "usd",
         :destination => "#{@appointment.companion.stripe_user_id}",
-        :source_transaction => "#{stripe_charge_response.id}"
+        :source_transaction => "#{stripe_charge_response.id}",
+        :description => 'Companion Payment Transfer',
       })
 
       Transaction.create(

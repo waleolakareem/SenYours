@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
       current_user.save!
     end
 
-    charge = Stripe::Charge.create(
+    stripe_charge_response = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
@@ -33,6 +33,10 @@ class TransactionsController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_transaction_path
+
+    stripe_refund_response = Stripe::Refund.create(
+      :charge => stripe_charge_response.id,
+    )
   end
 
 
