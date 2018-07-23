@@ -1,7 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118162887-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-118162887-1');
+  </script>
+
+  <!-- Metadata for http header request - Global -->
+  <title>Senyours</title>
+  <meta name="description" content="Transportation|Shopping|Companionship for senior adults by verified care companions in their area to support their independent lifestyle."/>
+  <meta name="keywords" content="companions, seniors, Senyours, home care, companion, senior home care, senior, care companions, care companion"/>
+  <meta property="og:site_name" content="Senyours | Companionship care"/>
+  <meta property="og:title" content="Empowering senior adults to continue living their independent lifestyle.Worry-Free, Safe, and Fun envionment!"/>
+  <meta property="og:description" content="Errands|Home support|Companionship for senior adults by verified care companions in their area to support their independent lifestyle."/>
+  <meta property="og:url" content="https://www.senyours.io"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="http://www.senyours.io/assets/newcompanioneditor.jpg"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="Senyours | Senior Companionship"/>
+  <meta name="twitter:title" content="Senyours"/>
+  <meta name="twitter:image" content="http://www.senyours.io/assets/needacomppic.jpg"/>
+  <meta name="twitter:url" content="https://www.senyours.io"/>
+  <meta itemprop="name" content="Senyours"/>
+  <meta itemprop="url" content="https://www.senyours.io"/>
+  <meta itemprop="thumbnailUrl" content="http://www.senyours.io/assets/SenYours_thumbnailOrange_115.jpg"/>
+  <meta itemprop="image" content="http://www.senyours.io/assets/newcompanioneditor.jpg"/>
+  <title>Senyours</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- Disabled Zoom with this meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- For devices that do not use view port -->
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="p:domain_verify" content="9f349ce99de746628471bb20d2ee56cc"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans+Condensed:300" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/assets/favicon(2).ico">
+  <link rel="stylesheet" type="text/css" href="/assets/slick.css"/>
+  <!-- Add the new slick-theme.css if you want the default styling -->
+  <link rel="stylesheet" type="text/css" href="/assets/slick-theme.css"/>
+
+
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
   <body>
+    <%= render '/header' %>
+
     <%= yield %>
+
+
   </body>
 </html>

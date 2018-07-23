@@ -1,3 +1,64 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+
+  margin-top: 2%;
+  margin-bottom: 5%;
+  padding-top: 10%;
+  padding-top: 15%;
+
+}
+
+#carousel_1 {
+  padding-top: 3%;
+  padding-bottom: 30%;
+  background-size: 100%;
+}
+
+#header {
+  padding-top: 3%;
+}
+
+h2 {
+  padding-right: 22%;
+  padding-left: 10%;
+  font-family: 'Muli';
+  color: #E87A0D;
+}
+
+#back_button {
+
+  padding-left: 10%;
+}
+
+button {
+
+  color: white;
+  margin-top: 3%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 2%;
+  padding-left: 2%;
+  border-radius: 10px;
+  background-color: orange;
+  font-family: 'Muli';
+  text-decoration: none;
+  transition:
+    border 0.3s ease-out,
+    color 0.3s ease-out,
+    background 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+
+.button_text {
+
+  color: white;
+
+}
+
+
+footer {
+  padding-top: 4%;
+  margin-bottom: 0%;
+}
