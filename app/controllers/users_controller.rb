@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     if @user.assessment === "no" && @user.identification === "Companion"
       survey_complete(@user)
     end
-
+    
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
     @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)

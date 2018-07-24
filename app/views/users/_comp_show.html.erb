@@ -135,10 +135,12 @@
           <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
               <div class="col-lg-2 col-md-2 col-2 form_div cal_pad" id="<%= date.strftime('%d') %>">
                 <% if appdays(current_user).include?(date) && date_exit(current_user).include?(date) %>
-                  <button class="btn days_cal_but" style="background-color: green;" disabled="true">
-                    <p class="notification work_p"><%= date.strftime('%a') %></p>
-                    <p class="notification work_p"><%= date.strftime('%d') %></p>
-                  </button>
+                  <button class="btn days_cal_but" style="background-color: green;">
+                  <%= link_to available_day_path(available_day: {date: date, user_id: current_user}) do %>
+                      <p class="notification work_p" style="text-decoration: none;"><%= date.strftime('%a') %></p>
+                      <p class="notification work_p"><%= date.strftime('%d') %></p>
+                    </button>
+                  <% end %>
                 <% elsif Date.today > date %>
                   <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                     <p class="notification work_p"><%= date.strftime('%a') %></p>
