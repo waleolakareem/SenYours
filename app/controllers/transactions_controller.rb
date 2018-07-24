@@ -23,11 +23,12 @@ class TransactionsController < ApplicationController
       current_user.stripe_customer_id = customer.id
       current_user.save!
     end
+    d = DateTime.now
 
     stripe_charge_response = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => "Stripe Card Verification: #{d.strftime("%d/%m/%Y %H:%M")}",
       :currency    => 'usd'
     )
     rescue Stripe::CardError => e

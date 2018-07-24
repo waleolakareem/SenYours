@@ -69,10 +69,6 @@
           </div>
         <% end %>
 
-        <div>
-          <%= link_to 'Stripe WebHook', stripe_webhook_path %>
-        </div>
-
         <div id='sen_account_balance_container' class='container'>
           <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
         </div>

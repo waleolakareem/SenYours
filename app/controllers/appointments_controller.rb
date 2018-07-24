@@ -70,12 +70,13 @@ class AppointmentsController < ApplicationController
       time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
       @accept_this_app = @user.companions.where({accept: false}).order('start_date ASC')[0]
 
-      # For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
-      # total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
+      # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
+      # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
       total_fees = (((@appointment.companion.fee * 100) * time) * 0.2025).floor
       total_senior_cost = ((@appointment.companion.fee * 100) * time)
       total_companion_payout = total_senior_cost - total_fees
       transfer_group = "Senior#{@appointment.senior_id}_Companion#{@appointment.companion_id}_Appointment#{@appointment.id}"
+      desc_time = DateTime.now
 
       # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
 
@@ -84,7 +85,7 @@ class AppointmentsController < ApplicationController
         :amount => total_senior_cost,
         :currency => "usd",
         :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
-        :description => 'Senior Appointment Charge',
+        :description => "Senior Appointment Charge: #{desc_time.strftime("%d/%m/%Y %H:%M")}",
       })
 
       # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance AFTER they become available via 'source_transaction'.
