@@ -91,7 +91,7 @@
           <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
       <% else %>
       <div>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">dfgkmgkfk</a> to add days.</p>
+          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day. Click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to add days.</p>
           <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
       </div>
@@ -110,7 +110,7 @@
                 <% end %>
                 </button>
               <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
@@ -122,7 +122,7 @@
                       </button>
                   <% end %>
               <% else %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:#f6f6f6;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:white;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
@@ -145,7 +145,7 @@
                   </button>
                 <% end %>
               <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: white;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
@@ -157,7 +157,7 @@
                       </button>
                   <% end %>
               <% else %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:#f6f6f6;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color:white;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>

@@ -47,11 +47,13 @@
             <div>
               <% if @user.first_name %>
               <h1 class="notification"><%= @user.first_name.humanize %></h1>
+              <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
               <% end %>
-              <h4>Companion since <%= @user.created_at.strftime('%Y') %></h4>
               <% if current_user.id === @user.id && current_user.assessment === "completed"  %>
                 <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
-                  <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
+                  <p>You must provide all <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Required</a> information to proceed
+                  </p>
                   </p>
                 <% else %>
                   <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
@@ -122,8 +124,8 @@
           <h4 class="edit_tag text-center">Provide all necessary info for verification</h4>
         <% else %>
         <div>
-          <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
           <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to choose available dates</p>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
         </div>
         <% end %>
@@ -176,7 +178,7 @@
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
               <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #f6f6f6;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
