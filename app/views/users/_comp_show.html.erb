@@ -117,7 +117,7 @@
       </div>
       <div class="col-lg-6 calender container">
       <% if current_user.assessment === "completed" %>
-        <% if !current_user.ssn? || !current_user.address? || !current_user.description?  %>
+        <% if !current_user.address? || !current_user.description?  %>
           <h4 class="edit_tag text-center">Provide all necessary info for verification</h4>
         <% else %>
         <div>
@@ -194,15 +194,6 @@
               <% end %>
             </div>
         <% end %>
-      <%# if current_user.ssn && !current_user.description.empty? && current_user.address %>
-      <!-- <div class="text-center">
-        <%# if @appointment.length >= 1 %>
-          <a href="/comp_request"> <button class="btn request_form_submit">Accept Requests</button></a>
-        <%# else %>
-          <a href="/comp_request"> <button class="btn btn-warning form_submit">No Requests yet</button></a>
-        <%# end %>
-      </div> -->
-      <%# end %>
     <% if @comp_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @comp_write_review.each  do |appointment| %>

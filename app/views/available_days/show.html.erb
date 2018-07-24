@@ -18,10 +18,6 @@
               <button class="btn t_cal_but" style="background-color: red;">
                 <%= time%>
               </button>
-            <% elsif app_time(current_user,@availableDay[0]).include?(time) %>
-              <button class="btn t_cal_but" style="background-color: green;">
-                <%= time%>
-              </button>
             <% else %>
               <button class="btn t_cal_but">
                 <%= time%>
