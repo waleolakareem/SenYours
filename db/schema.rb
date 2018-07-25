@@ -142,8 +142,6 @@ ActiveRecord::Schema.define(version: 20180627205031) do
     t.string "state"
     t.string "city"
     t.string "address"
-    t.string "encrypted_ssn"
-    t.string "encrypted_ssn_iv"
     t.integer "fee"
     t.text "description"
     t.string "avatar"

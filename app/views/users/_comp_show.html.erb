@@ -3,6 +3,7 @@
     <div class="row profile_show">
       <div class="asspt1 text-center container" style="display: none">
         <!-- <img src="/assets/checkmark.png"> -->
+        <!-- Will not go through if hour is not set -->
         <p>Accepted, wait a moment so we can get you your money</p>
       </div>
       <div class="asspt2 text-center container" style="display: none">
@@ -46,11 +47,13 @@
             <div>
               <% if @user.first_name %>
               <h1 class="notification"><%= @user.first_name.humanize %></h1>
+              <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
               <% end %>
-              <h4>Companion since <%= @user.created_at.strftime('%Y') %></h4>
               <% if current_user.id === @user.id && current_user.assessment === "completed"  %>
                 <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
-                  <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
+                  <p>You must provide all <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Required</a> information to proceed
+                  </p>
                   </p>
                 <% else %>
                   <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
@@ -121,12 +124,12 @@
       </div>
       <div class="col-lg-6 calender container">
       <% if current_user.assessment === "completed" %>
-        <% if !current_user.ssn? || !current_user.address? || !current_user.description?  %>
+        <% if !current_user.address? || !current_user.description?  %>
           <h4 class="edit_tag text-center">Provide all necessary info for verification</h4>
         <% else %>
         <div>
-          <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
           <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable days, click <a href="/users/<%= current_user.id %>/available_days/new" class="edit_tag">HERE</a> to choose available dates</p>
+          <p class="notification"><i class="fa fa-circle edit_tag"></i> Available days, Click on each day to set time to work</p>
           <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
         </div>
         <% end %>
@@ -139,10 +142,12 @@
           <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
               <div class="col-lg-2 col-md-2 col-2 form_div cal_pad" id="<%= date.strftime('%d') %>">
                 <% if appdays(current_user).include?(date) && date_exit(current_user).include?(date) %>
-                  <button class="btn days_cal_but" style="background-color: green;" disabled="true">
-                    <p class="notification work_p"><%= date.strftime('%a') %></p>
-                    <p class="notification work_p"><%= date.strftime('%d') %></p>
-                  </button>
+                  <button class="btn days_cal_but" style="background-color: green;">
+                  <%= link_to available_day_path(available_day: {date: date, user_id: current_user}) do %>
+                      <p class="notification work_p" style="text-decoration: none;"><%= date.strftime('%a') %></p>
+                      <p class="notification work_p"><%= date.strftime('%d') %></p>
+                    </button>
+                  <% end %>
                 <% elsif Date.today > date %>
                   <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                     <p class="notification work_p"><%= date.strftime('%a') %></p>
@@ -177,7 +182,7 @@
                   <p class="notification"><%= date.strftime('%d') %></p>
                 </button>
               <% elsif Date.today > date %>
-                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #f6f6f6;" disabled="true">
+                <button class="btn days_cal_but" id="<%=date.strftime('%d')%>"  style="background-color: #BEBEBE;" disabled="true">
                   <p class="notification work_p"><%= date.strftime('%a') %></p>
                   <p class="notification work_p"><%= date.strftime('%d') %></p>
                 </button>
@@ -196,15 +201,6 @@
               <% end %>
             </div>
         <% end %>
-      <%# if current_user.ssn && !current_user.description.empty? && current_user.address %>
-      <!-- <div class="text-center">
-        <%# if @appointment.length >= 1 %>
-          <a href="/comp_request"> <button class="btn request_form_submit">Accept Requests</button></a>
-        <%# else %>
-          <a href="/comp_request"> <button class="btn btn-warning form_submit">No Requests yet</button></a>
-        <%# end %>
-      </div> -->
-      <%# end %>
     <% if @comp_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @comp_write_review.each  do |appointment| %>

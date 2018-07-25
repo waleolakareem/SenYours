@@ -15,7 +15,6 @@ module UsersHelper
       "phone" => "#{@user.phone_number}",
       "email" => "#{@user.email}",
       "dateOfBirth" => "#{@user.dob}",
-      "ssn" => "#{@user.ssn}",
       "address" => "#{@user.address}",
       "city" => "#{@user.city}",
       "region" => "#{@user.state}",
