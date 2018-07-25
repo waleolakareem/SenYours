@@ -25,30 +25,36 @@ h2 {
   padding-left: 10%;
   font-family: 'Muli';
   color: #E87A0D;
+  text-shadow: 2px 2px 4px #FAF9F6;
 }
 
 #back_button {
-
+  padding-top: 2%;
   padding-left: 10%;
 }
 
-button {
+.button {
 
   color: white;
   margin-top: 3%;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: .7%;
+  padding-bottom: .7%;
   padding-right: 2%;
   padding-left: 2%;
   border-radius: 10px;
+  border: 1px solid #F5CA2B ;
   background-color: orange;
   font-family: 'Muli';
+  font-size: 1.1em;
+  text-decoration: bold;
+
+}
+
+a:hover.button  {
+  background-color: #F0844A;
   text-decoration: none;
-  transition:
-    border 0.3s ease-out,
-    color 0.3s ease-out,
-    background 0.3s ease-out,
-    box-shadow 0.3s ease-out;
+  color: #FFF;
+  border-color: #C6C6C5;
 }
 
 .button_text {
