@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606202119) do
+ActiveRecord::Schema.define(version: 20180627205031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,22 @@ ActiveRecord::Schema.define(version: 20180606202119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string "stripe_charge_id"
+    t.string "stripe_transfer_id"
+    t.integer "appointment_id"
+    t.integer "amount"
+    t.integer "fee"
+    t.integer "payout"
+    t.string "refund_id"
+    t.bigint "senior_id"
+    t.bigint "companion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["companion_id"], name: "index_transactions_on_companion_id"
+    t.index ["senior_id"], name: "index_transactions_on_senior_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -151,6 +167,7 @@ ActiveRecord::Schema.define(version: 20180606202119) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.string "assessment", default: "no"
+    t.string "stripe_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

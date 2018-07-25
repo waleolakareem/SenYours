@@ -40,6 +40,10 @@
         </div>
       </div>
 
+      <div id='sen_account_balance_container' class='container'>
+        <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
+      </div>
+
       <div id='sen_services_tasks_container' class='container'>
         <%= render "tasks/index", locals: {user: @user} %>
       </div>
@@ -164,11 +168,11 @@
         <div class="text-center">
           <% if !current_user.stripe_customer_id %>
               <p class="notification">You must register your Credit Card to find Companions</p>
-              <%= form_tag charges_path do %>
+              <%= form_tag transactions_path do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                         data-description="Credit Card Registration"
-                        data-image="/assets/senyours1.png"
+                        data-image="/assets/senyours_700w_500h.png"
                         data-name="senyours"
                         data-amount="100"
                         data-zip-code="true"
