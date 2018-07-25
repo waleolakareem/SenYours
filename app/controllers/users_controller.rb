@@ -100,9 +100,11 @@ class UsersController < ApplicationController
     @accept_this_app = @appointment[0]
 
     # ~STRIPE~ If user has 'stripe_user_id', the show page will automatically pull the account balance from Stripe and display it.
+    if @user.stripe_user_id?
       @balance = Stripe::Balance.retrieve({
         :stripe_account => @user.stripe_user_id
       })
+    end
   end
 
   private

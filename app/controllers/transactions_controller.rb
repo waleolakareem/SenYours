@@ -40,6 +40,8 @@ class TransactionsController < ApplicationController
     )
   end
 
+# Verify the card with $1 charge upon signup
+#
 
   def edit
   end

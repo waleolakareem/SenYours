@@ -1,6 +1,7 @@
 # Senyours Application
 
-> "A strong team can take any crazy vision and turn it into reality".- John Carmack
+> "A strong team can take any crazy vision and turn it into reality".
+                                            - John Carmack
 
 
 ## WARNING ##
@@ -21,7 +22,7 @@ ____
 - Rails Version - Rails 5.1.4
 - Database - Postgres SQL, S3 storage
 
-If you get an error similar to: 
+If you get an error similar to:
 > The engine "node" is incompatible with this module. Expected version ">=4 <=9".
 
 when running `yarn add jquery`
