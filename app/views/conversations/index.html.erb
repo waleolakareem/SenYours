@@ -25,10 +25,8 @@
               <td>
                 <img src="<%= recipient.avatar.thumb.url if recipient.avatar? %>" class= "mess_responsive_image mess_img_circle img-fluid">
                 <%=  recipient.first_name%>
-
               </td>
-              <td >
-
+              <td class="conversation-message-body">
                 <%= link_to conversation.messages.last.body ,   conversation_messages_path(conversation), "data-turbolinks":"false"%>
               </td>
               <td><%= conversation.messages.last.message_time %></td>
