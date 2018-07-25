@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stripe_transaction_id: MyString
+  amount: 1
+  fee: 1
+  payout: 1
+  senior: one
+  companion: one
+
+two:
+  stripe_transaction_id: MyString
+  amount: 1
+  fee: 1
+  payout: 1
+  senior: two
+  companion: two
