@@ -1,3 +1,97 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+
+  margin-top: 2%;
+  margin-bottom: 5%;
+  padding-top: 15%;
+
+}
+
+#carousel_1 {
+  padding-top: 3%;
+  padding-bottom: 30%;
+  background-size: 100%;
+}
+
+#header {
+  padding-top: 3%;
+}
+
+h2 {
+  padding-right: 22%;
+  padding-left: 10%;
+  font-family: 'Muli';
+  color: #E87A0D;
+  text-shadow: 2px 2px 4px #FAF9F6;
+}
+
+@media only screen and (max-width: 1100px) {
+  h2 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  #header {
+    padding-top: 3px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  h2 {
+    font-size: 16px;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  h2 {
+    font-size: 12px;
+    padding-right: 0;
+  }
+}
+
+
+
+#back_button {
+  padding-top: 2%;
+  padding-left: 10%;
+}
+
+.button {
+
+  color: white;
+  margin-top: 3%;
+  padding-top: .7%;
+  padding-bottom: .7%;
+  padding-right: 2%;
+  padding-left: 2%;
+  border-radius: 10px;
+  border: 1px solid #F5CA2B ;
+  background-color: orange;
+  font-family: 'Muli';
+  font-size: 1.1em;
+  text-decoration: bold;
+
+}
+
+a:hover.button  {
+  background-color: #F0844A;
+  text-decoration: none;
+  color: #FFF;
+  border-color: #C6C6C5;
+}
+
+.button_text {
+
+  color: white;
+
+}
+
+
+footer {
+  padding-top: 4%;
+  margin-bottom: 0%;
+}
