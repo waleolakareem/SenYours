@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'amber_charges' => 'charges#amber_charges'
-
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'
     get 'remove_selected' => 'tasks#remove_selected'
