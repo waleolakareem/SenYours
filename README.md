@@ -22,13 +22,16 @@
   * Note: `/` is used to divide names to help with future searches (if needed). This is the same reason we are adding tags to our branches. [Read more if your interested...](https://stackoverflow.com/a/6065944/10090036)
 
 #### Pulling from & Pushing to Releases:
-  * Let's say you've created a new feature branch called `feat/this_new_thing` and now you need to merge it into `release/1.1`. There are a few thing you should do:
-    * First: Double check that there are is no leftover code or files that will go unused (i.e. `puts` blocks, quick test routes & associated files.)
-    * Second: You should pull the release branch into your feature branch to check for merge conflicts. (Instruction: While in your _Feature_ branch `feat/this_new_thing` you should use the command `git pull origin release/1.1`.)
-    * Third: If there were merge conflicts their exact locations will be noted in your terminal. Go to those files and resolve the conflicts. When done with ALL merge conflicts, perform an additional commit to your branched like so `git commit -m "Merged with release/1.1"`.
-    * Fourth: TESTS (To be added shortly)
-    * Fifth: Now that there are __no more conflicts__ (provided you had any at all) & you have __100% test coverage__ you will now make a pull request in github to the current sprint's release branch.
-  * If you have questions on version control please contact the CTO (Who is more than happy to help, cause version control sucks!).
+  * Pulling Protocols:
+    * Every day prior to beginning or continuing work you should be pulling the current _Release_ branch `git pull origin release/<release_number>`.
+  * Pushing Protocols:
+    * Let's say you've created a new feature branch called `feat/this_new_thing` and now you need to merge it into `release/1.1`. There are a few thing you should do:
+      * First: Double check that there are is no leftover code or files that will go unused (i.e. `puts` blocks, quick test routes & associated files.)
+      * Second: You should pull the release branch into your feature branch to check for merge conflicts. (Instruction: While in your _Feature_ branch `feat/this_new_thing` you should use the command `git pull origin release/1.1`.)
+      * Third: If there were merge conflicts their exact locations will be noted in your terminal. Go to those files and resolve the conflicts. When done with ALL merge conflicts, perform an additional commit to your branched like so `git commit -m "Merged with release/1.1"`.
+      * Fourth: TESTS (To be added shortly)
+      * Fifth: Now that there are __no more conflicts__ (provided you had any at all) & you have __100% test coverage__ you will now make a pull request in github to the current sprint's release branch.
+  * If you have additional questions on version control please contact the CTO (Who is more than happy to help, cause version control sucks!).
 
 #### Our Technologies:
   * [Ruby](https://www.ruby-lang.org/en/) Version: `ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-darwin16]`.
