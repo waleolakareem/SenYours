@@ -139,5 +139,10 @@
   top: 60%;
 }
 .timeline-article-top.content-date{
-  bottom: 0px; 
+  bottom: 0px;
+}
+.center-container{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
