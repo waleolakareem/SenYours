@@ -1,6 +1,8 @@
 # Senyours - Defeating Loneliness One Person At A Time.
   > "The surest sign of age is loneliness." - Annie Dillard
 
+  Senyours is a platform that connects verified companions with senior adults that need companionship care, help shopping, transportation and even travel assistance. Senyours is a one-stop shop for senior adults.
+
 ## Developers:
   > "A strong team can take any crazy vision and turn it into reality".- John Carmack
 
@@ -25,10 +27,10 @@
     * Second: You should pull the release branch into your feature branch to check for merge conflicts. (Instruction: While in your _Feature_ branch `feat/this_new_thing` you should use the command `git pull origin release/1.1`.)
     * Third: If there were merge conflicts their exact locations will be noted in your terminal. Go to those files and resolve the conflicts. When done with ALL merge conflicts, perform an additional commit to your branched like so `git commit -m "Merged with release/1.1"`.
     * Fourth: TESTS (To be added shortly)
-    * Fifth: Now that there are no more conflicts (provided you had any at all) you will now make a pull request in github to the current sprint's release branch.
-  * If you have questions on version control please contact the CTO (He is more than happy to help, cause version control sucks!).
+    * Fifth: Now that there are __no more conflicts__ (provided you had any at all) & you have __100% test coverage__ you will now make a pull request in github to the current sprint's release branch.
+  * If you have questions on version control please contact the CTO (Who is more than happy to help, cause version control sucks!).
 
-#### Technologies:
+#### Our Technologies:
   * [Ruby](https://www.ruby-lang.org/en/) Version: `ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-darwin16]`.
   * [Rails](https://rubyonrails.org/) Version: `Rails 5.1.4`.
   * Database(s): [PostgreSQL](https://www.postgresql.org/), [Amazon S3](https://aws.amazon.com/s3/).
@@ -53,42 +55,21 @@
   * [Twillo API](https://www.twilio.com/docs/api)
   * [Accurate Background API](https://resources.accurate.com/background-check-api)
 #### Required Test Suites:
+  * ADD TEST EXPLANATIONS FOR RSpec, SimpleCov, CircleCI
   * []()
 #### Credited Contributions:
   * [Social Media Icons](https://github.com/bradvin/social-share-urls)
 
+#### CTO Push to Production Instructions:
+  * OLD:
+    * Merge to development branch
+    * Merge development to master
+    * push to heroku senyoursdevtest
+    * Wait 72 Hours before pushing to Senyours Production
 
-### BLANK
-### BLANK
-
-
-## WARNING ##
-- Do not merge your branch to development.
-- Only make a pull request of your branch to development and let team lead merge to development.
-
-## Prerequisites
-If you get the error "Jquery cannot be defined"
-
-**Yarn install Jquery** will solve this issue
-____
-**.env Creation**
-
-- Create a file inside the Senyours App
-- Name it .env
-- Insert all keys into .env
-
-If you get an error similar to:
-> The engine "node" is incompatible with this module. Expected version ">=4 <=9".
-
-when running `yarn add jquery`
-
-- Delete package-lock.json and yarn.lock
-- run `yarn install`
-- run `npm install`
-- retry `yarn add jquery`
-
-# Deployment
-- Merge to development branch
-- Merge development to master
-- push to heroku senyoursdevtest
-- Wait 72 Hours before pushing to Senyours Production
+#### (New) Developer Required Technologies:
+  * There are some technologies you will need to install and setup prior to working on SenYours. This is a simple guide for your convenience:
+    * Environment: You will need to create a local `.env` file in the root directory of the SenYours repository and place our env variables into it. Contact our CTO if you need our environment variables.
+    * Message our CTO with your primary email join our ClickUp to keep track of our current Release, tasks and receive assignments.
+    * Click to join our [Slack](https://join.slack.com/t/senyours/shared_invite/enQtNDA1OTk1Mjk0NjU3LWZhNzBkM2Q0MDAzZWFhZTNiMzU2M2QyZDI3NmViZjU5YTg4NGFlOGE5MzcwNGZhN2YyMTE3ZWJjOGE4NTY3ZmQ) to stay up to date with announcements & work with your co-developers.
+    * Read and follow: [Coders Handbook](https://github.com/BlaineAndersonDev/coders-handbook/blob/master/coder_installation_instructions.md)
