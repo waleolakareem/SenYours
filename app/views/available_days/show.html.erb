@@ -2,9 +2,9 @@
 <div class="container">
   <% if(@availableDay.present?) %>
     <% if current_user.identification === 'Senior' %>
-      <p> Time you need companion for <%=@availableDay[0].try(:date)%> </p>
+      <p> Times you need companion for <%=@availableDay[0].try(:date)%> </p>
     <% else %>
-      <p> Time you need companions for <%=@availableDay[0].try(:date)%> </p>
+      <p> Times you want to be a companions for <%=@availableDay[0].try(:date)%> </p>
     <% end %>
   <% else %>
     <p>You did not set availability for this date.</p>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
  before_action :authorize, only: [:index,:edit, :show,:update]
+ Stripe.api_key = ENV['SECRET_KEY']
 
   def index
     unless params["search"]
@@ -88,7 +89,7 @@ class UsersController < ApplicationController
     if @user.assessment === "no" && @user.identification === "Companion"
       survey_complete(@user)
     end
-
+    
     @reviews = @user.reviews.last(3)
     #If the end date is less than todays date and greater than 3 days ago
     @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
@@ -97,6 +98,13 @@ class UsersController < ApplicationController
     @seniors = @user.seniors.where("start_date >= ? AND accept = ?",Date.today, true).order('start_date ASC')
     @appointment = @user.companions.where("start_date >= ? AND accept = ?",Date.today, false).order('start_date ASC')
     @accept_this_app = @appointment[0]
+
+    # ~STRIPE~ If user has 'stripe_user_id', the show page will automatically pull the account balance from Stripe and display it.
+    if @user.stripe_user_id?
+      @balance = Stripe::Balance.retrieve({
+        :stripe_account => @user.stripe_user_id
+      })
+    end
   end
 
   private
