@@ -8,20 +8,20 @@
 ## Developers:
   > "A strong team can take any crazy vision and turn it into reality".- John Carmack
 
-#### Sprint Plans:
-  *  Sprint 1 (July 30th - Aug 5th):
-    - Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
-    - Combine Controllers into single Transaction Controller.
-  *  Sprint 2 (Aug 6th - Aug 12th):
+## Sprint Plans:
+##### Sprint 1 (July 30th - Aug 5th):
+    * Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
+    * Combine Controllers into single Transaction Controller.
+##### Sprint 2 (Aug 6th - Aug 12th):
     * Redesign Profile (New design, AJAX).
     * Implement all Webhook related database updates for Stripe.
-  *  Sprint 3 (Aug 13th - Aug 19th):
+##### Sprint 3 (Aug 13th - Aug 19th):
     * Implement all error catching for Stripe.
     * Generate Testing for all previous Models & Controllers.
-  *  Sprint 4 (Aug 20th - Aug 26th):
+##### Sprint 4 (Aug 20th - Aug 26th):
     * Simplify & Streamline Signup & Login (For Seniors specifically).
     * Redesign & add signup/login links to Senior & Companion pages (/super_adult & /companion)
-  *  Additional Sprints (Aug 27th+)
+##### Additional Sprints (Aug 27th+)
     * Mobile Oriented / Mobile App
 
 #### Git Version Management (Branches):
