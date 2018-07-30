@@ -50,6 +50,18 @@ module AvailableDaysHelper
     available_day.available_times.each do |time|
       convert.push(time.time.strftime('%I:%M%p'))
     end
-    convert
+     convert
+  end
+
+  def app_time(user,available_day)
+    app_date = user.companions.where("start_date = ?", available_day.date)
+      if app_date.size >= 1
+      app_work =  AvailableDay.where("date = ?",app_date[0].start_date)
+      final = []
+      app_work[1].available_times.each do |time|
+        final.push(time.time.strftime('%I:%M%p'))
+      end
+       final
+      end
   end
 end
