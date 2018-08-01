@@ -3,7 +3,7 @@ require 'rest-client'
 
 class TransactionsController < ApplicationController
   protect_from_forgery :except => :stripe_webhook
-  Stripe.api_key=ENV['SECRET_KEY']
+  Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
   def index
   end
@@ -63,7 +63,7 @@ class TransactionsController < ApplicationController
       returned_user_id = returned_state.match(/\d/)
       # This authentication is required to get the user a stripe_user_id
       uri = URI.parse("https://connect.stripe.com/oauth/token")
-      response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
+      response = Net::HTTP.post_form(uri, {"client_secret" => "#{ENV['STRIPE_SECRET_KEY']}", "code" => "#{returned_auth_code}", "grant_type" => "authorization_code"})
           # All paramters passed back in the response are captured here.
           response_body = JSON.parse(response.body)
           response_access_token = response_body['access_token']
