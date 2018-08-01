@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
 
   def calendar
     @user = User.find(params[:user_id])
+    @time = Time.now
   end
 
   def create
@@ -37,6 +38,25 @@ class TransactionsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy # Cancel Appointment & Transaction
+    @user = User.find(params[:user_id])
+    @appointment = Appointment.where({senior_id: current_user,start_date: params[:id],companion_id: params[:user_id]})
+    @transaction = Transaction.find_by_appointment_id(@appointment[0].id)
+    # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
+    stripe_refund_response = Stripe::Refund.create(
+      :charge => selected_transaction.stripe_charge_id,
+    )
+    # ~STRIPE~ Transfer Reversals remove the associated amount from the companions pending balance immidiately.
+    transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
+    transfer.reversals.create({
+      :amount => "#{selected_transaction.payout}",
+    })
+    # Updates the Transaction with the Stripe refund transaction id.
+    Transaction.find(selected_transaction.id).update(refund_id: stripe_refund_response.id)
+    @appointment[0].destroy
+    redirect_to user_path(@user)
   end
 
   def verify # OnBoarding for Stripe Users. Allows Senior/Companion to use Stripe through SenYours Platform.
