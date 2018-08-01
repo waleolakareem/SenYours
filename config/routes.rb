@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :transactions
+  get 'calendar' => 'transactions#calendar'
   post 'stripe_webhook' => 'transactions#stripe_webhook'
   get 'slack_webhook' => 'transactions#slack_webhook'
   get 'verify' => 'transactions#verify'
-  resources :transactions
 
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'

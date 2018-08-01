@@ -72,6 +72,10 @@
           </div>
         <% end %>
 
+        <div id='calendar_ajax_append' class='container'>
+          <%= render "transactions/calendar", locals: {user: @user} %>
+        </div>
+
         <div id='sen_account_balance_container' class='container'>
           <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
         </div>

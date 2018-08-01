@@ -8,7 +8,20 @@ class TransactionsController < ApplicationController
   def index
   end
 
-  def new
+  def new_available_time
+  end
+
+  def new_available_date
+  end
+
+  def new_appointment
+  end
+
+  def new_transaction
+  end
+
+  def calendar
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -18,6 +31,9 @@ class TransactionsController < ApplicationController
   end
 
   def update
+  end
+
+  def show
   end
 
   def show
@@ -100,37 +116,5 @@ class TransactionsController < ApplicationController
     }.to_json, {content_type: :json, accept: :json}
     render status: 200
   end
-
-
-  # This create route is outdated. Please refer to the Verify route for the current version.
-  # def create # Verify the 'Seniors' Card.
-  #   # Amount in cents
-  #   @amount = 100
-  #   customer = Stripe::Customer.create(
-  #     :email => params[:stripeEmail],
-  #     :source  => params[:stripeToken]
-  #   )
-  #   # Store customer stripe_customer_id if it does not exist
-  #   if !current_user.stripe_customer_id
-  #     current_user.stripe_customer_id = customer.id
-  #     current_user.save!
-  #   end
-  #   d = DateTime.now
-  #
-  #   stripe_charge_response = Stripe::Charge.create(
-  #     :customer    => customer.id,
-  #     :amount      => @amount,
-  #     :description => "Stripe Card Verification: #{d.strftime("%d/%m/%Y %H:%M")}",
-  #     :currency    => 'usd'
-  #   )
-  #   rescue Stripe::CardError => e
-  #     flash[:error] = e.message
-  #     redirect_to new_transaction_path
-  #
-  #   stripe_refund_response = Stripe::Refund.create(
-  #     :charge => stripe_charge_response.id,
-  #   )
-  # end
-
 
 end
