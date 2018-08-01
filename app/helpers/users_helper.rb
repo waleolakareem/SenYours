@@ -6,8 +6,8 @@ module UsersHelper
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/candidate/"
 
-    clientId = ENV['clientId']
-    clientSecret = ENV['clientSecret']
+    clientId = ENV['ACCURATE_BACKGROUND_CLIENT_ID']
+    clientSecret = ENV['ACCURATE_BACKGROUND_CLIENT_SECRET']
 
     params = {
       "firstName" => "#{@user.first_name}" ,
@@ -39,8 +39,8 @@ module UsersHelper
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/order/"
 
-    clientId = ENV['clientId']
-    clientSecret = ENV['clientSecret']
+    clientId = ENV['ACCURATE_BACKGROUND_CLIENT_ID']
+    clientSecret = ENV['ACCURATE_BACKGROUND_CLIENT_SECRET']
 
     params = {
       "candidateId" => "#{@user.accurate_customer_id}",
