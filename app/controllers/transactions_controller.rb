@@ -11,37 +11,8 @@ class TransactionsController < ApplicationController
   def new
   end
 
-  def create # Verify the 'Seniors' Card.
-    # Amount in cents
-    @amount = 100
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
-    )
-    # Store customer stripe_customer_id if it does not exist
-    if !current_user.stripe_customer_id
-      current_user.stripe_customer_id = customer.id
-      current_user.save!
-    end
-    d = DateTime.now
-
-    stripe_charge_response = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => "Stripe Card Verification: #{d.strftime("%d/%m/%Y %H:%M")}",
-      :currency    => 'usd'
-    )
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_transaction_path
-
-    stripe_refund_response = Stripe::Refund.create(
-      :charge => stripe_charge_response.id,
-    )
+  def create
   end
-
-# Verify the card with $1 charge upon signup
-#
 
   def edit
   end
@@ -91,7 +62,9 @@ class TransactionsController < ApplicationController
     redirect_to root_path
   end
 
-  def stripe_webhook #POST ONLY
+  def stripe_webhook
+    # This route is a pre-defined route tht Stripe will use to send response JSON. It is a post-only route for Stripe.
+
     # Webhooks to setup
     # payout.created
     # payout.updated
@@ -127,5 +100,37 @@ class TransactionsController < ApplicationController
     }.to_json, {content_type: :json, accept: :json}
     render status: 200
   end
+
+
+  # This create route is outdated. Please refer to the Verify route for the current version.
+  # def create # Verify the 'Seniors' Card.
+  #   # Amount in cents
+  #   @amount = 100
+  #   customer = Stripe::Customer.create(
+  #     :email => params[:stripeEmail],
+  #     :source  => params[:stripeToken]
+  #   )
+  #   # Store customer stripe_customer_id if it does not exist
+  #   if !current_user.stripe_customer_id
+  #     current_user.stripe_customer_id = customer.id
+  #     current_user.save!
+  #   end
+  #   d = DateTime.now
+  #
+  #   stripe_charge_response = Stripe::Charge.create(
+  #     :customer    => customer.id,
+  #     :amount      => @amount,
+  #     :description => "Stripe Card Verification: #{d.strftime("%d/%m/%Y %H:%M")}",
+  #     :currency    => 'usd'
+  #   )
+  #   rescue Stripe::CardError => e
+  #     flash[:error] = e.message
+  #     redirect_to new_transaction_path
+  #
+  #   stripe_refund_response = Stripe::Refund.create(
+  #     :charge => stripe_charge_response.id,
+  #   )
+  # end
+
 
 end
