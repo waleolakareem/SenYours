@@ -100,7 +100,7 @@ module UsersHelper
 
   def survey_complete(user)
     require 'rest-client'
-    result = ENV['resultId']
+    result = ENV['SURVEY_RESULT_ID']
     user = user.email
     url = "http://api.dxsurvey.com/api/Survey/isCompleted?resultId=#{result}&clientId=#{user}"
     response = RestClient.get(url, headers={})
