@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  Stripe.api_key=ENV['SECRET_KEY']
+  Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
   def index
   end

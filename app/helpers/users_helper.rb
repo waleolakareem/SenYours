@@ -6,8 +6,8 @@ module UsersHelper
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/candidate/"
 
-    clientId = ENV['clientId']
-    clientSecret = ENV['clientSecret']
+    clientId = ENV['ACCURATE_BACKGROUND_CLIENT_ID']
+    clientSecret = ENV['ACCURATE_BACKGROUND_CLIENT_SECRET']
 
     params = {
       "firstName" => "#{@user.first_name}" ,
@@ -39,8 +39,8 @@ module UsersHelper
     require 'net/https'
     uri = URI "https://api.accuratebackground.com/v3/order/"
 
-    clientId = ENV['clientId']
-    clientSecret = ENV['clientSecret']
+    clientId = ENV['ACCURATE_BACKGROUND_CLIENT_ID']
+    clientSecret = ENV['ACCURATE_BACKGROUND_CLIENT_SECRET']
 
     params = {
       "candidateId" => "#{@user.accurate_customer_id}",
@@ -83,8 +83,8 @@ module UsersHelper
     require 'twilio-ruby'
 
     # put your own credentials here
-    account_sid = ENV['account_sid']
-    auth_token = ENV['auth_token']
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTHORIZATION_TOKEN']
 
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(account_sid, auth_token)
@@ -100,7 +100,7 @@ module UsersHelper
 
   def survey_complete(user)
     require 'rest-client'
-    result = ENV['resultId']
+    result = ENV['SURVEY_RESULT_ID']
     user = user.email
     url = "http://api.dxsurvey.com/api/Survey/isCompleted?resultId=#{result}&clientId=#{user}"
     response = RestClient.get(url, headers={})
