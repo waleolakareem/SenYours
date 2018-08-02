@@ -74,8 +74,9 @@
   * [Twillo API](https://www.twilio.com/docs/api)
   * [Accurate Background API](https://resources.accurate.com/background-check-api)
 #### Required Test Suites:
-  * [RSpec instructions for now](https://github.com/BlaineAndersonDev/Rails5_2018_Skeleton#rspec-installation--commands)
-  * [SimpleCov]()
+  * [RSpec](https://github.com/BlaineAndersonDev/Rails5_2018_Skeleton#rspec-installation--commands)
+  * [SimpleCov](https://github.com/colszowka/simplecov)
+  * [FactoryBot](https://github.com/thoughtbot/factory_bot)
   * [CircleCI]()
 #### Credited Contributions:
   * [Social Media Icons](https://github.com/bradvin/social-share-urls)

@@ -24,3 +24,5 @@
 .idea/
 /public/uploads/tmp/*
 /public/assets/*
+/coverage.data
+/coverage/

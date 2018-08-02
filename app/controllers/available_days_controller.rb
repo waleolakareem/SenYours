@@ -2,6 +2,31 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
+  def add_available_day
+    # {"available_day"=>{"comment"=>"I am ready", "date"=>"2018-08-11", "user_id"=>"1"}}
+    # Sets date as available for Appointments
+    @user = current_user
+    @available_day = AvailableDay.create(available_days_params)
+    puts '@!@!@!@!@ response_to'
+    respond_to do |format|
+      format.js { render 'calender' }
+      format.html {redirect_to user_path(current_user)}
+    end
+  end
+
+  def remove_available_day
+    # {"available_day"=>{"comment"=>"I am ready", "date"=>"2018-08-11", "user_id"=>"1"}}
+    # Sets date as available for Appointments
+    @user = current_user
+    @availableDay = AvailableDay.where({user_id:current_user,date: params[:id]})
+    # @availableDay.destroy
+    puts '@!@!@!@!@ response_to'
+    respond_to do |format|
+      format.js { render 'calender' }
+      format.html {redirect_to user_path(current_user)}
+    end
+  end
+
   def new
     @user = current_user
     @available_day = AvailableDay.new

@@ -58,7 +58,15 @@ gem 'will_paginate'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
-  # Adds support for Capybara system testing and selenium driver
+  # Adds testing suite
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'poltergeist'
+  gem "factory_bot_rails", "~> 4.0"
+  # Adds support for Capybara system/feature testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
