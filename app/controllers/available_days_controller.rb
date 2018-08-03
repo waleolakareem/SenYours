@@ -9,7 +9,7 @@ class AvailableDaysController < ApplicationController
     @available_day = AvailableDay.create(available_days_params)
     puts '@!@!@!@!@ response_to'
     respond_to do |format|
-      format.js { render 'calender' }
+      format.js { render 'add_available_day' }
       format.html {redirect_to user_path(current_user)}
     end
   end
