@@ -3,7 +3,6 @@ class AvailableDaysController < ApplicationController
   end
 
   def set_date_available
-    #code
   end
 
   def add_available_day

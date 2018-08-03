@@ -25,8 +25,10 @@
   <!-- Date has not been set as Available for Appointments by User -->
   <!-- [Clicking: Sets date as Available for Appointments] -->
     <% else %>
-    <div id="set_date_available_append">
-      <%= link_to "#{date}", set_date_available_path(date: date), id: 'set_date_available_remove', remote: true %>
+    <div id="set_date_available_append_<%= date %>">
+    <%= link_to set_date_available_path(date: date), id: "set_date_available_remove_#{date}", remote: true do %>
+      <h6><%= date %></h6>
+    <% end %>
     </div>
 
   <% end %>

@@ -1,2 +1,3 @@
-$("#set_date_available_remove").remove()
-$("<%=j render :partial => 'set_date_available' %>").appendTo('#set_date_available_append')
+<% date = params[:date] %>
+$("#set_date_available_remove_<%= date %>").remove()
+$("<%=j render :partial => 'set_date_available' %>").appendTo('#set_date_available_append_<%= date %>')
