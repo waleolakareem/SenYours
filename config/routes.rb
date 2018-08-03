@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'set_date_available' => 'available_days#set_date_available'
+
+
   get 'add_available_day' => 'available_days#add_available_day'
   post 'add_available_day' => 'available_days#add_available_day'
   get 'remove_available_day' => 'available_days#remove_available_day'

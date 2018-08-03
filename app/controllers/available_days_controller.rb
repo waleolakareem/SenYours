@@ -2,13 +2,16 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
+  def set_date_available
+    #code
+  end
+
   def add_available_day
     # {"available_day"=>{"comment"=>"I am ready", "date"=>"2018-08-11", "user_id"=>"1"}}
     # Sets date as available for Appointments
     @user = current_user
     @available_day = AvailableDay.create(available_days_params)
     puts '@!@!@!@!@ response_to'
-    respond_to :html :js
   end
 
   def remove_available_day

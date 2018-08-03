@@ -6,4 +6,33 @@
     <h1>Companion Calendar AJAX</h1>
   <% end %>
 
+<% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
+  <!-- If date is prior to current date -->
+  <!-- [Clicking: Does nothing] -->
+    <% if Date.today > date %>
+    <h6 style="background-color: gray;"> <%= date %> </h6>
+
+  <!-- If User has an Appointment on this date -->
+  <!-- [Clicking: Cancels Appointment & Sets Day as Available ] -->
+    <% elsif sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
+    <h6 style="background-color: green;"> <%= date %> </h6>
+
+  <!-- User has set day as Available for an Appointment -->
+  <!-- [Clicking: Sets date as Unavailable for Appointments] -->
+    <%  elsif date_exit(current_user).include?(date) %>
+    <h6 style="background-color: orange;"> <%= date %> </h6>
+
+  <!-- Date has not been set as Available for Appointments by User -->
+  <!-- [Clicking: Sets date as Available for Appointments] -->
+    <% else %>
+    <div id="set_date_available_append">
+      <%= link_to "#{date}", set_date_available_path(date: date), id: 'set_date_available_remove', remote: true %>
+    </div>
+
+  <% end %>
+<% end %>
+
+
+
+
 </div>

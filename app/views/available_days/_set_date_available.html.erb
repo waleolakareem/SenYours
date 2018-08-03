@@ -1,0 +1,2 @@
+<% date = params[:date]%>
+<%= link_to "#{date}", set_date_available_path( current_user, :date => date, available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: 'set_date_available_remove', remote: true %>
