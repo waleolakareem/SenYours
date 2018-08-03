@@ -2,12 +2,8 @@ Rails.application.routes.draw do
 
 
   get 'set_date_available' => 'available_days#set_date_available'
+  get 'set_date_unavailable' => 'available_days#set_date_unavailable'
 
-
-  get 'add_available_day' => 'available_days#add_available_day'
-  post 'add_available_day' => 'available_days#add_available_day'
-  get 'remove_available_day' => 'available_days#remove_available_day'
-  post 'remove_available_day' => 'available_days#remove_available_day'
   resources :transactions
   get 'calendar' => 'transactions#calendar'
   post 'stripe_webhook' => 'transactions#stripe_webhook'

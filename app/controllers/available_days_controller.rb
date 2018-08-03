@@ -2,7 +2,12 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
+  def set_date_unavailable
+    puts "NOT-Available"
+  end
+
   def set_date_available
+    puts "IS-Available"
   end
 
   def add_available_day

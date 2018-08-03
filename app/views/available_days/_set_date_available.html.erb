@@ -1,4 +1,5 @@
 <% date = params[:date]%>
-<%= link_to set_date_available_path(date: date), id: "set_date_available_remove_#{date}", remote: true do %>
-  <h6>NEW<%= date %></h6>
+
+<%= link_to set_date_unavailable_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
+<h6 style="background-color: orange;"><%= date %></h6>
 <% end %>

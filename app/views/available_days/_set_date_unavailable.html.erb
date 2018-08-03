@@ -1,0 +1,4 @@
+<% date = params[:date]%>
+<%= link_to set_date_available_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
+<h6 style="background-color: white;"><%= date %></h6>
+<% end %>
