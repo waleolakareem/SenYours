@@ -4,31 +4,16 @@ class AvailableDaysController < ApplicationController
 
   def set_date_unavailable
     puts "NOT-Available"
+    @user = current_user
+    @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
+    puts "Record: #{@availableDay}"
+    AvailableDay.destroy(@availableDay[0].id)
   end
 
   def set_date_available
     puts "IS-Available"
     @user = current_user
     @available_day = AvailableDay.create(available_days_params)
-  end
-
-  def add_available_day
-    # {"available_day"=>{"comment"=>"I am ready", "date"=>"2018-08-11", "user_id"=>"1"}}
-    # Sets date as available for Appointments
-    puts '@!@!@!@!@ response_to'
-  end
-
-  def remove_available_day
-    # Sets date as available for Appointments
-    @user = current_user
-    @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
-    puts "Record: #{@availableDay}"
-    AvailableDay.destroy(@availableDay[0].id)
-    puts '@!@!@!@!@ response_to'
-    respond_to do |format|
-      format.js { render 'calender' }
-      format.html {redirect_to user_path(current_user)}
-    end
   end
 
   def new
