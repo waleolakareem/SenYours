@@ -10,7 +10,12 @@
   <!-- If date is prior to current date -->
   <!-- [Clicking: Does nothing] -->
     <% if Date.today > date %>
-    <h6 style="background-color: gray;"> <%= date %> </h6>
+      <div class="btn days_cal_but" style="background-color: gray;">
+        <!-- Display Day (name) of the Week -->
+        <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+        <!-- Display Date (number) of the Week -->
+        <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+      </div>
 
   <!-- $%$%$%$ Cannot add until appointments reworked. $%$%$%$ -->
   <!-- If User has an Appointment on this date -->
@@ -23,7 +28,12 @@
     <%  elsif date_exit(current_user).include?(date) %>
       <div id="set_date_append_<%= date %>">
         <%= link_to set_date_unavailable_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
-          <h6 style="background-color: orange;"><%= date %></h6>
+          <div class="btn days_cal_but" style="background-color: orange;">
+            <!-- Display Day (name) of the Week -->
+            <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+            <!-- Display Date (number) of the Week -->
+            <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+          </div>
         <% end %>
       </div>
 
@@ -32,12 +42,17 @@
     <% else %>
       <div id="set_date_append_<%= date %>">
         <%= link_to set_date_available_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
-          <h6 style="background-color: white;"><%= date %></h6>
+          <div class="btn days_cal_but" style="background-color: white;">
+            <!-- Display Day (name) of the Week -->
+            <p class="notification work_p"><%= date.strftime('%a') %></p>
+            <!-- Display Date (number) of the Week -->
+            <p class="notification work_p"><%= date.strftime('%d') %></p>
+          </div>
         <% end %>
       </div>
 
-  <% end %>
-<% end %>
+  <% end %><!-- End of individual date categorization -->
+<% end %><!-- End of ALL dates loop -->
 
 
 
