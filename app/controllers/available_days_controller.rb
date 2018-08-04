@@ -2,6 +2,8 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
+# BEGIN Blaine's Update
+
   def set_date_unavailable
     @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
     AvailableDay.destroy(@availableDay[0].id)
@@ -10,6 +12,8 @@ class AvailableDaysController < ApplicationController
   def set_date_available
     @available_day = AvailableDay.create(available_days_params)
   end
+
+# END Blaine's Update
 
   def new
     @user = current_user

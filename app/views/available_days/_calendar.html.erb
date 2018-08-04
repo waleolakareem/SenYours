@@ -12,6 +12,7 @@
     <% if Date.today > date %>
     <h6 style="background-color: gray;"> <%= date %> </h6>
 
+  <!-- $%$%$%$ Cannot add until appointments reworked. $%$%$%$ -->
   <!-- If User has an Appointment on this date -->
   <!-- [Clicking: Cancels Appointment & Sets Day as Available ] -->
     <% elsif sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
