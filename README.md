@@ -5,6 +5,7 @@
 
 ## Developers:
   > "A strong team can take any crazy vision and turn it into reality".- John Carmack
+  > "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will."- Vince Lombardi
 
 ## Sprint Plans:
 ##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
