@@ -3,16 +3,11 @@ class AvailableDaysController < ApplicationController
   end
 
   def set_date_unavailable
-    puts "NOT-Available"
-    @user = current_user
     @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
-    puts "Record: #{@availableDay}"
     AvailableDay.destroy(@availableDay[0].id)
   end
 
   def set_date_available
-    puts "IS-Available"
-    @user = current_user
     @available_day = AvailableDay.create(available_days_params)
   end
 

@@ -1,4 +1,4 @@
 <% date = params[:date]%>
-<%= link_to set_date_unavailable_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
-<h6 style="background-color: orange;"><%= date %></h6>
+<%= link_to set_date_unavailable_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
+  <h6 style="background-color: orange;"><%= date %></h6>
 <% end %>
