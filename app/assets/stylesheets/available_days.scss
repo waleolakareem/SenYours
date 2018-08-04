@@ -109,3 +109,24 @@
     height: 50px;
   }
 }
+
+// Calendar:
+#calendar_ajax_append{ //outer
+  border: 1px red solid;
+}
+#display_ajax_remove{ //inner
+  border: 1px blue solid;
+  position: relative;
+  z-index: 1;
+}
+#display_ajax_wrapper{ //inner
+  border: 1px green solid;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+.time_sheet{ //inner
+  border: 1px purple solid;
+  position: absolute;
+  z-index: 3;
+}

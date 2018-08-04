@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'set_date_available' => 'available_days#set_date_available'
   get 'set_date_unavailable' => 'available_days#set_date_unavailable'
+  get 'time_sheet' => 'available_days#time_sheet'
 
   resources :transactions
   get 'calendar' => 'transactions#calendar'

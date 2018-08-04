@@ -13,6 +13,9 @@ class AvailableDaysController < ApplicationController
     @available_day = AvailableDay.create(available_days_params)
   end
 
+  def time_sheet
+  end
+
 # END Blaine's Update
 
   def new
