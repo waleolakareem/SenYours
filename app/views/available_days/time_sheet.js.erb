@@ -1,7 +1,7 @@
 <% date = params[:date]%>
 $("<%=j render :partial => 'time_sheet' %>").appendTo('#display_ajax_wrapper')
 
-// $('#time_sheet_<%= date %>').hide();
-// $('#time_sheet_<%= date %>').slideUp();
-// $('#time_sheet_<%= date %>').show();
-// $('#time_sheet_<%= date %>').slideDown(350);
+$('#time_sheet_<%= date %>').hide();
+$('#time_sheet_<%= date %>').slideUp();
+$('#time_sheet_<%= date %>').show();
+$('#time_sheet_<%= date %>').slideDown(350);

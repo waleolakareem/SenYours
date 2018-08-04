@@ -3,9 +3,6 @@
 <% elsif @user.identification === "Companion" %>
   <h1>Companion Calendar AJAX</h1>
 <% end %>
-<div id="display_ajax_wrapper"> <!-- This wrapper stays hidden until an AJAX overlay is called. I.E. "time_sheet"-->
-
-</div>
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
   <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
     <div class="col-lg-2 col-md-2 col-2 form_div cal_pad">

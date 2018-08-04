@@ -53,32 +53,35 @@
   </head>
 
   <body>
-    <header>
-      <%= render '/header' %>
-    </header>
-    <!-- Flash messages with this -->
-    <div style="width: 80%; margin: 20px auto; box-shadow: 1px 1px 5px rgba(0,0,0,0.1);">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag :div, class: "alert alert-#{message_type}" do -%>
-      <%= message %>
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <% end -%>
-    <% end %>
-    </div>
-    <%= yield %>
-    <%= render '/footer' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <div id="display_ajax_wrapper">
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-    <script type="text/javascript" src="/assets/slick.min.js"></script>
-    <script src="https://surveyjs.azureedge.net/1.0.16/survey.jquery.min.js"></script>
-    <!-- <script type="text/javascript">
-    var surveyId = '<%#= ENV['SURVEY_ID'] %>';
-    </script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-    <script type="text/javascript">
-    var surveyPostId = '<%= ENV['SURVEY_POST_ID'] %>';
-    </script>
+      <header>
+        <%= render '/header' %>
+      </header>
+      <!-- Flash messages with this -->
+      <div style="width: 80%; margin: 20px auto; box-shadow: 1px 1px 5px rgba(0,0,0,0.1);">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, class: "alert alert-#{message_type}" do -%>
+        <%= message %>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <% end -%>
+      <% end %>
+      </div>
+      <%= yield %>
+      <%= render '/footer' %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+      <script type="text/javascript" src="/assets/slick.min.js"></script>
+      <script src="https://surveyjs.azureedge.net/1.0.16/survey.jquery.min.js"></script>
+      <!-- <script type="text/javascript">
+      var surveyId = '<%#= ENV['SURVEY_ID'] %>';
+      </script> -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+      <script type="text/javascript">
+      var surveyPostId = '<%= ENV['SURVEY_POST_ID'] %>';
+      </script>
+    </div>
   </body>
 </html>
