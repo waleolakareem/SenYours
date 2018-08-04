@@ -20,20 +20,20 @@
   <!-- User has set day as Available for an Appointment -->
   <!-- [Clicking: Sets date as Unavailable for Appointments] -->
     <%  elsif date_exit(current_user).include?(date) %>
-    <div id="set_date_append_<%= date %>">
-    <%= link_to set_date_unavailable_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
-      <h6 style="background-color: orange;"><%= date %></h6>
-    <% end %>
-    </div>
+      <div id="set_date_append_<%= date %>">
+        <%= link_to set_date_unavailable_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
+          <h6 style="background-color: orange;"><%= date %></h6>
+        <% end %>
+      </div>
 
   <!-- Date has not been set as Available for Appointments by User -->
   <!-- [Clicking: Sets date as Available for Appointments] -->
     <% else %>
-    <div id="set_date_append_<%= date %>">
-    <%= link_to set_date_available_path(date: date), id: "set_date_remove_#{date}", remote: true do %>
-      <h6 style="background-color: white;"><%= date %></h6>
-    <% end %>
-    </div>
+      <div id="set_date_append_<%= date %>">
+        <%= link_to set_date_available_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
+          <h6 style="background-color: white;"><%= date %></h6>
+        <% end %>
+      </div>
 
   <% end %>
 <% end %>
