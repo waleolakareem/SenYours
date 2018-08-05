@@ -31,37 +31,6 @@ class AvailableDaysController < ApplicationController
 
 # END Blaine's Update
 
-  def new # Replaced with 'set_date_available'
-    @user = current_user
-    @available_day = AvailableDay.new
-    @current_date = current_user.available_days
-    @availableDay = @current_date.where('user_id = current_user','date=date')
-  end
-
-  def create # Replaced with 'set_date_available' & 'set_date_unavailable'
-    @availableDay = AvailableDay.where('date = ? AND user_id = ?', available_days_params[:date], available_days_params[:user_id])
-    if @availableDay.length >= 1
-      @deldate = @availableDay[0]
-      @availableDay[0].destroy
-      respond_to do |format|
-        format.html {redirect_to new_user_available_day_path(@user)}
-        format.js {render 'new_del'}
-      end
-    elsif @availableDay.length <= 1
-      @availableDay = AvailableDay.create(available_days_params)
-      respond_to do |format|
-        format.html {redirect_to new_user_available_day_path(@user)}
-        format.js {render 'new'}
-      end
-    else
-      redirect_to "new"
-    end
-  end
-
-  def edit
-
-  end
-
   def update
     @availableDay = AvailableDay.find(params[:id])
     @time = @availableDay.available_times.where('time = ? ', params[:time])
@@ -96,16 +65,6 @@ class AvailableDaysController < ApplicationController
     end
     @last_date = current_user.available_days.order('ASC')
     @first_date = current_user.available_days.order('ASC')
-  end
-
-  def destroy # Replaced with 'set_date_unavailable'
-    @availableDay = AvailableDay.where({user_id:current_user,date: params[:id]})
-    @availableDay[0].destroy
-    redirect_to new_user_available_day_path(current_user)
-    respond_to do |format|
-      format.html {}
-      format.js {}
-    end
   end
 
   private
