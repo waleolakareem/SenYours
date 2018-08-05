@@ -1,6 +1,0 @@
-<% time = @time %>
-<% date = @date %>
-$(document).ready(function () {
-  $("#set_time_remove_<%= date %>_<%= time %>").remove()
-  $("<%=j render :partial => 'set_time_available' %>").appendTo('#set_time_append_<%= date %>_<%= time %>')
-});
