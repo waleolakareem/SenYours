@@ -1,9 +1,11 @@
 <% date = params[:date]%>
 <div id="time_sheet_<%= date %>" class="time_sheet_overlay">
-  <% if current_user.identification === "Senior" %>
-  <h1>Senior Time Sheet AJAX</h1>
-  <% elsif current_user.identification === "Companion" %>
-  <h1>Companion Time Sheet AJAX</h1>
-  <% end %>
-  <h1>BOB!!!!</h1>
+  <div class="time_sheet_center_wrapper">
+    <% if current_user.identification === "Senior" %>
+    <h1>Senior Time Sheet AJAX</h1>
+    <% elsif current_user.identification === "Companion" %>
+    <h1>Companion Time Sheet AJAX</h1>
+    <% end %>
+    <h1>BOB!!!!</h1>
+  </div>
 </div>

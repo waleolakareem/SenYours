@@ -123,12 +123,28 @@
   position: relative;
 }
 .time_sheet_overlay{
-  background-color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
   left: 0;
   min-height: 100%;
   min-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 2;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+.time_sheet_center_wrapper{
+  background: white;
+  min-height: 80%;
+  max-height: 80%;
+  min-width: 80%;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
