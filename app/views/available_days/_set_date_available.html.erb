@@ -6,4 +6,5 @@
       <!-- Display Date (number) of the Week -->
       <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
     </div>
+    <%= link_to 'Set Times', time_sheet_path(current_user, date: date, available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "open_sheet_#{date}", remote: true %>
   <% end %>
