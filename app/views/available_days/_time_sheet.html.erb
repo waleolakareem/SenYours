@@ -2,17 +2,13 @@
 <div id="time_sheet_<%= date %>" class="time_sheet_overlay">
   <div class="time_sheet_center_wrapper">
     <div class="container">
-      <% if current_user.identification === "Senior" %>
-      <h1>Senior Time Sheet AJAX</h1>
-      <% elsif current_user.identification === "Companion" %>
-      <h1>Companion Time Sheet AJAX</h1>
-      <% end %>
-
       <% if(@availableDay.present?) %>
         <% if current_user.identification === 'Senior' %>
-          <p> Times you need companion for <%=@availableDay[0].try(:date)%> </p>
-        <% else %>
-          <p> Times you want to be a companions for <%=@availableDay[0].try(:date)%> </p>
+          <h3> Times you want to be a companions for: </h3>
+          <p> <%=@availableDay[0].try(:date)%> </p>
+        <% else %> <!-- identification === Companion -->
+          <h3> Times you want to be a companions for: </h3>
+          <p> <%=@availableDay[0].try(:date)%> </p>
         <% end %>
       <% else %>
         <p>You did not set availability for this date.</p>
