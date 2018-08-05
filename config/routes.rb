@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'set_date_available' => 'available_days#set_date_available'
   get 'set_date_unavailable' => 'available_days#set_date_unavailable'
   get 'time_sheet' => 'available_days#time_sheet'
+  get 'close_time_sheet' => 'available_days#close_time_sheet'
   get 'set_time_unavailable' => 'available_days#set_time_unavailable'
   get 'set_time_available' => 'available_days#set_time_available'
 
