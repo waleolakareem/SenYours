@@ -4,7 +4,7 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
-# BEGIN Blaine's Update
+# BEGIN Ajax'ed routes
 
   def set_date_unavailable
     # Set Date as Unavailable.
@@ -18,7 +18,7 @@ class AvailableDaysController < ApplicationController
   end
 
   def time_sheet
-    # Open Time Sheet
+    # Close Time Sheet
     @availableDay = AvailableDay.where({user_id:current_user,date: available_days_params[:date]})
     @all_times = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"]
     # Opens specific dates Timesheet
@@ -36,7 +36,7 @@ class AvailableDaysController < ApplicationController
     # Set Time as Available.
   end
 
-# END Blaine's Update
+# END Ajax'ed routes
 
   def new # Replaced with 'set_date_available'
     @user = current_user
