@@ -4,6 +4,32 @@ class AppointmentsController < ApplicationController
   protect_from_forgery :except => :stripe_webhook
   Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
+# Begin Updated Routes
+
+  def list_transactions # Index
+    @user = User.find(params[:user_id])
+    if current_user.identification === "Senior"
+      @appointments = Appointment.where({senior_id: current_user})
+    elsif current_user.identification === "Companion"
+      @appointments = Appointment.where({companion_id: current_user})
+    else
+      puts "I don't know how you possibly got here"
+    end
+    puts "User: #{@user}"
+    puts "All Appointments: #{@appointments}"
+  end
+
+  def accept_appointment # Create
+  end
+
+  def decline_appointment # Destroy
+  end
+
+  def cancel_appointment # Destroy
+  end
+
+# End Updated Routes
+
   def index
   end
 
