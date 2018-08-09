@@ -1,15 +1,51 @@
+# DEVELOPER NOTES:
+# Some routes are left in place as possible HTML only browsers may need them until we update the newer routes.
 class AvailableDaysController < ApplicationController
   def index
   end
 
-  def new
+# BEGIN Ajax'ed routes
+
+  def set_date_unavailable
+    # Set Date as Unavailable.
+    @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
+    AvailableDay.destroy(@availableDay[0].id)
+  end
+
+  def set_date_available
+    # Set Date as Available.
+    @available_day = AvailableDay.create(available_days_params)
+  end
+
+  def time_sheet
+    # Close Time Sheet
+    @availableDay = AvailableDay.where({user_id:current_user,date: available_days_params[:date]})
+    @all_times = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"]
+    # Opens specific dates Timesheet
+  end
+
+  def close_time_sheet
+    # Close Time Sheet
+  end
+
+  def set_time_unavailable
+    # Set Time as Unavailable.
+  end
+
+  def set_time_available
+    # Set Time as Available.
+  end
+
+# END Ajax'ed routes
+
+  def new # Replaced with 'set_date_available'
     @user = current_user
     @available_day = AvailableDay.new
     @current_date = current_user.available_days
     @availableDay = @current_date.where('user_id = current_user','date=date')
   end
 
-  def create
+  def create # Replaced with 'set_date_available' & 'set_date_unavailable'
     @availableDay = AvailableDay.where('date = ? AND user_id = ?', available_days_params[:date], available_days_params[:user_id])
     if @availableDay.length >= 1
       @deldate = @availableDay[0]
@@ -69,7 +105,7 @@ class AvailableDaysController < ApplicationController
     @first_date = current_user.available_days.order('ASC')
   end
 
-  def destroy
+  def destroy # Replaced with 'set_date_unavailable'
     @availableDay = AvailableDay.where({user_id:current_user,date: params[:id]})
     @availableDay[0].destroy
     redirect_to new_user_available_day_path(current_user)

@@ -8,40 +8,25 @@ class TransactionsController < ApplicationController
   def index
   end
 
-  def new
+  def new_available_time
   end
 
-  def create # Verify the 'Seniors' Card.
-    # Amount in cents
-    @amount = 100
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
-    )
-    # Store customer stripe_customer_id if it does not exist
-    if !current_user.stripe_customer_id
-      current_user.stripe_customer_id = customer.id
-      current_user.save!
-    end
-    d = DateTime.now
-
-    stripe_charge_response = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => "Stripe Card Verification: #{d.strftime("%d/%m/%Y %H:%M")}",
-      :currency    => 'usd'
-    )
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_transaction_path
-
-    stripe_refund_response = Stripe::Refund.create(
-      :charge => stripe_charge_response.id,
-    )
+  def new_available_date
   end
 
-# Verify the card with $1 charge upon signup
-#
+  def new_appointment
+  end
+
+  def new_transaction
+  end
+
+  def calendar
+    @user = User.find(params[:user_id])
+    @time = Time.now
+  end
+
+  def create
+  end
 
   def edit
   end
@@ -50,6 +35,28 @@ class TransactionsController < ApplicationController
   end
 
   def show
+  end
+
+  def show
+  end
+
+  def destroy # Cancel Appointment & Transaction
+    @user = User.find(params[:user_id])
+    @appointment = Appointment.where({senior_id: current_user,start_date: params[:id],companion_id: params[:user_id]})
+    @transaction = Transaction.find_by_appointment_id(@appointment[0].id)
+    # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
+    stripe_refund_response = Stripe::Refund.create(
+      :charge => selected_transaction.stripe_charge_id,
+    )
+    # ~STRIPE~ Transfer Reversals remove the associated amount from the companions pending balance immidiately.
+    transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
+    transfer.reversals.create({
+      :amount => "#{selected_transaction.payout}",
+    })
+    # Updates the Transaction with the Stripe refund transaction id.
+    Transaction.find(selected_transaction.id).update(refund_id: stripe_refund_response.id)
+    @appointment[0].destroy
+    redirect_to user_path(@user)
   end
 
   def verify # OnBoarding for Stripe Users. Allows Senior/Companion to use Stripe through SenYours Platform.
@@ -91,7 +98,9 @@ class TransactionsController < ApplicationController
     redirect_to root_path
   end
 
-  def stripe_webhook #POST ONLY
+  def stripe_webhook
+    # This route is a pre-defined route tht Stripe will use to send response JSON. It is a post-only route for Stripe.
+
     # Webhooks to setup
     # payout.created
     # payout.updated

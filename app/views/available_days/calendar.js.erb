@@ -1,8 +1,2 @@
-  $(document).ready(function(){
-	  $(".next").click(function(event) {
-	    event.preventDefault();
-	    console.log("success")
-	    $(".avail-day-cal").html("<%= escape_javascript render 'available_days/_month.html.erb' %>");
-	  });
-
-  });
+$("#calendar_ajax_remove").remove()
+$("<%=j render :partial => 'calendar' %>").appendTo('#calendar_ajax_append')

@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'list_transactions' => 'appointments#list_transactions'
+  get 'accept_appointment' => 'appointments#accept_appointment'
+  get 'decline_appointment' => 'appointments#decline_appointment'
+  get 'cancel_appointment' => 'appointments#cancel_appointment'
 
-  post 'stripe_webhook' => 'transactions#stripe_webhook'
-  get 'slack_webhook' => 'transactions#slack_webhook'
-  get 'verify' => 'transactions#verify'
-  resources :transactions
+
+  post 'stripe_webhook' => 'appointments#stripe_webhook'
+  get 'slack_webhook' => 'appointments#slack_webhook'
+  get 'verify' => 'appointments#verify'
+
+  get 'set_date_available' => 'available_days#set_date_available'
+  get 'set_date_unavailable' => 'available_days#set_date_unavailable'
+  get 'time_sheet' => 'available_days#time_sheet'
+  get 'close_time_sheet' => 'available_days#close_time_sheet'
+  get 'set_time_unavailable' => 'available_days#set_time_unavailable'
+  get 'set_time_available' => 'available_days#set_time_available'
 
   resources :tasks do
     get 'add_selected' => 'tasks#add_selected'
