@@ -1,0 +1,4 @@
+<% date = params[:date] %>
+$("#set_times_tab_<%= date %>").remove()
+$("#set_date_remove_<%= date %>").remove()
+$("<%=j render :partial => 'set_date_unavailable' %>").appendTo('#set_date_append_<%= date %>')

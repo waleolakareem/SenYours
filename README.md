@@ -1,5 +1,3 @@
-###### Please refer to the [Development Branch](https://github.com/dejo-olakareem/SenYours/tree/development) Readme for up to date changes.
-
 # Senyours - Defeating Loneliness One Person At A Time.
   > "The surest sign of age is loneliness." - Annie Dillard
 
@@ -7,22 +5,29 @@
 
 ## Developers:
   > "A strong team can take any crazy vision and turn it into reality".- John Carmack
+  > "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will."- Vince Lombardi
 
-## Sprint Plans:
-##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
-    * Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
-    * Combine Controllers into single Transaction Controller.
+## Planned Sprints:
 ##### Sprint 2 (Aug 6th - Aug 12th): [Stripe Implementation & Profile Overhaul]
-    * Redesign Profile (New design, AJAX).
+    * Redesign Profile Overview using AJAX for a seamless experience (Specific Sections to AJAX: Services, Personal Information, Reviews, Calendar, Transactions).
     * Implement all Webhook related database updates for Stripe.
+    * Implement all Charge/Refund/Transfer related actions Stripe.
 ##### Sprint 3 (Aug 13th - Aug 19th): [Stripe Error Catching & Complete Testing Suite]
     * Implement all error catching for Stripe.
     * Generate Testing for all previous Models & Controllers.
 ##### Sprint 4 (Aug 20th - Aug 26th): [Frontend Elderly Simplification]
     * Simplify & Streamline Signup & Login (For Seniors specifically).
     * Redesign & add signup/login links to Senior & Companion pages (/super_adult & /companion)
-##### Additional Sprints (Aug 27th+)
+    * Implement "Guardian" status for users to sign up their "seniors" and manage their "Senior" accounts.
+##### Additional Sprints / Stretch Goals (No set timeframes)
     * Mobile Oriented / Mobile App
+    * Add a toggle to allow Users to switch from "Guardian" to "Companion" status.
+
+## Completed Sprints:
+##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
+    * ☑ Implement Testing Technologies (RSpec, SimpleCov).
+    * ☑ Controller "available_days" has been reworked with new routes (set_date_unavailable, set_date_available, time_sheet, close_time_sheet) and two additonal routes for use in sprint 2 (set_time_unavailable, set_time_available).
+    * ☑ Views in available_days ahve been ajax-ifed (calendar, set_date_available, set_date_unavailable, set_time_available, set_time_unavailable, time_sheet, close_time_sheet).
 
 #### Git Version Management (Branches):
   * Our git version management is based off this [Article](http://markshust.com/2018/04/07/introducing-git-ship-simplified-git-flow-workflow) and is similar to normal convention, with some steps removed for simplified small team flow.
@@ -76,8 +81,9 @@
   * [Twillo API](https://www.twilio.com/docs/api)
   * [Accurate Background API](https://resources.accurate.com/background-check-api)
 #### Required Test Suites:
-  * [RSpec instructions for now](https://github.com/BlaineAndersonDev/Rails5_2018_Skeleton#rspec-installation--commands)
-  * [SimpleCov]()
+  * [RSpec](https://github.com/BlaineAndersonDev/Rails5_2018_Skeleton#rspec-installation--commands)
+  * [SimpleCov](https://github.com/colszowka/simplecov)
+  * [FactoryBot](https://github.com/thoughtbot/factory_bot)
   * [CircleCI]()
 #### Credited Contributions:
   * [Social Media Icons](https://github.com/bradvin/social-share-urls)

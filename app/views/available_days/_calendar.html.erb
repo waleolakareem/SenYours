@@ -1,0 +1,59 @@
+<% if @user.identification === "Senior" %>
+  <h1>Senior Calendar AJAX</h1>
+<% elsif @user.identification === "Companion" %>
+  <h1>Companion Calendar AJAX</h1>
+<% end %>
+<div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
+  <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
+    <div class="col-lg-2 col-md-2 col-2 form_div cal_pad">
+      <!-- If date is prior to current date -->
+      <!-- [Clicking: Does nothing] -->
+        <% if Date.today > date %>
+          <div class="btn days_cal_but" style="background-color: gray;">
+            <!-- Display Day (name) of the Week -->
+            <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+            <!-- Display Date (number) of the Week -->
+            <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+          </div>
+      <!-- $%$%$%$ Cannot add until appointments reworked. $%$%$%$ -->
+      <!-- If User has an Appointment on this date -->
+      <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
+        <% elsif sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
+        <h6 style="background-color: green;"> <%= date %> </h6>
+      <!-- User has set day as Available for an Appointment -->
+      <!-- [Clicking: Sets date as Unavailable for Appointments] -->
+        <%  elsif date_exit(current_user).include?(date) %>
+          <div id="set_date_append_<%= date %>">
+            <%= link_to set_date_unavailable_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
+              <div class="btn days_cal_but" style="background-color: orange;">
+                <!-- Display Day (name) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+                <!-- Display Date (number) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+              </div>
+            <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <%= link_to 'Set Times', time_sheet_path(current_user, date: date, available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "open_sheet_#{date}", class: "open_sheet", remote: true %>
+            </div>
+          </div>
+      <!-- Date has not been set as Available for Appointments by User -->
+      <!-- [Clicking: Sets date as Available for Appointments] -->
+        <% else %>
+          <div id="set_date_append_<%= date %>">
+            <%= link_to set_date_available_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
+              <div class="btn days_cal_but" style="background-color: white;">
+                <!-- Display Day (name) of the Week -->
+                <p class="notification work_p"><%= date.strftime('%a') %></p>
+                <!-- Display Date (number) of the Week -->
+                <p class="notification work_p"><%= date.strftime('%d') %></p>
+              </div>
+            <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <!-- There is an invisible character below  -->
+              　
+            </div>
+          </div>
+        <% end %><!-- End of individual date categorization -->
+    </div>
+  <% end %><!-- End of ALL dates loop -->
+</div>
