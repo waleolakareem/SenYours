@@ -9,8 +9,8 @@
 
 ## Sprint Plans:
 ##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
-    * Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
-    * Combine Controllers into single Transaction Controller.
+    * ☑ Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
+    * ☑ Controllers "available_days", 
 ##### Sprint 2 (Aug 6th - Aug 12th): [Stripe Implementation & Profile Overhaul]
     * Redesign Profile (New design, AJAX).
     * Implement all Webhook related database updates for Stripe.
