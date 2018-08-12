@@ -45,6 +45,10 @@ Rails.application.routes.draw do
 
   get '/sen_new' => 'users#sen_new'
 
+  get '/main_sen' => 'users#main_sen'
+
+  get 'guard_sen' => 'users#guard_sen'
+
   get '/comp_new' => 'users#comp_new'
 
   get '/comp_test' => 'users#comp_test'

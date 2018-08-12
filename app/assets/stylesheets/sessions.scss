@@ -76,6 +76,24 @@
     height: 50px;
   }
 }
+
+.form_submit_sen {
+  height: 60px;
+  width: 200px;
+  color: black;
+  background-color: orange;
+  font-size: 16px;
+  font-weight: 700;
+  padding-top:17px;
+  text-decoration: none;
+  font-family: Gill Sans Extrabold, sans-serif;
+  color: white;
+  @media screen and (max-width: 1440px) {
+    height: 50px;
+  }
+}
+
+
 .request_form_submit {
   height: 60px;
   width: 200px;

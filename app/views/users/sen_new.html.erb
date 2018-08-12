@@ -1,65 +1,7 @@
-<body style="background-color: #f6f6f6;">
-  <%= form_for @user do |f| %>
-    <div class="container text-center sign_up_form_top">
-    <% @user.errors.full_messages.each do |message| %>
-      <%= message %><br>
-    <% end %>
-    <%#= render 'shared/error_messages' %>
-    <h2 class="new-senior-header">Sign up for Senyours Services</h2>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :first_name, required: true, class: 'user_responsive-input',placeholder: 'First Name' %>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :last_name, required: true, class: 'user_responsive-input', placeholder: 'Last Name' %>
-      </div>
-      <div class="col-lg-12 form_div">
-      <%= f.text_field :phone_number,placeholder: 'Phone number',class: 'info_responsive-input', :maxlength => 10 %>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :email,required: true, class: 'info_responsive-input', placeholder: 'Email'  %>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.password_field :password,required: true, class: 'info_responsive-input', placeholder: 'Password' %>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.password_field :password_confirmation,required: true, class: 'info_responsive-input', placeholder: 'Password Confirmation'  %>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :address,required: true, class: 'info_responsive-input', placeholder: 'Address' %>
-      </div>
-      <div class="col-lg-12 form_div">
-        <div class="row">
-            <div class="col-lg-10 col-md-10 form_div">
-              <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"form-control",id:"states-of-country" %>
-            </div>
-            <div class="col-lg-2 col-md-2 ">
-                <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :zipcode,required: true, class: 'info_responsive-input', placeholder: 'Zip code', :maxlength => 5 %>
-      </div>
-      <p>Date of Birth</p>
-      <div class="col-lg-12 form_div">
-          <%= f.date_field :dob,required: true, class: 'info_responsive-input', placeholder: 'Date Of Birth'  %>
-      </div>
-      <p class="birth-disclaimer">You must be 18 or older to sign up</p>
-      <div class="col-lg-12 col-md-12">
-          <%= f.submit "Create Account", class: 'btn sign_up_form_submit' %>
-      </div>
-      <!-- <div class="form_div">
-          <%#=check_box_tag 'user[terms_of_service]','yes'%>
-          <a href="/terms_of_services" class="edit_tag">Terms of service</a>
-
-          <%#=check_box_tag 'user[privacy_policy]','yes'%>
-          <a href="/privacy_policy" class="edit_tag">Privacy Policy</a>
-      </div> -->
-      <div>
-          Signing up signifies that you have read and agree to the <a href="/terms_of_services">Terms of Service</a> and our <a href="/privacy_policy">Privacy Policy</a>.
-      </div>
-      <%= f.hidden_field :identification, value: "Senior"%>
-      <%= f.hidden_field :availability, value: true %>
+<body>
+    <div class="text-center choose" >
+        <h5 class="new-senior-header" style="color: orange;"> Who needs companionship</h5>
+        <button class="btn"><%= link_to "ME",main_sen_path, class: "btn form_submit_sen" %></button>
+        <button class=" btn"><%= link_to "MY FAMILY",guard_sen_path, class: "btn form_submit_sen" %></button>
     </div>
-  <% end %>
 </body>
