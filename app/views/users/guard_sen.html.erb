@@ -23,22 +23,6 @@
       <div class="col-lg-12 form_div">
           <%= f.password_field :password_confirmation,required: true, class: 'info_responsive-input', placeholder: 'Password Confirmation'  %>
       </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :address,required: true, class: 'info_responsive-input', placeholder: 'Address' %>
-      </div>
-      <div class="col-lg-12 form_div">
-        <div class="row">
-            <div class="col-lg-10 col-md-10 form_div">
-              <%= select_tag "user[city]",options_for_select(CS.cities(:ca,:us).map{|value| [value,value]},@user.city) ,class:"form-control",id:"states-of-country" %>
-            </div>
-            <div class="col-lg-2 col-md-2 ">
-                <%= f.select :state, options_for_select(us_states), {}, class: "select_input_lead" %>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-12 form_div">
-          <%= f.text_field :zipcode,required: true, class: 'info_responsive-input', placeholder: 'Zip code', :maxlength => 5 %>
-      </div>
       <p>Date of Birth</p>
       <div class="col-lg-12 form_div">
           <%= f.date_field :dob,required: true, class: 'info_responsive-input', placeholder: 'Date Of Birth'  %>
