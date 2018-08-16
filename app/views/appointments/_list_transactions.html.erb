@@ -1,16 +1,16 @@
 <!-- Logic -->
   <% if current_user.identification == "Senior" %>
+    <p>Senior Transactions Were Loaded</p>
     <% @appointments = Appointment.where(senior_id: current_user.id) %>
-    <p>Senior Was Loaded</p>
   <% elsif current_user.identification == "Companion" %>
-    <p>Companion Was Loaded</p>
+    <p>Companion Transactions Were Loaded</p>
     <% @appointments = Appointment.where(companion_id: current_user.id) %>
   <% end %>
-
-<!-- If there are MULTIPLE Appointments, display them. -->
-  <p>Appointment length: <%= @appointments.length %></p>
+  <p>Total Appointments (.length): <%= @appointments.length %></p>
   <hr />
-  <% if @appointments.length >= 2 %>
+
+<!-- If there are any Appointments, display them. -->
+  <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
       <div>
         <p>Appointment ID: <%= appointment.id %></p>
@@ -23,19 +23,7 @@
       </div>
       <hr />
     <% end %>
-<!-- If there is ONE Appointment, display it. -->
-  <% elsif @appointments.length = 1 %>
-  <% appointment = @appointments %>
-    <div>
-      <h1>You have ONE appointments.</h1>
-        <p>Appointment ID: <%= appointment.id %></p>
-        <p>Appointment Companion Id: <%= appointment.companion_id %></p>
-        <p>Appointment Senior Id: <%= appointment.senior_id %></p>
-        <p>Appointment Start Date: <%= appointment.start_date %></p>
-        <p>Appointment End Date: <%= appointment.end_date %></p>
-        <p>Appointment Accepted?: <%= appointment.accept %></p>
-        <p>Appointment Payment Status: <%= appointment.payment_status %></p>
-    </div>
+<!-- If there are no Appointments, display only the container. -->
   <% else %>
     <div>
       <h1>You have no appointments.</h1>
