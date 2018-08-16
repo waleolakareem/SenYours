@@ -16,6 +16,28 @@ class AppointmentsController < ApplicationController
   end
 
   def cancel_appointment # Destroy
+    @user = User.find(params[:user_id])
+    selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
+
+    # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
+    stripe_refund_response = Stripe::Refund.create(
+      :charge => selected_transaction.stripe_charge_id,
+    )
+    # ~STRIPE~ Transfer Reversals remove the associated amount from the companions pending balance immidiately.
+    transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
+    transfer.reversals.create({
+      :amount => "#{selected_transaction.payout}",
+    })
+
+    Transaction.find(selected_transaction.id).update(refund_id: stripe_refund_response.id)
+
+    @del_appt = selected_appointment
+    selected_appointment.destroy
+    respond_to do |format|
+      format.html {redirect_to user_path(@user)}
+      format.js {render 'new_del'}
+    end
   end
 
 # End Updated Routes
@@ -30,8 +52,7 @@ class AppointmentsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id],
-      appointment_params[:companion_id])
+    @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id], appointment_params[:companion_id])
     if @appointment.length >= 1
       selected_user = User.find(params[:user_id])
       selected_appointment = Appointment.find(@appointment[0].id)
