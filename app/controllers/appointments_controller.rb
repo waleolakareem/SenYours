@@ -7,17 +7,6 @@ class AppointmentsController < ApplicationController
 # Begin Updated Routes
 
   def list_transactions # Index
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HELLO CurrentUser: #{current_user}"
-    # if current_user.identification == "Senior"
-    #   @appointments = Appointment.find_by_senior_id(current_user.id)
-    #   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SENIOR All Appointments: #{@appointments}"
-    # elsif current_user.identification == "Companion"
-    #   @appointments = Appointment.where({companion_id: current_user.id})
-    #   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ COMPANION All Appointments: #{@appointments}"
-    # else
-    #   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ELSE I don't know how you possibly got here"
-    # end
-    # puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ AFTER All Appointments: #{@appointments}"
   end
 
   def accept_appointment # Create

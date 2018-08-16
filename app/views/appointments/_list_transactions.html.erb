@@ -1,14 +1,10 @@
 <!-- Logic -->
+  <h1>Your Transactions:</h1>
   <% if current_user.identification == "Senior" %>
-    <p>Senior Transactions Were Loaded</p>
     <% @appointments = Appointment.where(senior_id: current_user.id) %>
   <% elsif current_user.identification == "Companion" %>
-    <p>Companion Transactions Were Loaded</p>
     <% @appointments = Appointment.where(companion_id: current_user.id) %>
   <% end %>
-  <p>Total Appointments (.length): <%= @appointments.length %></p>
-  <hr />
-
 <!-- If there are any Appointments, display them. -->
   <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
@@ -26,6 +22,6 @@
 <!-- If there are no Appointments, display only the container. -->
   <% else %>
     <div>
-      <h1>You have no appointments.</h1>
+      <h3>You have no appointments.</h3>
     </div>
   <% end %>
