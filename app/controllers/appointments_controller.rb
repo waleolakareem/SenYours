@@ -9,15 +9,71 @@ class AppointmentsController < ApplicationController
   def list_transactions # Index
   end
 
-  def accept_appointment # Create
+  def create_appointment # Create
+    Appointment.create(appointment_params)
+    redirect_to root_path
+  end
+
+  def accept_appointment # Update
+    selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    selected_appointment.update_attributes(accept: true)
+    selected_appointment.update_attributes(params[:selected_appointment])
+    # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
+    time = aval_time(current_user,selected_appointment.senior,selected_appointment.start_date).length
+    @accept_this_app = current_user.companions.where({accept: false}).order('start_date ASC')[0]
+    # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
+    # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
+    # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
+    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.2025).floor
+    total_senior_cost = ((selected_appointment.companion.fee * 100) * time)
+    total_companion_payout = total_senior_cost - total_fees
+    transfer_group = "Senior#{selected_appointment.senior_id}_Companion#{selected_appointment.companion_id}_Appointment#{selected_appointment.id}"
+    desc_time = DateTime.now
+    # ~STRIPE~ Create a Charge to the Senior, sending the funds to the SenYours Platform Account Balance.
+    stripe_charge_response = Stripe::Charge.create({
+      :amount => total_senior_cost,
+      :currency => "usd",
+      :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
+      :description => "Senior Appointment Charge: #{desc_time.strftime("%d/%m/%Y %H:%M")}",
+    })
+    # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance AFTER they become available via 'source_transaction'.
+    stripe_transfer_response = Stripe::Transfer.create({
+      :amount => total_companion_payout,
+      :currency => "usd",
+      :destination => "#{selected_appointment.companion.stripe_user_id}",
+      :source_transaction => "#{stripe_charge_response.id}",
+      :description => 'Companion Payment Transfer',
+    })
+    Transaction.create(
+      stripe_charge_id: stripe_charge_response.id,
+      stripe_transfer_id: stripe_transfer_response.id,
+      appointment_id: selected_appointment.id,
+      amount: total_senior_cost,
+      fee: total_fees,
+      payout: total_companion_payout,
+      senior_id: selected_appointment.senior_id,
+      companion_id: selected_appointment.companion_id,
+    )
+    @accept_appoint = ".asspt1"
+    selected_appointment.payment_status = "Paid"
+    selected_appointment.save
+    selected_appointment = current_user.companions.where({accept: false})
+
+    redirect_to root_path
+    # respond_to do |format|
+    #   format.html {redirect_to '/comp_request'}
+    #   format.js { render 'accept_req'}
+    # end
   end
 
   def decline_appointment # Destroy
+    selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    selected_appointment.destroy
+    redirect_to root_path
   end
 
   def cancel_appointment
     # Destroy Appointment / Update Transaction / Refund Stripe Charge to Senior / Reverse Stripe Transfer to Comp
-    @user = User.find(params[:user_id])
     selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
@@ -34,11 +90,6 @@ class AppointmentsController < ApplicationController
     selected_appointment.destroy
 
     redirect_to root_path
-    # NOTE: Make sure to include remote true when adding response to
-    # respond_to do |format|
-    #   format.html {}
-    #   format.js {render 'new_del'}
-    # end
   end
 
 # End Updated Routes
@@ -51,6 +102,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
+# THIS SECTION HAS BEEN IMPLEMENTED INTO THE CUSTOM ROUTES - Begin
   def create
     @user = User.find(params[:user_id])
     @appointment = Appointment.where('start_date = ? AND senior_id = ? AND companion_id = ?', appointment_params[:start_date], appointment_params[:senior_id], appointment_params[:companion_id])
@@ -86,6 +138,7 @@ class AppointmentsController < ApplicationController
       render :new
     end
   end
+# THIS SECTION HAS BEEN IMPLEMENTED INTO THE CUSTOM ROUTES - End
 
   def edit
     @user = current_user
@@ -93,6 +146,7 @@ class AppointmentsController < ApplicationController
     @companion = @appointment.companion
   end
 
+# THIS SECTION HAS BEEN IMPLEMENTED INTO THE CUSTOM ROUTES - Begin
   def update
     @user = current_user
     @appointment = Appointment.find(params[:id])
@@ -105,6 +159,8 @@ class AppointmentsController < ApplicationController
         format.html {redirect_to '/comp_request'}
         format.js { render 'accept_req'}
       end
+# THIS SECTION HAS BEEN IMPLEMENTED INTO THE CUSTOM ROUTES - End
+
     elsif @appointment.update_attributes(appointment_params) # If the companion accepted the appointment request.
       # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
       time =  aval_time(current_user,@appointment.senior,@appointment.start_date).length
