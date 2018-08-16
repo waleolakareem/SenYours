@@ -15,11 +15,11 @@ class AppointmentsController < ApplicationController
   def decline_appointment # Destroy
   end
 
-  def cancel_appointment # Destroy
+  def cancel_appointment
+    # Destroy Appointment / Update Transaction / Refund Stripe Charge to Senior / Reverse Stripe Transfer to Comp
     @user = User.find(params[:user_id])
     selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
-
     # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
     stripe_refund_response = Stripe::Refund.create(
       :charge => selected_transaction.stripe_charge_id,
@@ -29,15 +29,16 @@ class AppointmentsController < ApplicationController
     transfer.reversals.create({
       :amount => "#{selected_transaction.payout}",
     })
-
     Transaction.find(selected_transaction.id).update(refund_id: stripe_refund_response.id)
-
     @del_appt = selected_appointment
     selected_appointment.destroy
-    respond_to do |format|
-      format.html {redirect_to user_path(@user)}
-      format.js {render 'new_del'}
-    end
+
+    redirect_to root_path
+    # NOTE: Make sure to include remote true when adding response to
+    # respond_to do |format|
+    #   format.html {}
+    #   format.js {render 'new_del'}
+    # end
   end
 
 # End Updated Routes
