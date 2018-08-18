@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'list_transactions' => 'appointments#list_transactions'
+  post 'create_appointment' => 'appointments#create_appointment'
   get 'accept_appointment' => 'appointments#accept_appointment'
   get 'decline_appointment' => 'appointments#decline_appointment'
   get 'cancel_appointment' => 'appointments#cancel_appointment'

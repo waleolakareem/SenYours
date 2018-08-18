@@ -91,7 +91,7 @@
        <% pop.available_times.each do |time| %>
        <% plac +=(time.time.strftime('%I:%M%p')) + "," + "" %>
        <% end %>
-        <%=link_to user_appointments_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
+        <%=link_to create_appointment_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
           <div class="form_div daite" id="<%= date.strftime('%d') %>">
             <% if current_user.seniors.where("companion_id = ? AND start_date = ? AND accept = ?",@user.id,date,true).length >= 1 %>
             <button class="btn cal_but" style="background-color: green;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day <%= plac %>">
