@@ -18,14 +18,14 @@ class AppointmentsController < ApplicationController
       companion_id: selected_appointment.companion_id,
       status: "completed",
     )
-    redirect_to user_path(@user)
+    redirect_to user_path(params[:appointment][:companion_id])
   end
 
   def accept_appointment # Update
     selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_appointment.update_attributes(accept: true)
     selected_appointment.update_attributes(params[:selected_appointment])
-    selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
     time = aval_time(current_user,selected_appointment.senior,selected_appointment.start_date).length
     @accept_this_app = current_user.companions.where({accept: false}).order('start_date ASC')[0]
