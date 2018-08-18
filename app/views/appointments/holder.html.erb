@@ -1,0 +1,70 @@
+
+<% if current_user.identification === 'Senior' %>
+<div class="comp_app_req text-center">
+  <p class="notification">Available to work</p>
+  <p>Click on each date to make a request,</p>
+  <div class="row">
+    <% if aval(@user,current_user).length >= 1 %>
+      <% aval(@user,current_user).each do |date| %>
+       <% pop = @user.available_days.where('date = ?', date).first %>
+       <% plac = "" %>
+       <% pop.available_times.each do |time| %>
+       <% plac +=(time.time.strftime('%I:%M%p')) + "," + "" %>
+       <% end %>
+
+            <% if current_user.seniors.where("companion_id = ? AND start_date = ? AND accept = ?",@user.id,date,true).length >= 1 %>
+              <% appointment = Appointment.where("companion_id = ? AND start_date = ? AND accept = ?",@user.id,date,true) %>
+              <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" do %>
+
+
+                <div class="form_div daite" id="<%= date.strftime('%d') %>">
+                  <button class="btn cal_but" style="background-color: green;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day <%= plac %>">
+                    <p class="notification"><%= date.strftime('%b') %></p>
+                    <p class="notification"><%= date.strftime('%d') %></p>
+                    <p class="notification"><%= date.strftime('%Y') %></p>
+                    <div class="date_time">
+                      <% aval_time(current_user,@user,date).each do |time| %>
+                        <p class="notification" style="font-size: 12px;"><%= time.strftime('%I:%M%P') %></p>
+                      <% end %>
+                    </div>
+                  </button>
+                </div>
+              <% end %>
+            <% elsif current_user.seniors.where("companion_id = ? AND start_date = ? AND accept = ?",@user.id,date,false).length >= 1%>
+              <%=link_to create_appointment_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
+                <div class="form_div daite" id="<%= date.strftime('%d') %>">
+                  <button class="btn cal_but" style="background-color: orange;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day <%=  plac %>">
+                    <p class="notification"><%= date.strftime('%b') %></p>
+                    <p class="notification"><%= date.strftime('%d') %></p>
+                    <p class="notification"><%= date.strftime('%Y') %></p>
+                    <div class="date_time">
+                    <% aval_time(current_user,@user,date).each do |time| %>
+                        <p class="notification" style="font-size: 12px;"><%= time.strftime('%I:%M%P') %></p>
+                      <% end %>
+                    </div>
+                  </button>
+                </div>
+              <% end %>
+            <% else %>
+              <%=link_to create_appointment_path(@user,appointment: {start_date: date,end_date: date, senior_id: current_user.id,companion_id: @user.id,accept: false,payment_status: "pending"}), method: :post, remote: true do %>
+                <div class="form_div daite" id="<%= date.strftime('%d') %>">
+                  <button class="btn cal_but" style="background-color: gray;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day <%=plac %>">
+                    <p class="notification"><%= date.strftime('%b') %></p>
+                    <p class="notification"><%= date.strftime('%d') %></p>
+                    <p class="notification"><%= date.strftime('%Y') %></p>
+                    <div class="date_time">
+                      <% aval_time(current_user,@user,date).each do |time| %>
+                      <p class="notification" style="font-size: 12px;"><%= time.strftime('%I:%M%P') %></p>
+                      <% end %>
+                    </div>
+                  </button>
+                </div>
+            <% end %>
+        <% end %>
+
+
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<% end %>
