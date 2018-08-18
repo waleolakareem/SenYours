@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627205031) do
+ActiveRecord::Schema.define(version: 20180816214948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180627205031) do
     t.bigint "companion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["companion_id"], name: "index_transactions_on_companion_id"
     t.index ["senior_id"], name: "index_transactions_on_senior_id"
   end
