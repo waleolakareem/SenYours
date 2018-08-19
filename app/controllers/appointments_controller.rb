@@ -4,7 +4,6 @@ class AppointmentsController < ApplicationController
   protect_from_forgery :except => :stripe_webhook
   Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
-# Begin Updated Routes
   def list_transactions # Index
   end
 
@@ -29,30 +28,24 @@ class AppointmentsController < ApplicationController
     # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
     # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
     # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
-    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.2025).to_i
+    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.4025).to_i
     total_senior_cost = ((selected_appointment.companion.fee * 100) * time).to_i
     total_companion_payout = total_senior_cost - total_fees
-    transfer_group = "Senior#{selected_appointment.senior_id}_Companion#{selected_appointment.companion_id}_Appointment#{selected_appointment.id}"
     desc_time = DateTime.now
-    # ~STRIPE~ Create a Charge to the Senior, sending the funds to the SenYours Platform Account Balance.
+    # ~STRIPE~ Creates a "Charge" to the Senior, "Transfering" the Companion Payment automatically & retaining the remainder for Stripe Fees & SenYours Payment.
     stripe_charge_response = Stripe::Charge.create({
       :amount => total_senior_cost,
       :currency => "usd",
-      :source => "tok_visa", # 'tok_visa' is used for testing. Change to Users actual card prior to production.
-      :description => "Senior Appointment Charge: #{desc_time.strftime("%d/%m/%Y %H:%M")}",
-    })
-    # ~STRIPE~ Create a Transfer to the Companion using funds in SenYours Platform Account Balance AFTER they become available via 'source_transaction'.
-    stripe_transfer_response = Stripe::Transfer.create({
-      :amount => total_companion_payout,
-      :currency => "usd",
-      :destination => "#{selected_appointment.companion.stripe_user_id}",
-      :source_transaction => "#{stripe_charge_response.id}",
-      :description => 'Companion Payment Transfer',
+      :source => "tok_visa",
+      :description => "Appointment#{selected_appointment.id}_Senior#{selected_appointment.senior_id}_Companion#{selected_appointment.companion_id}_#{desc_time.strftime("%Y/%m/%d_%H:%M")}",
+      :destination => {
+        :amount => total_companion_payout,
+        :account => "#{selected_appointment.companion.stripe_user_id}",
+      }
     })
     # Transactions show the user all past appointments using status codes: "cancelled", "completed"
     selected_transaction.update_attributes(
       stripe_charge_id: stripe_charge_response.id,
-      stripe_transfer_id: stripe_transfer_response.id,
       appointment_id: selected_appointment.id,
       amount: total_senior_cost,
       fee: total_fees,
@@ -84,13 +77,9 @@ class AppointmentsController < ApplicationController
     selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
-    stripe_refund_response = Stripe::Refund.create(
+    stripe_refund_response = Stripe::Refund.create({
       :charge => selected_transaction.stripe_charge_id,
-    )
-    # ~STRIPE~ Transfer Reversals remove the associated amount from the companions pending balance immidiately.
-    transfer = Stripe::Transfer.retrieve("#{selected_transaction.stripe_transfer_id}")
-    transfer.reversals.create({
-      :amount => "#{selected_transaction.payout}",
+      :reverse_transfer => true,
     })
     # Transactions show the user all past appointments using status codes: "cancelled", "completed"
     selected_transaction.update_attributes(
@@ -180,9 +169,6 @@ class AppointmentsController < ApplicationController
       render root_path
     end
   end
-
-# End Updated Routes
-
 
   def comp_request
     @user = current_user
