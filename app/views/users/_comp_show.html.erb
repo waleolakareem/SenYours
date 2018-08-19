@@ -73,6 +73,10 @@
         <% end %>
 
         <div id='sen_services_tasks_container' class='container'>
+          <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
+        </div>
+
+        <div id='sen_services_tasks_container' class='container'>
           <%= render "appointments/list_transactions" %>
         </div>
 
@@ -125,9 +129,6 @@
 
 <!-- CALENDAR -->
   <div class="col-lg-6 calender container">
-    <div id='sen_account_balance_container' class='container'>
-      <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
-    </div>
     <div>
       <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
       <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
