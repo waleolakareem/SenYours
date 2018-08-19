@@ -5,7 +5,6 @@ class AppointmentsController < ApplicationController
   Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
 # Begin Updated Routes
-
   def list_transactions # Index
   end
 
