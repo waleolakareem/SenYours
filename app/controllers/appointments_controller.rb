@@ -10,7 +10,6 @@ class AppointmentsController < ApplicationController
   end
 
   def create_appointment # Create
-    selected_companion = @user
     selected_appointment = Appointment.create(appointment_params)
     Transaction.create(
       appointment_id: selected_appointment.id,
@@ -24,7 +23,6 @@ class AppointmentsController < ApplicationController
   def accept_appointment # Update
     selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_appointment.update_attributes(accept: true)
-    selected_appointment.update_attributes(params[:selected_appointment])
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
     time = aval_time(current_user,selected_appointment.senior,selected_appointment.start_date).length
@@ -32,8 +30,8 @@ class AppointmentsController < ApplicationController
     # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
     # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
     # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
-    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.2025).floor
-    total_senior_cost = ((selected_appointment.companion.fee * 100) * time)
+    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.2025).to_i
+    total_senior_cost = ((selected_appointment.companion.fee * 100) * time).to_i
     total_companion_payout = total_senior_cost - total_fees
     transfer_group = "Senior#{selected_appointment.senior_id}_Companion#{selected_appointment.companion_id}_Appointment#{selected_appointment.id}"
     desc_time = DateTime.now
