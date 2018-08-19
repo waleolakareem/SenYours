@@ -8,14 +8,13 @@
   > "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will."- Vince Lombardi
 
 ## Planned Sprints:
-##### Sprint 2 (Aug 6th - Aug 12th): [Stripe Implementation & Profile Overhaul]
+##### [release/3.0] (Aug 19th - Aug 26th): [Stripe Error Catching & Complete Testing Suite]
     * Redesign Profile Overview using AJAX for a seamless experience (Specific Sections to AJAX: Services, Personal Information, Reviews, Calendar, Transactions).
-    * Implement all Webhook related database updates for Stripe.
-    * Implement all Charge/Refund/Transfer related actions Stripe.
-##### Sprint 3 (Aug 13th - Aug 19th): [Stripe Error Catching & Complete Testing Suite]
+    * Clean up backend coding wherever required & Add commented code blocks wherever required. This is a very open-ended task.
+##### [release/4.0] (Aug 26th+): [Frontend Elderly Simplification]
     * Implement all error catching for Stripe.
     * Generate Testing for all previous Models & Controllers.
-##### Sprint 4 (Aug 20th - Aug 26th): [Frontend Elderly Simplification]
+    * Implement all Webhook related database updates for Stripe.
     * Simplify & Streamline Signup & Login (For Seniors specifically).
     * Redesign & add signup/login links to Senior & Companion pages (/super_adult & /companion)
     * Implement "Guardian" status for users to sign up their "seniors" and manage their "Senior" accounts.
@@ -24,10 +23,12 @@
     * Add a toggle to allow Users to switch from "Guardian" to "Companion" status.
 
 ## Completed Sprints:
-##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
+##### [release/1.0] (July 30th - Aug 5th): [Backend Rework]
     * ☑ Implement Testing Technologies (RSpec, SimpleCov).
     * ☑ Controller "available_days" has been reworked with new routes (set_date_unavailable, set_date_available, time_sheet, close_time_sheet) and two additonal routes for use in sprint 2 (set_time_unavailable, set_time_available).
     * ☑ Views in available_days ahve been ajax-ifed (calendar, set_date_available, set_date_unavailable, set_time_available, set_time_unavailable, time_sheet, close_time_sheet).
+##### [release/2.0] (Aug 6th - Aug 19th): [Stripe Implementation & Profile Overhaul]
+    * ☑ Implement all Charge/Refund/Transfer related actions Stripe.
 
 #### Git Version Management (Branches):
   * Our git version management is based off this [Article](http://markshust.com/2018/04/07/introducing-git-ship-simplified-git-flow-workflow) and is similar to normal convention, with some steps removed for simplified small team flow.
