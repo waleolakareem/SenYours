@@ -94,7 +94,7 @@
         <% plac +=(time.time.strftime('%I:%M%p')) + "," + "" %>
         <% end %>
       <% end %> -->
-      <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
+      <% (Date.today.beginning_of_month..Date.today.at_end_of_month.next_month).each do |date| %>
         <% appointments = Appointment.where("companion_id = ? AND senior_id = ? AND start_date = ?", @user.id, current_user.id, date)%>
           <% if date <= Date.today %>
             <!-- Display nothing if it was today or prior to the current date -->
