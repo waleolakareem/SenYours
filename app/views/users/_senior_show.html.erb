@@ -103,6 +103,10 @@
             <% if current_user.description && current_user.address %>
               <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
               <hr />
+            <% else %>
+            <h4>Please take a moment to fill out your personal information so we can better match you with your new friendly Companions!</h4>
+              <h6 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide necessary information for verification</a></h6>
+              <hr />
             <% end %>
         <% end %>
       </div>

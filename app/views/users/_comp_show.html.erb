@@ -76,10 +76,6 @@
           <%= render "appointments/list_transactions" %>
         </div>
 
-        <div id='sen_account_balance_container' class='container'>
-          <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
-        </div>
-
         <div id='sen_services_tasks_container' class='container'>
           <%= render "tasks/index", locals: {user: @user} %>
         </div>
@@ -129,15 +125,14 @@
 
 <!-- CALENDAR -->
   <div class="col-lg-6 calender container">
-    <% if !current_user.address? || !current_user.description? %>
-      <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
-    <% else %>
-      <div>
-        <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
-        <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
-        <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
-      </div>
-    <% end %>
+    <div id='sen_account_balance_container' class='container'>
+      <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
+    </div>
+    <div>
+      <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
+      <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
+      <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+    </div>
     <div class="row" style="padding-left: 15px; padding-right: 15px;">
     <!-- This months calendar -->
       <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
