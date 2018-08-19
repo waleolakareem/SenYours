@@ -93,15 +93,24 @@
 
   <!-- CALENDAR -->
     <div class="col-lg-6 calender container">
-      <% if !current_user.address? || !current_user.description? %>
-        <h4 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide all necessary info for verification</a></h4>
-      <% else %>
-        <div>
-          <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
-          <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
-          <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
-        </div>
-      <% end %>
+      <div class="text-center">
+        <% if !current_user.stripe_user_id %>
+            <div id='sen_account_balance_container' class='container'>
+              <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
+            </div>
+            <hr />
+        <% else %>
+            <% if current_user.description && current_user.address %>
+              <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
+              <hr />
+            <% end %>
+        <% end %>
+      </div>
+      <div>
+        <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
+        <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
+        <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+      </div>
       <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- This months calendar -->
         <div itemprop="provider" itemscope itemtype="http://schema.org/Organization" class="col-lg-12 text-center">
@@ -120,18 +129,6 @@
       </div>
     </div>
 
-        <div class="text-center">
-          <% if !current_user.stripe_user_id %>
-              <p class="notification">You must register your Credit Card to find Companions</p>
-              <div id='sen_account_balance_container' class='container'>
-                <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
-              </div>
-          <% else %>
-              <% if current_user.description && current_user.address %>
-                <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
-              <% end %>
-          <% end %>
-        </div>
     <% if @sen_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
       <% @sen_write_review.each  do |appointment| %>
