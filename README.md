@@ -89,16 +89,22 @@
 #### Credited Contributions:
   * [Social Media Icons](https://github.com/bradvin/social-share-urls)
 
-#### CTO Push to Production Instructions:
-  * OLD:
-    * Merge to development branch
-    * Merge development to master
-    * push to heroku senyoursdevtest
-    * Wait 72 Hours before pushing to Senyours Production
+#### CTO/CEO Push to Development/Production Instructions:
+  * Upon the start of a new sprint, the old sprint should be merged into the Development branch for a final quality assurance test for a minimum of 72 hours. __All test suites must pass with 100% coverage__.
+    * I.E.
+      * _Step 1_: It is Monday & Sprint 1 has just been completed (release/1.0). Sprint 2 now has an updated release branch (release/2.0) that all developers now work off of.
+      * _Step 2_: Sprint 1 will now be merged into the development branch and __must have 100% test coverage__.
+      * _Step 3_: After a minimum of 72 hours the field tested development branch is merged with the master branch.
 
-#### (New) Developer Required Technologies:
+#### (New) Engineer/Developer Required Technologies:
   * There are some technologies you will need to install and setup prior to working on SenYours. This is a simple guide for your convenience:
     * Environment: You will need to create a local `.env` file in the root directory of the SenYours repository and place our env variables into it. Contact our CTO if you need our environment variables.
     * Message our CTO with your primary email join our ClickUp to keep track of our current Release, tasks and receive assignments.
     * Click to join our [Slack](https://join.slack.com/t/senyours/shared_invite/enQtNDA1OTk1Mjk0NjU3LWZhNzBkM2Q0MDAzZWFhZTNiMzU2M2QyZDI3NmViZjU5YTg4NGFlOGE5MzcwNGZhN2YyMTE3ZWJjOGE4NTY3ZmQ) to stay up to date with announcements & work with your co-developers.
     * Read and follow: [Coders Handbook](https://github.com/BlaineAndersonDev/coders-handbook/blob/master/coder_installation_instructions.md)
+
+## Completed Sprints:
+##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
+    * ☑ Implement Testing Technologies (RSpec, SimpleCov).
+    * ☑ Controller "available_days" has been reworked with new routes (set_date_unavailable, set_date_available, time_sheet, close_time_sheet) and two additonal routes for use in sprint 2 (set_time_unavailable, set_time_available).
+    * ☑ Views in available_days ahve been ajax-ifed (calendar, set_date_available, set_date_unavailable, set_time_available, set_time_unavailable, time_sheet, close_time_sheet).
