@@ -4,7 +4,14 @@
   <h1>Companion Calendar AJAX</h1>
 <% end %>
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
-  <% (Date.today.beginning_of_month..Date.today.at_end_of_month).each do |date| %>
+  <!-- This IF statement dictates if the calander shown is this or next months based on a passed local. As of Rails 5.1.4 an error requires "local_assigns" to find the actual passed local. This can be removed at a later time. -->
+    <% if local_assigns[:next_month] == "next" %>
+      <% set_of_dates = (Date.today.beginning_of_month.next_month..Date.today.at_end_of_month.next_month) %>
+    <% else %>
+      <% set_of_dates = (Date.today.beginning_of_month..Date.today.at_end_of_month) %>
+    <% end %>
+
+  <% set_of_dates.each do |date| %>
     <div class="col-lg-2 col-md-2 col-2 form_div cal_pad">
       <!-- If date is prior to current date -->
       <!-- [Clicking: Does nothing] -->

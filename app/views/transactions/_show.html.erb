@@ -12,8 +12,8 @@
     <% if @user.stripe_user_id != nil %>
         <div id='stripe_account_ajax' class='container'>
             <h3 id='service_header'>Account Balance:</h3>
-            <p> Current <%= @balance.available[0].currency.upcase %> Balance: <span style='color:green;'><%= number_to_currency(@balance.available[0].amount / 100) %></span> </p>
-            <p> Pending <%= @balance.pending[0].currency.upcase %> Balance: <span style='color:green;'><%= number_to_currency(@balance.pending[0].amount / 100) %></span> </p>
+            <p> Current <%= @balance.available[0].currency.upcase %> Balance: <span style='color:green;'>$<%= "%.2f" % Rational((@balance.available[0].amount),100) %></span> </p>
+            <p> Pending <%= @balance.pending[0].currency.upcase %> Balance: <span style='color:green;'>$<%= "%.2f" % Rational((@balance.pending[0].amount),100) %></span> </p>
         </div>
     <% else %>
         <div id='stripe_account_ajax' class='container'>
