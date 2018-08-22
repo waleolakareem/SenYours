@@ -91,7 +91,7 @@
       <% end %>
     </div>
 
-  <!-- CALENDAR -->
+  <!-- CALENDAR BEGIN -->
     <div class="col-lg-6 calender container">
       <div class="text-center">
         <% if !current_user.stripe_user_id %>
@@ -109,10 +109,10 @@
             <% end %>
         <% end %>
       </div>
-      <div>
-        <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
-        <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
-        <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+      <div id="calendar_color_legend">
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: gray;"></i> Unavailable Day </p>
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: orange;"></i> Companionship Needed </p>
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: green;"></i> Appointment Confirmed </p>
       </div>
       <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- This months calendar -->
@@ -131,6 +131,7 @@
         </div>
       </div>
     </div>
+  <!-- CALENDAR END -->
 
     <% if @sen_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>

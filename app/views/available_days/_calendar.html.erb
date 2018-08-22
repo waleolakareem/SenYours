@@ -1,8 +1,3 @@
-<% if @user.identification === "Senior" %>
-  <h1>Senior Calendar AJAX</h1>
-<% elsif @user.identification === "Companion" %>
-  <h1>Companion Calendar AJAX</h1>
-<% end %>
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
   <!-- This IF statement dictates if the calander shown is this or next months based on a passed local. As of Rails 5.1.4 an error requires "local_assigns" to find the actual passed local. This can be removed at a later time. -->
     <% if local_assigns[:next_month] == "next" %>

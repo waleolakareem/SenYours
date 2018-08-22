@@ -11,7 +11,6 @@
       <div class="asspt2 text-center container" style="display: none">
         <p>Declined</p>
       </div>
-      
 
       <div id="appointment_pop_up_ajax_append" class="appointment_pop_up_all_container">
         <% if @appointment.length >= 1 %>
@@ -136,10 +135,10 @@
 
 <!-- CALENDAR -->
   <div class="col-lg-6 calender container">
-    <div>
-      <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
-      <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
-      <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+    <div id="calendar_color_legend">
+      <p class="calendar_color_item"><i class="fa fa-circle" style="color: gray;"></i> Unavailable Day </p>
+      <p class="calendar_color_item"><i class="fa fa-circle" style="color: orange;"></i> Companionship Needed </p>
+      <p class="calendar_color_item"><i class="fa fa-circle" style="color: green;"></i> Appointment Confirmed </p>
     </div>
     <div class="row" style="padding-left: 15px; padding-right: 15px;">
     <!-- This months calendar -->
