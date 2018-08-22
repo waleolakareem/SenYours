@@ -1,6 +1,8 @@
 <body style="background-color: #f6f6f6; margin-top: 40px;">
   <div class="container no_cont">
     <div class="row profile_show">
+
+<!-- Appointments to Accept or Decline Pop Up BEGIN -->
       <div class="asspt1 text-center container" style="display: none">
         <!-- <img src="/assets/checkmark.png"> -->
         <!-- Will not go through if hour is not set -->
@@ -10,7 +12,6 @@
         <p>Declined</p>
       </div>
 
-<!-- Appointments to Accept or Decline Pop Up BEGIN -->
     <div id="appointment_pop_up_ajax_append" class="appointment_pop_up_all_container">
       <% if @appointment.length >= 1 %>
         <% @appointment.each do |appointment| %>
