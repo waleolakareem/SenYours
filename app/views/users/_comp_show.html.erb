@@ -11,11 +11,11 @@
       </div>
 
 <!-- Appointments to Accept or Decline Pop Up BEGIN -->
-<p></p>
+    <div id="appointment_pop_up_ajax_append" class="appointment_pop_up_all_container">
       <% if @appointment.length >= 1 %>
         <% @appointment.each do |appointment| %>
         <% requesting_senior = User.find_by_id(appointment.senior_id) %>
-          <div class="accept text-center appointment_pop_up_container">
+          <div id="appointment_pop_up_ajax_remove" class="accept text-center appointment_pop_up_individual_container">
             <!-- Allows the Companion to Accept or Decine appointment -->
               <%= link_to "#{requesting_senior.first_name} #{requesting_senior.last_name}", user_path(requesting_senior.id) %> requests your companionship on <%= appointment.start_date.strftime('%m/%d') %>:
               <%= link_to 'Accept', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "appointment_pop_up_button" %>
@@ -23,6 +23,7 @@
           </div>
         <% end %>
       <% end %>
+    </div> <!-- appointment_pop_up_ajax_append END -->
 <!-- Appointments to Accept or Decline Pop Up END -->
 
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
