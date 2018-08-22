@@ -37,3 +37,60 @@
     background-color:transparent;
   }
 }
+
+#appointments-container {
+  margin: 0px 15px;
+  width: 96%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  background-color: white;
+  margin-bottom: 10px;
+  @media screen and (max-width: 414px) {
+    margin: 0px 5px;
+    margin: 18px;
+    width: 91%;
+  }
+  @media screen and (max-width: 320px) {
+    margin: 0px 5px;
+    margin: 18px;
+    width: 89%;
+  }
+}
+
+.appointment-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  justify-content: space-between;
+  border-radius: 5px;
+  height: 100px;
+}
+
+.senior-appointment {
+  width: 40%;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comp-appointment {
+  width: 40%;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-avatar {
+  height: 80%;
+  width: 40%;
+  border-radius: 50%;
+  background-position: top center;
+  background-repeat: none;
+  background-size:cover;
+  margin-top:10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
+}

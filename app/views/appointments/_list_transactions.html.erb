@@ -9,7 +9,7 @@
   <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
       <% if appointment.accept == true %>
-        <div style="background-color: green;">
+        <div>
           <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
           <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
       <% else %> <!-- appointment.accept == false -->
@@ -23,6 +23,33 @@
             <%= link_to 'Cancel Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
           <% end %>
       <% end %>
+      <div class="appointment-container">
+        <div class="senior-appointment">
+          <div class="mini-avatar"
+            <% if !(User.find(appointment.senior_id).avatar.url) %>
+              style="background-image: url(/assets/avatar_image.png);">
+            <% else %>
+              style="background-image: url(<%= User.find(appointment.senior_id).avatar.large.url if User.find(appointment.senior_id).avatar? %>);">
+            <% end %>
+          </div>
+          <div>
+            <p class="appointment-name"><%= User.find(appointment.senior_id).first_name %><br /><%= User.find(appointment.senior_id).last_name %></p>
+          </div>
+        </div>
+        <div class="appointment-menu">
+          MENU
+        </div>
+        <div class="comp-appointment">
+          <p class="appointment-name"><%= User.find(appointment.companion_id).first_name %><br /><%= User.find(appointment.companion_id).last_name %></p>
+          <div class="mini-avatar"
+            <% if !(User.find(appointment.senior_id).avatar.url) %>
+              style="background-image:url(/assets/avatar_image.png);">
+            <% else %>
+              style="background-image: url(<%= User.find(appointment.companion_id).avatar.large.url if User.find(appointment.companion_id).avatar? %>);">
+            <% end %>
+          </div>
+        </div>
+      </div>
           <p>Appointment ID: <%= appointment.id %></p>
           <p>Appointment Companion Id: <%= appointment.companion_id %></p>
           <p>Appointment Senior Id: <%= appointment.senior_id %></p>
