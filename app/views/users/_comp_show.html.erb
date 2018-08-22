@@ -9,18 +9,22 @@
       <div class="asspt2 text-center container" style="display: none">
         <p>Declined</p>
       </div>
+
+<!-- Appointments to Accept or Decline Pop Up BEGIN -->
+<p></p>
       <% if @appointment.length >= 1 %>
-          <div class="accept text-center">
-             <p style="padding-top: 15px;"><%=link_to @accept_this_app.senior.first_name, user_path(@accept_this_app.senior) %> requests your companionship for <%= @accept_this_app.start_date.strftime('%m/%d') %>
-            <%=link_to appointment_path(@accept_this_app,appointment: {start_date: @accept_this_app.start_date,end_date: @accept_this_app.start_date, senior_id: @accept_this_app.senior.id,companion_id: current_user.id,accept: true,payment_status: "pending"}), method: :patch, remote: true, class: "btn btn-warning assptclick1" do %>
-              <%= label_tag(:appointment, "Accept") %>
-              <% end %>
-            <%=link_to appointment_path(@accept_this_app,appointment: {start_date: @accept_this_app.start_date,end_date: @accept_this_app.start_date, senior_id: @accept_this_app.senior.id,companion_id: current_user.id,accept: false,payment_status: "pending"}), method: :patch, remote: true, class: "btn btn-warning assptclick2" do %>
-              <%= label_tag(:appointment, "Decline") %>
-            <% end %>
-            </p>
+        <% @appointment.each do |appointment| %>
+        <% requesting_senior = User.find_by_id(appointment.senior_id) %>
+          <div class="accept text-center appointment_pop_up_container">
+            <!-- Allows the Companion to Accept or Decine appointment -->
+              <%= link_to "#{requesting_senior.first_name} #{requesting_senior.last_name}", user_path(requesting_senior.id) %> requests your companionship on <%= appointment.start_date.strftime('%m/%d') %>:
+              <%= link_to 'Accept', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "appointment_pop_up_button" %>
+              <%= link_to 'Decline', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "appointment_pop_up_button" %>
           </div>
+        <% end %>
       <% end %>
+<!-- Appointments to Accept or Decline Pop Up END -->
+
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
         <div class="row sen_img_app">
           <div class="col-lg-6 col-md-6 sen_image">

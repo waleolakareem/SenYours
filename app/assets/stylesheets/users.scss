@@ -580,3 +580,29 @@ body {
     width: 89%;
   }
 }
+
+// Appointments to Accept or Decline Pop Up
+  .appointment_pop_up_container{
+    padding: 5px 15px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  .appointment_pop_up_button{
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    margin: 0 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    transition:
+      background-color 0.3s ease;
+  }.appointment_pop_up_button:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #ffc966;
+  }
