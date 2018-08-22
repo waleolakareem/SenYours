@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'decline_appointment' => 'appointments#decline_appointment'
   get 'cancel_appointment' => 'appointments#cancel_appointment'
 
-
   post 'stripe_webhook' => 'appointments#stripe_webhook'
   get 'slack_webhook' => 'appointments#slack_webhook'
   get 'verify' => 'appointments#verify'
