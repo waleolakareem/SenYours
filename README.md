@@ -1,4 +1,4 @@
-# Please refer to the [Development Branch](https://github.com/dejo-olakareem/SenYours/tree/development) Readme for up to date changes.
+###### Please refer to the [Development Branch](https://github.com/dejo-olakareem/SenYours/tree/development) Readme for up to date changes.
 
 # Senyours - Defeating Loneliness One Person At A Time.
   > "The surest sign of age is loneliness." - Annie Dillard
@@ -7,6 +7,22 @@
 
 ## Developers:
   > "A strong team can take any crazy vision and turn it into reality".- John Carmack
+
+## Sprint Plans:
+##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
+    * Implement Testing Technologies (RSpec, SimpleCov, CircleCI).
+    * Combine Controllers into single Transaction Controller.
+##### Sprint 2 (Aug 6th - Aug 12th): [Stripe Implementation & Profile Overhaul]
+    * Redesign Profile (New design, AJAX).
+    * Implement all Webhook related database updates for Stripe.
+##### Sprint 3 (Aug 13th - Aug 19th): [Stripe Error Catching & Complete Testing Suite]
+    * Implement all error catching for Stripe.
+    * Generate Testing for all previous Models & Controllers.
+##### Sprint 4 (Aug 20th - Aug 26th): [Frontend Elderly Simplification]
+    * Simplify & Streamline Signup & Login (For Seniors specifically).
+    * Redesign & add signup/login links to Senior & Companion pages (/super_adult & /companion)
+##### Additional Sprints (Aug 27th+)
+    * Mobile Oriented / Mobile App
 
 #### Git Version Management (Branches):
   * Our git version management is based off this [Article](http://markshust.com/2018/04/07/introducing-git-ship-simplified-git-flow-workflow) and is similar to normal convention, with some steps removed for simplified small team flow.
