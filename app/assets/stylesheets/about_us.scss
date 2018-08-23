@@ -1,6 +1,6 @@
 .about_img_manage {
   width: 100%;
-  height: 400px;
+  height: 600px;
   border-radius: 4px;
   background-position: top-center;
   background-size: cover;
@@ -139,5 +139,10 @@
   top: 60%;
 }
 .timeline-article-top.content-date{
-  bottom: 0px; 
+  bottom: 0px;
+}
+.center-container{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
