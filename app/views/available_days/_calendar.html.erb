@@ -1,8 +1,4 @@
-<% if current_user.identification == "Senior" %>
-  <% @appointments = Appointment.where(senior_id: current_user.id) %>
-<% elsif current_user.identification == "Companion" %>
-  <% @appointments = Appointment.where(companion_id: current_user.id) %>
-<% end %>
+
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
   <!-- This IF statement dictates if the calander shown is this or next months based on a passed local. As of Rails 5.1.4 an error requires "local_assigns" to find the actual passed local. This can be removed at a later time. -->
     <% if local_assigns[:next_month] == "next" %>
@@ -22,7 +18,7 @@
             <!-- Display Date (number) of the Week -->
             <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
           </div>
-      <!-- If User has an Appointment on this date -->
+      <!-- If User is a Senior and has an Appointment on this date -->
       <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
         <% elsif sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
           <% appointment = @appointments.find {|appointment| appointment.start_date == date && appointment.senior_id == current_user.id && appointment.accept == true} %>
@@ -36,6 +32,8 @@
               </div>
             <% end %>
           <% end %>
+      <!-- If User is a Companion and has an Appointment on this date -->
+      <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
         <% elsif appdays(current_user).include?(date) && date_exit(current_user).include?(date) %>
           <% appointment = @appointments.find {|appointment| appointment.start_date == date && appointment.companion_id == current_user.id && appointment.accept == true} %>
           <% if appointment != nil %>
