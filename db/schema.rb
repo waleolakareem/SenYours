@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180627205031) do
     t.string "avatar"
     t.string "verification_image"
     t.string "services_selected"
+    t.integer "guardian_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "availability"
