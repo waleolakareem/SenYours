@@ -1,0 +1,41 @@
+<!-- Logic -->
+  <h1>Your Transactions:</h1>
+  <% if current_user.identification == "Senior" %>
+    <% @appointments = Appointment.where(senior_id: current_user.id) %>
+  <% elsif current_user.identification == "Companion" %>
+    <% @appointments = Appointment.where(companion_id: current_user.id) %>
+  <% end %>
+<!-- If there are any Appointments, display them. -->
+  <% if @appointments.length >= 1 %>
+    <% @appointments.each do |appointment| %>
+      <% if appointment.accept == true %>
+        <div style="background-color: green;">
+          <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
+          <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
+      <% else %> <!-- appointment.accept == false -->
+        <div style="background-color: white;">
+          <% if current_user.identification == "Companion" %>
+            <!-- Allows the Companion to Accept or Decine appointment -->
+            <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button" %>
+            <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
+          <% else %> <!-- current_user.identification == "Senior" -->
+            <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
+            <%= link_to 'Cancel Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
+          <% end %>
+      <% end %>
+          <p>Appointment ID: <%= appointment.id %></p>
+          <p>Appointment Companion Id: <%= appointment.companion_id %></p>
+          <p>Appointment Senior Id: <%= appointment.senior_id %></p>
+          <p>Appointment Start Date: <%= appointment.start_date %></p>
+          <p>Appointment End Date: <%= appointment.end_date %></p>
+          <p>Appointment Accepted?: <%= appointment.accept %></p>
+          <p>Appointment Payment Status: <%= appointment.payment_status %></p>
+      </div>
+      <hr />
+    <% end %>
+<!-- If there are no Appointments, display only the container. -->
+  <% else %>
+    <div>
+      <h3>You have no appointments.</h3>
+    </div>
+  <% end %>

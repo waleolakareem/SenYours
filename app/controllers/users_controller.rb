@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  before_action :authorize, only: [:index,:edit, :show,:update]
- Stripe.api_key = ENV['SECRET_KEY']
+ Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
   def index
     unless params["search"]
