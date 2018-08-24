@@ -63,11 +63,25 @@ class AppointmentsController < ApplicationController
     @companion_id = selected_appointment.companion_id
     @senior_id = selected_appointment.senior_id
 
-    # redirect_to user_path(current_user)
     respond_to do |format|
-      format.html {redirect_to user_path(current_user)}
-      format.js { render 'accepted'}
-    end
+      puts "accept_type: FORMAT"
+      puts "#{params[:accept_type]}"
+      if params[:accept_type] == "accept_transaction" # Transactions Appointment Accept
+        puts "accept_type: accept_transaction"
+        format.html {redirect_to user_path(current_user)}
+        format.js { render 'accepted'}
+      elsif params[:accept_type] == "accept_popup" # Companion Pop-up Appointment Accept
+        puts "accept_type: accept_popup"
+        format.html {redirect_to user_path(current_user)}
+        format.js { render 'available_days/accept_popup'}
+      else
+        puts "accept_type: else"
+        format.html {redirect_to user_path(current_user)}
+        format.js { render 'available_days/calendar'}
+      end # accept_type END
+    end # do |format| END
+
+    # redirect_to user_path(current_user)
   end
 
   def decline_appointment # Destroy
