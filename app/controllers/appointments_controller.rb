@@ -59,6 +59,7 @@ class AppointmentsController < ApplicationController
     # @accept_appoint = ".asspt1"
     # selected_appointment = current_user.companions.where({accept: false})
 
+    @selected_appointment = selected_appointment
     @date = selected_appointment.start_date
     @companion_id = selected_appointment.companion_id
     @senior_id = selected_appointment.senior_id
