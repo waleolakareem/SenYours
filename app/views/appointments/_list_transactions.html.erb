@@ -41,12 +41,12 @@
           <p>Fee: $<%= appointment.fee %>/hr</p>
           <p>Appointment Status:
             <% if appointment.accept %>
-                accepted
+                ACCEPTED
             <% else %>
-                pending
+                PENDING
             <% end %>
           </p>
-          <p>Payment Status: <%= appointment.payment_status %></p>
+          <p>Payment Status: <%= appointment.payment_status.upcase %></p>
           <% if appointment.accept == true %>
             <div>
               <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
