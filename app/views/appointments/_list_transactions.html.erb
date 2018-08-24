@@ -1,9 +1,9 @@
 <!-- Logic -->
   <h1 class="transactions-header">Your Transactions:</h1>
   <% if current_user.identification == "Senior" %>
-    <% @appointments = Appointment.where(senior_id: current_user.id) %>
+    <% @appointments = Appointment.where(senior_id: current_user.id).order("start_date ASC") %>
   <% elsif current_user.identification == "Companion" %>
-    <% @appointments = Appointment.where(companion_id: current_user.id) %>
+    <% @appointments = Appointment.where(companion_id: current_user.id).order("start_date ASC") %>
   <% end %>
 <!-- If there are any Appointments, display them. -->
   <% if @appointments.length >= 1 %>
