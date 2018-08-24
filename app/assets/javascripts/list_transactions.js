@@ -5,7 +5,6 @@ $(document).ready(function() {
       $(this).css('display', 'none');
       $(this).next().css('display', 'block');
       var info = $(this).closest('.appointment-container').next('.appointment-info')[0];
-      console.log(info);
       $(info).slideToggle('fast');
     } else if (this.classList[3] == "up") {
       $(this).css('display', 'none');
