@@ -5,6 +5,10 @@ class AppointmentsController < ApplicationController
   Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
   def list_transactions # Index
+    respond_to do |format|
+      format.html {redirect_to user_path(current_user)}
+      format.js { render 'list_transactions'}
+    end
   end
 
   def create_appointment # Create

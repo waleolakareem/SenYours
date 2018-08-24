@@ -39,6 +39,8 @@
 }
 
 #appointments-container {
+  font-family: 'Muli', sans-serif;
+  padding-top: 0.8rem;
   margin: 0px 15px;
   width: 96%;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
@@ -56,29 +58,48 @@
   }
 }
 
+.transactions-header {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
 .appointment-container {
+  font-family: 'Muli', sans-serif;
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   border-radius: 5px;
-  height: 100px;
+  border: 3px solid orange;
+  height: 150px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  padding: 1rem;
+  padding-bottom: 0.1rem;
+}
+
+.participants {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .senior-appointment {
   width: 40%;
-  background-color: red;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 .comp-appointment {
   width: 40%;
-  background-color: red;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 .mini-avatar {
@@ -88,9 +109,46 @@
   background-position: top center;
   background-repeat: none;
   background-size:cover;
-  margin-top:10px;
+  margin-top: 10px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   @media screen and (max-width: 640px){
     margin: 0px;
   }
+}
+
+.appointment-user-image {
+  height: 45%;
+  width: 45%;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  @media screen and (max-width: 640px){
+    margin: 0px;
+  }
+}
+
+.fa-caret-down {
+  font-size: 1.7rem;
+  align-self: flex-end;
+  color: orange;
+  display: block;
+}
+
+.fa-caret-up {
+  font-size: 1.7rem;
+  align-self: flex-end;
+  color: orange;
+  display: none;
+}
+
+.appointment-info {
+  overflow: hidden;
+  display: none;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 0 0 5px 5px;
+  padding: 0.5rem;
+}
+
+.fa-caret-down:hover, .fa-caret-up:hover {
+  color: #cc7000;
+  cursor: pointer;
 }

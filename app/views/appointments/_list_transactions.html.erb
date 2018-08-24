@@ -1,5 +1,5 @@
 <!-- Logic -->
-  <h1>Your Transactions:</h1>
+  <h1 class="transactions-header">Your Transactions:</h1>
   <% if current_user.identification == "Senior" %>
     <% @appointments = Appointment.where(senior_id: current_user.id) %>
   <% elsif current_user.identification == "Companion" %>
@@ -8,57 +8,63 @@
 <!-- If there are any Appointments, display them. -->
   <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
-      <% if appointment.accept == true %>
-        <div>
-          <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
-          <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
-      <% else %> <!-- appointment.accept == false -->
-        <div style="background-color: white;">
-          <% if current_user.identification == "Companion" %>
-            <!-- Allows the Companion to Accept or Decine appointment -->
-            <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button" %>
-            <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
-          <% else %> <!-- current_user.identification == "Senior" -->
-            <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
-            <%= link_to 'Cancel Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
-          <% end %>
-      <% end %>
+      <!--  Every appointment-container div contains one appointment's information -->
       <div class="appointment-container">
-        <div class="senior-appointment">
-          <div class="mini-avatar"
+        <p class="appointment-date"><%= appointment.start_date.strftime('%B %-d, %Y') %></p>
+        <div class="participants">
+          <div class="senior-appointment">
             <% if !(User.find(appointment.senior_id).avatar.url) %>
-              style="background-image: url(/assets/avatar_image.png);">
+              <img class="appointment-user-image" src="/assets/avatar_image.png">
             <% else %>
-              style="background-image: url(<%= User.find(appointment.senior_id).avatar.large.url if User.find(appointment.senior_id).avatar? %>);">
+              <img class="appointment-user-image" src="<%= User.find(appointment.senior_id).avatar.large.url %>">
             <% end %>
+            <div>
+              <p class="appointment-names"><%= User.find(appointment.senior_id).first_name %><br /><%= User.find(appointment.senior_id).last_name %></p>
+            </div>
           </div>
-          <div>
-            <p class="appointment-name"><%= User.find(appointment.senior_id).first_name %><br /><%= User.find(appointment.senior_id).last_name %></p>
+          <div class="comp-appointment">
+            <p class="appointment-names"><%= User.find(appointment.companion_id).first_name %><br /><%= User.find(appointment.companion_id).last_name %></p>
+            <% if !(User.find(appointment.senior_id).avatar.url) %>
+              <img class="appointment-user-image" src="/assets/avatar_image.png">
+            <% else %>
+              <img class="appointment-user-image" src="<%= User.find(appointment.companion_id).avatar.large.url %>">
+            <% end %>
           </div>
         </div>
         <div class="appointment-menu">
-          MENU
+          <i class="fa fa-caret-down arrow down"></i>
+          <i class="fa fa-caret-up arrow up"></i>
         </div>
-        <div class="comp-appointment">
-          <p class="appointment-name"><%= User.find(appointment.companion_id).first_name %><br /><%= User.find(appointment.companion_id).last_name %></p>
-          <div class="mini-avatar"
-            <% if !(User.find(appointment.senior_id).avatar.url) %>
-              style="background-image:url(/assets/avatar_image.png);">
+      </div>
+      <div class="appointment-info">
+          <p>Date: <%= appointment.start_date.strftime('%B %-d, %Y') %></p>
+          <p>Fee: $<%= appointment.fee %>/hr</p>
+          <p>Appointment Status:
+            <% if appointment.accept %>
+                accepted
             <% else %>
-              style="background-image: url(<%= User.find(appointment.companion_id).avatar.large.url if User.find(appointment.companion_id).avatar? %>);">
+                pending
             <% end %>
-          </div>
-        </div>
+          </p>
+          <p>Payment Status: <%= appointment.payment_status %></p>
+          <% if appointment.accept == true %>
+            <div>
+              <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
+              <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
+          <% else %> <!-- appointment.accept == false -->
+            <div>
+              <% if current_user.identification == "Companion" %>
+                <!-- Allows the Companion to Accept or Decine appointment -->
+                <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button" %>
+                <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
+              <% else %> <!-- current_user.identification == "Senior" -->
+                <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
+                <%= link_to 'Cancel Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
+              <% end %>
+          <% end %>
       </div>
-          <p>Appointment ID: <%= appointment.id %></p>
-          <p>Appointment Companion Id: <%= appointment.companion_id %></p>
-          <p>Appointment Senior Id: <%= appointment.senior_id %></p>
-          <p>Appointment Start Date: <%= appointment.start_date %></p>
-          <p>Appointment End Date: <%= appointment.end_date %></p>
-          <p>Appointment Accepted?: <%= appointment.accept %></p>
-          <p>Appointment Payment Status: <%= appointment.payment_status %></p>
-      </div>
-      <hr />
+    </div>
+    <hr />
     <% end %>
 <!-- If there are no Appointments, display only the container. -->
   <% else %>
