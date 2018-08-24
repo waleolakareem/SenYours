@@ -54,16 +54,20 @@ class AppointmentsController < ApplicationController
       companion_id: selected_appointment.companion_id,
       status: "completed",
     )
-    @accept_appoint = ".asspt1"
     selected_appointment.payment_status = "Paid"
     selected_appointment.save
-    selected_appointment = current_user.companions.where({accept: false})
+    # @accept_appoint = ".asspt1"
+    # selected_appointment = current_user.companions.where({accept: false})
 
-    redirect_to user_path(current_user)
-    # respond_to do |format|
-    #   format.html {redirect_to '/comp_request'}
-    #   format.js { render 'accept_req'}
-    # end
+    @date = selected_appointment.start_date
+    @companion_id = selected_appointment.companion_id
+    @senior_id = selected_appointment.senior_id
+
+    # redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html {redirect_to user_path(current_user)}
+      format.js { render 'accepted'}
+    end
   end
 
   def decline_appointment # Destroy

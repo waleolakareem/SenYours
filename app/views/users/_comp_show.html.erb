@@ -19,8 +19,8 @@
             <div id="appointment_pop_up_ajax_remove_<%= appointment.id %>" class="accept text-center appointment_pop_up_individual_container">
               <!-- Allows the Companion to Accept or Decine appointment -->
                 <%= link_to "#{requesting_senior.first_name} #{requesting_senior.last_name}", user_path(requesting_senior.id) %> requests your companionship on <%= appointment.start_date.strftime('%m/%d') %>:
-                <%= link_to 'Accept', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "appointment_pop_up_button" %>
-                <%= link_to 'Decline', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "appointment_pop_up_button" %>
+                <%= link_to 'Accept', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "appointment_pop_up_button", remote: true %>
+                <%= link_to 'Decline', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "appointment_pop_up_button", remote: true %>
             </div>
           <% end %>
         <% end %>
