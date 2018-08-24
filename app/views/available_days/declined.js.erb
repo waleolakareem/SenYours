@@ -1,0 +1,14 @@
+// Companion Popup Update:
+    $('#appointment_pop_up_ajax_remove_<%= @selected_appointment.id %>').remove()
+
+// Calendar Update:
+    // Remove "set time" option for the now declined date
+        $('#set_times_tab_<%= @selected_appointment.start_date %>').remove()
+    // Remove html button for canceling(declining) appointment
+        $('#set_date_remove_<%= @selected_appointment.start_date %>').remove()
+    // Append partial unavailable(white) to containing element
+        $("<%=j render :partial => 'available_days/set_date_unavailable' %>").appendTo("#set_date_append_<%= @selected_appointment.start_date %>")
+
+// Transactions Update:
+    // Remove "accept/decline" section for the now "complete" section:
+    // FILL IN LATER AFTER ANNA's PORTION IS COMPLETE!

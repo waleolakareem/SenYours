@@ -1,4 +1,5 @@
-<% date = params[:date]%>
+<% date = @selected_appointment.start_date %>
+<% appointment = @selected_appointment %>
   <%= link_to set_date_available_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>
     <div class="btn days_cal_but" style="background-color: white;">
       <!-- Display Day (name) of the Week -->

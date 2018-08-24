@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'accept_popup' => 'available_days#accept_popup'
-
   get 'list_transactions' => 'appointments#list_transactions'
   post 'create_appointment' => 'appointments#create_appointment'
   get 'accept_appointment' => 'appointments#accept_appointment'

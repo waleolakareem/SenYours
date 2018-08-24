@@ -56,38 +56,19 @@ class AppointmentsController < ApplicationController
     )
     @selected_appointment.payment_status = "Paid"
     @selected_appointment.save
-    # @accept_appoint = ".asspt1"
-    # selected_appointment = current_user.companions.where({accept: false})
-
-    # @date = selected_appointment.start_date
-    # @companion_id = selected_appointment.companion_id
-    # @senior_id = selected_appointment.senior_id
-
     respond_to do |format|
-      puts "accept_type: FORMAT"
-      puts "#{params[:accept_type]}"
-      if params[:accept_type] == "accept_transaction" # Transactions Appointment Accept
-        puts "accept_type: accept_transaction"
-        format.html {redirect_to user_path(current_user)}
-        format.js { render 'accepted'}
-      elsif params[:accept_type] == "accept_popup" # Companion Pop-up Appointment Accept
-        puts "accept_type: accept_popup"
-        format.html {redirect_to user_path(current_user)}
-        format.js { render 'available_days/accept_popup'}
-      else
-        puts "accept_type: else"
-        format.html {redirect_to user_path(current_user)}
-        format.js { render 'available_days/calendar'}
-      end # accept_type END
-    end # do |format| END
-
-    # redirect_to user_path(current_user)
+      format.html { redirect_to user_path(current_user) }
+      format.js { render 'available_days/accepted' }
+    end
   end
 
   def decline_appointment # Destroy
-    selected_appointment = Appointment.find_by_id(params[:appointment_id])
-    selected_appointment.destroy
-    redirect_to user_path(current_user)
+    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    @selected_appointment.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js { render 'available_days/declined' }
+    end
   end
 
   def cancel_appointment
