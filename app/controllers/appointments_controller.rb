@@ -19,17 +19,17 @@ class AppointmentsController < ApplicationController
   end
 
   def accept_appointment # Update
-    selected_appointment = Appointment.find_by_id(params[:appointment_id])
-    selected_appointment.update_attributes(accept: true)
+    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    @selected_appointment.update_attributes(accept: true)
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
-    time = aval_time(current_user,selected_appointment.senior,selected_appointment.start_date).length
+    time = aval_time(current_user,@selected_appointment.senior,@selected_appointment.start_date).length
     @accept_this_app = current_user.companions.where({accept: false}).order('start_date ASC')[0]
     # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
     # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
     # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
-    total_fees = (((selected_appointment.companion.fee * 100) * time) * 0.4025).to_i
-    total_senior_cost = ((selected_appointment.companion.fee * 100) * time).to_i
+    total_fees = (((@selected_appointment.companion.fee * 100) * time) * 0.4025).to_i
+    total_senior_cost = ((@selected_appointment.companion.fee * 100) * time).to_i
     total_companion_payout = total_senior_cost - total_fees
     desc_time = DateTime.now
     # ~STRIPE~ Creates a "Charge" to the Senior, "Transfering" the Companion Payment automatically & retaining the remainder for Stripe Fees & SenYours Payment.
@@ -37,32 +37,31 @@ class AppointmentsController < ApplicationController
       :amount => total_senior_cost,
       :currency => "usd",
       :source => "tok_visa",
-      :description => "Appointment#{selected_appointment.id}_Senior#{selected_appointment.senior_id}_Companion#{selected_appointment.companion_id}_#{desc_time.strftime("%Y/%m/%d_%H:%M")}",
+      :description => "Appointment#{@selected_appointment.id}_Senior#{@selected_appointment.senior_id}_Companion#{@selected_appointment.companion_id}_#{desc_time.strftime("%Y/%m/%d_%H:%M")}",
       :destination => {
         :amount => total_companion_payout,
-        :account => "#{selected_appointment.companion.stripe_user_id}",
+        :account => "#{@selected_appointment.companion.stripe_user_id}",
       }
     })
     # Transactions show the user all past appointments using status codes: "cancelled", "completed"
     selected_transaction.update_attributes(
       stripe_charge_id: stripe_charge_response.id,
-      appointment_id: selected_appointment.id,
+      appointment_id: @selected_appointment.id,
       amount: total_senior_cost,
       fee: total_fees,
       payout: total_companion_payout,
-      senior_id: selected_appointment.senior_id,
-      companion_id: selected_appointment.companion_id,
+      senior_id: @selected_appointment.senior_id,
+      companion_id: @selected_appointment.companion_id,
       status: "completed",
     )
-    selected_appointment.payment_status = "Paid"
-    selected_appointment.save
+    @selected_appointment.payment_status = "Paid"
+    @selected_appointment.save
     # @accept_appoint = ".asspt1"
     # selected_appointment = current_user.companions.where({accept: false})
 
-    @selected_appointment = selected_appointment
-    @date = selected_appointment.start_date
-    @companion_id = selected_appointment.companion_id
-    @senior_id = selected_appointment.senior_id
+    # @date = selected_appointment.start_date
+    # @companion_id = selected_appointment.companion_id
+    # @senior_id = selected_appointment.senior_id
 
     respond_to do |format|
       puts "accept_type: FORMAT"
