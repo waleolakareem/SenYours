@@ -20,54 +20,63 @@ class AppointmentsController < ApplicationController
 
   def accept_appointment # Update
     @selected_appointment = Appointment.find_by_id(params[:appointment_id])
-    @selected_appointment.update_attributes(accept: true)
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # Variable "time" is the amount of hours TOTAL based on the selected day and ALL SELECTED HOUR SLOTS.
     time = aval_time(current_user,@selected_appointment.senior,@selected_appointment.start_date).length
-    @accept_this_app = current_user.companions.where({accept: false}).order('start_date ASC')[0]
-    # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
-    # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
-    # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
-    total_fees = (((@selected_appointment.companion.fee * 100) * time) * 0.4025).to_i
-    total_senior_cost = ((@selected_appointment.companion.fee * 100) * time).to_i
-    total_companion_payout = total_senior_cost - total_fees
-    desc_time = DateTime.now
-    # ~STRIPE~ Creates a "Charge" to the Senior, "Transfering" the Companion Payment automatically & retaining the remainder for Stripe Fees & SenYours Payment.
-    stripe_charge_response = Stripe::Charge.create({
-      :amount => total_senior_cost,
-      :currency => "usd",
-      :source => "tok_visa",
-      :description => "Appointment#{@selected_appointment.id}_Senior#{@selected_appointment.senior_id}_Companion#{@selected_appointment.companion_id}_#{desc_time.strftime("%Y/%m/%d_%H:%M")}",
-      :destination => {
-        :amount => total_companion_payout,
-        :account => "#{@selected_appointment.companion.stripe_user_id}",
-      }
-    })
-    # Transactions show the user all past appointments using status codes: "cancelled", "completed"
-    selected_transaction.update_attributes(
-      stripe_charge_id: stripe_charge_response.id,
-      appointment_id: @selected_appointment.id,
-      amount: total_senior_cost,
-      fee: total_fees,
-      payout: total_companion_payout,
-      senior_id: @selected_appointment.senior_id,
-      companion_id: @selected_appointment.companion_id,
-      status: "completed",
-    )
-    @selected_appointment.payment_status = "Paid"
-    @selected_appointment.save
-    respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
-      format.js { render 'available_days/accepted' }
+    if time <= 0
+      # flash[:alert] = "Variable time = 0 in 'accept_appointment'. Please select times before accepting appointments."
+      puts "HEY!!!!!!!!!!! - Variable time = 0 in 'accept_appointment'. Please select times before accepting appointments."
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user) }
+        format.js { redirect_to user_path(current_user) }
+      end
+    else
+      @selected_appointment.update_attributes(accept: true)
+      @accept_this_app = current_user.companions.where({accept: false}).order('start_date ASC')[0]
+      # ~STRIPE~ For reference all Stripe values are done in the smallest currency. I.E. USA cents. 1000 cents = $10.
+      # ~STRIPE~ total_fees = ((Companion's Hourly Fee * 100) * Time) * 20%[SenYours Transaction Fee] + 0.25%(Stripe Net Total Transaction Fee)
+      # ~STRIPE~ The 'total_fees' is what the platform keeps after both the charge and transfer are complete.
+      total_fees = (((@selected_appointment.companion.fee * 100) * time) * 0.4025).to_i
+      total_senior_cost = ((@selected_appointment.companion.fee * 100) * time).to_i
+      total_companion_payout = total_senior_cost - total_fees
+      desc_time = DateTime.now
+      # ~STRIPE~ Creates a "Charge" to the Senior, "Transfering" the Companion Payment automatically & retaining the remainder for Stripe Fees & SenYours Payment.
+      stripe_charge_response = Stripe::Charge.create({
+        :amount => total_senior_cost,
+        :currency => "usd",
+        :source => "tok_visa",
+        :description => "Appointment#{@selected_appointment.id}_Senior#{@selected_appointment.senior_id}_Companion#{@selected_appointment.companion_id}_#{desc_time.strftime("%Y/%m/%d_%H:%M")}",
+        :destination => {
+          :amount => total_companion_payout,
+          :account => "#{@selected_appointment.companion.stripe_user_id}",
+        }
+      })
+      # Transactions show the user all past appointments using status codes: "cancelled", "completed"
+      selected_transaction.update_attributes(
+        stripe_charge_id: stripe_charge_response.id,
+        appointment_id: @selected_appointment.id,
+        amount: total_senior_cost,
+        fee: total_fees,
+        payout: total_companion_payout,
+        senior_id: @selected_appointment.senior_id,
+        companion_id: @selected_appointment.companion_id,
+        status: "completed",
+      )
+      @selected_appointment.payment_status = "Paid"
+      @selected_appointment.save
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user) }
+        format.js { render 'available_days/accepted' }
+      end
     end
-  end
 
-  def decline_appointment # Destroy
-    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
-    @selected_appointment.destroy
-    respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
-      format.js { render 'available_days/declined' }
+    def decline_appointment # Destroy
+      @selected_appointment = Appointment.find_by_id(params[:appointment_id])
+      @selected_appointment.destroy
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user) }
+        format.js { render 'available_days/declined' }
+      end
     end
   end
 
@@ -87,13 +96,10 @@ class AppointmentsController < ApplicationController
     )
     @del_appt = @selected_appointment
     @selected_appointment.destroy
-
     respond_to do |format|
       format.html { redirect_to user_path(current_user) }
       format.js { render 'available_days/cancelled' }
     end
-
-    # redirect_to user_path(current_user)
   end
 
   def slack_webhook
