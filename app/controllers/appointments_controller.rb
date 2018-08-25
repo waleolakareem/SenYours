@@ -73,7 +73,7 @@ class AppointmentsController < ApplicationController
 
   def cancel_appointment
     # Destroy Appointment / Update Transaction / Refund Stripe Charge to Senior / Reverse Stripe Transfer to Comp
-    selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
     selected_transaction = Transaction.find_by_appointment_id(params[:appointment_id])
     # ~STRIPE~ If the appointment is cancelled prior to the appointment, the transaction will refund the senior the full amount.
     stripe_refund_response = Stripe::Refund.create({
@@ -85,10 +85,15 @@ class AppointmentsController < ApplicationController
       refund_id: stripe_refund_response.id,
       status: "cancelled"
     )
-    @del_appt = selected_appointment
-    selected_appointment.destroy
+    @del_appt = @selected_appointment
+    @selected_appointment.destroy
 
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js { render 'available_days/cancelled' }
+    end
+
+    # redirect_to user_path(current_user)
   end
 
   def slack_webhook
