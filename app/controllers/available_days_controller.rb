@@ -4,8 +4,6 @@ class AvailableDaysController < ApplicationController
   def index
   end
 
-# BEGIN Ajax'ed routes
-
   def set_date_unavailable
     # Set Date as Unavailable.
     @availableDay = AvailableDay.where({ user_id: current_user.id, date: params[:available_day][:date] })
@@ -35,8 +33,6 @@ class AvailableDaysController < ApplicationController
   def set_time_available
     # Set Time as Available.
   end
-
-# END Ajax'ed routes
 
   def new # Replaced with 'set_date_available'
     @user = current_user
