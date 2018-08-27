@@ -1,4 +1,3 @@
-<h1 id="this_is_bob">BOB!</h1>
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
   <!-- This IF statement dictates if the calander shown is this or next months based on a passed local. As of Rails 5.1.4 an error requires "local_assigns" to find the actual passed local. This can be removed at a later time. -->
     <% if local_assigns[:next_month] == "next" %>
@@ -31,6 +30,10 @@
                 <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
               </div>
             <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <!-- There is an invisible character below  -->
+              　
+            </div>
           <% end %>
       <!-- If User is a Companion and has an Appointment on this date -->
       <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
@@ -46,6 +49,10 @@
                 <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
               </div>
             <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <!-- There is an invisible character below  -->
+              　
+            </div>
           <% end %>
         </div>
       <!-- User has set day as Available for an Appointment -->
