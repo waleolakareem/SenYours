@@ -1,5 +1,5 @@
 <!-- Logic -->
-  <h1 class="transactions-header">Upcoming Appointments:</h1>
+  <!-- <h1 class="transactions-header">Upcoming Appointments:</h1> -->
   <% if current_user.identification == "Senior" %>
     <% @appointments = Appointment.where(senior_id: current_user.id).order("start_date ASC").where('start_date >= ?', Date.today) %>
   <% elsif current_user.identification == "Companion" %>
