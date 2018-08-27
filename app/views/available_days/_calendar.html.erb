@@ -1,8 +1,3 @@
-<% if @user.identification === "Senior" %>
-  <h1>Senior Calendar AJAX</h1>
-<% elsif @user.identification === "Companion" %>
-  <h1>Companion Calendar AJAX</h1>
-<% end %>
 <div id='calendar_ajax_remove' class="row" style="padding-left: 15px; padding-right: 15px;">
   <!-- This IF statement dictates if the calander shown is this or next months based on a passed local. As of Rails 5.1.4 an error requires "local_assigns" to find the actual passed local. This can be removed at a later time. -->
     <% if local_assigns[:next_month] == "next" %>
@@ -22,13 +17,47 @@
             <!-- Display Date (number) of the Week -->
             <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
           </div>
-      <!-- $%$%$%$ Cannot add until appointments reworked. $%$%$%$ -->
-      <!-- If User has an Appointment on this date -->
+      <!-- If User is a Senior and has an Appointment on this date -->
       <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
         <% elsif sendays(current_user).include?(date) && date_exit(current_user).include?(date) %>
-        <h6 style="background-color: green;"> <%= date %> </h6>
+          <% appointment = @appointments.find {|appointment| appointment.start_date == date && appointment.senior_id == current_user.id && appointment.accept == true} %>
+          <% if appointment != nil %>
+            <%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}" do %>
+              <div class="btn days_cal_but" style="background-color: green;">
+                <!-- Display Day (name) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+                <!-- Display Date (number) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+              </div>
+            <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <!-- There is an invisible character below  -->
+              　
+            </div>
+          <% end %>
+      <!-- If User is a Companion and has an Appointment on this date -->
+      <!-- [Clicking: Cancels Appointment & Sets Day as Unavailable ] -->
+        <% elsif appdays(current_user).include?(date) && date_exit(current_user).include?(date) %>
+          <% appointment = @appointments.find {|appointment| appointment.start_date == date && appointment.companion_id == current_user.id && appointment.accept == true} %>
+          <% if appointment != nil %>
+          <div id="set_date_append_<%= date %>">
+            <%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{date}", remote: true do %>
+              <div class="btn days_cal_but" style="background-color: green;">
+                <!-- Display Day (name) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>
+                <!-- Display Date (number) of the Week -->
+                <p class="notification work_p"><%= date.to_time.strftime('%d') %></p>
+              </div>
+            <% end %>
+            <div id="set_times_tab_<%= date %>" class="set_times_tab">
+              <!-- There is an invisible character below  -->
+              　
+            </div>
+          <% end %>
+        </div>
       <!-- User has set day as Available for an Appointment -->
       <!-- [Clicking: Sets date as Unavailable for Appointments] -->
+      <!-- {This route will use the "accepted.js.erb" format} -->
         <%  elsif date_exit(current_user).include?(date) %>
           <div id="set_date_append_<%= date %>">
             <%= link_to set_date_unavailable_path(current_user, date: date,  available_day: {date: date, comment: "I am ready", user_id: current_user.id}), id: "set_date_remove_#{date}", remote: true do %>

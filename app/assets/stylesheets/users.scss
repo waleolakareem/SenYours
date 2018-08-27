@@ -580,3 +580,96 @@ body {
     width: 89%;
   }
 }
+
+// Appointments to Accept or Decline Pop Up
+  .appointment_pop_up_all_container{
+    background-color: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .appointment_pop_up_individual_container{
+    padding: 3px 10px;
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  .appointment_pop_up_button{
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    margin: 0 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    transition:
+      background-color 0.3s ease;
+  }.appointment_pop_up_button:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #ffc966;
+  }
+
+
+// Stripe Section & Buttons
+  #stripe_section_container{
+    margin: 0px 15px;
+    width: 96%;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    background-color: white;
+    margin-bottom: 10px;
+      @media screen and (max-width: 414px) {
+      margin: 0px 5px;
+      margin: 18px;
+      width: 91%;
+    }
+    @media screen and (max-width: 320px) {
+      margin: 0px 5px;
+      margin: 18px;
+      width: 89%;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #stripe_account_ajax{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .stripe_connect_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 250px;
+    color: white;
+    background-color: orange;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 0px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 700;
+    transition:
+      color 0.5s ease,
+      text-decoration 0.5s ease,
+      background-color 0.5s ease;
+    @media screen and (max-width: 1440px) {
+      height: 50px;
+    }
+  }.stripe_connect_button:hover{
+    color: black;
+    background-color: rgba(252, 179, 69, 0.4);
+    text-decoration: underline;
+    @media screen and (max-width: 1440px) {
+      height: 50px;
+    }
+  }

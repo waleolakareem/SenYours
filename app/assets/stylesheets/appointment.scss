@@ -195,3 +195,24 @@
   color: white;
   text-decoration: none;
 }
+
+#calendar_color_legend{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.calendar_color_item{
+  margin: 0 5px;
+  @media screen and (max-width:1440px) {
+    font-size: 0.7em;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 1em;
+  }
+   @media screen and (max-width:768px) {
+     font-size: 1em;
+  }
+   @media screen and (max-width: 425px) {
+     font-size: 1em;
+  }
+}

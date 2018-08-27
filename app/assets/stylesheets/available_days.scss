@@ -124,43 +124,31 @@
 }
 .time_sheet_overlay{
   background: rgba(0, 0, 0, 0.4);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100%;
   min-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  z-index: 2;
+  z-index: 15;
   display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
 }
-.time_sheet_center_wrapper{
-  background: white;
-  min-height: 80%;
-  max-height: 80%;
-  min-width: 80%;
-  max-width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-}
-.set_times_tab{
-  background: white;
-  min-height: 80%;
-  max-height: 80%;
-  min-width: 80%;
-  max-width: 80%;
-  margin: 0 auto ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  box-shadow: 1px 1px 1px black;
-  border-radius: 0 0 15% 15%;
-  font-size: 0.6em;
-  border: 1px black solid;
+.set_times_tab {
+    width: 70px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,1);
+    font-size: 0.6em;
+  @media screen and (max-width: 640px) {
+    width: 50px;
+    font-size: 12px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 40px;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
