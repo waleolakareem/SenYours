@@ -1,5 +1,4 @@
 <% date = params[:date]%>
-<% puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TIME SHEET" %>
 <div id="time_sheet_<%= date %>" class="time_sheet_overlay">
   <div class="time_sheet_center_wrapper">
     <div class="container">
@@ -10,15 +9,11 @@
         <% else %> <!-- identification === Companion -->
           <h3> Times you want to be a companions for: </h3>
           <p> <%=@availableDay[0].try(:date)%> </p>
-          <% puts " @@@@@@@@@@@@@ COMP " %>
-          <% puts "@availableDay[0]: #{@availableDay[0]} " %>
         <% end %>
       <% else %>
         <p>You did not set availability for this date.</p>
       <% end %>
       <div class="row">
-        <% puts " @@@@@@@@@@@@@ TIMES " %>
-        <% puts "@all_times: #{@all_times}" %>
         <% @all_times.each do |time| %>
           <% if(@availableDay[0].present?) %>
             <%=link_to available_day_path(@availableDay[0].id,time: time), method: :patch, remote: true do %>
