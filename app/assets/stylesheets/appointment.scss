@@ -148,9 +148,49 @@
   background-color: rgba(0,0,0,0.1);
   border-radius: 0 0 5px 5px;
   padding: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .fa-caret-down:hover, .fa-caret-up:hover {
   color: #cc7000;
   cursor: pointer;
+}
+
+.cancel_appointment_button {
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.cancel_appointment_button:hover {
+  background-color: #CD0E0E;
+  color: white;
+  text-decoration: none;
+}
+
+.accept_appointment_button {
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.accept_appointment_button:hover {
+  background-color: #24A909;
+  color: white;
+  text-decoration: none;
+}
+
+.decline_appointment_button {
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.decline_appointment_button:hover {
+  background-color: #CD0E0E;
+  color: white;
+  text-decoration: none;
 }
