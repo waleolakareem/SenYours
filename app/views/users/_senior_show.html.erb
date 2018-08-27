@@ -50,42 +50,57 @@
 
       <% if @user.reviews.count >=  0 %>
         <div class="sen_rating container">
-          <h3>Reviews</h3>
           <div class="sen_stars text-center">
             <div>
               <p class="notification">Recommendation</p>
               <% wyr(@user).times do  %>
                 <i class="fa fa-star" style="color: orange;"></i>
               <% end %>
+              <div class="edit_tag">
+                <%= wyr(@user) %>
+              </div>
             </div>
             <div>
               <p class="notification">Companionship</p>
               <% comp_rate(@user).times do  %>
                 <i class="fa fa-star" style="color: orange;"></i>
               <% end %>
+              <div class="edit_tag">
+                <%= comp_rate(@user) %>
+              </div>
             </div>
             <div>
               <p class="notification">Communication</p>
               <% comm_rate(@user).times do  %>
                 <i class="fa fa-star" style="color: orange;"></i>
               <% end %>
+              <div class="edit_tag">
+                <%= comm_rate(@user) %>
+              </div>
             </div>
           </div>
-          <div class="row review_div">
-            <% @reviews.each do |review|%>
-              <div class="col-lg-12">
-                <div class="row form_div">
-                  <div class="col-lg-2 col-md-2 col-3">
-                    <img src="<%= review.reviewer.avatar.thumb.url if review.reviewer.avatar? %>" class= "img-circle responsive-image">
-                  </div>
-                  <div class="col col-lg-10 col-md-10 col-9 form_div">
-                    <p class="notification rev_paragraphs"><%= review.comment %></p>
-                    <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
-                    <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+          <p class="text-center">
+            <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 20px; class="show_hide" value="Hide Spreads"">
+              View Reviews
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="row card-body">
+                      <% @reviews.each do |review|%>
+                        <div class="col-lg-12">
+                          <div class="row form_div">
+                            <div class="col-lg-2 col-md-2 col-3">
+                              <img src="<%= review.reviewer.avatar.thumb.url if review.reviewer.avatar? %>" class= "img-circle responsive-image">
+                            </div>
+                            <div class="col col-lg-10 col-md-10 col-9 form_div">
+                              <p class="notification rev_paragraphs"><%= review.comment %></p>
+                              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+                              <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
           </div>
         </div>
       <% end %>

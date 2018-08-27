@@ -102,7 +102,7 @@ class UsersController < ApplicationController
       survey_complete(@user)
     end
 
-    @reviews = @user.reviews.last(3)
+    @reviews = @user.reviews.last(5)
     #If the end date is less than todays date and greater than 3 days ago
     @comp_write_review = @user.companions.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
     @sen_write_review = @user.seniors.where("end_date < ? AND payment_status = ? AND end_date > ?",Date.today, "Paid", 3.day.ago).last(5)
