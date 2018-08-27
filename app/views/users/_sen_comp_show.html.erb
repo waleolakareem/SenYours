@@ -80,8 +80,7 @@
 <% end %>
 </div>
 
-
-<!-- Blaines Attempt Begin -->
+<!-- Appointment Date Section -->
 <% if current_user.identification === 'Senior' %>
   <div class="comp_app_req text-center">
     <p class="notification">Available to work</p>
@@ -96,8 +95,8 @@
       <% end %> -->
       <% (Date.today.beginning_of_month..Date.today.at_end_of_month.next_month).each do |date| %>
         <% appointments = Appointment.where("companion_id = ? AND senior_id = ? AND start_date = ?", @user.id, current_user.id, date)%>
-          <% if date <= Date.today %>
-            <!-- Display nothing if it was today or prior to the current date -->
+          <% if date < Date.today %>
+            <!-- Display nothing if it was prior to the current date -->
           <% elsif appointments != [] %>
             <% appointment = Appointment.find_by_id(appointments[0].id)%>
             <% if appointment.accept == true %><!-- Appointment has been Accepted (Green) -->
@@ -156,12 +155,9 @@
           <% end %> <!-- availabe_dates End -->
         <% end %>
       <% end %> <!-- Month Date Each End -->
-
-
     </div>
   </div>
-<% end %>
-<!-- Blaines Attempt End -->
+<% end %> <!-- Senior identification End -->
 
 </div>
 </body>

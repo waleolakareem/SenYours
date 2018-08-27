@@ -1,5 +1,5 @@
 <body style="background-color: #f6f6f6;margin-top: 40px;">
-<div class="container no_cont">
+<div id="overlay_container" class="container no_cont">
   <div class="row profile_show">
     <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
       <div class="row sen_img_app">
@@ -38,6 +38,10 @@
             <Strong>About me: </Strong><%= @user.description %>
           </div>
         </div>
+      </div>
+
+      <div id='stripe_section_container' class='container'>
+        <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
       </div>
 
       <div id='sen_services_tasks_container' class='container'>
@@ -106,28 +110,12 @@
       <% end %>
     </div>
 
-  <!-- CALENDAR -->
+  <!-- CALENDAR BEGIN -->
     <div class="col-lg-6 calender container">
-      <div class="text-center">
-        <% if !current_user.stripe_user_id %>
-            <div id='sen_account_balance_container' class='container'>
-              <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
-            </div>
-            <hr />
-        <% else %>
-            <% if current_user.description && current_user.address %>
-              <%= link_to 'Match with companions', users_path,style:'text-decoration:none; color:black' , class: 'btn comp_submit'  %>
-            <% else %>
-            <h4>Please take a moment to fill out your personal information so we can better match you with your new friendly Companions!</h4>
-              <h6 class="edit_tag text-center"><a href="/users/<%=current_user.id %>/edit" class="edit_tag">Provide necessary information for verification</a></h6>
-              <hr />
-            <% end %>
-        <% end %>
-      </div>
-      <div>
-        <p class="notification"><i class="fa fa-circle" style="color: gray;"></i> Unavailable day.</p>
-        <p class="notification"><i class="fa fa-circle edit_tag"></i> Need companion day.Set times you need companion</p>
-        <p class="notification"><i class="fa fa-circle" style="color: green;"></i> Appointment set</p>
+      <div id="calendar_color_legend">
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: gray;"></i> Date Unavailable </p>
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: orange;"></i> Date Open for Companionship </p>
+        <p class="calendar_color_item"><i class="fa fa-circle" style="color: green;"></i> Confirmed Appointment </p>
       </div>
       <div class="row" style="padding-left: 15px; padding-right: 15px;">
       <!-- This months calendar -->
@@ -146,6 +134,7 @@
         </div>
       </div>
     </div>
+  <!-- CALENDAR END -->
 
     <% if @sen_write_review.length > 0 %>
       <p class="text-center user_rev_par">Your reviews helps everyone</p>
