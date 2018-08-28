@@ -91,6 +91,8 @@
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   padding: 1rem;
   padding-bottom: 0.1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .participants {
@@ -99,6 +101,15 @@
   justify-content: space-between;
   //align-items: center;
   width: 100%;
+  @media screen and (max-width: 640px){
+    font-size: 0.9rem;
+  }
+  @media screen and (max-width: 414px) {
+
+  }
+  @media screen and (max-width: 320px) {
+
+  }
 }
 
 .senior-appointment {
@@ -117,22 +128,7 @@
   align-items: flex-end;
 }
 
-.mini-avatar {
-  height: 80%;
-  width: 40%;
-  border-radius: 50%;
-  background-position: top center;
-  background-repeat: none;
-  background-size:cover;
-  margin-top: 10px;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-  @media screen and (max-width: 640px){
-    margin: 0px;
-  }
-}
-
 .appointment-user-image {
-  // height: 45%;
   width: 45%;
   border-radius: 50%;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
@@ -143,7 +139,7 @@
     margin: 0px;
   }
   @media screen and (max-width: 414px) {
-    width: 35%;
+    width: 40%;
   }
   @media screen and (max-width: 320px) {
     width: 35%;
@@ -173,6 +169,16 @@
   padding-bottom: 1rem;
 }
 
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.accepted {
+  color: green;
+  font-weight: bold;
+}
+
 .fa-caret-down:hover, .fa-caret-up:hover {
   color: #cc7000;
   cursor: pointer;
@@ -183,6 +189,9 @@
   color: white;
   padding: 0.5rem;
   border-radius: 5px;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+  }
 }
 
 .cancel_appointment_button:hover {
@@ -196,6 +205,9 @@
   color: white;
   padding: 0.5rem;
   border-radius: 5px;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+  }
 }
 
 .accept_appointment_button:hover {
@@ -209,6 +221,9 @@
   color: white;
   padding: 0.5rem;
   border-radius: 5px;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+  }
 }
 
 .decline_appointment_button:hover {
@@ -216,6 +231,8 @@
   color: white;
   text-decoration: none;
 }
+
+// ----- CALENDAR STYLES -----
 
 #calendar_color_legend{
   display: flex;
