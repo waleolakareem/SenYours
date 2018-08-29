@@ -103,6 +103,7 @@
     * Click to join our [Slack](https://join.slack.com/t/senyours/shared_invite/enQtNDA1OTk1Mjk0NjU3LWZhNzBkM2Q0MDAzZWFhZTNiMzU2M2QyZDI3NmViZjU5YTg4NGFlOGE5MzcwNGZhN2YyMTE3ZWJjOGE4NTY3ZmQ) to stay up to date with announcements & work with your co-developers.
     * Read and follow: [Coders Handbook](https://github.com/BlaineAndersonDev/coders-handbook/blob/master/coder_installation_instructions.md)
 
+
 ## Completed Sprints:
 ##### Sprint 1 (July 30th - Aug 5th): [Backend Rework]
     * ☑ Implement Testing Technologies (RSpec, SimpleCov).
