@@ -28,7 +28,7 @@
               <% end %>
               <div>
                 <p class="appointment-names">
-                  <%= link_to controller: "users", id: appointment.senior_id do %>
+                  <%= link_to controller: "users", action: 'show', id: appointment.senior_id do %>
                     <%= User.find(appointment.senior_id).first_name %></br>
                     <%= User.find(appointment.senior_id).last_name %>
                   <% end %></p>
@@ -36,7 +36,7 @@
             </div>
             <div class="comp-appointment">
               <p class="appointment-names">
-                <%= link_to controller: "users", id: appointment.companion_id do %>
+                <%= link_to controller: "users", action: 'show', id: appointment.companion_id do %>
                   <%= User.find(appointment.companion_id).first_name %></br>
                   <%= User.find(appointment.companion_id).last_name %>
                 <% end %></p>
