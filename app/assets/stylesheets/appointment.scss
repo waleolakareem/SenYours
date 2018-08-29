@@ -1,6 +1,3 @@
-* {
-  box-sizing: border-box;
-}
 // Place all the styles related to the Appointment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -52,7 +49,6 @@
   margin-bottom: 10px;
   padding-bottom: 1rem;
   line-height: normal;
-  justify-content: center;
   @media screen and (max-width: 414px) {
     margin: 0px 5px;
     margin: 18px;
@@ -68,7 +64,9 @@
 #appointment_list_container {
   max-height: 609px;
   overflow: scroll;
-  min-width: 320px;
+  min-width: 317px;
+  display: flex;
+  flex-direction: column;
 }
 
 .empty-appointments-div {
@@ -88,7 +86,8 @@
   font-size: 1.9rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid black;
-  @media screen and (max-width: 435px) {
+  text-align: center;
+  @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
   @media screen and (max-width: 320px) {
@@ -116,16 +115,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //align-items: center;
   width: 100%;
+  @media screen and (max-width: 320px){
+    font-size: 0.6rem;
+  }
+  @media screen and (max-width: 480px){
+    font-size: 0.7rem;
+  }
   @media screen and (max-width: 640px){
     font-size: 0.9rem;
-  }
-  @media screen and (max-width: 414px) {
-
-  }
-  @media screen and (max-width: 320px) {
-
   }
 }
 
@@ -135,6 +133,12 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
+  @media screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
 }
 
 .comp-appointment {
@@ -143,6 +147,12 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
+  @media screen and (max-width: 320px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 1rem;
+  }
 }
 
 .appointment-user-image {
@@ -152,14 +162,16 @@
   @media screen and (max-width: 1000px){
     width: 38%;
   }
-  @media screen and (max-width: 640px){
+  @media screen and (max-width: 768px){
     margin: 0px;
   }
-  @media screen and (max-width: 414px) {
-    width: 40%;
+  @media screen and (max-width: 480px) {
+    width: 68px;
   }
   @media screen and (max-width: 320px) {
-    width: 35%;
+    width: 50px;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
   }
 }
 

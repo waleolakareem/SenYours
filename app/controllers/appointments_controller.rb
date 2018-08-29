@@ -75,14 +75,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
-    def decline_appointment # Destroy
-      @selected_appointment = Appointment.find_by_id(params[:appointment_id])
-      @selected_appointment.destroy
-      respond_to do |format|
-        format.html { redirect_to user_path(current_user) }
-        format.js { render 'available_days/declined' }
-      end
+  def decline_appointment # Destroy
+    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    @selected_appointment.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js { render 'available_days/declined' }
     end
+  end
 
   def cancel_appointment
     # Destroy Appointment / Update Transaction / Refund Stripe Charge to Senior / Reverse Stripe Transfer to Comp
