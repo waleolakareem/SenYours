@@ -5,6 +5,10 @@ class AppointmentsController < ApplicationController
   Stripe.api_key=ENV['STRIPE_SECRET_KEY']
 
   def list_transactions # Index
+    respond_to do |format|
+      format.html {redirect_to user_path(current_user)}
+      format.js { render 'list_transactions'}
+    end
   end
 
   def create_appointment # Create
@@ -69,14 +73,14 @@ class AppointmentsController < ApplicationController
         format.js { render 'available_days/accepted' }
       end
     end
+  end
 
-    def decline_appointment # Destroy
-      @selected_appointment = Appointment.find_by_id(params[:appointment_id])
-      @selected_appointment.destroy
-      respond_to do |format|
-        format.html { redirect_to user_path(current_user) }
-        format.js { render 'available_days/declined' }
-      end
+  def decline_appointment # Destroy
+    @selected_appointment = Appointment.find_by_id(params[:appointment_id])
+    @selected_appointment.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.js { render 'available_days/declined' }
     end
   end
 

@@ -9,6 +9,13 @@
     // Append partial complete(green) to containing element
         $("<%=j render :partial => 'available_days/set_date_complete' %>").appendTo("#set_date_append_<%= @selected_appointment.start_date %>")
 
-// Transactions Update:
-    // Remove "accept/decline" section for the now "complete" section:
-    // FILL IN LATER AFTER ANNA's PORTION IS COMPLETE!
+    // Removes "accept/decline" section for the now "complete" section:
+    // Removes the accept/decline buttons and replaces with a cancel button.
+    // Changes 'PENDING' to 'ACCEPTED' in the appointment status field.
+    $('#appointment_status_div_<%= @selected_appointment.id %>').empty();
+    $('#appointment_status_div_<%= @selected_appointment.id %>').append(
+      '<p>Appointment Status: <span class="accepted">ACCEPTED</span></p>'
+    );
+    $('#appointment_buttons_append_remove_<%= @selected_appointment.id %>').empty();
+    $('#appointment_buttons_append_remove_<%= @selected_appointment.id %>').append(
+           '<%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: @selected_appointment.id), id: "cancel_appointment_#{@selected_appointment.id}", class: "cancel_appointment_button", remote: true %>');

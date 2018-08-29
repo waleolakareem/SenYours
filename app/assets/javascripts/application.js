@@ -19,6 +19,7 @@
 //= require select2
 //= require turbolinks
 //= require ckeditor/init
+//= require list_transactions
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {

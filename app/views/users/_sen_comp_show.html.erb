@@ -101,7 +101,7 @@
             <% appointment = Appointment.find_by_id(appointments[0].id)%>
             <% if appointment.accept == true %><!-- Appointment has been Accepted (Green) -->
               <!-- Allows the Senior to cancel appointment and reverse all Stripe actions -->
-              <%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" do %>
+              <%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}" do %>
                 <div class="form_div daite" id="<%= date.strftime('%d') %>">
                   <button class="btn cal_but" style="background-color: green;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day ">
                     <p class="notification"><%= date.strftime('%b') %></p>
@@ -117,7 +117,7 @@
               <% end %> <!-- Link End -->
             <% else %><!-- appointment.accept == false --><!-- Appointment has NOT been Accepted (Orange) -->
               <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
-              <%= link_to decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" do %>
+              <%= link_to decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}" do %>
                 <div class="form_div daite" id="<%= date.strftime('%d') %>">
                   <button class="btn cal_but" style="background-color: orange;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day">
                     <p class="notification"><%= date.strftime('%b') %></p>

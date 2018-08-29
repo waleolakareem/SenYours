@@ -1,41 +1,99 @@
 <!-- Logic -->
-  <h1>Your Transactions:</h1>
   <% if current_user.identification == "Senior" %>
-    <% @appointments = Appointment.where(senior_id: current_user.id) %>
+    <% @appointments = Appointment.where(senior_id: current_user.id).order("start_date ASC").where('start_date >= ?', Date.today) %>
   <% elsif current_user.identification == "Companion" %>
-    <% @appointments = Appointment.where(companion_id: current_user.id) %>
+    <% @appointments = Appointment.where(companion_id: current_user.id).order("start_date ASC").where('start_date >= ?', Date.today) %>
   <% end %>
 <!-- If there are any Appointments, display them. -->
-  <% if @appointments.length >= 1 %>
-    <% @appointments.each do |appointment| %>
-      <% if appointment.accept == true %>
-        <div style="background-color: green;">
-          <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
-          <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
-      <% else %> <!-- appointment.accept == false -->
-        <div style="background-color: white;">
-          <% if current_user.identification == "Companion" %>
-            <!-- Allows the Companion to Accept or Decine appointment -->
-            <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button" %>
-            <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
-          <% else %> <!-- current_user.identification == "Senior" -->
-            <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
-            <%= link_to 'Cancel Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
-          <% end %>
-      <% end %>
-          <p>Appointment ID: <%= appointment.id %></p>
-          <p>Appointment Companion Id: <%= appointment.companion_id %></p>
-          <p>Appointment Senior Id: <%= appointment.senior_id %></p>
-          <p>Appointment Start Date: <%= appointment.start_date %></p>
-          <p>Appointment End Date: <%= appointment.end_date %></p>
-          <p>Appointment Accepted?: <%= appointment.accept %></p>
-          <p>Appointment Payment Status: <%= appointment.payment_status %></p>
+  <% if @appointments.length == 0 %>
+    <div class="appointment_view_remove_div">
+      <div class="empty-appointments-div">
+        <div>
+          <p class="no-appointments-message">You have no upcoming appointments.</p>
+        </div>
       </div>
-      <hr />
-    <% end %>
-<!-- If there are no Appointments, display only the container. -->
-  <% else %>
-    <div>
-      <h3>You have no appointments.</h3>
     </div>
+  <% else %>
+    <% @appointments.each do |appointment| %>
+      <!--  Every appointment-container div contains one appointment's information -->
+      <div id="appointment_view_remove_<%= appointment.id %>" class="appointment_view_remove_div">
+        <div class="appointment-container">
+          <p class="appointment-date"><%= appointment.start_date.strftime('%B %-d, %Y') %></p>
+          <div class="participants">
+            <div class="senior-appointment">
+              <% if !(User.find(appointment.senior_id).avatar.url) %>
+                <img class="appointment-user-image" src="/assets/avatar_image.png">
+              <% else %>
+                <img class="appointment-user-image" src="<%= User.find(appointment.senior_id).avatar.large.url %>" href="/users/<%= appointment.senior_id %>">
+              <% end %>
+              <div>
+                <p class="appointment-names">
+                  <%= link_to controller: "users", action: 'show', id: appointment.senior_id do %>
+                    <%= User.find(appointment.senior_id).first_name %></br>
+                    <%= User.find(appointment.senior_id).last_name %>
+                  <% end %></p>
+              </div>
+            </div>
+            <div class="comp-appointment">
+              <p class="appointment-names">
+                <%= link_to controller: "users", action: 'show', id: appointment.companion_id do %>
+                  <%= User.find(appointment.companion_id).first_name %></br>
+                  <%= User.find(appointment.companion_id).last_name %>
+                <% end %></p>
+              <% if !(User.find(appointment.companion_id).avatar.url) %>
+                <img class="appointment-user-image" src="/assets/avatar_image.png">
+              <% else %>
+                <img class="appointment-user-image" src="<%= User.find(appointment.companion_id).avatar.large.url %>">
+              <% end %>
+            </div>
+          </div>
+          <div class="appointment-menu">
+            <i class="fa fa-caret-down arrow down"></i>
+            <i class="fa fa-caret-up arrow up"></i>
+          </div>
+        </div>
+        <div id="appointment_<%= appointment.id %>_info" class="appointment-info">
+          <p>Date: <%= appointment.start_date.strftime('%B %-d, %Y') %></p>
+          <p>Start Time: <%= appointment.start_time %></p>
+          <p>End Time: <%= appointment.end_time %></p>
+          <p>Fee: $<%= appointment.fee %>/hr</p>
+          <div id="appointment_status_div_<%= appointment.id %>" class="appointment-status">
+            <p>Appointment Status:
+              <% if appointment.accept %>
+                  <span class="accepted">ACCEPTED</span>
+              <% else %>
+                  <span class="pending">PENDING</span>
+              <% end %>
+            </p>
+          </div>
+          <div id="payment_status_div_<%= appointment.id %>" class="appointment-status">
+            <p>Payment Status:
+              <% if appointment.payment_status.upcase == "PENDING" %>
+                <span class="pending">PENDING</span>
+              <% elsif appointment.payment_status.upcase == "PAID" %>
+                <span class="accepted">PAID</span>
+              <% end %>
+            </p>
+          </div>
+          <% if appointment.accept == true %>
+            <div id="appointment_buttons_append_remove_<%= appointment.id %>">
+              <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
+              <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button", remote: true %>
+            </div>
+          <% else %> <!-- appointment.accept == false -->
+            <div id="appointment_buttons_append_remove_<%= appointment.id %>">
+              <% if current_user.identification == "Companion" %>
+                <!-- Allows the Companion to Accept or Decine appointment -->
+                <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button", remote: true %>
+                <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button", remote: true %>
+              <% else %> <!-- current_user.identification == "Senior" -->
+                <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
+                <%= link_to 'Cancel Appointment Request', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button", remote: true %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <hr id="horizontal_rule_remove_<%= appointment.id %>"/>
+    <% end %>
   <% end %>
