@@ -9,17 +9,9 @@
     // Append partial unavailable(white) to containing element
         $("<%=j render :partial => 'available_days/set_date_unavailable' %>").appendTo("#set_date_append_<%= @selected_appointment.start_date %>")
 
-// Transactions Update:
-    // Remove "accept/decline" section for the now "complete" section:
-    // FILL IN LATER AFTER ANNA's PORTION IS COMPLETE!
-
-    // $.ajax({
-    //   method:
-    //   appointment_id:
-    // }).done((response) => {
-    //
-    // })
-
-    // Remove appointment from appointment list.
-    //$("#appointment_remove_<%= @selected_appointment.id %>").remove();
-    $('#bob').remove();
+    // Cancels the selected appointment. Removes the appointment from the DOM.
+    $('#appointment_view_remove_<%= @selected_appointment.id %>').fadeOut(400, function() {
+      $('#appointment_view_remove_<%= @selected_appointment.id %>').remove();
+      $("#appointment_<%= @selected_appointment.id %>_info").remove();
+      $("#horizontal_rule_remove_<%= @selected_appointment.id %>").remove();
+    });

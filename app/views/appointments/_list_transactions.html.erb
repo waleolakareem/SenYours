@@ -8,7 +8,7 @@
   <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
       <!--  Every appointment-container div contains one appointment's information -->
-      <div id="appointment_view_remove_<%= appointment.id %>">
+      <div id="appointment_view_remove_<%= appointment.id %>" class="appointment_view_remove_div">
         <div class="appointment-container">
           <p class="appointment-date"><%= appointment.start_date.strftime('%B %-d, %Y') %></p>
           <div class="participants">
@@ -57,31 +57,35 @@
           <p>Start Time: <%= appointment.start_time %></p>
           <p>End Time: <%= appointment.end_time %></p>
           <p>Fee: $<%= appointment.fee %>/hr</p>
-          <p>Appointment Status:
-            <% if appointment.accept %>
-                <span class="accepted">ACCEPTED</span>
-            <% else %>
-                <span class="pending">PENDING</span>
-            <% end %>
-          </p>
-          <p>Payment Status:
-            <% if appointment.payment_status.upcase == "PENDING" %>
-              <span class="pending">PENDING</span>
-            <% elsif appointment.payment_status.upcase == "ACCEPTED" %>
-              <span class="accepted">ACCEPTED</span>
-            <% end %>
+          <div id="appointment_status_div_<%= appointment.id %>" class="appointment-status">
+            <p>Appointment Status:
+              <% if appointment.accept %>
+                  <span class="accepted">ACCEPTED</span>
+              <% else %>
+                  <span class="pending">PENDING</span>
+              <% end %>
             </p>
+          </div>
+          <div id="payment_status_div_<%= appointment.id %>" class="appointment-status">
+            <p>Payment Status:
+              <% if appointment.payment_status.upcase == "PENDING" %>
+                <span class="pending">PENDING</span>
+              <% elsif appointment.payment_status.upcase == "PAID" %>
+                <span class="accepted">PAID</span>
+              <% end %>
+            </p>
+          </div>
           <% if appointment.accept == true %>
-            <div>
+            <div id="appointment_buttons_append_remove_<%= appointment.id %>">
               <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
-              <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
+              <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button", remote: true %>
             </div>
           <% else %> <!-- appointment.accept == false -->
-            <div>
+            <div id="appointment_buttons_append_remove_<%= appointment.id %>">
               <% if current_user.identification == "Companion" %>
                 <!-- Allows the Companion to Accept or Decine appointment -->
-                <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button" %>
-                <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button" %>
+                <%= link_to 'Accept Appointment', accept_appointment_path(appointment_id: appointment.id), id: "accept_appointment_#{appointment.id}", class: "accept_appointment_button", remote: true %>
+                <%= link_to 'Decline Appointment', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button", remote: true %>
               <% else %> <!-- current_user.identification == "Senior" -->
                 <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
                 <%= link_to 'Cancel Appointment Request', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button", remote: true %>
@@ -95,6 +99,6 @@
 <!-- If there are no Appointments, display only the container. -->
   <% else %>
     <div>
-      <h3>You have no appointments.</h3>
+      <p class="no-appointments-message">You have no upcoming appointments.</p>
     </div>
   <% end %>

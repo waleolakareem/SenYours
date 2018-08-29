@@ -4,16 +4,9 @@
 // Calendar Update:
     // None Needed
 
-// Transactions Update:
-    // Remove "accept/decline" section for the now "complete" section:
-    // FILL IN LATER AFTER ANNA's PORTION IS COMPLETE!
-
+    // Declines given appointment. Removes the specified appointment from the dom.
     $('#appointment_view_remove_<%= @selected_appointment.id %>').fadeOut(400, function() {
       $('#appointment_view_remove_<%= @selected_appointment.id %>').remove();
       $("#appointment_<%= @selected_appointment.id %>_info").remove();
       $("#horizontal_rule_remove_<%= @selected_appointment.id %>").remove();
     });
-
-    // if(Appointment.all === nil) {
-    //   $("#appointment_info_container")
-    // }

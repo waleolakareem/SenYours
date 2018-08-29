@@ -1,6 +1,6 @@
 <% date = @selected_appointment.start_date %>
 <% appointment = @selected_appointment %>
-<%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{date}", class: "cancel_appointment_button", remote: true do %>
+<%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{date}", remote: true do %>
   <div class="btn days_cal_but" style="background-color: green;">
     <!-- Display Day (name) of the Week -->
     <p class="notification work_p"><%= date.to_time.strftime('%a') %></p>

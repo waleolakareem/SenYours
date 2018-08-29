@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 // Place all the styles related to the Appointment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -48,6 +51,8 @@
   background-color: white;
   margin-bottom: 10px;
   padding-bottom: 1rem;
+  line-height: normal;
+  justify-content: center;
   @media screen and (max-width: 414px) {
     margin: 0px 5px;
     margin: 18px;
@@ -64,6 +69,13 @@
   max-height: 609px;
   overflow: scroll;
   min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment_view_remove_div {
+  margin-bottom: 0.5rem;
 }
 
 .transactions-header {
@@ -71,7 +83,9 @@
   margin: auto;
   margin-bottom: 1rem;
   font-size: 1.9rem;
-  @media screen and (max-width: 414px) {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid black;
+  @media screen and (max-width: 435px) {
     font-size: 1.5rem;
   }
   @media screen and (max-width: 320px) {
@@ -179,6 +193,10 @@
   font-weight: bold;
 }
 
+.appointment-status {
+  margin-bottom: 1rem;
+}
+
 .fa-caret-down:hover, .fa-caret-up:hover {
   color: #cc7000;
   cursor: pointer;
@@ -230,6 +248,18 @@
   background-color: #CD0E0E;
   color: white;
   text-decoration: none;
+}
+
+.no-appointments-message {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 0.4rem;
+  @media screen and (max-width: 414px) {
+    font-size: 1.1rem;
+  }
+  @media screen and (max-width: 320px) {
+    font-size: 1.1rem;
+  }
 }
 
 // ----- CALENDAR STYLES -----
