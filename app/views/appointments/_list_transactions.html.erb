@@ -5,7 +5,15 @@
     <% @appointments = Appointment.where(companion_id: current_user.id).order("start_date ASC").where('start_date >= ?', Date.today) %>
   <% end %>
 <!-- If there are any Appointments, display them. -->
-  <% if @appointments.length >= 1 %>
+  <% if @appointments.length == 0 %>
+    <div class="appointment_view_remove_div">
+      <div class="empty-appointments-div">
+        <div>
+          <p class="no-appointments-message">You have no upcoming appointments.</p>
+        </div>
+      </div>
+    </div>
+  <% else %>
     <% @appointments.each do |appointment| %>
       <!--  Every appointment-container div contains one appointment's information -->
       <div id="appointment_view_remove_<%= appointment.id %>" class="appointment_view_remove_div">
@@ -17,10 +25,6 @@
                 <img class="appointment-user-image" src="/assets/avatar_image.png">
               <% else %>
                 <img class="appointment-user-image" src="<%= User.find(appointment.senior_id).avatar.large.url %>" href="/users/<%= appointment.senior_id %>">
-                <!-- <%= link_to controller: "users", id: appointment.senior_id, class: "user-image-link" do %>
-                  <% user = User.find(appointment.senior_id) %>
-                  <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
-                <% end %> -->
               <% end %>
               <div>
                 <p class="appointment-names">
@@ -40,10 +44,6 @@
                 <img class="appointment-user-image" src="/assets/avatar_image.png">
               <% else %>
                 <img class="appointment-user-image" src="<%= User.find(appointment.companion_id).avatar.large.url %>">
-                <!-- <%= link_to controller: "users", id: appointment.companion_id, class: "user-image-link" do %>
-                  <% user = User.find(appointment.companion_id) %>
-                  <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
-                <% end %> -->
               <% end %>
             </div>
           </div>
@@ -96,9 +96,4 @@
       </div>
       <hr id="horizontal_rule_remove_<%= appointment.id %>"/>
     <% end %>
-<!-- If there are no Appointments, display only the container. -->
-  <% else %>
-    <div>
-      <p class="no-appointments-message">You have no upcoming appointments.</p>
-    </div>
   <% end %>
