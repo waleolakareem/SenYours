@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // This onClick event handler toggles the arrow in the transaction summary from down to up, while also hiding and revealing the appointment details.
-  $(".arrow").on("click", function(event) {
+  $(document).on("click", ".arrow", function(event) {
     if (this.classList[3] == "down") {
       $(this).css('display', 'none');
       $(this).next().css('display', 'block');

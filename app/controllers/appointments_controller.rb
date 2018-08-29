@@ -77,7 +77,6 @@ class AppointmentsController < ApplicationController
 
     def decline_appointment # Destroy
       @selected_appointment = Appointment.find_by_id(params[:appointment_id])
-      @ajax_appointment = @selected_appointment
       @selected_appointment.destroy
       respond_to do |format|
         format.html { redirect_to user_path(current_user) }

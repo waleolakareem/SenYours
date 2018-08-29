@@ -8,50 +8,51 @@
   <% if @appointments.length >= 1 %>
     <% @appointments.each do |appointment| %>
       <!--  Every appointment-container div contains one appointment's information -->
-      <div id="appointment_view_remove_<%= appointment.id %>" class="appointment-container">
-        <p class="appointment-date"><%= appointment.start_date.strftime('%B %-d, %Y') %></p>
-        <div class="participants">
-          <div class="senior-appointment">
-            <% if !(User.find(appointment.senior_id).avatar.url) %>
-              <img class="appointment-user-image" src="/assets/avatar_image.png">
-            <% else %>
-              <img class="appointment-user-image" src="<%= User.find(appointment.senior_id).avatar.large.url %>" href="/users/<%= appointment.senior_id %>">
-              <!-- <%= link_to controller: "users", id: appointment.senior_id, class: "user-image-link" do %>
-                <% user = User.find(appointment.senior_id) %>
-                <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
-              <% end %> -->
-            <% end %>
-            <div>
+      <div id="appointment_view_remove_<%= appointment.id %>">
+        <div class="appointment-container">
+          <p class="appointment-date"><%= appointment.start_date.strftime('%B %-d, %Y') %></p>
+          <div class="participants">
+            <div class="senior-appointment">
+              <% if !(User.find(appointment.senior_id).avatar.url) %>
+                <img class="appointment-user-image" src="/assets/avatar_image.png">
+              <% else %>
+                <img class="appointment-user-image" src="<%= User.find(appointment.senior_id).avatar.large.url %>" href="/users/<%= appointment.senior_id %>">
+                <!-- <%= link_to controller: "users", id: appointment.senior_id, class: "user-image-link" do %>
+                  <% user = User.find(appointment.senior_id) %>
+                  <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
+                <% end %> -->
+              <% end %>
+              <div>
+                <p class="appointment-names">
+                  <%= link_to controller: "users", id: appointment.senior_id do %>
+                    <%= User.find(appointment.senior_id).first_name %></br>
+                    <%= User.find(appointment.senior_id).last_name %>
+                  <% end %></p>
+              </div>
+            </div>
+            <div class="comp-appointment">
               <p class="appointment-names">
-                <%= link_to controller: "users", id: appointment.senior_id do %>
-                  <%= User.find(appointment.senior_id).first_name %></br>
-                  <%= User.find(appointment.senior_id).last_name %>
+                <%= link_to controller: "users", id: appointment.companion_id do %>
+                  <%= User.find(appointment.companion_id).first_name %></br>
+                  <%= User.find(appointment.companion_id).last_name %>
                 <% end %></p>
+              <% if !(User.find(appointment.companion_id).avatar.url) %>
+                <img class="appointment-user-image" src="/assets/avatar_image.png">
+              <% else %>
+                <img class="appointment-user-image" src="<%= User.find(appointment.companion_id).avatar.large.url %>">
+                <!-- <%= link_to controller: "users", id: appointment.companion_id, class: "user-image-link" do %>
+                  <% user = User.find(appointment.companion_id) %>
+                  <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
+                <% end %> -->
+              <% end %>
             </div>
           </div>
-          <div class="comp-appointment">
-            <p class="appointment-names">
-              <%= link_to controller: "users", id: appointment.companion_id do %>
-                <%= User.find(appointment.companion_id).first_name %></br>
-                <%= User.find(appointment.companion_id).last_name %>
-              <% end %></p>
-            <% if !(User.find(appointment.companion_id).avatar.url) %>
-              <img class="appointment-user-image" src="/assets/avatar_image.png">
-            <% else %>
-              <img class="appointment-user-image" src="<%= User.find(appointment.companion_id).avatar.large.url %>">
-              <!-- <%= link_to controller: "users", id: appointment.companion_id, class: "user-image-link" do %>
-                <% user = User.find(appointment.companion_id) %>
-                <%= image_tag user.avatar.large.url, class: "appointment-user-image" %>
-              <% end %> -->
-            <% end %>
+          <div class="appointment-menu">
+            <i class="fa fa-caret-down arrow down"></i>
+            <i class="fa fa-caret-up arrow up"></i>
           </div>
         </div>
-        <div class="appointment-menu">
-          <i class="fa fa-caret-down arrow down"></i>
-          <i class="fa fa-caret-up arrow up"></i>
-        </div>
-      </div>
-      <div id="appointment_<%= appointment.id %>_info" class="appointment-info">
+        <div id="appointment_<%= appointment.id %>_info" class="appointment-info">
           <p>Date: <%= appointment.start_date.strftime('%B %-d, %Y') %></p>
           <p>Start Time: <%= appointment.start_time %></p>
           <p>End Time: <%= appointment.end_time %></p>
@@ -74,6 +75,7 @@
             <div>
               <!-- Allows the Comp or Senior to cancel appointment and reverse all Stripe actions -->
               <%= link_to 'Cancel Appointment', cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}", class: "cancel_appointment_button" %>
+            </div>
           <% else %> <!-- appointment.accept == false -->
             <div>
               <% if current_user.identification == "Companion" %>
@@ -84,10 +86,11 @@
                 <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
                 <%= link_to 'Cancel Appointment Request', decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}", class: "decline_appointment_button", remote: true %>
               <% end %>
+            </div>
           <% end %>
+        </div>
       </div>
-    </div>
-    <hr />
+      <hr id="horizontal_rule_remove_<%= appointment.id %>"/>
     <% end %>
 <!-- If there are no Appointments, display only the container. -->
   <% else %>
