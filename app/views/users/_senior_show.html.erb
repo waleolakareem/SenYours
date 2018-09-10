@@ -103,7 +103,9 @@
                             </div>
                             <div class="col col-lg-10 col-md-10 col-9 form_div">
                               <p class="notification rev_paragraphs"><%= review.comment %></p>
+                              <a href="/users/<%=review.reviewer.id%>">
                               <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+                              </a>
                               <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
                             </div>
                           </div>
