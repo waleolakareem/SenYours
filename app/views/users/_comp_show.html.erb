@@ -116,13 +116,18 @@
                 <% end %>
               </div>
             </div>
-            <p class="text-center">
-              <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 20px; class="show_hide" value="Hide Spreads"">
-                View Reviews
-              </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-            <div class="row card-body">
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+              <p style="font-family: 'Muli', sans-serif;">
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
+                  <%= @reviews.count %> Reviews
+                </button>
+              </p>
+            </div>
+
+        <% end %>
+      </div>
+      <div class="collapse" id="collapseExample">
+            <div class="row card-body sen_stars sen_rating container">
                       <% @reviews.each do |review|%>
                         <div class="col-lg-12">
                           <div class="row form_div">
@@ -139,9 +144,7 @@
                       <% end %>
                     </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+        </div>
 
 <!-- CALENDAR -->
   <div class="col-lg-6 calender container">
