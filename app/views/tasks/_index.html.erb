@@ -10,12 +10,10 @@
                     <%= link_to task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
                       <p id='task_name'><%= task.name %></p>
                       <i class="fa fa-times"></i>
-                      <!-- <%= image_tag 'services_minus.png', class: 'selection_image' %> -->
                     <% end %>
                 <% else %>
                   <%= link_to task_add_selected_path( user_id: @user.id, task_id: task.id ), id: 'add_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
                       <p id='task_name'><%= task.name %></p>
-                      <!-- <%= image_tag 'services_plus.png', class: 'selection_image' %> -->
                   <% end %>
                 <% end %>
               <% end %>
