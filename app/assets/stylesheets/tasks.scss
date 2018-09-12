@@ -1,6 +1,8 @@
 /*Services Box*/
 #sen_services_ajax {
   background-color: white;
+  display: flex;
+  flex-direction: column;
   min-width: 100%;
   margin-bottom: 10px;
   font-family:'Muli', sans-serif;
@@ -12,8 +14,6 @@
   @media screen and (max-width: 320px) {
     width: 89%;
   }
-}
-#sen_services_ajax{
 }
 
 .collapsible {
@@ -41,7 +41,7 @@
 #service_header{
   width: 80%;
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.9rem;
   padding-bottom: 0.4rem;
   text-align: center;
@@ -64,7 +64,8 @@
 }
 
 .task-content {
-  display: none;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   padding-bottom: 1.5rem;
 }
@@ -90,10 +91,7 @@
   display: flex;
   flex-wrap: nowrap;
   font-size: 1.1em;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
   margin: 5px;
   text-decoration: none;
   justify-content: center;
@@ -104,6 +102,28 @@
     background-color 0.3s,
     border 0.3s,
     color 0.3s;
+}
+
+#done_button {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  background-color: white;
+  outline: none;
+  border: 1px solid dimgrey;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  color: dimgrey;
+  border-radius: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+#done_button:hover {
+  border: 1px solid orange;
+  color: orange;
 }
 
 #remove_task_button{
