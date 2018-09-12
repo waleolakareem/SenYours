@@ -1,23 +1,35 @@
     <div id='sen_services_ajax' class='container'>
-        <h3 id='service_header'>Services:</h3>
-        <% Service.all.each do |service|%><!-- List all Service Categories -->
-          <div class='sen_service_section container'>
-            <h3 id='service_name'><%= service.name %></h3>
-            <div class='sen_service_tasks container'>
-              <% service.tasks.each do |task| %><!-- Display all Tasks by Service category -->
-              <!-- DEVELOPERS: There is a whitespace character between the symbol and the name of the task. Leave it alone :) -->
-                <% if task.user_ids.include? @user.id %>
-                    <%= link_to task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
-                      <p id='task_name'><%= task.name %></p>
-                      <i class="fa fa-times"></i>
+        <button class="collapsible">
+          <h3 id='service_header'>
+            <% if @user.identification == "Senior" %>
+              Services Required
+            <% else %>
+              Services Offered
+            <% end %>
+          </h3>
+          <i class="fa fa-angle-down task-arrow"></i>
+          <i class="fa fa-angle-up task-arrow" style="display: none"></i>
+        </button>
+        <div class="task-content">
+          <% Service.all.each do |service|%><!-- List all Service Categories -->
+            <div class='sen_service_section container'>
+              <h3 id='service_name'><%= service.name %></h3>
+              <div class='sen_service_tasks container'>
+                <% service.tasks.each do |task| %><!-- Display all Tasks by Service category -->
+                <!-- DEVELOPERS: There is a whitespace character between the symbol and the name of the task. Leave it alone :) -->
+                  <% if task.user_ids.include? @user.id %>
+                      <%= link_to task_remove_selected_path( user_id: @user.id, task_id: task.id ), id: 'remove_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
+                        <p id='task_name'><%= task.name %></p>
+                        <i class="fa fa-times"></i>
+                      <% end %>
+                  <% else %>
+                    <%= link_to task_add_selected_path( user_id: @user.id, task_id: task.id ), id: 'add_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
+                        <p id='task_name'><%= task.name %></p>
                     <% end %>
-                <% else %>
-                  <%= link_to task_add_selected_path( user_id: @user.id, task_id: task.id ), id: 'add_task_button', class: 'all_tasks', method: 'GET', remote: true do %>
-                      <p id='task_name'><%= task.name %></p>
                   <% end %>
                 <% end %>
-              <% end %>
-             </div>
-          </div>
-        <% end %>
+               </div>
+            </div>
+          <% end %>
+        </div>
     </div>

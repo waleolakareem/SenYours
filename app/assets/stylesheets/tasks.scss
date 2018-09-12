@@ -5,7 +5,7 @@
   margin-bottom: 10px;
   font-family:'Muli', sans-serif;
   padding-top: 0.8rem;
-  padding-bottom: 1.3rem;
+  // padding-bottom: 1.3rem;
     @media screen and (max-width: 414px) {
     width: 90%;
   }
@@ -15,13 +15,35 @@
 }
 #sen_services_ajax{
 }
+
+.collapsible {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: 1.9rem;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  cursor: pointer;
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 320px) {
+    font-size: 1.5rem;
+  }
+}
+
+.collapsible:focus {
+  outline: none;
+}
+
 #service_header{
   width: 80%;
   margin: auto;
   margin-bottom: 1rem;
   font-size: 1.9rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid black;
   text-align: center;
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
@@ -31,9 +53,20 @@
   }
 }
 
+.task-arrow {
+  color: orange;
+  font-size: 2.5rem;
+}
+
 #service_name{
   padding-top: 0.8rem;
   font-size: 1.2rem;
+}
+
+.task-content {
+  display: none;
+  overflow: hidden;
+  padding-bottom: 1.5rem;
 }
 
 .sen_service_section{
