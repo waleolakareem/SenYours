@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
 
   $(document).on("click", "#done_button", function(event) {
     var tasks = $(this).closest(".task-content");
-    $(tasks).slideToggle('fast');
+    $(tasks).slideUp('slow');
     var downArrow = $(".task-arrow")[0];
     var upArrow = $(".task-arrow")[1];
     downArrow.style.display = (downArrow.style.display === 'none' ? 'block' : 'none');
