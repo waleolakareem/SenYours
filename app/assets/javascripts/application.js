@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require list_transactions
+//= require tasks_index
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
