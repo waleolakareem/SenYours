@@ -116,32 +116,53 @@
                 <% end %>
               </div>
             </div>
-            <p class="text-center">
-              <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 20px; class="show_hide" value="Hide Spreads"">
-                View Reviews
-              </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-            <div class="row card-body">
+            <% if @reviews.count > 0 %>
+            <div class="review_button text-center">
+              <p>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
+                  <%= @reviews.count %> Reviews
+                </button>
+              </p>
+            </div>
+            <% else %>
+              <div class="review_button text-center">
+              <p>
+                <button class="btn btn-success" type="button" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
+                  <%= @reviews.count %> Reviews
+                </button>
+              </p>
+            </div>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="collapse" id="collapseExample">
+            <div class="row card-body sen_stars sen_rating container">
                       <% @reviews.each do |review|%>
                         <div class="col-lg-12">
                           <div class="row form_div">
                             <div class="col-lg-2 col-md-2 col-3">
-                              <img src="<%= review.reviewer.avatar.thumb.url if review.reviewer.avatar? %>" class= "img-circle responsive-image">
+                              <a href="/users/<%=review.reviewer.id%>">
+                                <img src="<%= review.reviewer.avatar.thumb.url if review.reviewer.avatar? %>" class= "img-circle responsive-image">
+                              </a>
                             </div>
                             <div class="col col-lg-10 col-md-10 col-9 form_div">
                               <p class="notification rev_paragraphs"><%= review.comment %></p>
-                              <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+                              <a href="/users/<%=review.reviewer.id%>">
+                                <p class="notification rev_paragraphs"><%= review.reviewer.email %></p>
+                              </a>
                               <p class="notification rev_paragraphs"><%= individaul_rating(review) %></p>
                             </div>
                           </div>
                         </div>
                       <% end %>
+                      <p style="font-family: 'Muli', sans-serif;">
+                        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
+                          <i class="fa fa-angle-double-up"></i> Close Reviews
+                        </button>
+                      </p>
                     </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+        </div>
 
 <!-- CALENDAR -->
   <div class="col-lg-6 calender container">
