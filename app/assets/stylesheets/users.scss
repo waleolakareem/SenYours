@@ -683,3 +683,13 @@ body {
     }
   }
 
+review_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+review_button p {
+  font-family: 'Muli', sans-serif;
+}
+

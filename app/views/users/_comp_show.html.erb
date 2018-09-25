@@ -117,16 +117,16 @@
               </div>
             </div>
             <% if @reviews.count > 0 %>
-            <div style="display: flex; flex-direction: row; justify-content: space-around;">
-              <p style="font-family: 'Muli', sans-serif;">
+            <div class="review_button text-center">
+              <p>
                 <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
                   <%= @reviews.count %> Reviews
                 </button>
               </p>
             </div>
             <% else %>
-              <div style="display: flex; flex-direction: row; justify-content: space-around;">
-              <p style="font-family: 'Muli', sans-serif;">
+              <div class="review_button text-center">
+              <p>
                 <button class="btn btn-success" type="button" style="margin-bottom: 10px; margin-top: 10px; class="show_hide" value="Hide Spreads"">
                   <%= @reviews.count %> Reviews
                 </button>
