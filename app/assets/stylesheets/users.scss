@@ -515,10 +515,60 @@ body {
   border: 1px solid gray;
   border-radius:3px;
 }
+
+.profile{
+}
+
+.profile_hover {
+  padding-left: 43%;
+  padding-top: 14%;
+
+}
+
+.profile_drop {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 20px solid #F8A01B;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.profile_drop:hover {
+  border-top: 20px solid #F76607;
+}
+
+
+.sen_img_upper{
+  display: inline-block;
+}
+
+.about_me {
+  color: orange;
+  font-family: 'Muli';
+  padding-left: 28%;
+
+}
+
 .comp_description {
+  display: none;
+  padding-right: 10%;
+  padding-left: 18%;
+  padding-bottom: 10%;
+}
+
+.comp_description:hover {
+  padding-left: 15%;
+  display: inline-block;
   margin: 16px 0px;;
   font-family: 'Muli';
   border-radius: 3px;
+  width: 65%;
+  padding-left: 15%;
+  padding-right: 15%;
+
+  overflow-wrap: break-word;
   @media screen and (max-width: 640px) {
     margin: 20px 0px;
   }
@@ -682,4 +732,3 @@ body {
       height: 50px;
     }
   }
-
