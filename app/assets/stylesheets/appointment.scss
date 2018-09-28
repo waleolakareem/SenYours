@@ -321,3 +321,66 @@
   align-items: center;
   vertical-align: middle;
 }
+#apt_ts_wrapper{
+  width: 80%;
+  height: 80%;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  flex-flow: row wrap;
+}
+.apt_ts_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  flex-flow: row wrap;
+}
+  .apt_ts_titles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-flow: row wrap;
+  }
+  .apt_title{
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-flow: row wrap;
+  }
+  .apt_time_select{
+    border: 2px orange solid;
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-flow: row wrap;
+  }
+  .apt_time{
+    flex: 1 1 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-flow: row wrap;
+  }
+  .apt_ts_link{
+    text-decoration: none;
+    background-color: orange;
+    color: white;
+    border: 2px white solid;
+    padding: 10px;
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+  }
+  .apt_ts_link:hover{
+    background-color: white;
+    color: black;
+  }
