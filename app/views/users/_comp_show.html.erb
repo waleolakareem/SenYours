@@ -45,13 +45,18 @@
               <p class="comp_fee notification">$<%= @user.fee %>/Hr
               </p>
             </div>
-
+            <div class="edit_profile">
+              <% if @user %>
+                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Edit Profile</a>
+              <% end %>
+           </div>
         </div>
         <div class="col-lg-6 col-md-6 sen_app">
             <div>
               <% if @user.first_name %>
-              <h1 class="notification"><%= @user.first_name.humanize %></h1>
-              <h5>Joined <%= @user.created_at.strftime('%Y') %></h5>
+              <h1 class="notification user"><%= @user.first_name.humanize %></h1>
+              <h5 class="join_date">Joined <%= @user.created_at.strftime('%Y') %></h5>
               <% end %>
               <% if current_user.id === @user.id && current_user.assessment === "completed"  %>
                 <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
@@ -68,29 +73,20 @@
 
         <div class="user_contact_info">
           <% if @user.first_name %>
-            <p><%= @user.first_name.humanize%> <%= @user.last_name.humanize%></p>
-            <p><%= @user.dob %></p>
-            <p><%= @user.address %></p>
-            <p><%= @user.city %>, <%= @user.state %> <%= @user.zipcode %></p>
-            <p><%= @user.email %></p>
+              <%= @user.first_name.humanize%> <%= @user.last_name.humanize%> <br>
+              <%= @user.dob.strftime("%B %e, %Y") %> <br>
+              <%= @user.address %> <br>
+              <%= @user.city %>, <%= @user.state %> <%= @user.zipcode %> <br>
+              <%= @user.email %>
           <% end %>
         </div>
-        <div>
-        <% if @user %>
-          <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-                  Edit Profile</a>
-        <% end %>
         <br>
-        <br>
-      </div>
     </div>
-
-      <div class="sen_img_lower">
-
-    </div>
-    <div class="profile_hover">
-      <p><i class="profile_drop"></i></p>
-    </div>
+    <span class="profile_hover">
+        <i class="profile_drop">
+          <p class="triangle">▼</p>
+        </i>
+    </span>
       <div class="comp_description">
         <h3 class="about_me"><Strong>About Me </Strong></h3>
         <br>
