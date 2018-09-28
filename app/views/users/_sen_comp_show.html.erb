@@ -1,5 +1,5 @@
 <body style="margin-top: 40px;">
-<div class="container pad_cont">
+<div id="overlay_container" class="container pad_cont">
 <div class="row sen_img_app">
   <div class="col-lg-3 col-md-5 sen_image">
     <div class="sen_img_upper" <% if !@user.avatar.url %>
@@ -88,7 +88,7 @@
     <%= link_to appointment_time_sheet_path, remote: true do %>
       <h1>BOOOOOOOOOOOOOOOb</h1>
     <% end %>
-    <div id="overlay_container" class="row">
+    <div class="row">
       <!-- <% aval(@user,current_user).each do |date| %>
         <% pop = @user.available_days.where('date = ?', date).first %>
         <% plac = "" %>
