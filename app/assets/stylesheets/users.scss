@@ -27,16 +27,37 @@ body {
   font-family: 'Muli', sans-serif;
   text-shadow: 1px 1px #C4C4C4;
   color: #F0840A;
+
+  @media screen and (max-width: 640px) {
+    font-size: 20px;
+    justify-content: center;
+    text-align: center;
+
+  }
 }
 
 .join_date {
   font-family: 'Muli', sans-serif;
   text-shadow: 1px 1px #C4C4C4;
   color: #8F8989;
+
+  @media screen and (max-width: 640px) {
+    text-shadow: 1;
+    font-size: 16px;
+    justify-content: center;
+    text-align: center;
+
+  }
 }
 
 .user_contact_info {
   font-family: 'Muli', sans-serif;
+
+  @media screen and (max-width: 640px) {
+    font-size: 14px;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .sign_up_form_top {
@@ -576,16 +597,34 @@ body {
   height: 185px;
   display: inline-block;
   box-shadow: 5px 8px 3px #D7CDC8;
+
+  @media screen and (max-width: 640px) {
+    padding-left: 10%;
+    padding-top: 8%;
+  }
 }
 
 .col-lg-6.col-md-6.sen_image {
   padding-top: 3%;
   height: auto;
+
+  @media screen and (max-width: 640px) {
+    padding-left: 10%;
+    height: 75%;
+    width: 80%
+  }
+
 }
 
 .col-lg-6.col-md-6.sen_app {
   height: auto;
   padding-bottom: 0;
+
+  @media screen and (max-width: 640px) {
+    padding-left: 20%;
+    height: 75%;
+    width: 80%
+  }
 }
 
 .edit_profile.a {
@@ -605,6 +644,13 @@ body {
   font-family: 'Muli';
   padding-left: 28%;
 
+  @media screen and (max-width: 640px) {
+    padding-left: 0;
+    font-size: 14px;
+    justify-content: center;
+    text-align: center;
+  }
+
 }
 
 .comp_description {
@@ -613,6 +659,10 @@ body {
   padding-right: 18%;
   padding-left: 18%;
   padding-bottom: 10%;
+
+  @media screen and (max-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 .comp_description:hover {
