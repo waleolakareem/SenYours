@@ -11,8 +11,25 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def appointment_time_sheet
+    # Opens specific dates Timesheet
+    respond_to do |format|
+      format.html {redirect_to user_path(current_user)}
+      format.js { render 'appointment_time_sheet'}
+    end
+  end
+
+  def close_appointment_time_sheet
+    # Close Time Sheet
+  end
+
   def create_appointment # Create
     selected_appointment = Appointment.create(appointment_params)
+    # Here the times selected should be checked that they are all in a row.
+    # If they are all in a row, proceed with creation and set Start and End times as listed.
+    # If they are NOT all in a row, cancel the appointment creation and post suggestion that all times should be connected.
+    # selected_appointment.start_time = ???
+    # selected_appointment.end_time = ???
     Transaction.create(
       appointment_id: selected_appointment.id,
       senior_id: selected_appointment.senior_id,
