@@ -85,9 +85,6 @@
   <div class="comp_app_req text-center">
     <p class="notification">Available to work</p>
     <p>Click on each date to make a request,</p>
-    <%= link_to appointment_time_sheet_path, remote: true do %>
-      <h1>BOOOOOOOOOOOOOOOb</h1>
-    <% end %>
     <div class="row">
       <!-- <% aval(@user,current_user).each do |date| %>
         <% pop = @user.available_days.where('date = ?', date).first %>
@@ -139,7 +136,7 @@
           <% available_date = AvailableDay.find_by("user_id = ? AND date = ?", @user.id, date) %>
           <% if available_date != nil %>
             <!-- Allows the Senior to create an Appointment (pending acceptance from the Companion) -->
-            <%=link_to create_appointment_path( @user, appointment: {start_date: date, end_date: date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), method: :post do %>
+            <%=link_to appointment_time_sheet_path( user: @user, appointment: {start_date: date, end_date: date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), date: date, remote: true do %>
               <div class="form_div daite" id="<%= date.strftime('%d') %>">
                 <button class="btn cal_but" style="background-color: white;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day">
                   <p class="notification"><%= date.strftime('%b') %></p>
@@ -153,6 +150,7 @@
                 </button>
               </div>
             <% end %> <!-- Link End -->
+
           <% else %>
             <!-- Display nothing if date is unavailable -->
           <% end %> <!-- availabe_dates End -->

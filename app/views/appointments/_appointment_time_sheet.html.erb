@@ -1,8 +1,13 @@
-<% date = params[:date]%>
-<div id="time_sheet_<%= date %>" class="appointment_time_sheet_overlay">
+<div id="time_sheet_<%= @date %>" class="appointment_time_sheet_overlay">
   <div class="time_sheet_center_wrapper">
 
     <h1>HEEEEEYYYYYYYYY</h1>
+     <h6>"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ <%= @date %>"</h6>
+
+      <!-- Allows the Senior to create an Appointment (pending acceptance from the Companion) -->
+      <%=link_to create_appointment_path( user: @user, appointment: {start_date: @date, end_date: @date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), method: :post do %>
+      <h1>LINK IS HERE</h1>
+      <% end %> <!-- Link End -->
 
     <div class="time_sheet_close_option">
       <%=link_to "Close Time Sheet", close_appointment_time_sheet_path, remote: true %>

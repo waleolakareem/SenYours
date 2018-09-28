@@ -13,6 +13,10 @@ class AppointmentsController < ApplicationController
 
   def appointment_time_sheet
     # Opens specific dates Timesheet
+    # params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
+    @user = User.find(params[:user])
+    @date = params[:appointment][:start_date]
+
     respond_to do |format|
       format.html {redirect_to user_path(current_user)}
       format.js { render 'appointment_time_sheet'}
