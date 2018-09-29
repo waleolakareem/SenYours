@@ -16,7 +16,20 @@ class AppointmentsController < ApplicationController
     # params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
     @user = User.find(params[:user])
     @date = params[:appointment][:start_date]
-
+    days = []
+    @times = []
+    # Get avail day ID's to find proper times
+    AvailableDay.where(user_id: @user.id, date: @date).each do |day_item|
+      days << day_item
+    end
+    # Get exact times from days per above method
+    AvailableTime.where(available_day_id: 259).each do |time_item|
+      @times << time_item
+    end
+    # Now that I have all the time_items I no longer need @days.
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    puts "#{@times}"
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     respond_to do |format|
       format.html {redirect_to user_path(current_user)}
       format.js { render 'appointment_time_sheet'}
@@ -25,6 +38,10 @@ class AppointmentsController < ApplicationController
 
   def close_appointment_time_sheet
     # Close Time Sheet
+  end
+
+  def apt_time_display
+    # Displays all available times for Companionship.
   end
 
   def create_appointment # Create

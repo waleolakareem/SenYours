@@ -324,12 +324,12 @@
 #apt_ts_wrapper{
   width: 80%;
   height: 80%;
-  background: gray;
+  background: lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
 .apt_ts_container{
   display: flex;
@@ -338,6 +338,14 @@
   vertical-align: middle;
   text-align: center;
   flex-flow: row wrap;
+}
+.apt_ts_container_stacked{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  flex-flow: column wrap;
 }
   .apt_ts_titles{
     display: flex;

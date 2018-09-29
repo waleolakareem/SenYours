@@ -1,28 +1,22 @@
 <div class="appointment_time_sheet_overlay">
   <div id="apt_ts_wrapper">
     <!-- Allows the Senior to create an Appointment (pending acceptance from the Companion) -->
+
+    <div class="apt_ts_container_stacked">
+      <p class="apt_title"><%= @user.first_name %> is available at these times:</p>
+      <p class="apt_title">TIMES AVAILABLE</p>
+    </div>
+
     <div class="apt_ts_titles">
       <p class="apt_title">Start Time:</p>
       <p class="apt_title">End Time:</p>
     </div>
-
     <div class="apt_ts_container">
       <div id="apt_ts_start_times" class="apt_time_select">
-        <p class="apt_time">7 AM</p>
-        <p class="apt_time">8 AM</p>
-        <p class="apt_time">9 AM</p>
-        <p class="apt_time">10 AM</p>
-        <p class="apt_time">11 AM</p>
-        <p class="apt_time">12 PM</p>
-        <p class="apt_time">1 PM</p>
-        <p class="apt_time">2 PM</p>
-        <p class="apt_time">3 PM</p>
-        <p class="apt_time">4 PM</p>
-        <p class="apt_time">5 PM</p>
-        <p class="apt_time">6 PM</p>
-        <p class="apt_time">7 PM</p>
+        <!-- INSERT EACH METHOD FOR THE @TIMES ARRAY -->
+        <!-- If @time[index].time is == (all_times) then display button for local variable storage, else leave unclickable. -->
+        <%= render 'appointments/apt_time_display' %>
       </div>
-
       <div id="apt_ts_end_times" class="apt_time_select">
         <p class="apt_time">7 AM</p>
         <p class="apt_time">8 AM</p>
@@ -39,6 +33,15 @@
         <p class="apt_time">7 PM</p>
       </div>
     </div>
+
+    <!-- <div class="apt_ts_container">
+      <p>Appointment Date: <%= %>.</p>
+      <p>Appointment Start Time: <%= %>.</p>
+      <p>Appointment End Time: <%= %>.</p>
+      <p>Appointment Total Hours: <%= %>.</p>
+      <p>Companion Hourly Rate: <%= %>.</p>
+      <p>Appointment Total Cost: <%= %>.</p>
+    </div> -->
 
     <div class="apt_ts_container">
       <!-- ADD start_time: @time, end_time: @time, -->
