@@ -396,3 +396,15 @@
     background-color: white;
     color: black;
   }
+    .apt_time_box{
+      box-shadow: 1px 1px 2px black;
+    }
+    .all_time_slot_unclickable{
+      border: 1px white solid;
+    }
+    .all_time_slot_clickable{
+      border: 1px orange solid;
+    }
+    .all_time_slot_clicked{
+      border: 1px green solid;
+    }

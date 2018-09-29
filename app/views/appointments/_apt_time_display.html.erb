@@ -12,9 +12,7 @@
   {match_time: "#{offdate} 16:00:00 UTC", slang_time: "16:00AM"},
   {match_time: "#{offdate} 17:00:00 UTC", slang_time: "17:00AM"},
   {match_time: "#{offdate} 18:00:00 UTC", slang_time: "18:00AM"},
-  {match_time: "#{offdate} 19:00:00 UTC", slang_time: "19:00AM"},
-  ]
-%>
+  {match_time: "#{offdate} 19:00:00 UTC", slang_time: "19:00AM"} ] %>
 
 <% %>
 <% %>
@@ -26,8 +24,9 @@
 
 <!-- Compare @all_times with actual times -->
 <!-- This should ALWAYS start blank! -->
-<!-- If time is selected: Display Green Link -->
-  <!-- If time is then DEselected: Display normal Link -->
+<!-- If time is available: Display Orange background -->
+  <!-- If time is selected: Display Green background -->
+    <!-- If time is then DEselected: Display Orange background again -->
 
 <!-- Upon 'create appointment' check times and selected all times inbetween. ALL TIMES BETWEEN MUST BE AVAILABLE -->
 <div id="apt_ts_display">
@@ -38,7 +37,7 @@
         <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail, all_time_slot: all_time_slot} %>
       <% else %>
         <!-- ADD NON LINK OPTION -->
-        <span style="background: white;"><%= all_time_slot[:slang_time] %></span>
+        <span class="apt_time_box all_time_slot_unclickable"><%= all_time_slot[:slang_time] %></span>
       <% end %>
     <% end %>
   <% end %>
