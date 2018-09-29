@@ -27,9 +27,6 @@ class AppointmentsController < ApplicationController
       @times << time_item
     end
     # Now that I have all the time_items I no longer need @days.
-    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    puts "#{@times}"
-    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     respond_to do |format|
       format.html {redirect_to user_path(current_user)}
       format.js { render 'appointment_time_sheet'}

@@ -1,7 +1,20 @@
 <% offdate = "2000-01-01" %>
-<% @all_times = [{match_time: "#{offdate} 07:00:00 UTC", slang_time: "7:00AM"},"#{offdate} 08:00:00 UTC","#{offdate} 09:00:00 UTC","#{offdate} 10:00:00 UTC","#{offdate} 11:00:00 UTC","#{offdate} 12:00:00 UTC","#{offdate} 13:00:00 UTC","#{offdate} 14:00:00 UTC","#{offdate} 15:00:00 UTC","#{offdate} 16:00:00 UTC","#{offdate} 17:00:00 UTC","#{offdate} 18:00:00 UTC","#{offdate} 19:00:00 UTC"] %>
-<% @all_times2 = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"] %>
-<% @all_times3 = [{match_time: "#{offdate} 07:00:00 UTC", slang_time: "7:00AM"}, {match_time: "#{offdate} 08:00:00 UTC", slang_time: "8:00AM"}] %>
+<% @all_times = [
+  {match_time: "#{offdate} 07:00:00 UTC", slang_time: "7:00AM"},
+  {match_time: "#{offdate} 08:00:00 UTC", slang_time: "8:00AM"},
+  {match_time: "#{offdate} 09:00:00 UTC", slang_time: "9:00AM"},
+  {match_time: "#{offdate} 10:00:00 UTC", slang_time: "10:00AM"},
+  {match_time: "#{offdate} 11:00:00 UTC", slang_time: "11:00AM"},
+  {match_time: "#{offdate} 12:00:00 UTC", slang_time: "12:00AM"},
+  {match_time: "#{offdate} 13:00:00 UTC", slang_time: "13:00AM"},
+  {match_time: "#{offdate} 14:00:00 UTC", slang_time: "14:00AM"},
+  {match_time: "#{offdate} 15:00:00 UTC", slang_time: "15:00AM"},
+  {match_time: "#{offdate} 16:00:00 UTC", slang_time: "16:00AM"},
+  {match_time: "#{offdate} 17:00:00 UTC", slang_time: "17:00AM"},
+  {match_time: "#{offdate} 18:00:00 UTC", slang_time: "18:00AM"},
+  {match_time: "#{offdate} 19:00:00 UTC", slang_time: "19:00AM"},
+  ]
+%>
 
 <% %>
 <% %>
@@ -18,18 +31,14 @@
 
 <!-- Upon 'create appointment' check times and selected all times inbetween. ALL TIMES BETWEEN MUST BE AVAILABLE -->
 <div id="apt_ts_display">
-  <% @all_times3.each do |time_slot| %>
-  <% puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
-  <% puts "#{time_slot[:match_time]}" %>
-  <% puts "#{time_slot[:slang_time]}" %>
+  <% @all_times.each do |all_time_slot| %>
     <% @times.each do |time_avail| %>
-    <% puts "#{time_avail.time}" %>
-      <% if time_avail.time == time_slot[:match_time] %>
+      <% if time_avail.time == all_time_slot[:match_time] %>
         <!-- ADD LINK OPTION -->
-        <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail} %>
+        <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail, all_time_slot: all_time_slot} %>
       <% else %>
         <!-- ADD NON LINK OPTION -->
-        <span style="background: white;"><%= time_slot %></span>
+        <span style="background: white;"><%= all_time_slot[:slang_time] %></span>
       <% end %>
     <% end %>
   <% end %>
