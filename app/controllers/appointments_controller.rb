@@ -40,10 +40,6 @@ class AppointmentsController < ApplicationController
     # Close Time Sheet
   end
 
-  def apt_time_display
-    # Displays all available times for Companionship.
-  end
-
   def create_appointment # Create
     selected_appointment = Appointment.create(appointment_params)
     # Here the times selected should be checked that they are all in a row.

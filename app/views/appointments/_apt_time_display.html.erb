@@ -1,3 +1,33 @@
-<div id="apt_ts_wrapper">
-  <h1> THIS IS A PLACE </h1>
+<% offdate = "2000-01-01" %>
+<% @all_times = ["#{offdate} 07:00:00 UTC","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"] %>
+<% %>
+<% %>
+<%= %>
+<%= %>
+
+<% %>
+<%= %>
+
+<!-- Compare @all_times with actual times -->
+<!-- This should ALWAYS start blank! -->
+<!-- If time is selected: Display Green Link -->
+  <!-- If time is then DEselected: Display normal Link -->
+
+<!-- Upon 'create appointment' check times and selected all times inbetween. ALL TIMES BETWEEN MUST BE AVAILABLE -->
+<div id="apt_ts_display">
+  <% @all_times.each do |time_slot| %>
+  <% puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
+  <% puts "#{time_slot}" %>
+    <% @times.each do |time_avail| %>
+    <% puts "#{time_avail.time}" %>
+      <% if time_avail.time == time_slot %>
+        <!-- ADD LINK OPTION -->
+        <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail} %>
+      <% else %>
+        <!-- ADD NON LINK OPTION -->
+        <span style="background: white;"><%= time_slot %></span>
+      <% end %>
+    <% end %>
+    <% puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
+  <% end %>
 </div><!-- END id="apt_ts_wrapper" -->
