@@ -1,5 +1,8 @@
 <% offdate = "2000-01-01" %>
-<% @all_times = ["#{offdate} 07:00:00 UTC","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"] %>
+<% @all_times = [{match_time: "#{offdate} 07:00:00 UTC", slang_time: "7:00AM"},"#{offdate} 08:00:00 UTC","#{offdate} 09:00:00 UTC","#{offdate} 10:00:00 UTC","#{offdate} 11:00:00 UTC","#{offdate} 12:00:00 UTC","#{offdate} 13:00:00 UTC","#{offdate} 14:00:00 UTC","#{offdate} 15:00:00 UTC","#{offdate} 16:00:00 UTC","#{offdate} 17:00:00 UTC","#{offdate} 18:00:00 UTC","#{offdate} 19:00:00 UTC"] %>
+<% @all_times2 = ["07:00AM","08:00AM","09:00AM","10:00AM","11:00AM","12:00PM","01:00PM","02:00PM","03:00PM","04:00PM","05:00PM","06:00PM","07:00PM"] %>
+<% @all_times3 = [{match_time: "#{offdate} 07:00:00 UTC", slang_time: "7:00AM"}, {match_time: "#{offdate} 08:00:00 UTC", slang_time: "8:00AM"}] %>
+
 <% %>
 <% %>
 <%= %>
@@ -15,12 +18,13 @@
 
 <!-- Upon 'create appointment' check times and selected all times inbetween. ALL TIMES BETWEEN MUST BE AVAILABLE -->
 <div id="apt_ts_display">
-  <% @all_times.each do |time_slot| %>
+  <% @all_times3.each do |time_slot| %>
   <% puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
-  <% puts "#{time_slot}" %>
+  <% puts "#{time_slot[:match_time]}" %>
+  <% puts "#{time_slot[:slang_time]}" %>
     <% @times.each do |time_avail| %>
     <% puts "#{time_avail.time}" %>
-      <% if time_avail.time == time_slot %>
+      <% if time_avail.time == time_slot[:match_time] %>
         <!-- ADD LINK OPTION -->
         <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail} %>
       <% else %>
@@ -28,6 +32,5 @@
         <span style="background: white;"><%= time_slot %></span>
       <% end %>
     <% end %>
-    <% puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
   <% end %>
 </div><!-- END id="apt_ts_wrapper" -->
