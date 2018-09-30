@@ -1,4 +1,4 @@
-<!-- PARAMS: locals[:time_avail][:time] -->
-<!-- PARAMS: locals[:all_time_slot][:slang_time] -->
-<!-- PARAMS: locals[:all_time_slot][:match_time] -->
-<button class="apt_time_box all_time_slot_clickable"><%= locals[:all_time_slot][:slang_time] %></button>
+<!-- PARAMS: locals[:display_time][:slang_time] -->
+<!-- PARAMS: locals[:display_time][:match_time] -->
+<% time = locals[:display_time][:time] %>
+<button class="apt_time_box all_time_slot_clickable"><%= time.strftime('%l:%M%p') %></button>
