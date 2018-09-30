@@ -103,7 +103,7 @@
               <!-- Allows the Senior to cancel appointment and reverse all Stripe actions -->
               <%= link_to cancel_appointment_path(user_id: current_user, appointment_id: appointment.id), id: "cancel_appointment_#{appointment.id}" do %>
                 <div class="form_div daite" id="<%= date.strftime('%d') %>">
-                  <button class="btn cal_but" style="background-color: green;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day ">
+                  <button class="btn cal_but" style="background-color: green;">
                     <p class="notification"><%= date.strftime('%b') %></p>
                     <p class="notification"><%= date.strftime('%d') %></p>
                     <p class="notification"><%= date.strftime('%Y') %></p>
@@ -119,7 +119,7 @@
               <!-- Allows the Senior to cancel appointment prior to it being accepted without any Stripe actions  -->
               <%= link_to decline_appointment_path(appointment_id: appointment.id), id: "decline_appointment_#{appointment.id}" do %>
                 <div class="form_div daite" id="<%= date.strftime('%d') %>">
-                  <button class="btn cal_but" style="background-color: orange;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day">
+                  <button class="btn cal_but" style="background-color: orange;">
                     <p class="notification"><%= date.strftime('%b') %></p>
                     <p class="notification"><%= date.strftime('%d') %></p>
                     <p class="notification"><%= date.strftime('%Y') %></p>
@@ -138,7 +138,7 @@
             <!-- Allows the Senior to create an Appointment (pending acceptance from the Companion) -->
             <%=link_to appointment_time_sheet_path( user: @user, appointment: {start_date: date, end_date: date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), date: date, remote: true do %>
               <div class="form_div daite" id="<%= date.strftime('%d') %>">
-                <button class="btn cal_but" style="background-color: white;" data-toggle="tooltip" data-placement="top" title="Times <%= @user.first_name %> can work on this day">
+                <button class="btn cal_but" style="background-color: white;">
                   <p class="notification"><%= date.strftime('%b') %></p>
                   <p class="notification"><%= date.strftime('%d') %></p>
                   <p class="notification"><%= date.strftime('%Y') %></p>
