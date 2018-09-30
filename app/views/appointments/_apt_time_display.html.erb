@@ -25,7 +25,6 @@
 
 <% @all_times.each do |display_time| %>
     <% if display_time.is_a?(ActiveRecord::Base) %>
-    <% puts "DISPLAY_TIME: #{display_time.id}" %>
     <div id="display_time_<%= display_time.id %>_append" class="display_container">
       <%= render 'appointments/selectable_time', :locals => {:display_time => display_time} %>
     </div>
