@@ -401,6 +401,14 @@
     background-color: white;
     color: black;
   }
+  .display_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-flow: row wrap;
+    flex: 1 1 45%;
+  }
     .apt_time_box{
       box-shadow: 1px 1px 2px black;
       flex: 1 1 45%;

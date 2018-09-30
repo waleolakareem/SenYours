@@ -1,4 +1,3 @@
-<!-- PARAMS: locals[:display_time][:slang_time] -->
-<!-- PARAMS: locals[:display_time][:match_time] -->
-<% time = locals[:display_time][:time] %>
-<button class="apt_time_box display_time_selectable"><%= time.strftime('%l:%M%p') %></button>
+<!-- PARAMS: locals[:display_time].id -->
+<% puts "PARTIAL_selectable_time: #{locals[:display_time].id}" %>
+<button class="apt_time_box display_time_selectable"><%= locals[:display_time].time.strftime('%l:%M%p') %></button>

@@ -1,0 +1,5 @@
+// # <% locals[:display_time] %>
+console.log("JS_SELECTED_TIME")
+console.log($("#available_time_#{locals[:display_time][:id]}"))
+$("#available_time_#{locals[:display_time][:id]}_remove").remove()
+$("<%=j render :partial => 'selected_time' %>").appendTo("#available_time_#{locals[:display_time][:id]}").hide().fadeIn(1000)
