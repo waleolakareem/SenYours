@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
       days << day_item
     end
     # Get exact times from days per above method
-    AvailableTime.where(available_day_id: 259).each do |time_item|
+    AvailableTime.where(available_day_id: days[0].id).each do |time_item|
       @times << time_item
     end
     # Now that I have all the time_items I no longer need @days.
