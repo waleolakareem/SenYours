@@ -1,3 +1,6 @@
 <!-- PARAMS: locals[:display_time].id -->
-<% puts "PARTIAL_selectable_time: #{locals[:display_time].id}" %>
-<button class="apt_time_box display_time_selectable"><%= locals[:display_time].time.strftime('%l:%M%p') %></button>
+<% puts "PARTIAL_selectable_time: display_time: #{locals[:display_time]}" %>
+<% puts "PARTIAL_selectable_time: display_time.id: #{locals[:display_time].id}" %>
+<%= link_to selected_time_path(display_time: locals[:display_time]), id: "display_time_#{locals[:display_time].id}_remove", class: "apt_time_box display_time_selectable", method: :post, remote: true do %>
+  <%= locals[:display_time].time.strftime('%l:%M%p') %>
+<% end %>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'cancel_appointment' => 'appointments#cancel_appointment'
   get 'appointment_time_sheet' => 'appointments#appointment_time_sheet'
   get 'close_appointment_time_sheet' => 'appointments#close_appointment_time_sheet'
+  post 'selected_time' => 'appointments#selected_time'
+  post 'selectable_time' => 'appointments#selectable_time'
 
   post 'stripe_webhook' => 'appointments#stripe_webhook'
   get 'slack_webhook' => 'appointments#slack_webhook'
