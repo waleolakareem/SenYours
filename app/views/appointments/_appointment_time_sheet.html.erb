@@ -13,27 +13,15 @@
     </div>
     <div class="apt_ts_container">
       <div class="apt_time_select">
-        <!-- INSERT EACH METHOD FOR THE @TIMES ARRAY -->
         <%= render 'appointments/apt_time_display' %>
       </div>
       <div class="apt_time_select">
-        <p class="apt_time">7 AM</p>
-        <p class="apt_time">8 AM</p>
-        <p class="apt_time">9 AM</p>
-        <p class="apt_time">10 AM</p>
-        <p class="apt_time">11 AM</p>
-        <p class="apt_time">12 PM</p>
-        <p class="apt_time">1 PM</p>
-        <p class="apt_time">2 PM</p>
-        <p class="apt_time">3 PM</p>
-        <p class="apt_time">4 PM</p>
-        <p class="apt_time">5 PM</p>
-        <p class="apt_time">6 PM</p>
-        <p class="apt_time">7 PM</p>
+        <%= render 'appointments/apt_time_display' %>
       </div>
     </div>
 
-    <!-- <div class="apt_ts_container">
+    <div class="apt_ts_container">
+      <!-- <div class="apt_ts_container">
       <p>Appointment Date: <%= %>.</p>
       <p>Appointment Start Time: <%= %>.</p>
       <p>Appointment End Time: <%= %>.</p>
@@ -41,8 +29,6 @@
       <p>Companion Hourly Rate: <%= %>.</p>
       <p>Appointment Total Cost: <%= %>.</p>
     </div> -->
-
-    <div class="apt_ts_container">
       <!-- ADD start_time: @time, end_time: @time, -->
       <%=link_to create_appointment_path( user: @user, appointment: { start_date: @date, end_date: @date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), method: :post, class: "apt_ts_link" do %>
         <p>Create Appointment</p>
@@ -52,9 +38,6 @@
       <p>Close Time Sheet</p>
       <% end %> <!-- "close_appointment_time_sheet_path" Link End -->
     </div>
-
-
-
 
   </div><!-- END id="apt_ts_wrapper" -->
 </div><!-- END class="appointment_time_sheet_overlay" -->
