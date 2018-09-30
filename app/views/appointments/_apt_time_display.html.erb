@@ -13,32 +13,22 @@
   {match_time: "#{offdate} 17:00:00 UTC", slang_time: "17:00AM"},
   {match_time: "#{offdate} 18:00:00 UTC", slang_time: "18:00AM"},
   {match_time: "#{offdate} 19:00:00 UTC", slang_time: "19:00AM"} ] %>
+  <!-- IF there is a time_avail set at that time, then find the all_time_slot item and replace it with the time_avail item else leave it alone -->
 
-<% %>
-<% %>
-<%= %>
-<%= %>
-
-<% %>
-<%= %>
-
-<!-- Compare @all_times with actual times -->
-<!-- This should ALWAYS start blank! -->
-<!-- If time is available: Display Orange background -->
-  <!-- If time is selected: Display Green background -->
-    <!-- If time is then DEselected: Display Orange background again -->
-
-<!-- Upon 'create appointment' check times and selected all times inbetween. ALL TIMES BETWEEN MUST BE AVAILABLE -->
-<div id="apt_ts_display">
-  <% @all_times.each do |all_time_slot| %>
-    <% @times.each do |time_avail| %>
-      <% if time_avail.time == all_time_slot[:match_time] %>
-        <!-- ADD LINK OPTION -->
-        <%= render 'appointments/selectable_time', :locals => {:time_avail => time_avail, all_time_slot: all_time_slot} %>
-      <% else %>
-        <!-- ADD NON LINK OPTION -->
-        <span class="apt_time_box all_time_slot_unclickable"><%= all_time_slot[:slang_time] %></span>
-      <% end %>
+<% t_index = 0 %>
+<% @all_times.each do |all_time_slot| %>
+  <% puts "index: #{t_index}" %>
+  <% @times.each do |time_avail| %>
+    <% if time_avail.time == all_time_slot[:match_time] %>
+      <% @all_times[t_index] = time_avail %>
     <% end %>
   <% end %>
-</div><!-- END id="apt_ts_wrapper" -->
+  <% t_index += 1 %>
+<% end %>
+
+
+
+
+<% @all_times.each do |all_time_slot| %>
+  <% puts "AFTER LOGIC: #{all_time_slot}" %>
+<% end %>
