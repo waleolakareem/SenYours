@@ -403,14 +403,14 @@
   }
     .apt_time_box{
       box-shadow: 1px 1px 2px black;
-      flex: 1 1 23%;
+      flex: 1 1 45%;
     }
     .all_time_slot_unclickable{
-      border: 1px white solid;
+      background: white;
     }
     .all_time_slot_clickable{
-      border: 1px orange solid;
+      background: orange;
     }
     .all_time_slot_clicked{
-      border: 1px green solid;
+      background: green;
     }
