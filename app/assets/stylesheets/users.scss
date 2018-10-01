@@ -592,14 +592,16 @@ body {
   }
 }
 
-// TEST
+// TEST FOR BRANCH MERGE
 
 .sen_img_upper{
   height: 185px;
+  max-width: 195px;
   display: inline-block;
   box-shadow: 5px 8px 3px #D7CDC8;
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 700px) {
+    align-items: center;
     padding-left: 10%;
     padding-top: 8%;
   }
