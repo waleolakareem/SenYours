@@ -1,3 +1,4 @@
+
 <body style="background-color: #f6f6f6; margin-top: 40px;">
   <div id="overlay_container" class="container no_cont">
     <div class="row profile_show">
@@ -28,6 +29,8 @@
 <!-- Appointments to Accept or Decline Pop Up END -->
 
       <div class="col-lg-6" style="padding-right: 0px; padding-left: 0px;">
+<!-- PROFILE -->
+      <div class="profile">
         <div class="row sen_img_app">
           <div class="col-lg-6 col-md-6 sen_image">
             <div class="sen_img_upper"
@@ -42,24 +45,24 @@
               <p class="comp_fee notification">$<%= @user.fee %>/Hr
               </p>
             </div>
-            <% if @user.first_name %>
-            <div class="sen_img_lower">
-              <p><%= @user.first_name.humanize %> <%= @user.last_name.humanize %></p>
-              <p><%= @user.city %></p>
-            </div>
-            <% end %>
+            <div class="edit_profile">
+              <% if @user %>
+                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
+                        Edit Profile</a>
+              <% end %>
+           </div>
         </div>
         <div class="col-lg-6 col-md-6 sen_app">
             <div>
               <% if @user.first_name %>
-              <h1 class="notification"><%= @user.first_name.humanize %></h1>
-              <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
+              <h1 class="notification user"><%= @user.first_name.humanize %></h1>
+              <h5 class="join_date">Joined <%= @user.created_at.strftime('%Y') %></h5>
               <% end %>
               <% if current_user.id === @user.id && current_user.assessment === "completed"  %>
                 <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
                   <p>You must provide all <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
                         Required</a> information to proceed
-                  </p>
+                    </p>
                   </p>
                 <% else %>
                   <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
@@ -67,11 +70,33 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="comp_description">
-              <Strong>About me: </Strong><%= @user.description %>
-            </div>
-          </div>
+
+        <div class="user_contact_info">
+          <% if @user.first_name %>
+              <%= @user.first_name.humanize%> <%= @user.last_name.humanize%> <br>
+              <%= @user.dob.strftime("%B %e, %Y") %> <br>
+              <%= @user.address %> <br>
+              <%= @user.city %>, <%= @user.state %> <%= @user.zipcode %> <br>
+              <%= @user.email %>
+          <% end %>
         </div>
+        <br>
+    </div>
+    <span class="profile_hover">
+        <i class="profile_drop">
+          <p class="triangle">▼</p>
+        </i>
+    </span>
+      <div class="comp_description">
+        <h3 class="about_me"><Strong>About Me </Strong></h3>
+        <br>
+        <%= @user.description %>
+      </div>
+    </div>
+  </div>
+  <!-- TEST FOR BRANCH MERGE ---->
+<!-- END OF PROFILE DIV -->
+
         <% if @user.assessment === "no" %>
             <div class="container sen_rating text-center">
             <p> You need to <%= link_to "Take Assessment", comp_test_path  %> before you continue</p>

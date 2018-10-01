@@ -14,31 +14,48 @@
               <i class="fa fa-star" style="color: orange;"></i>
             </p>
           </div>
-          <div class="sen_img_lower">
-            <p><%= @user.first_name.humanize %> <%= @user.last_name.humanize %></p>
-            <p><%= @user.city %></p>
-          </div>
+         </br>
+        <div class="edit_div">
+          <a class="edit_tag" href="/users/<%=current_user.id %>/edit">Edit Profile</a>
+        </div>
       </div>
       <div class="col-lg-6 col-md-6 sen_app">
           <div>
-            <h1 class="notification"><%= @user.first_name.humanize %></h1>
-            <h4>Joined <%= @user.created_at.strftime('%Y') %></h4>
+            <h1 class="notification user"><%= @user.first_name.humanize %></h1>
+            <h5 class="join_date">Joined <%= @user.created_at.strftime('%Y') %></h5>
             <% if current_user.id === @user.id %>
               <% if !current_user.description?  || !current_user.phone_number? || !current_user.address? %>
                 <p>You must provide all <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
                         Required</a> information to proceed
                 </p>
-              <% else %>
-                <a class="edit_tag" href="/users/<%=current_user.id %>/edit">
-                        Edit Profile</a>
               <% end %>
             <% end %>
-          </div>
+            </div>
+          <div class="user_contact_info">
+                  <% if @user.first_name %>
+                      <%= @user.first_name.humanize%> <%= @user.last_name.humanize%> <br>
+                      <%= @user.dob.strftime("%B %e, %Y") %> <br>
+                      <%= @user.address %> <br>
+                      <%= @user.city %>, <%= @user.state %> <%= @user.zipcode %> <br>
+                      <%= @user.email %>
+                  <% end %>
+                </div>
+               </br>
+              </br>
+            </div>
+
+          <span class="profile_hover">
+            <i class="profile_drop">
+              <p class="triangle">▼</p>
+            </i>
+          </span>
           <div class="comp_description">
-            <Strong>About me: </Strong><%= @user.description %>
+            <h3 class="about_me"><Strong>About Me </Strong></h3>
+            <br>
+            <%= @user.description %>
           </div>
         </div>
-      </div>
+  <!-- END OF PROFILE DIV ---->
 
       <div id='stripe_section_container' class='container'>
         <%= render "transactions/show", locals: {user: @user, balance: @balance} %>
