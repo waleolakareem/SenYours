@@ -8,7 +8,7 @@ $("i").hover(function() {
  })
 });
 
-// TEST
+// TEST //
 //On-click attempts:
 
 // $(document).on('click', 'profile_drop', function(){

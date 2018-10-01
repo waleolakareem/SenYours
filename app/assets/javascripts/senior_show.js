@@ -8,7 +8,7 @@ $("i").hover(function() {
  })
 });
 
- // TEST FOR BRANCH MERGE
+ // TEST FOR BRANCH MERGE //
 
 // TEST
 //On-click attempts:
