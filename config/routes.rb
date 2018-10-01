@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'cancel_appointment' => 'appointments#cancel_appointment'
   get 'appointment_time_sheet' => 'appointments#appointment_time_sheet'
   get 'close_appointment_time_sheet' => 'appointments#close_appointment_time_sheet'
+  post 'apt_time_display' => 'appointments#apt_time_display'
   post 'selected_time' => 'appointments#selected_time'
   post 'unselected_time' => 'appointments#unselected_time'
   post 'selectable_time' => 'appointments#selectable_time'

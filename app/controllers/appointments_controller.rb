@@ -34,6 +34,11 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def apt_time_display
+    puts "RENDERED apt_time_display"
+    @start_time_selected = ""
+  end
+
   def close_appointment_time_sheet
     # Close Time Sheet
   end

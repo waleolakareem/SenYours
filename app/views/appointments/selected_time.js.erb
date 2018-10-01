@@ -1,5 +1,6 @@
 // console.log("<%= params[:display_time] %>")
 console.log("JS_SELECTED_TIME")
+console.log("<%= params[:start_time_id] %>")
 console.log("Removed #display_time_<%= params[:display_time] %>_remove")
 $("#display_time_<%= params[:display_time] %>_remove").remove()
 $("<%=j render :partial => 'selected_time' %>").appendTo("#display_time_<%= params[:display_time] %>_append")
