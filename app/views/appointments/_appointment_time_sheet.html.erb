@@ -13,13 +13,16 @@
     </div>
     <div class="apt_ts_container">
       <div class="apt_time_select">
+        <!-- Start Time Display -->
         <%= render 'appointments/apt_time_display' %>
       </div>
       <div class="apt_time_select">
+        <!-- End Time Display (Will need to be rendered with different AJAXable names.) -->
       </div>
     </div>
 
     <div class="apt_ts_container">
+      <!-- This is all the information that should be shown to the Senior prior to creating the appointment. The Senior would need to approve this by confirming appointment or something like that. This location was/is temporary. Move this information where needed. -->
       <!-- <div class="apt_ts_container">
       <p>Appointment Date: <%= %>.</p>
       <p>Appointment Start Time: <%= %>.</p>
@@ -28,7 +31,8 @@
       <p>Companion Hourly Rate: <%= %>.</p>
       <p>Appointment Total Cost: <%= %>.</p>
     </div> -->
-      <!-- ADD start_time: @time, end_time: @time, -->
+
+      <!-- This should check in the controller if there are consecutive hours available. If yes, then create the appointment. If no, then send an error and allow the user to pick new times. -->
       <%=link_to create_appointment_path( user: @user, appointment: { start_date: @date, end_date: @date, senior_id: current_user.id, companion_id: @user.id, accept: false, fee: @user.fee, payment_status: "pending"} ), method: :post, class: "apt_ts_link" do %>
         <p>Create Appointment</p>
       <% end %> <!-- "create_appointment_path" Link End -->

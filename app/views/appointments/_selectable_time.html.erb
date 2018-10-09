@@ -1,3 +1,4 @@
+<!-- This is what is initially rendered as a partial 'selectable' button. After the intial click this should not rendered again. Instead alternate between 'selected_time' & 'unselected_time' partials. -->
 <%= link_to selected_time_path(display_time: locals[:display_time], start_time_id: locals[:display_time]), id: "display_time_#{locals[:display_time].id}_remove", class: "apt_time_box display_time_selectable", method: :post, remote: true do %>
   <%= locals[:display_time].time.strftime('%l:%M%p') %>
 <% end %>

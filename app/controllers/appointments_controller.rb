@@ -13,7 +13,6 @@ class AppointmentsController < ApplicationController
 
   def appointment_time_sheet
     # Opens specific dates Timesheet
-    # params.require(:appointment).permit(:start_time, :end_time, :start_date, :end_date, :senior_id, :companion_id, :fee, :accept, :payment_status)
     @user = User.find(params[:user])
     @date = params[:appointment][:start_date]
     days = []
@@ -27,7 +26,6 @@ class AppointmentsController < ApplicationController
       @times << time_item
     end
     # Now that I have all the time_items I no longer need @days.
-    # I also need to track global start and end time variables to compare when trying to confirm appointment.
     respond_to do |format|
       format.html {redirect_to user_path(current_user)}
       format.js { render 'appointment_time_sheet'}
@@ -35,8 +33,6 @@ class AppointmentsController < ApplicationController
   end
 
   def apt_time_display
-    puts "RENDERED apt_time_display"
-    @start_time_selected = ""
   end
 
   def close_appointment_time_sheet
@@ -44,11 +40,9 @@ class AppointmentsController < ApplicationController
   end
   def selected_time
     @display_time = AvailableTime.find_by_id(params[:display_time])
-    # Store the time object in the array for later comparison.
   end
   def unselected_time
     @display_time = AvailableTime.find_by_id(params[:display_time])
-    # Remove the time object from the array.
   end
   def selectable_time
   end

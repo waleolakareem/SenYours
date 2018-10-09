@@ -1,3 +1,4 @@
+<!-- This is what is rendered if the User selectes a time. -->
 <%= link_to unselected_time_path(display_time: @display_time.id, start_time_id: ""), id: "display_time_#{@display_time.id}_remove", class: "apt_time_box display_time_selected", method: :post, remote: true do %>
   <%= @display_time.time.strftime('%l:%M%p') %>
 <% end %>
